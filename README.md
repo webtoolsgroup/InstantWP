@@ -1,2 +1,2 @@
 # InstantWP
-Instant WordPress is a complete standalone, portable WordPress development environment.
+InstantWP is a complete standalone, portable WordPress development environment.
