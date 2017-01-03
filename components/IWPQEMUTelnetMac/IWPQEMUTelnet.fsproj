@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{7D7D8D07-FCC6-4150-8F43-5A910AC13ECA}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>IWPQEMUTelnet</RootNamespace>
+    <AssemblyName>IWPQEMUTelnet</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <Externalconsole>true</Externalconsole>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <Externalconsole>true</Externalconsole>
+    <GenerateTailCalls>true</GenerateTailCalls>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="FSharp.Core" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="Rebex.Common">
+      <HintPath>Rebex\Rebex.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Rebex.FileServer">
+      <HintPath>Rebex\Rebex.FileServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Rebex.Networking">
+      <HintPath>Rebex\Rebex.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="Rebex.Telnet">
+      <HintPath>Rebex\Rebex.Telnet.dll</HintPath>
+    </Reference>
+    <Reference Include="Rebex.Terminal">
+      <HintPath>Rebex\Rebex.Terminal.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.fs" />
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\3.1\Framework\v4.0\Microsoft.FSharp.Targets" />
+</Project>

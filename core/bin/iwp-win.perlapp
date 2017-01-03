@@ -1,0 +1,55 @@
+#!C:\Program Files (x86)\ActiveState Perl Dev Kit 9.5.1\bin\perlapp-gui.exe
+PAP-Version: 1.0
+Packer: C:\Program Files (x86)\ActiveState Perl Dev Kit 9.5.1\bin\perlapp.exe
+Script: iwp.pm
+Cwd: C:\Users\paperspace\Documents\GitHub\InstantWordPress\MainDev\bin
+Add: Config::INI::Reader
+Add: Getopt::Long
+Add: File::Copy
+Add: Win32::Process::List
+Add: Win32::OLE
+Add: LWP::Simple
+Add: Term::Spinner
+Add: IWPConfig
+Add: IWPCommandLine
+Add: IWPEnvironment
+Add: IWPTasks
+Clean: 0
+Date: 2016-12-03 18:07:51
+Debug: 
+Dependent: 0
+Dyndll: 0
+Exe: iwp.exe
+Force: 0
+Gui: 0
+Hostname: psz7y3uk
+Lib: lib:..\lib
+Lib: lib:..
+Lib: lib:..
+Manifest: 
+No-Compress: 0
+No-Logo: 0
+Runlib: 
+Shared: none
+Tmpdir: 
+Trim: IWPCommandline
+Trim: IWPConfig
+Trim: IWPEnvironment
+Trim: IWPTasks
+Trim: Devel
+Trim: Devel::InnerPackage
+Trim: Devel::NYTProf
+Trim: IWPConfig
+Verbose: 0
+Version-Comments: 
+Version-CompanyName: 
+Version-FileDescription: 
+Version-FileVersion: 
+Version-InternalName: 
+Version-LegalCopyright: 
+Version-LegalTrademarks: 
+Version-OriginalFilename: 
+Version-ProductName: 
+Version-ProductVersion: 
+Warnings: 0
+Xclude: 0

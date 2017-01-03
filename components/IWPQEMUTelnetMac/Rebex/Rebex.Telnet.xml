@@ -1,0 +1,479 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Rebex.Telnet</name>
+    </assembly>
+    <members>
+        <member name="P:Rebex.Common.MscorlibVersion">
+            <summary>
+            Gets version of the mscorlib assembly.<br/>
+            If the version cannot be somehow retrieved, returns <see cref="F:Rebex.Common.UnknownVerison"/> object (so never retuns null). 
+            </summary>
+        </member>
+        <member name="T:Rebex.Messages">
+            <summary>
+            Provides methods for constructing exception messages.
+            </summary>
+        </member>
+        <member name="T:Rebex.RebexAsyncResult">
+            <summary>
+            Universal class for asynchronous method invocation.
+            </summary>
+        </member>
+        <member name="M:Rebex.RebexAsyncResult.Dispose(System.Boolean)">
+            <summary>
+            Dispose(bool disposing) executes in two distinct scenarios.
+            If disposing equals true, the method has been called directly
+            or indirectly by a user's code. Managed and unmanaged resources
+            can be disposed.
+            If disposing equals false, the method has been called by the 
+            runtime from inside the finalizer and you should not reference 
+            other objects. Only unmanaged resources can be disposed.
+            </summary>
+            <param name="disposing"> If true, is called by IDisposable.Dispose. 
+            Otherwise it is called by finalizer.</param>
+        </member>
+        <member name="M:Rebex.RebexAsyncResult.Dispose">
+            <summary>
+            Implementation of IDisposable.Dispose()
+            </summary>
+        </member>
+        <member name="T:Rebex.Net.Telnet">
+            <summary>
+            Provides methods for communication with Telnet servers.
+            </summary>
+        </member>
+        <member name="F:Rebex.Net.Telnet.DefaultPort">
+            <summary>
+            Default Telnet port (23).
+            </summary>
+        </member>
+        <member name="M:Rebex.Net.Telnet.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Rebex.Net.Telnet"/> class.
+            </summary>
+            <param name="serverName">The server address - either a hostname or a dotted string IP address.</param>
+        </member>
+        <member name="M:Rebex.Net.Telnet.#ctor(System.String,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Rebex.Net.Telnet"/> class.
+            </summary>
+            <param name="serverName">The server address - either a hostname or a dotted string IP address.</param>
+            <param name="serverPort">The server port (eg. 23).</param>
+        </member>
+        <member name="M:Rebex.Net.Telnet.SetSocketFactory(Rebex.Net.ISocketFactory)">
+            <summary>
+            Sets the socket factory to be used to create communication sockets.
+            </summary>
+            <param name="factory">Socket factory.</param>
+        </member>
+        <member name="M:Rebex.Net.Telnet.StartShell">
+            <summary>
+            Starts a remote shell.
+            </summary>
+            <returns>Shell object.</returns>
+        </member>
+        <member name="M:Rebex.Net.Telnet.StartScripting">
+            <summary>
+            Starts a scripting session with a virtual terminal.
+            </summary>
+            <returns>Scripting object.</returns>
+        </member>
+        <member name="M:Rebex.Net.Telnet.StartScripting(Rebex.TerminalEmulation.TerminalOptions)">
+            <summary>
+            Starts a scripting session with a virtual terminal.
+            </summary>
+            <param name="options">Initial terminal options.</param>
+            <returns>Scripting object.</returns>
+        </member>
+        <member name="M:Rebex.Net.Telnet.StartScripting(Rebex.TerminalEmulation.TerminalOptions,System.Int32,System.Int32)">
+            <summary>
+            Starts a scripting session with a virtual terminal.
+            </summary>
+            <param name="options">Initial terminal options.</param>
+            <param name="columns">Horizontal size of the terminal (in character columns).</param>
+            <param name="rows">Vertical size of the terminal (in character rows).</param>
+            <returns>Scripting object.</returns>
+        </member>
+        <member name="M:Rebex.Net.Telnet.StartVirtualTerminal">
+            <summary>
+            Starts a virtual terminal session.
+            </summary>
+            <returns>Virtual terminal object.</returns>
+        </member>
+        <member name="M:Rebex.Net.Telnet.StartVirtualTerminal(Rebex.TerminalEmulation.TerminalOptions)">
+            <summary>
+            Starts a virtual terminal session.
+            </summary>
+            <param name="options">Initial terminal options.</param>
+            <returns>Virtual terminal object.</returns>
+        </member>
+        <member name="M:Rebex.Net.Telnet.StartVirtualTerminal(Rebex.TerminalEmulation.TerminalOptions,System.Int32,System.Int32)">
+            <summary>
+            Starts a virtual terminal session.
+            </summary>
+            <param name="options">Initial terminal options.</param>
+            <param name="columns">Horizontal size in character columns.</param>
+            <param name="rows">Vertical size in character rows.</param>
+            <returns>Virtual terminal object.</returns>
+        </member>
+        <member name="M:Rebex.Net.Telnet.Rebex#TerminalEmulation#IShellChannelFactory#CreateShellChannel(Rebex.TerminalEmulation.TerminalOptions,System.Int32,System.Int32)">
+            <summary>
+            Creates a new shell channel using the specified options.
+            </summary>
+            <param name="options">Terminal options.</param>
+            <param name="columns">Horizontal size in character columns.</param>
+            <param name="rows">Vertical size in character rows.</param>
+            <returns>A shell channel.</returns>
+        </member>
+        <member name="M:Rebex.Net.Telnet.StartScriptingAsync(System.Object)">
+            <summary>
+            Begins asynchronous StartScripting operation.
+            Starts a scripting session with a virtual terminal.
+            </summary>
+            <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+            <returns>Scripting object.</returns>
+        </member>
+        <member name="M:Rebex.Net.Telnet.StartScriptingAsync(Rebex.TerminalEmulation.TerminalOptions,System.Object)">
+            <summary>
+            Begins asynchronous StartScripting operation.
+            Starts a scripting session with a virtual terminal.
+            </summary>
+            <param name="options">Initial terminal options.</param>
+            <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+            <returns>Scripting object.</returns>
+        </member>
+        <member name="M:Rebex.Net.Telnet.StartScriptingAsync(Rebex.TerminalEmulation.TerminalOptions,System.Int32,System.Int32,System.Object)">
+            <summary>
+            Begins asynchronous StartScripting operation.
+            Starts a scripting session with a virtual terminal.
+            </summary>
+            <param name="options">Initial terminal options.</param>
+            <param name="columns">Horizontal size of the terminal (in character columns).</param>
+            <param name="rows">Vertical size of the terminal (in character rows).</param>
+            <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+            <returns>Scripting object.</returns>
+        </member>
+        <member name="M:Rebex.Net.Telnet.StartVirtualTerminalAsync(System.Object)">
+            <summary>
+            Begins asynchronous StartVirtualTerminal operation.
+            Starts a virtual terminal session.
+            </summary>
+            <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+            <returns>Virtual terminal object.</returns>
+        </member>
+        <member name="M:Rebex.Net.Telnet.StartVirtualTerminalAsync(Rebex.TerminalEmulation.TerminalOptions,System.Object)">
+            <summary>
+            Begins asynchronous StartVirtualTerminal operation.
+            Starts a virtual terminal session.
+            </summary>
+            <param name="options">Initial terminal options.</param>
+            <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+            <returns>Virtual terminal object.</returns>
+        </member>
+        <member name="M:Rebex.Net.Telnet.StartVirtualTerminalAsync(Rebex.TerminalEmulation.TerminalOptions,System.Int32,System.Int32,System.Object)">
+            <summary>
+            Begins asynchronous StartVirtualTerminal operation.
+            Starts a virtual terminal session.
+            </summary>
+            <param name="options">Initial terminal options.</param>
+            <param name="columns">Horizontal size in character columns.</param>
+            <param name="rows">Vertical size in character rows.</param>
+            <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+            <returns>Virtual terminal object.</returns>
+        </member>
+        <member name="P:Rebex.Net.Telnet.HostName">
+            <summary>
+            Gets the host-name of the remote server.
+            </summary>
+            <value>Remote server host-name.</value>
+        </member>
+        <member name="P:Rebex.Net.Telnet.Port">
+            <summary>
+            Gets the port of the remote server.
+            </summary>
+            <value>Remote server port.</value>
+        </member>
+        <member name="P:Rebex.Net.Telnet.LogWriter">
+            <summary>
+            Gets or sets the logger used by this object.
+            </summary>
+            <value>Logger.</value>
+        </member>
+        <member name="P:Rebex.Net.Telnet.Proxy">
+            <summary>
+            Gets or sets the network proxy to use to access a remote server.
+            </summary>
+            <value>The <see cref="P:Rebex.Net.Telnet.Proxy"/> to use to access a remote server.</value>
+        </member>
+        <member name="P:Rebex.Net.Telnet.Timeout">
+            <summary>
+            Gets or sets the length of time in milliseconds before the operation times out (specify -1 or 0 to indicate that the request does not time out).
+            </summary>
+            <value>
+            The length of time, in milliseconds, until the operation times out,
+            or the value -1 or 0 to indicate that the request does not time out.
+            Default is 60000 (60 seconds).
+            </value>
+            <remarks>
+            <p>
+            The internal timeout counter is reset every time data is sent
+            or received from to server. This also means that data transfers only
+            time out after x milliseconds of inactivity, not after x milliseconds
+            from the start of the transfer.
+            </p>
+            <p>
+            Minimal value is 1000. Setting this to a value lower than 1000 will set it to 1000.
+            </p>
+            </remarks>
+        </member>
+        <member name="T:Rebex.Legacy.TelnetExtensions">
+            <summary>
+            Extension class for Telnet.
+            </summary>
+        </member>
+        <member name="M:Rebex.Legacy.TelnetExtensions.BeginStartScripting(Rebex.Net.Telnet,System.AsyncCallback,System.Object)">
+            <summary>
+            Begins asynchronous StartScripting operation.
+            Starts a scripting session with a virtual terminal.
+            </summary>
+            <remarks>
+              <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+            </remarks>
+            <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+            <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+            <param name="instance">Instance of Telnet.</param>
+            <returns>
+            An <see cref="T:System.IAsyncResult"/> that references the asynchronous operation.
+            </returns>
+        </member>
+        <member name="M:Rebex.Legacy.TelnetExtensions.BeginStartScripting(Rebex.Net.Telnet,Rebex.TerminalEmulation.TerminalOptions,System.AsyncCallback,System.Object)">
+            <summary>
+            Begins asynchronous StartScripting operation.
+            Starts a scripting session with a virtual terminal.
+            </summary>
+            <param name="options">Initial terminal options.</param>
+            <remarks>
+              <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+            </remarks>
+            <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+            <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+            <param name="instance">Instance of Telnet.</param>
+            <returns>
+            An <see cref="T:System.IAsyncResult"/> that references the asynchronous operation.
+            </returns>
+        </member>
+        <member name="M:Rebex.Legacy.TelnetExtensions.BeginStartScripting(Rebex.Net.Telnet,Rebex.TerminalEmulation.TerminalOptions,System.Int32,System.Int32,System.AsyncCallback,System.Object)">
+            <summary>
+            Begins asynchronous StartScripting operation.
+            Starts a scripting session with a virtual terminal.
+            </summary>
+            <param name="options">Initial terminal options.</param>
+            <param name="columns">Horizontal size of the terminal (in character columns).</param>
+            <param name="rows">Vertical size of the terminal (in character rows).</param>
+            <remarks>
+              <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+            </remarks>
+            <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+            <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+            <param name="instance">Instance of Telnet.</param>
+            <returns>
+            An <see cref="T:System.IAsyncResult"/> that references the asynchronous operation.
+            </returns>
+        </member>
+        <member name="M:Rebex.Legacy.TelnetExtensions.EndStartScripting(Rebex.Net.Telnet,System.IAsyncResult)">
+            <summary>
+            Ends an asynchronous BeginStartScripting operation.
+            </summary>
+            <param name="asyncResult">Stores state information for this asynchronous operation as well as any user defined data.</param>
+            <param name="instance">Instance of Telnet.</param>
+            <returns>Scripting object.</returns>
+        </member>
+        <member name="M:Rebex.Legacy.TelnetExtensions.BeginStartVirtualTerminal(Rebex.Net.Telnet,System.AsyncCallback,System.Object)">
+            <summary>
+            Begins asynchronous StartVirtualTerminal operation.
+            Starts a virtual terminal session.
+            </summary>
+            <remarks>
+              <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+            </remarks>
+            <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+            <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+            <param name="instance">Instance of Telnet.</param>
+            <returns>
+            An <see cref="T:System.IAsyncResult"/> that references the asynchronous operation.
+            </returns>
+        </member>
+        <member name="M:Rebex.Legacy.TelnetExtensions.BeginStartVirtualTerminal(Rebex.Net.Telnet,Rebex.TerminalEmulation.TerminalOptions,System.AsyncCallback,System.Object)">
+            <summary>
+            Begins asynchronous StartVirtualTerminal operation.
+            Starts a virtual terminal session.
+            </summary>
+            <param name="options">Initial terminal options.</param>
+            <remarks>
+              <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+            </remarks>
+            <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+            <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+            <param name="instance">Instance of Telnet.</param>
+            <returns>
+            An <see cref="T:System.IAsyncResult"/> that references the asynchronous operation.
+            </returns>
+        </member>
+        <member name="M:Rebex.Legacy.TelnetExtensions.BeginStartVirtualTerminal(Rebex.Net.Telnet,Rebex.TerminalEmulation.TerminalOptions,System.Int32,System.Int32,System.AsyncCallback,System.Object)">
+            <summary>
+            Begins asynchronous StartVirtualTerminal operation.
+            Starts a virtual terminal session.
+            </summary>
+            <param name="options">Initial terminal options.</param>
+            <param name="columns">Horizontal size in character columns.</param>
+            <param name="rows">Vertical size in character rows.</param>
+            <remarks>
+              <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+            </remarks>
+            <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+            <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+            <param name="instance">Instance of Telnet.</param>
+            <returns>
+            An <see cref="T:System.IAsyncResult"/> that references the asynchronous operation.
+            </returns>
+        </member>
+        <member name="M:Rebex.Legacy.TelnetExtensions.EndStartVirtualTerminal(Rebex.Net.Telnet,System.IAsyncResult)">
+            <summary>
+            Ends an asynchronous BeginStartVirtualTerminal operation.
+            </summary>
+            <param name="asyncResult">Stores state information for this asynchronous operation as well as any user defined data.</param>
+            <param name="instance">Instance of Telnet.</param>
+            <returns>Virtual terminal object.</returns>
+        </member>
+        <member name="T:Rebex.Net.TelnetException">
+            <summary>
+            The exception that is thrown when an Telnet error occurs.
+            </summary>
+        </member>
+        <member name="M:Rebex.Net.TelnetException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Rebex.Net.TelnetException"/> class.
+            </summary>
+        </member>
+        <member name="M:Rebex.Net.TelnetException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Rebex.Net.TelnetException"/> class with the specified error message.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:Rebex.Net.TelnetException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Rebex.Net.TelnetException"/> class with the specified error message
+            and a reference to the inner exception that is the cause of this exception.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+            <param name="inner">The exception that is the cause of the current exception.</param>
+        </member>
+        <member name="M:Rebex.Net.TelnetShellChannel.InterpretAsCommand(System.Byte[],System.Int32@,System.Int32,System.Byte[],System.Int32@,System.Int32@)">
+            <summary>
+            Interprets one telnet command.
+            </summary>
+            <param name="buffer">Buffer where the data to consume are stored.</param>
+            <param name="idx">Position where to start interpreting.</param>
+            <param name="bufferEnd">End of the region to interpret.</param>
+            <param name="target">Buffer where to store decoded data.</param>
+            <param name="offset">Position where to append decoded data.</param>
+            <param name="count">Number of data in target buffer. It is increased if any data appended.</param>
+            <remarks>
+            It expects that idx is pointing at the beginning or middle of the telnet command 
+            according to _processingTelnetCommand value.
+            </remarks>
+        </member>
+        <member name="T:Rebex.TerminalEmulation.TelnetTerminalControl">
+            <summary>
+            Telnet terminal emulator control.
+            </summary>
+        </member>
+        <member name="M:Rebex.TerminalEmulation.TelnetTerminalControl.OnConnected(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:Rebex.TerminalEmulation.TelnetTerminalControl.Connected"/> event.
+            </summary>
+            <param name="e">An <see cref="T:System.EventArgs"/> that contains the event data.</param>
+        </member>
+        <member name="M:Rebex.TerminalEmulation.TelnetTerminalControl.OnDisconnected(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:Rebex.TerminalEmulation.TerminalControl.Disconnected"/> event.
+            </summary>
+            <param name="e">An <see cref="T:System.EventArgs"/> that contains the event data.</param>
+        </member>
+        <member name="M:Rebex.TerminalEmulation.TelnetTerminalControl.#ctor">
+            <summary>
+            Creates a new instance of Telnet terminal control.
+            </summary>
+        </member>
+        <member name="M:Rebex.TerminalEmulation.TelnetTerminalControl.Connect">
+            <summary>
+            Connects to the Telnet server specified by <see cref="P:Rebex.TerminalEmulation.TelnetTerminalControl.ServerName"/> and <see cref="P:Rebex.TerminalEmulation.TelnetTerminalControl.ServerPort"/> properties.
+            </summary>
+        </member>
+        <member name="M:Rebex.TerminalEmulation.TelnetTerminalControl.Disconnect">
+            <summary>
+            Disconnects from the Telnet server.
+            </summary>
+        </member>
+        <member name="M:Rebex.TerminalEmulation.TelnetTerminalControl.BeginConnect(System.AsyncCallback,System.Object)">
+            <summary>
+            Begins asynchronous Connect operation.
+            Connects to the Telnet server specified by <see cref="P:Rebex.TerminalEmulation.TelnetTerminalControl.ServerName"/> and <see cref="P:Rebex.TerminalEmulation.TelnetTerminalControl.ServerPort"/> properties.
+            </summary>
+            <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+            <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+            <returns>
+            An <see cref="T:System.IAsyncResult"/> that references the asynchronous operation.
+            </returns>
+        </member>
+        <member name="M:Rebex.TerminalEmulation.TelnetTerminalControl.ConnectAsync(System.Object)">
+            <summary>
+            Begins asynchronous Connect operation.
+            Connects to the Telnet server specified by <see cref="P:Rebex.TerminalEmulation.TelnetTerminalControl.ServerName"/> and <see cref="P:Rebex.TerminalEmulation.TelnetTerminalControl.ServerPort"/> properties.
+            </summary>
+            <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+        </member>
+        <member name="M:Rebex.TerminalEmulation.TelnetTerminalControl.EndConnect(System.IAsyncResult)">
+            <summary>
+            Ends an asynchronous BeginConnect operation.
+            </summary>
+            <param name="asyncResult">Stores state information for this asynchronous operation as well as any user defined data.</param>
+        </member>
+        <member name="P:Rebex.TerminalEmulation.TelnetTerminalControl.ServerName">
+            <summary>
+            Gets or sets the server address - either a hostname or a dotted string IP address.
+            </summary>
+            <value>Server address.</value>
+        </member>
+        <member name="P:Rebex.TerminalEmulation.TelnetTerminalControl.ServerPort">
+            <summary>
+            Gets or sets the server port. Default value is 23.
+            </summary>
+            <value>Server port.</value>
+        </member>
+        <member name="P:Rebex.TerminalEmulation.TelnetTerminalControl.Proxy">
+            <summary>
+            Gets or sets the network proxy to use to access a remote server.
+            </summary>
+            <value>The <see cref="P:Rebex.TerminalEmulation.TelnetTerminalControl.Proxy"/> to use to access a remote server.</value>
+        </member>
+        <member name="P:Rebex.TerminalEmulation.TelnetTerminalControl.Text">
+            <summary>
+            Gets or sets the text associated with this control.  
+            </summary>
+        </member>
+        <member name="P:Rebex.TerminalEmulation.TelnetTerminalControl.LogWriter">
+            <summary>
+            Gets or sets the logger used by this object.
+            </summary>
+            <value>Logger.</value>
+        </member>
+        <member name="E:Rebex.TerminalEmulation.TelnetTerminalControl.Connected">
+            <summary>
+            Occurs when connected to the server.
+            </summary>
+        </member>
+    </members>
+</doc>

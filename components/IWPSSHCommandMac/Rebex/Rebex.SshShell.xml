@@ -1,0 +1,1481 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Rebex.SshShell</name>
+    </assembly>
+    <members>
+        <member name="P:Rebex.Common.MscorlibVersion">
+            <summary>
+            Gets version of the mscorlib assembly.<br/>
+            If the version cannot be somehow retrieved, returns <see cref="F:Rebex.Common.UnknownVerison"/> object (so never retuns null). 
+            </summary>
+        </member>
+        <member name="T:Rebex.Messages">
+            <summary>
+            Provides methods for constructing exception messages.
+            </summary>
+        </member>
+        <member name="T:Rebex.RebexAsyncResult">
+            <summary>
+            Universal class for asynchronous method invocation.
+            </summary>
+        </member>
+        <member name="M:Rebex.RebexAsyncResult.Dispose(System.Boolean)">
+            <summary>
+            Dispose(bool disposing) executes in two distinct scenarios.
+            If disposing equals true, the method has been called directly
+            or indirectly by a user's code. Managed and unmanaged resources
+            can be disposed.
+            If disposing equals false, the method has been called by the 
+            runtime from inside the finalizer and you should not reference 
+            other objects. Only unmanaged resources can be disposed.
+            </summary>
+            <param name="disposing"> If true, is called by IDisposable.Dispose. 
+            Otherwise it is called by finalizer.</param>
+        </member>
+        <member name="M:Rebex.RebexAsyncResult.Dispose">
+            <summary>
+            Implementation of IDisposable.Dispose()
+            </summary>
+        </member>
+        <member name="T:Rebex.Net.Ssh">
+            <summary>
+            Provides methods for communication with SSH shell servers.
+            </summary>
+            <remarks>All members of this class are thread-safe.</remarks>
+        </member>
+        <member name="F:Rebex.Net.Ssh.DefaultPort">
+            <summary>
+            Default SSH port (22).
+            </summary>
+        </member>
+        <member name="M:Rebex.Net.Ssh.#ctor">
+            <summary>
+            Initializes a new instance of the Ssh class.
+            </summary>
+        </member>
+        <member name="M:Rebex.Net.Ssh.Dispose">
+            <summary>
+            Disposes the <see cref="T:Rebex.Net.Ssh"/> object and all the socket objects.
+            </summary>
+            <remarks>
+            Calling this method ensures that all resources are freed.
+            It is not necessary to call this method if the SSH session is
+            successfully closed using <see cref="M:Rebex.Net.Ssh.Disconnect">Disconnect</see> method.
+            </remarks>
+        </member>
+        <member name="M:Rebex.Net.Ssh.Dispose(System.Boolean)">
+            <summary>
+            Releases the unmanaged resources used by the <see cref="T:Rebex.Net.Ssh"/> object
+            and optionally releases the managed resources.
+            </summary>
+            <param name="disposing"><b>true</b> to release both managed and unmanaged resources; <b>false</b> to release only unmanaged resources.</param>
+        </member>
+        <member name="M:Rebex.Net.Ssh.Finalize">
+            <summary>
+            Finalizer. Called by garbage collector during object destruction.
+            </summary>
+        </member>
+        <member name="M:Rebex.Net.Ssh.Connect(System.String)">
+            <summary>
+            Connects to the SSH server.
+            </summary>
+            <param name="serverName">The server address - either a hostname or a dotted string address.</param>
+        </member>
+        <member name="M:Rebex.Net.Ssh.Connect(System.String,System.Int32)">
+            <summary>
+            Connects to the SSH server.
+            </summary>
+            <param name="serverName">The server address - either a hostname or a dotted string address.</param>
+            <param name="serverPort">The server port (eg. 22).</param>
+        </member>
+        <member name="M:Rebex.Net.Ssh.Connect(System.String,System.Int32,Rebex.Net.SshParameters)">
+            <summary>
+            Connects to the SSH server with the specified security parameters.
+            </summary>
+            <param name="serverName">The server address - either a hostname or a dotted string IP address.</param>
+            <param name="serverPort">The server port (eg. 22).</param>
+            <param name="parameters">Security parameters.</param>
+        </member>
+        <member name="M:Rebex.Net.Ssh.Disconnect">
+            <summary>
+            Informs the server that the connection is about to close and
+            terminates the connection.
+            </summary>
+        </member>
+        <member name="M:Rebex.Net.Ssh.Login">
+            <summary>
+            Authenticates the user to the server interactively and initializes the SSH session.
+            Uses <see cref="E:Rebex.Net.Ssh.AuthenticationRequest"/> event to request credentials.
+            </summary>
+        </member>
+        <member name="M:Rebex.Net.Ssh.Login(System.String)">
+            <summary>
+            Authenticates the user to the server interactively and initializes the SSH session.
+            Uses <see cref="E:Rebex.Net.Ssh.AuthenticationRequest"/> event to request credentials.
+            </summary>
+            <param name="userName">The username (optional).</param>
+        </member>
+        <member name="M:Rebex.Net.Ssh.Login(System.String,System.String)">
+            <summary>
+            Authenticates the user to the server and initializes the SSH session.
+            </summary>
+            <param name="userName">The username.</param>
+            <param name="password">Password for the specified username.</param>
+        </member>
+        <member name="M:Rebex.Net.Ssh.Login(System.String,Rebex.Net.SshPrivateKey)">
+            <summary>
+            Authenticates the user to the server using his private key and initializes the SSH session.
+            </summary>
+            <param name="userName">The username.</param>
+            <param name="privateKey">RSA or DSA private key for key-based authentication.</param>
+        </member>
+        <member name="M:Rebex.Net.Ssh.Login(System.String,System.String,Rebex.Net.SshPrivateKey)">
+            <summary>
+            Authenticates the user to the server using a combination of password and public key and initializes the SSH session.
+            </summary>
+            <param name="userName">The username.</param>
+            <param name="password">Password for the specified username.</param>
+            <param name="privateKey">RSA or DSA private key for key-based authentication.</param>
+            <remarks>Please note that some servers don't support both password and private key specified at the same time.</remarks>
+        </member>
+        <member name="M:Rebex.Net.Ssh.Login(Rebex.Net.SshGssApiCredentials)">
+            <summary>
+            Authenticates to the server using GSSAPI. Kerberos and NTLM methods are supported.
+            </summary>
+            <param name="credentials">Credentials.</param>
+            <remarks>
+            Only supported on Windows platforms.
+            </remarks>
+        </member>
+        <member name="M:Rebex.Net.Ssh.Bind(Rebex.Net.SshSession)">
+            <summary>
+            Binds the <see cref="T:Rebex.Net.Ssh"/> object to an underlying SSH session. This can be used instead of <see cref="M:Rebex.Net.Ssh.Connect(System.String)"/>/<see cref="M:Rebex.Net.Ssh.Login(System.String,System.String)"/> methods.
+            </summary>
+            <param name="session">SSH session (already connected and authenticated).</param>
+        </member>
+        <member name="M:Rebex.Net.Ssh.StartOutgoingTunnel(System.Net.IPEndPoint,System.Net.IPEndPoint)">
+            <summary>
+            Starts a new outgoing tunnel. Connections to local endpoint will be tunneled through the SSH server to the specified remote endpoint.
+            </summary>
+            <param name="localEndPoint">Local endpoint to listen at.</param>
+            <param name="targetEndPoint">Target endpoint to which to tunnel connections.</param>
+            <returns>A tunnel instance.</returns>
+        </member>
+        <member name="M:Rebex.Net.Ssh.StartOutgoingTunnel(System.String,System.Int32,System.String,System.Int32)">
+            <summary>
+            Starts a new outgoing tunnel. Connections to local host/port will be tunneled through the SSH server to the specified remote host/port.
+            </summary>
+            <param name="localHostName">Local hostname to listen at.</param>
+            <param name="localPort">Local port to listen at.</param>
+            <param name="targetHostName">Target hostname to which to tunnel connections.</param>
+            <param name="targetPort">Target port to which to tunnel connections.</param>
+            <returns>A tunnel instance.</returns>
+        </member>
+        <member name="M:Rebex.Net.Ssh.StartOutgoingTunnel(System.Net.IPEndPoint,System.String,System.Int32)">
+            <summary>
+            Starts a new outgoing tunnel. Connections to local endpoint will be tunneled through the SSH server to the specified remote host/port.
+            </summary>
+            <param name="localEndPoint">Local endpoint to listen at.</param>
+            <param name="targetHostName">Target hostname to which to tunnel connections.</param>
+            <param name="targetPort">Target port to which to tunnel connections.</param>
+            <returns>A tunnel instance.</returns>
+        </member>
+        <member name="M:Rebex.Net.Ssh.StartIncomingTunnel(System.Net.IPEndPoint,System.Net.IPEndPoint)">
+            <summary>
+            Starts a new incoming tunnel. Connections to remote endpoint will be tunneled from the SSH server through the local machine to the specified target.
+            </summary>
+            <param name="remoteEndPoint">Remote endpoint from which to tunnel connections.</param>
+            <param name="targetEndPoint">Local endpoint to which to tunnel connections.</param>
+            <returns>A tunnel instance.</returns>
+        </member>
+        <member name="M:Rebex.Net.Ssh.StartIncomingTunnel(System.String,System.Int32,System.Net.IPEndPoint)">
+            <summary>
+            Starts a new incoming tunnel. Connections to remote address/port will be tunneled from the SSH server through the local machine to the specified target.
+            </summary>
+            <param name="remoteAddress">Remote address from which to tunnel connections.</param>
+            <param name="remotePort">Remote port from which to tunnel connections.</param>
+            <param name="targetEndPoint">Local endpoint to which to tunnel connections.</param>
+            <returns>A tunnel instance.</returns>
+        </member>
+        <member name="M:Rebex.Net.Ssh.StartIncomingTunnel(System.Net.IPEndPoint,System.String,System.Int32)">
+            <summary>
+            Starts a new incoming tunnel. Connections to remote endpoint will be tunneled from the SSH server through the local machine to the specified target.
+            </summary>
+            <param name="remoteEndPoint">Remote endpoint from which to tunnel connections.</param>
+            <param name="targetHostName">Local address to which to tunnel connections.</param>
+            <param name="targetPort">Local port to which to tunnel connections.</param>
+            <returns>A tunnel instance.</returns>
+        </member>
+        <member name="M:Rebex.Net.Ssh.StartIncomingTunnel(System.String,System.Int32,System.String,System.Int32)">
+            <summary>
+            Starts a new incoming tunnel. Connections to remote endpoint will be tunneled from the SSH server through the local machine to the specified target.
+            </summary>
+            <param name="remoteAddress">Remote address from which to tunnel connections.</param>
+            <param name="remotePort">Remote port from which to tunnel connections.</param>
+            <param name="targetHostName">Local address to which to tunnel connections.</param>
+            <param name="targetPort">Local port to which to tunnel connections.</param>
+            <returns>A tunnel instance.</returns>
+        </member>
+        <member name="M:Rebex.Net.Ssh.StartCommand(System.String)">
+            <summary>
+            Starts a remote command.
+            </summary>
+            <param name="command">Command to execute.</param>
+            <returns>Shell object.</returns>
+        </member>
+        <member name="M:Rebex.Net.Ssh.RunCommand(System.String)">
+            <summary>
+            Runs a remote command and returns its response.
+            </summary>
+            <param name="command">Command to run.</param>
+            <returns>Command response.</returns>
+        </member>
+        <member name="M:Rebex.Net.Ssh.StartShell(Rebex.TerminalEmulation.ShellMode)">
+            <summary>
+            Starts a remote shell.
+            </summary>
+            <param name="mode">Shell mode.</param>
+            <returns>Shell object.</returns>
+        </member>
+        <member name="M:Rebex.Net.Ssh.StartScripting">
+            <summary>
+            Starts a scripting session with a virtual terminal.
+            </summary>
+            <returns>Scripting object.</returns>
+        </member>
+        <member name="M:Rebex.Net.Ssh.StartScripting(System.String)">
+            <summary>
+            Starts a scripting session with a virtual terminal.
+            </summary>
+            <param name="command">Remote command to execute.</param>
+            <returns>Scripting object.</returns>
+        </member>
+        <member name="M:Rebex.Net.Ssh.StartScripting(Rebex.TerminalEmulation.TerminalOptions)">
+            <summary>
+            Starts a scripting session with a virtual terminal.
+            </summary>
+            <param name="options">Initial terminal options.</param>
+            <returns>Scripting object.</returns>
+        </member>
+        <member name="M:Rebex.Net.Ssh.StartScripting(System.String,Rebex.TerminalEmulation.TerminalOptions)">
+            <summary>
+            Starts a scripting session with a virtual terminal.
+            </summary>
+            <param name="command">Remote command to execute.</param>
+            <param name="options">Initial terminal options.</param>
+            <returns>Scripting object.</returns>
+        </member>
+        <member name="M:Rebex.Net.Ssh.StartScripting(System.String,Rebex.TerminalEmulation.TerminalOptions,System.Int32,System.Int32)">
+            <summary>
+            Starts a scripting session with a virtual terminal.
+            </summary>
+            <param name="command">Remote command to execute.</param>
+            <param name="options">Initial terminal options.</param>
+            <param name="columns">Horizontal size of the terminal (in character columns).</param>
+            <param name="rows">Vertical size of the terminal (in character rows).</param>
+            <returns>Scripting object.</returns>
+        </member>
+        <member name="M:Rebex.Net.Ssh.StartVirtualTerminal">
+            <summary>
+            Starts a virtual terminal session.
+            </summary>
+            <returns>Virtual terminal object.</returns>
+        </member>
+        <member name="M:Rebex.Net.Ssh.StartVirtualTerminal(Rebex.TerminalEmulation.TerminalOptions)">
+            <summary>
+            Starts a virtual terminal session.
+            </summary>
+            <param name="options">Initial terminal options.</param>
+            <returns>Virtual terminal object.</returns>
+        </member>
+        <member name="M:Rebex.Net.Ssh.StartVirtualTerminal(Rebex.TerminalEmulation.TerminalOptions,System.Int32,System.Int32)">
+            <summary>
+            Starts a virtual terminal session.
+            </summary>
+            <param name="options">Initial terminal options.</param>
+            <param name="columns">Horizontal size of the terminal (in character columns).</param>
+            <param name="rows">Vertical size of the terminal (in character rows).</param>
+            <returns>Virtual terminal object.</returns>
+        </member>
+        <member name="M:Rebex.Net.Ssh.Rebex#TerminalEmulation#IShellChannelFactory#CreateShellChannel(Rebex.TerminalEmulation.TerminalOptions,System.Int32,System.Int32)">
+            <summary>
+            Creates a new shell channel using the specified options.
+            </summary>
+            <param name="options">Terminal options.</param>
+            <param name="columns">Horizontal size in character columns.</param>
+            <param name="rows">Vertical size in character rows.</param>
+            <returns>A shell channel.</returns>
+        </member>
+        <member name="M:Rebex.Net.Ssh.CheckConnectionState">
+            <summary>
+            Checks whether the SSH session is still connected. Throws an exception on error.
+            </summary>
+        </member>
+        <member name="M:Rebex.Net.Ssh.GetConnectionState">
+            <summary>
+            Checks whether the SSH session is still connected and returns its state.
+            </summary>
+            <returns>Connection state.</returns>
+        </member>
+        <member name="M:Rebex.Net.Ssh.ToString">
+            <summary>
+            Returns a string representation of this object.
+            </summary>
+            <returns>A string representing this object</returns>
+        </member>
+        <member name="M:Rebex.Net.Ssh.SetSocketFactory(Rebex.Net.ISocketFactory)">
+            <summary>
+            Sets the socket factory to be used to create communication sockets.
+            </summary>
+            <param name="factory">Socket factory.</param>
+        </member>
+        <member name="M:Rebex.Net.Ssh.ConnectAsync(System.String,System.Object)">
+            <summary>
+            Begins asynchronous Connect operation.
+            Connects to the SSH server.
+            </summary>
+            <param name="serverName">The server address - either a hostname or a dotted string address.</param>
+            <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+        </member>
+        <member name="M:Rebex.Net.Ssh.ConnectAsync(System.String,System.Int32,System.Object)">
+            <summary>
+            Begins asynchronous Connect operation.
+            Connects to the SSH server.
+            </summary>
+            <param name="serverName">The server address - either a hostname or a dotted string address.</param>
+            <param name="serverPort">The server port (eg. 22).</param>
+            <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+        </member>
+        <member name="M:Rebex.Net.Ssh.DisconnectAsync(System.Object)">
+            <summary>
+            Begins asynchronous Disconnect operation.
+            Informs the server that the connection is about to close and
+            terminates the connection.
+            </summary>
+            <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+        </member>
+        <member name="M:Rebex.Net.Ssh.LoginAsync(System.Object)">
+            <summary>
+            Begins asynchronous Login operation.
+            Authenticates the user to the server interactively and initializes the SSH session.
+            Uses <see cref="E:Rebex.Net.Ssh.AuthenticationRequest"/> event to request credentials.
+            </summary>
+            <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+        </member>
+        <member name="M:Rebex.Net.Ssh.LoginAsync(System.String,System.Object)">
+            <summary>
+            Begins asynchronous Login operation.
+            Authenticates the user to the server interactively and initializes the SSH session.
+            Uses <see cref="E:Rebex.Net.Ssh.AuthenticationRequest"/> event to request credentials.
+            </summary>
+            <param name="userName">The username (optional).</param>
+            <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+        </member>
+        <member name="M:Rebex.Net.Ssh.LoginAsync(System.String,System.String,System.Object)">
+            <summary>
+            Begins asynchronous Login operation.
+            Authenticates the user to the server and initializes the SSH session.
+            </summary>
+            <param name="userName">The username.</param>
+            <param name="password">Password for the specified username.</param>
+            <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+        </member>
+        <member name="M:Rebex.Net.Ssh.LoginAsync(System.String,Rebex.Net.SshPrivateKey,System.Object)">
+            <summary>
+            Begins asynchronous Login operation.
+            Authenticates the user to the server using his private key and initializes the SSH session.
+            </summary>
+            <param name="userName">The username.</param>
+            <param name="privateKey">RSA or DSA private key for key-based authentication.</param>
+            <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+        </member>
+        <member name="M:Rebex.Net.Ssh.LoginAsync(System.String,System.String,Rebex.Net.SshPrivateKey,System.Object)">
+            <summary>
+            Begins asynchronous Login operation.
+            Authenticates the user to the server using a combination of password and public key and initializes the SSH session.
+            </summary>
+            <param name="userName">The username.</param>
+            <param name="password">Password for the specified username.</param>
+            <param name="privateKey">RSA or DSA private key for key-based authentication.</param>
+            <remarks>Please note that some servers don't support both password and private key specified at the same time.</remarks>
+            <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+        </member>
+        <member name="M:Rebex.Net.Ssh.LoginAsync(Rebex.Net.SshGssApiCredentials,System.Object)">
+            <summary>
+            Begins asynchronous Login operation.
+            Authenticates to the server using GSSAPI. Kerberos and NTLM methods are supported.
+            </summary>
+            <param name="credentials">Credentials.</param>
+            <remarks>
+            Only supported on Windows platforms.
+            </remarks>
+            <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+        </member>
+        <member name="M:Rebex.Net.Ssh.StartOutgoingTunnelAsync(System.Net.IPEndPoint,System.Net.IPEndPoint,System.Object)">
+            <summary>
+            Begins asynchronous StartOutgoingTunnel operation.
+            Starts a new outgoing tunnel. Connections to local endpoint will be tunneled through the SSH server to the specified remote endpoint.
+            </summary>
+            <param name="localEndPoint">Local endpoint to listen at.</param>
+            <param name="targetEndPoint">Target endpoint to which to tunnel connections.</param>
+            <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+            <returns>A tunnel instance.</returns>
+        </member>
+        <member name="M:Rebex.Net.Ssh.StartOutgoingTunnelAsync(System.String,System.Int32,System.String,System.Int32,System.Object)">
+            <summary>
+            Begins asynchronous StartOutgoingTunnel operation.
+            Starts a new outgoing tunnel. Connections to local host/port will be tunneled through the SSH server to the specified remote host/port.
+            </summary>
+            <param name="localHostName">Local hostname to listen at.</param>
+            <param name="localPort">Local port to listen at.</param>
+            <param name="targetHostName">Target hostname to which to tunnel connections.</param>
+            <param name="targetPort">Target port to which to tunnel connections.</param>
+            <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+            <returns>A tunnel instance.</returns>
+        </member>
+        <member name="M:Rebex.Net.Ssh.StartOutgoingTunnelAsync(System.Net.IPEndPoint,System.String,System.Int32,System.Object)">
+            <summary>
+            Begins asynchronous StartOutgoingTunnel operation.
+            Starts a new outgoing tunnel. Connections to local endpoint will be tunneled through the SSH server to the specified remote host/port.
+            </summary>
+            <param name="localEndPoint">Local endpoint to listen at.</param>
+            <param name="targetHostName">Target hostname to which to tunnel connections.</param>
+            <param name="targetPort">Target port to which to tunnel connections.</param>
+            <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+            <returns>A tunnel instance.</returns>
+        </member>
+        <member name="M:Rebex.Net.Ssh.StartIncomingTunnelAsync(System.Net.IPEndPoint,System.Net.IPEndPoint,System.Object)">
+            <summary>
+            Begins asynchronous StartIncomingTunnel operation.
+            Starts a new incoming tunnel. Connections to remote endpoint will be tunneled from the SSH server through the local machine to the specified target.
+            </summary>
+            <param name="remoteEndPoint">Remote endpoint from which to tunnel connections.</param>
+            <param name="targetEndPoint">Local endpoint to which to tunnel connections.</param>
+            <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+            <returns>A tunnel instance.</returns>
+        </member>
+        <member name="M:Rebex.Net.Ssh.StartIncomingTunnelAsync(System.String,System.Int32,System.Net.IPEndPoint,System.Object)">
+            <summary>
+            Begins asynchronous StartIncomingTunnel operation.
+            Starts a new incoming tunnel. Connections to remote address/port will be tunneled from the SSH server through the local machine to the specified target.
+            </summary>
+            <param name="remoteAddress">Remote address from which to tunnel connections.</param>
+            <param name="remotePort">Remote port from which to tunnel connections.</param>
+            <param name="targetEndPoint">Local endpoint to which to tunnel connections.</param>
+            <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+            <returns>A tunnel instance.</returns>
+        </member>
+        <member name="M:Rebex.Net.Ssh.StartIncomingTunnelAsync(System.Net.IPEndPoint,System.String,System.Int32,System.Object)">
+            <summary>
+            Begins asynchronous StartIncomingTunnel operation.
+            Starts a new incoming tunnel. Connections to remote endpoint will be tunneled from the SSH server through the local machine to the specified target.
+            </summary>
+            <param name="remoteEndPoint">Remote endpoint from which to tunnel connections.</param>
+            <param name="targetHostName">Local address to which to tunnel connections.</param>
+            <param name="targetPort">Local port to which to tunnel connections.</param>
+            <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+            <returns>A tunnel instance.</returns>
+        </member>
+        <member name="M:Rebex.Net.Ssh.StartIncomingTunnelAsync(System.String,System.Int32,System.String,System.Int32,System.Object)">
+            <summary>
+            Begins asynchronous StartIncomingTunnel operation.
+            Starts a new incoming tunnel. Connections to remote endpoint will be tunneled from the SSH server through the local machine to the specified target.
+            </summary>
+            <param name="remoteAddress">Remote address from which to tunnel connections.</param>
+            <param name="remotePort">Remote port from which to tunnel connections.</param>
+            <param name="targetHostName">Local address to which to tunnel connections.</param>
+            <param name="targetPort">Local port to which to tunnel connections.</param>
+            <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+            <returns>A tunnel instance.</returns>
+        </member>
+        <member name="M:Rebex.Net.Ssh.StartCommandAsync(System.String,System.Object)">
+            <summary>
+            Begins asynchronous StartCommand operation.
+            Starts a remote command.
+            </summary>
+            <param name="command">Command to execute.</param>
+            <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+            <returns>Shell object.</returns>
+        </member>
+        <member name="M:Rebex.Net.Ssh.RunCommandAsync(System.String,System.Object)">
+            <summary>
+            Begins asynchronous RunCommand operation.
+            Runs a remote command and returns its response.
+            </summary>
+            <param name="command">Command to run.</param>
+            <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+            <returns>Command response.</returns>
+        </member>
+        <member name="M:Rebex.Net.Ssh.StartShellAsync(Rebex.TerminalEmulation.ShellMode,System.Object)">
+            <summary>
+            Begins asynchronous StartShell operation.
+            Starts a remote shell.
+            </summary>
+            <param name="mode">Shell mode.</param>
+            <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+            <returns>Shell object.</returns>
+        </member>
+        <member name="M:Rebex.Net.Ssh.StartScriptingAsync(System.Object)">
+            <summary>
+            Begins asynchronous StartScripting operation.
+            Starts a scripting session with a virtual terminal.
+            </summary>
+            <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+            <returns>Scripting object.</returns>
+        </member>
+        <member name="M:Rebex.Net.Ssh.StartScriptingAsync(System.String,System.Object)">
+            <summary>
+            Begins asynchronous StartScripting operation.
+            Starts a scripting session with a virtual terminal.
+            </summary>
+            <param name="command">Remote command to execute.</param>
+            <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+            <returns>Scripting object.</returns>
+        </member>
+        <member name="M:Rebex.Net.Ssh.StartScriptingAsync(Rebex.TerminalEmulation.TerminalOptions,System.Object)">
+            <summary>
+            Begins asynchronous StartScripting operation.
+            Starts a scripting session with a virtual terminal.
+            </summary>
+            <param name="options">Initial terminal options.</param>
+            <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+            <returns>Scripting object.</returns>
+        </member>
+        <member name="M:Rebex.Net.Ssh.StartScriptingAsync(System.String,Rebex.TerminalEmulation.TerminalOptions,System.Object)">
+            <summary>
+            Begins asynchronous StartScripting operation.
+            Starts a scripting session with a virtual terminal.
+            </summary>
+            <param name="command">Remote command to execute.</param>
+            <param name="options">Initial terminal options.</param>
+            <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+            <returns>Scripting object.</returns>
+        </member>
+        <member name="M:Rebex.Net.Ssh.StartScriptingAsync(System.String,Rebex.TerminalEmulation.TerminalOptions,System.Int32,System.Int32,System.Object)">
+            <summary>
+            Begins asynchronous StartScripting operation.
+            Starts a scripting session with a virtual terminal.
+            </summary>
+            <param name="command">Remote command to execute.</param>
+            <param name="options">Initial terminal options.</param>
+            <param name="columns">Horizontal size of the terminal (in character columns).</param>
+            <param name="rows">Vertical size of the terminal (in character rows).</param>
+            <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+            <returns>Scripting object.</returns>
+        </member>
+        <member name="M:Rebex.Net.Ssh.StartVirtualTerminalAsync(System.Object)">
+            <summary>
+            Begins asynchronous StartVirtualTerminal operation.
+            Starts a virtual terminal session.
+            </summary>
+            <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+            <returns>Virtual terminal object.</returns>
+        </member>
+        <member name="M:Rebex.Net.Ssh.StartVirtualTerminalAsync(Rebex.TerminalEmulation.TerminalOptions,System.Object)">
+            <summary>
+            Begins asynchronous StartVirtualTerminal operation.
+            Starts a virtual terminal session.
+            </summary>
+            <param name="options">Initial terminal options.</param>
+            <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+            <returns>Virtual terminal object.</returns>
+        </member>
+        <member name="M:Rebex.Net.Ssh.StartVirtualTerminalAsync(Rebex.TerminalEmulation.TerminalOptions,System.Int32,System.Int32,System.Object)">
+            <summary>
+            Begins asynchronous StartVirtualTerminal operation.
+            Starts a virtual terminal session.
+            </summary>
+            <param name="options">Initial terminal options.</param>
+            <param name="columns">Horizontal size of the terminal (in character columns).</param>
+            <param name="rows">Vertical size of the terminal (in character rows).</param>
+            <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+            <returns>Virtual terminal object.</returns>
+        </member>
+        <member name="E:Rebex.Net.Ssh.BannerReceived">
+            <summary>
+            Occurs when a banner message is received from the server.
+            </summary>
+        </member>
+        <member name="E:Rebex.Net.Ssh.FingerprintCheck">
+            <summary>
+            Occurs when a fingerprint is received from the server and needs to be validated.
+            </summary>
+        </member>
+        <member name="E:Rebex.Net.Ssh.AuthenticationRequest">
+            <summary>
+            Occurs when an authentication request is received from the server that cannot be answered programmatically.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Ssh.IsDisposed">
+            <summary>
+            Gets a value indicating whether the object is disposed.
+            </summary>
+            <value>True if disposed; false if not disposed.</value>
+        </member>
+        <member name="P:Rebex.Net.Ssh.IsConnected">
+            <summary>
+            Gets a value indicating whether the session is connected.
+            </summary>
+            <remarks>
+            <p>
+            This property returns the latest known state of the session. 
+            When it returns false, the session was either never connected, or no longer connected. 
+            When it returns true, the session was connected at the time of the last I/O operation.
+            </p>
+            <p>
+            <b>Note:</b> There is no guarantee that the session is still connected even though
+            <see cref="P:Rebex.Net.Ssh.IsConnected"/> returns true.
+            </p>
+            </remarks>
+            <value>True if connected; false otherwise.</value>
+        </member>
+        <member name="P:Rebex.Net.Ssh.IsAuthenticated">
+            <summary>
+            Gets a value indicating whether the session is authenticated.
+            </summary>
+            <value>True if authenticated; false otherwise.</value>
+        </member>
+        <member name="P:Rebex.Net.Ssh.Proxy">
+            <summary>
+            Gets or sets the network proxy to use to access a remote server.
+            </summary>
+            <value>The <see cref="P:Rebex.Net.Ssh.Proxy"/> to use to access a remote server.</value>
+        </member>
+        <member name="P:Rebex.Net.Ssh.LogWriter">
+            <summary>
+            Gets or sets the logger used by this object.
+            </summary>
+            <value>Logger.</value>
+        </member>
+        <member name="P:Rebex.Net.Ssh.Encoding">
+            <summary>
+            Gets or sets the <see cref="T:System.Text.Encoding">Encoding</see> to use to encode and decode command parameters and server responses.
+            </summary>
+            <value>The <see cref="T:System.Text.Encoding">Encoding</see> to use to encode and decode command parameters and server responses. Default is <see cref="T:System.Text.Encoding">Encoding.Default</see>.</value>
+        </member>
+        <member name="P:Rebex.Net.Ssh.Timeout">
+            <summary>
+            Gets or sets the length of time in milliseconds before the operation times out (specify -1 or 0 to indicate that the request does not time out).
+            </summary>
+            <value>
+            The length of time, in milliseconds, until the operation times out,
+            or the value -1 or 0 to indicate that the request does not time out.
+            Default is 60000 (60 seconds).
+            </value>
+            <remarks>
+            <p>
+            The internal timeout counter is reset every time data is sent
+            or received from the server. This also means that data transfers only
+            time out after x milliseconds of inactivity, not after x milliseconds
+            from the start of the transfer.
+            </p>
+            <p>
+            Minimal value is 1000. Setting this to a value lower than 1000 will set it to 1000.
+            </p>
+            </remarks>
+        </member>
+        <member name="P:Rebex.Net.Ssh.Fingerprint">
+            <summary>
+            Gets the server public key fingerprint.
+            </summary>
+            <value>Server fingerprint.</value>
+        </member>
+        <member name="P:Rebex.Net.Ssh.Session">
+            <summary>
+            Gets the SSH session used by this SSH session.
+            </summary>
+            <value>SSH session.</value>
+        </member>
+        <member name="P:Rebex.Net.Ssh.LocalEndPoint">
+            <summary>
+            Gets the local client <see cref="T:System.Net.EndPoint"/>.
+            </summary>
+            <value>The local client <see cref="T:System.Net.EndPoint"/>.</value>
+        </member>
+        <member name="P:Rebex.Net.Ssh.RemoteEndPoint">
+            <summary>
+            Gets the remote server <see cref="T:System.Net.EndPoint"/>.
+            </summary>
+            <value>The remote server <see cref="T:System.Net.EndPoint"/>.</value>
+        </member>
+        <member name="P:Rebex.Net.Ssh.Settings">
+            <summary>
+            Gets or sets SSH object settings.
+            </summary>
+            <value>SSH object settings.</value>
+        </member>
+        <member name="P:Rebex.Net.Ssh.Version">
+            <summary>
+            Gets the version of the SSH component.
+            </summary>
+            <value>The version of the SSH component.</value>
+        </member>
+        <member name="T:Rebex.Legacy.SshExtensions">
+            <summary>
+            Extension class for Ssh.
+            </summary>
+        </member>
+        <member name="M:Rebex.Legacy.SshExtensions.BeginConnect(Rebex.Net.Ssh,System.String,System.AsyncCallback,System.Object)">
+            <summary>
+            Begins asynchronous Connect operation.
+            Connects to the SSH server.
+            </summary>
+            <param name="serverName">The server address - either a hostname or a dotted string address.</param>
+            <remarks>
+              <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+            </remarks>
+            <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+            <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+            <param name="instance">Instance of Ssh.</param>
+            <returns>
+            An <see cref="T:System.IAsyncResult"/> that references the asynchronous operation.
+            </returns>
+        </member>
+        <member name="M:Rebex.Legacy.SshExtensions.BeginConnect(Rebex.Net.Ssh,System.String,System.Int32,System.AsyncCallback,System.Object)">
+            <summary>
+            Begins asynchronous Connect operation.
+            Connects to the SSH server.
+            </summary>
+            <param name="serverName">The server address - either a hostname or a dotted string address.</param>
+            <param name="serverPort">The server port (eg. 22).</param>
+            <remarks>
+              <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+            </remarks>
+            <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+            <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+            <param name="instance">Instance of Ssh.</param>
+            <returns>
+            An <see cref="T:System.IAsyncResult"/> that references the asynchronous operation.
+            </returns>
+        </member>
+        <member name="M:Rebex.Legacy.SshExtensions.BeginConnect(Rebex.Net.Ssh,System.String,System.Int32,Rebex.Net.SshParameters,System.AsyncCallback,System.Object)">
+            <summary>
+            Begins asynchronous Connect operation.
+            Connects to the SSH server with the specified security parameters.
+            </summary>
+            <param name="serverName">The server address - either a hostname or a dotted string IP address.</param>
+            <param name="serverPort">The server port (eg. 22).</param>
+            <param name="parameters">Security parameters.</param>
+            <remarks>
+              <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+            </remarks>
+            <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+            <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+            <param name="instance">Instance of Ssh.</param>
+            <returns>
+            An <see cref="T:System.IAsyncResult"/> that references the asynchronous operation.
+            </returns>
+        </member>
+        <member name="M:Rebex.Legacy.SshExtensions.EndConnect(Rebex.Net.Ssh,System.IAsyncResult)">
+            <summary>
+            Ends an asynchronous BeginConnect operation.
+            </summary>
+            <param name="asyncResult">Stores state information for this asynchronous operation as well as any user defined data.</param>
+            <param name="instance">Instance of Ssh.</param>
+        </member>
+        <member name="M:Rebex.Legacy.SshExtensions.BeginDisconnect(Rebex.Net.Ssh,System.AsyncCallback,System.Object)">
+            <summary>
+            Begins asynchronous Disconnect operation.
+            Informs the server that the connection is about to close and
+            terminates the connection.
+            </summary>
+            <remarks>
+              <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+            </remarks>
+            <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+            <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+            <param name="instance">Instance of Ssh.</param>
+            <returns>
+            An <see cref="T:System.IAsyncResult"/> that references the asynchronous operation.
+            </returns>
+        </member>
+        <member name="M:Rebex.Legacy.SshExtensions.EndDisconnect(Rebex.Net.Ssh,System.IAsyncResult)">
+            <summary>
+            Ends an asynchronous BeginDisconnect operation.
+            </summary>
+            <param name="asyncResult">Stores state information for this asynchronous operation as well as any user defined data.</param>
+            <param name="instance">Instance of Ssh.</param>
+        </member>
+        <member name="M:Rebex.Legacy.SshExtensions.BeginLogin(Rebex.Net.Ssh,System.AsyncCallback,System.Object)">
+            <summary>
+            Begins asynchronous Login operation.
+            Authenticates the user to the server interactively and initializes the SSH session.
+            Uses <see cref="E:Rebex.Net.Ssh.AuthenticationRequest"/> event to request credentials.
+            </summary>
+            <remarks>
+              <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+            </remarks>
+            <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+            <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+            <param name="instance">Instance of Ssh.</param>
+            <returns>
+            An <see cref="T:System.IAsyncResult"/> that references the asynchronous operation.
+            </returns>
+        </member>
+        <member name="M:Rebex.Legacy.SshExtensions.BeginLogin(Rebex.Net.Ssh,System.String,System.AsyncCallback,System.Object)">
+            <summary>
+            Begins asynchronous Login operation.
+            Authenticates the user to the server interactively and initializes the SSH session.
+            Uses <see cref="E:Rebex.Net.Ssh.AuthenticationRequest"/> event to request credentials.
+            </summary>
+            <param name="userName">The username (optional).</param>
+            <remarks>
+              <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+            </remarks>
+            <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+            <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+            <param name="instance">Instance of Ssh.</param>
+            <returns>
+            An <see cref="T:System.IAsyncResult"/> that references the asynchronous operation.
+            </returns>
+        </member>
+        <member name="M:Rebex.Legacy.SshExtensions.BeginLogin(Rebex.Net.Ssh,System.String,System.String,System.AsyncCallback,System.Object)">
+            <summary>
+            Begins asynchronous Login operation.
+            Authenticates the user to the server and initializes the SSH session.
+            </summary>
+            <param name="userName">The username.</param>
+            <param name="password">Password for the specified username.</param>
+            <remarks>
+              <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+            </remarks>
+            <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+            <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+            <param name="instance">Instance of Ssh.</param>
+            <returns>
+            An <see cref="T:System.IAsyncResult"/> that references the asynchronous operation.
+            </returns>
+        </member>
+        <member name="M:Rebex.Legacy.SshExtensions.BeginLogin(Rebex.Net.Ssh,System.String,Rebex.Net.SshPrivateKey,System.AsyncCallback,System.Object)">
+            <summary>
+            Begins asynchronous Login operation.
+            Authenticates the user to the server using his private key and initializes the SSH session.
+            </summary>
+            <param name="userName">The username.</param>
+            <param name="privateKey">RSA or DSA private key for key-based authentication.</param>
+            <remarks>
+              <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+            </remarks>
+            <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+            <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+            <param name="instance">Instance of Ssh.</param>
+            <returns>
+            An <see cref="T:System.IAsyncResult"/> that references the asynchronous operation.
+            </returns>
+        </member>
+        <member name="M:Rebex.Legacy.SshExtensions.BeginLogin(Rebex.Net.Ssh,System.String,System.String,Rebex.Net.SshPrivateKey,System.AsyncCallback,System.Object)">
+            <summary>
+            Begins asynchronous Login operation.
+            Authenticates the user to the server using a combination of password and public key and initializes the SSH session.
+            </summary>
+            <param name="userName">The username.</param>
+            <param name="password">Password for the specified username.</param>
+            <param name="privateKey">RSA or DSA private key for key-based authentication.</param>
+            <remarks>
+              <p>Please note that some servers don't support both password and private key specified at the same time.</p>
+              <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+            </remarks>
+            <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+            <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+            <param name="instance">Instance of Ssh.</param>
+            <returns>
+            An <see cref="T:System.IAsyncResult"/> that references the asynchronous operation.
+            </returns>
+        </member>
+        <member name="M:Rebex.Legacy.SshExtensions.BeginLogin(Rebex.Net.Ssh,Rebex.Net.SshGssApiCredentials,System.AsyncCallback,System.Object)">
+            <summary>
+            Begins asynchronous Login operation.
+            Authenticates to the server using GSSAPI. Kerberos and NTLM methods are supported.
+            </summary>
+            <param name="credentials">Credentials.</param>
+            <remarks>
+              <p>Only supported on Windows platforms.</p>
+              <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+            </remarks>
+            <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+            <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+            <param name="instance">Instance of Ssh.</param>
+            <returns>
+            An <see cref="T:System.IAsyncResult"/> that references the asynchronous operation.
+            </returns>
+        </member>
+        <member name="M:Rebex.Legacy.SshExtensions.EndLogin(Rebex.Net.Ssh,System.IAsyncResult)">
+            <summary>
+            Ends an asynchronous BeginLogin operation.
+            </summary>
+            <param name="asyncResult">Stores state information for this asynchronous operation as well as any user defined data.</param>
+            <param name="instance">Instance of Ssh.</param>
+        </member>
+        <member name="M:Rebex.Legacy.SshExtensions.BeginStartOutgoingTunnel(Rebex.Net.Ssh,System.Net.IPEndPoint,System.Net.IPEndPoint,System.AsyncCallback,System.Object)">
+            <summary>
+            Begins asynchronous StartOutgoingTunnel operation.
+            Starts a new outgoing tunnel. Connections to local endpoint will be tunneled through the SSH server to the specified remote endpoint.
+            </summary>
+            <param name="localEndPoint">Local endpoint to listen at.</param>
+            <param name="targetEndPoint">Target endpoint to which to tunnel connections.</param>
+            <remarks>
+              <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+            </remarks>
+            <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+            <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+            <param name="instance">Instance of Ssh.</param>
+            <returns>
+            An <see cref="T:System.IAsyncResult"/> that references the asynchronous operation.
+            </returns>
+        </member>
+        <member name="M:Rebex.Legacy.SshExtensions.BeginStartOutgoingTunnel(Rebex.Net.Ssh,System.String,System.Int32,System.String,System.Int32,System.AsyncCallback,System.Object)">
+            <summary>
+            Begins asynchronous StartOutgoingTunnel operation.
+            Starts a new outgoing tunnel. Connections to local host/port will be tunneled through the SSH server to the specified remote host/port.
+            </summary>
+            <param name="localHostName">Local hostname to listen at.</param>
+            <param name="localPort">Local port to listen at.</param>
+            <param name="targetHostName">Target hostname to which to tunnel connections.</param>
+            <param name="targetPort">Target port to which to tunnel connections.</param>
+            <remarks>
+              <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+            </remarks>
+            <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+            <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+            <param name="instance">Instance of Ssh.</param>
+            <returns>
+            An <see cref="T:System.IAsyncResult"/> that references the asynchronous operation.
+            </returns>
+        </member>
+        <member name="M:Rebex.Legacy.SshExtensions.BeginStartOutgoingTunnel(Rebex.Net.Ssh,System.Net.IPEndPoint,System.String,System.Int32,System.AsyncCallback,System.Object)">
+            <summary>
+            Begins asynchronous StartOutgoingTunnel operation.
+            Starts a new outgoing tunnel. Connections to local endpoint will be tunneled through the SSH server to the specified remote host/port.
+            </summary>
+            <param name="localEndPoint">Local endpoint to listen at.</param>
+            <param name="targetHostName">Target hostname to which to tunnel connections.</param>
+            <param name="targetPort">Target port to which to tunnel connections.</param>
+            <remarks>
+              <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+            </remarks>
+            <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+            <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+            <param name="instance">Instance of Ssh.</param>
+            <returns>
+            An <see cref="T:System.IAsyncResult"/> that references the asynchronous operation.
+            </returns>
+        </member>
+        <member name="M:Rebex.Legacy.SshExtensions.EndStartOutgoingTunnel(Rebex.Net.Ssh,System.IAsyncResult)">
+            <summary>
+            Ends an asynchronous BeginStartOutgoingTunnel operation.
+            </summary>
+            <param name="asyncResult">Stores state information for this asynchronous operation as well as any user defined data.</param>
+            <param name="instance">Instance of Ssh.</param>
+            <returns>A tunnel instance.</returns>
+        </member>
+        <member name="M:Rebex.Legacy.SshExtensions.BeginStartIncomingTunnel(Rebex.Net.Ssh,System.Net.IPEndPoint,System.Net.IPEndPoint,System.AsyncCallback,System.Object)">
+            <summary>
+            Begins asynchronous StartIncomingTunnel operation.
+            Starts a new incoming tunnel. Connections to remote endpoint will be tunneled from the SSH server through the local machine to the specified target.
+            </summary>
+            <param name="remoteEndPoint">Remote endpoint from which to tunnel connections.</param>
+            <param name="targetEndPoint">Local endpoint to which to tunnel connections.</param>
+            <remarks>
+              <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+            </remarks>
+            <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+            <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+            <param name="instance">Instance of Ssh.</param>
+            <returns>
+            An <see cref="T:System.IAsyncResult"/> that references the asynchronous operation.
+            </returns>
+        </member>
+        <member name="M:Rebex.Legacy.SshExtensions.BeginStartIncomingTunnel(Rebex.Net.Ssh,System.String,System.Int32,System.Net.IPEndPoint,System.AsyncCallback,System.Object)">
+            <summary>
+            Begins asynchronous StartIncomingTunnel operation.
+            Starts a new incoming tunnel. Connections to remote address/port will be tunneled from the SSH server through the local machine to the specified target.
+            </summary>
+            <param name="remoteAddress">Remote address from which to tunnel connections.</param>
+            <param name="remotePort">Remote port from which to tunnel connections.</param>
+            <param name="targetEndPoint">Local endpoint to which to tunnel connections.</param>
+            <remarks>
+              <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+            </remarks>
+            <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+            <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+            <param name="instance">Instance of Ssh.</param>
+            <returns>
+            An <see cref="T:System.IAsyncResult"/> that references the asynchronous operation.
+            </returns>
+        </member>
+        <member name="M:Rebex.Legacy.SshExtensions.BeginStartIncomingTunnel(Rebex.Net.Ssh,System.Net.IPEndPoint,System.String,System.Int32,System.AsyncCallback,System.Object)">
+            <summary>
+            Begins asynchronous StartIncomingTunnel operation.
+            Starts a new incoming tunnel. Connections to remote endpoint will be tunneled from the SSH server through the local machine to the specified target.
+            </summary>
+            <param name="remoteEndPoint">Remote endpoint from which to tunnel connections.</param>
+            <param name="targetHostName">Local address to which to tunnel connections.</param>
+            <param name="targetPort">Local port to which to tunnel connections.</param>
+            <remarks>
+              <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+            </remarks>
+            <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+            <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+            <param name="instance">Instance of Ssh.</param>
+            <returns>
+            An <see cref="T:System.IAsyncResult"/> that references the asynchronous operation.
+            </returns>
+        </member>
+        <member name="M:Rebex.Legacy.SshExtensions.BeginStartIncomingTunnel(Rebex.Net.Ssh,System.String,System.Int32,System.String,System.Int32,System.AsyncCallback,System.Object)">
+            <summary>
+            Begins asynchronous StartIncomingTunnel operation.
+            Starts a new incoming tunnel. Connections to remote endpoint will be tunneled from the SSH server through the local machine to the specified target.
+            </summary>
+            <param name="remoteAddress">Remote address from which to tunnel connections.</param>
+            <param name="remotePort">Remote port from which to tunnel connections.</param>
+            <param name="targetHostName">Local address to which to tunnel connections.</param>
+            <param name="targetPort">Local port to which to tunnel connections.</param>
+            <remarks>
+              <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+            </remarks>
+            <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+            <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+            <param name="instance">Instance of Ssh.</param>
+            <returns>
+            An <see cref="T:System.IAsyncResult"/> that references the asynchronous operation.
+            </returns>
+        </member>
+        <member name="M:Rebex.Legacy.SshExtensions.EndStartIncomingTunnel(Rebex.Net.Ssh,System.IAsyncResult)">
+            <summary>
+            Ends an asynchronous BeginStartIncomingTunnel operation.
+            </summary>
+            <param name="asyncResult">Stores state information for this asynchronous operation as well as any user defined data.</param>
+            <param name="instance">Instance of Ssh.</param>
+            <returns>A tunnel instance.</returns>
+        </member>
+        <member name="M:Rebex.Legacy.SshExtensions.BeginStartCommand(Rebex.Net.Ssh,System.String,System.AsyncCallback,System.Object)">
+            <summary>
+            Begins asynchronous StartCommand operation.
+            Starts a remote command.
+            </summary>
+            <param name="command">Command to execute.</param>
+            <remarks>
+              <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+            </remarks>
+            <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+            <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+            <param name="instance">Instance of Ssh.</param>
+            <returns>
+            An <see cref="T:System.IAsyncResult"/> that references the asynchronous operation.
+            </returns>
+        </member>
+        <member name="M:Rebex.Legacy.SshExtensions.EndStartCommand(Rebex.Net.Ssh,System.IAsyncResult)">
+            <summary>
+            Ends an asynchronous BeginStartCommand operation.
+            </summary>
+            <param name="asyncResult">Stores state information for this asynchronous operation as well as any user defined data.</param>
+            <param name="instance">Instance of Ssh.</param>
+            <returns>Shell object.</returns>
+        </member>
+        <member name="M:Rebex.Legacy.SshExtensions.BeginRunCommand(Rebex.Net.Ssh,System.String,System.AsyncCallback,System.Object)">
+            <summary>
+            Begins asynchronous RunCommand operation.
+            Runs a remote command and returns its response.
+            </summary>
+            <param name="command">Command to run.</param>
+            <remarks>
+              <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+            </remarks>
+            <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+            <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+            <param name="instance">Instance of Ssh.</param>
+            <returns>
+            An <see cref="T:System.IAsyncResult"/> that references the asynchronous operation.
+            </returns>
+        </member>
+        <member name="M:Rebex.Legacy.SshExtensions.EndRunCommand(Rebex.Net.Ssh,System.IAsyncResult)">
+            <summary>
+            Ends an asynchronous BeginRunCommand operation.
+            </summary>
+            <param name="asyncResult">Stores state information for this asynchronous operation as well as any user defined data.</param>
+            <param name="instance">Instance of Ssh.</param>
+            <returns>Command response.</returns>
+        </member>
+        <member name="M:Rebex.Legacy.SshExtensions.BeginStartShell(Rebex.Net.Ssh,Rebex.TerminalEmulation.ShellMode,System.AsyncCallback,System.Object)">
+            <summary>
+            Begins asynchronous StartShell operation.
+            Starts a remote shell.
+            </summary>
+            <param name="mode">Shell mode.</param>
+            <remarks>
+              <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+            </remarks>
+            <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+            <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+            <param name="instance">Instance of Ssh.</param>
+            <returns>
+            An <see cref="T:System.IAsyncResult"/> that references the asynchronous operation.
+            </returns>
+        </member>
+        <member name="M:Rebex.Legacy.SshExtensions.EndStartShell(Rebex.Net.Ssh,System.IAsyncResult)">
+            <summary>
+            Ends an asynchronous BeginStartShell operation.
+            </summary>
+            <param name="asyncResult">Stores state information for this asynchronous operation as well as any user defined data.</param>
+            <param name="instance">Instance of Ssh.</param>
+            <returns>Shell object.</returns>
+        </member>
+        <member name="M:Rebex.Legacy.SshExtensions.BeginStartScripting(Rebex.Net.Ssh,System.AsyncCallback,System.Object)">
+            <summary>
+            Begins asynchronous StartScripting operation.
+            Starts a scripting session with a virtual terminal.
+            </summary>
+            <remarks>
+              <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+            </remarks>
+            <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+            <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+            <param name="instance">Instance of Ssh.</param>
+            <returns>
+            An <see cref="T:System.IAsyncResult"/> that references the asynchronous operation.
+            </returns>
+        </member>
+        <member name="M:Rebex.Legacy.SshExtensions.BeginStartScripting(Rebex.Net.Ssh,System.String,System.AsyncCallback,System.Object)">
+            <summary>
+            Begins asynchronous StartScripting operation.
+            Starts a scripting session with a virtual terminal.
+            </summary>
+            <param name="command">Remote command to execute.</param>
+            <remarks>
+              <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+            </remarks>
+            <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+            <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+            <param name="instance">Instance of Ssh.</param>
+            <returns>
+            An <see cref="T:System.IAsyncResult"/> that references the asynchronous operation.
+            </returns>
+        </member>
+        <member name="M:Rebex.Legacy.SshExtensions.BeginStartScripting(Rebex.Net.Ssh,Rebex.TerminalEmulation.TerminalOptions,System.AsyncCallback,System.Object)">
+            <summary>
+            Begins asynchronous StartScripting operation.
+            Starts a scripting session with a virtual terminal.
+            </summary>
+            <param name="options">Initial terminal options.</param>
+            <remarks>
+              <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+            </remarks>
+            <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+            <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+            <param name="instance">Instance of Ssh.</param>
+            <returns>
+            An <see cref="T:System.IAsyncResult"/> that references the asynchronous operation.
+            </returns>
+        </member>
+        <member name="M:Rebex.Legacy.SshExtensions.BeginStartScripting(Rebex.Net.Ssh,System.String,Rebex.TerminalEmulation.TerminalOptions,System.AsyncCallback,System.Object)">
+            <summary>
+            Begins asynchronous StartScripting operation.
+            Starts a scripting session with a virtual terminal.
+            </summary>
+            <param name="command">Remote command to execute.</param>
+            <param name="options">Initial terminal options.</param>
+            <remarks>
+              <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+            </remarks>
+            <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+            <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+            <param name="instance">Instance of Ssh.</param>
+            <returns>
+            An <see cref="T:System.IAsyncResult"/> that references the asynchronous operation.
+            </returns>
+        </member>
+        <member name="M:Rebex.Legacy.SshExtensions.BeginStartScripting(Rebex.Net.Ssh,System.String,Rebex.TerminalEmulation.TerminalOptions,System.Int32,System.Int32,System.AsyncCallback,System.Object)">
+            <summary>
+            Begins asynchronous StartScripting operation.
+            Starts a scripting session with a virtual terminal.
+            </summary>
+            <param name="command">Remote command to execute.</param>
+            <param name="options">Initial terminal options.</param>
+            <param name="columns">Horizontal size of the terminal (in character columns).</param>
+            <param name="rows">Vertical size of the terminal (in character rows).</param>
+            <remarks>
+              <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+            </remarks>
+            <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+            <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+            <param name="instance">Instance of Ssh.</param>
+            <returns>
+            An <see cref="T:System.IAsyncResult"/> that references the asynchronous operation.
+            </returns>
+        </member>
+        <member name="M:Rebex.Legacy.SshExtensions.EndStartScripting(Rebex.Net.Ssh,System.IAsyncResult)">
+            <summary>
+            Ends an asynchronous BeginStartScripting operation.
+            </summary>
+            <param name="asyncResult">Stores state information for this asynchronous operation as well as any user defined data.</param>
+            <param name="instance">Instance of Ssh.</param>
+            <returns>Scripting object.</returns>
+        </member>
+        <member name="M:Rebex.Legacy.SshExtensions.BeginStartVirtualTerminal(Rebex.Net.Ssh,System.AsyncCallback,System.Object)">
+            <summary>
+            Begins asynchronous StartVirtualTerminal operation.
+            Starts a virtual terminal session.
+            </summary>
+            <remarks>
+              <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+            </remarks>
+            <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+            <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+            <param name="instance">Instance of Ssh.</param>
+            <returns>
+            An <see cref="T:System.IAsyncResult"/> that references the asynchronous operation.
+            </returns>
+        </member>
+        <member name="M:Rebex.Legacy.SshExtensions.BeginStartVirtualTerminal(Rebex.Net.Ssh,Rebex.TerminalEmulation.TerminalOptions,System.AsyncCallback,System.Object)">
+            <summary>
+            Begins asynchronous StartVirtualTerminal operation.
+            Starts a virtual terminal session.
+            </summary>
+            <param name="options">Initial terminal options.</param>
+            <remarks>
+              <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+            </remarks>
+            <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+            <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+            <param name="instance">Instance of Ssh.</param>
+            <returns>
+            An <see cref="T:System.IAsyncResult"/> that references the asynchronous operation.
+            </returns>
+        </member>
+        <member name="M:Rebex.Legacy.SshExtensions.BeginStartVirtualTerminal(Rebex.Net.Ssh,Rebex.TerminalEmulation.TerminalOptions,System.Int32,System.Int32,System.AsyncCallback,System.Object)">
+            <summary>
+            Begins asynchronous StartVirtualTerminal operation.
+            Starts a virtual terminal session.
+            </summary>
+            <param name="options">Initial terminal options.</param>
+            <param name="columns">Horizontal size of the terminal (in character columns).</param>
+            <param name="rows">Vertical size of the terminal (in character rows).</param>
+            <remarks>
+              <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+            </remarks>
+            <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+            <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+            <param name="instance">Instance of Ssh.</param>
+            <returns>
+            An <see cref="T:System.IAsyncResult"/> that references the asynchronous operation.
+            </returns>
+        </member>
+        <member name="M:Rebex.Legacy.SshExtensions.EndStartVirtualTerminal(Rebex.Net.Ssh,System.IAsyncResult)">
+            <summary>
+            Ends an asynchronous BeginStartVirtualTerminal operation.
+            </summary>
+            <param name="asyncResult">Stores state information for this asynchronous operation as well as any user defined data.</param>
+            <param name="instance">Instance of Ssh.</param>
+            <returns>Virtual terminal object.</returns>
+        </member>
+        <member name="T:Rebex.Net.SshConnectionState">
+            <summary>
+            Represents the <see cref="T:Rebex.Net.Ssh">Ssh</see> object connection state.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.SshConnectionState.Connected">
+            <summary>
+            Returns a value indicating whether the object is connected.
+            </summary>
+            <value>True if connected; oherwise false.</value>
+        </member>
+        <member name="P:Rebex.Net.SshConnectionState.NativeErrorCode">
+            <summary>
+            Gets the Win32 socket error code.
+            </summary>
+            <value>Win32 error code.</value>
+            <remarks>Returns 0 if no socket error code is available.</remarks>
+        </member>
+        <member name="T:Rebex.Net.SshSettings">
+            <summary>
+            Specifies various SSH settings.
+            </summary>
+        </member>
+        <member name="M:Rebex.Net.SshSettings.#ctor">
+            <summary>
+            Creates a new instance of <see cref="T:Rebex.Net.SshSettings"/>.
+            </summary>
+        </member>
+        <member name="M:Rebex.Net.SshSettings.Clone">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>A new object that is a copy of the current instance.</returns>
+        </member>
+        <member name="P:Rebex.Net.SshSettings.SshParameters">
+            <summary>
+            Gets or sets SSH session parameters.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.SshSettings.RaiseEventsFromCurrentThread">
+            <summary>
+            Specifies whether to raise asynchronous events from the current working thread or 
+            whether to raise them using a <see cref="T:System.Threading.SynchronizationContext"/> available when an asynchronous operation was started.
+            </summary>
+            <value>False (default) to raise events using <see cref="T:System.Threading.SynchronizationContext"/>; true to raise them directly form the current working thread.</value>
+            <remarks>Events of synchronous methods are always raised from the current working thread.</remarks>
+        </member>
+        <member name="P:Rebex.Net.SshSettings.WaitForServerWelcomeMessage">
+            <summary>
+            Wait for server SSH protocol welcome message before sending the client one.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.SshSettings.TryPasswordFirst">
+            <summary>
+            When authenticating using both password and private key, try password authentication first (default is to try the private key first).
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.SshSettings.PostponeChannelClose">
+            <summary>
+            Postpone channel close requests (workaround for older versions of ssh.com and Cisco SSH servers).
+            </summary>
+            <remarks>Not supported on Windows store Apps platfors.</remarks>
+        </member>
+        <member name="P:Rebex.Net.SshSettings.EnableSignaturePadding">
+            <summary>
+            Enable padding of RSA private key signatures (workaround for SSH servers that got the padding wrong).
+            </summary>
+            <value>True to enable signature padding; false to disable it.</value>
+        </member>
+        <member name="T:Rebex.TerminalEmulation.SshTerminalControl">
+            <summary>
+            SSH terminal emulator control.
+            </summary>
+        </member>
+        <member name="M:Rebex.TerminalEmulation.SshTerminalControl.OnConnected(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:Rebex.TerminalEmulation.SshTerminalControl.Connected"/> event.
+            </summary>
+            <param name="e">An <see cref="T:System.EventArgs"/> that contains the event data.</param>
+        </member>
+        <member name="M:Rebex.TerminalEmulation.SshTerminalControl.OnDisconnected(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:Rebex.TerminalEmulation.TerminalControl.Disconnected"/> event.
+            </summary>
+            <param name="e">An <see cref="T:System.EventArgs"/> that contains the event data.</param>
+        </member>
+        <member name="M:Rebex.TerminalEmulation.SshTerminalControl.#ctor">
+            <summary>
+            Creates a new instance of SSH terminal control.
+            </summary>
+        </member>
+        <member name="M:Rebex.TerminalEmulation.SshTerminalControl.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Rebex.TerminalEmulation.SshTerminalControl.Connect">
+            <summary>
+            Connects to the SSH server specified by <see cref="P:Rebex.TerminalEmulation.SshTerminalControl.ServerName"/> and <see cref="P:Rebex.TerminalEmulation.SshTerminalControl.ServerPort"/> properties
+            and authenticates using the credential specified by <see cref="P:Rebex.TerminalEmulation.SshTerminalControl.UserName"/>, <see cref="P:Rebex.TerminalEmulation.SshTerminalControl.UserPassword"/> and <see cref="P:Rebex.TerminalEmulation.SshTerminalControl.UserPrivateKey"/> properties.
+            </summary>
+        </member>
+        <member name="M:Rebex.TerminalEmulation.SshTerminalControl.Disconnect">
+            <summary>
+            Disconnects from the SSH server.
+            </summary>
+        </member>
+        <member name="M:Rebex.TerminalEmulation.SshTerminalControl.BeginConnect(System.AsyncCallback,System.Object)">
+            <summary>
+            Begins asynchronous Connect operation.
+            Connects to the SSH server specified by <see cref="P:Rebex.TerminalEmulation.SshTerminalControl.ServerName"/> and <see cref="P:Rebex.TerminalEmulation.SshTerminalControl.ServerPort"/> properties
+            and authenticates using the credential specified by <see cref="P:Rebex.TerminalEmulation.SshTerminalControl.UserName"/>, <see cref="P:Rebex.TerminalEmulation.SshTerminalControl.UserPassword"/> and <see cref="P:Rebex.TerminalEmulation.SshTerminalControl.UserPrivateKey"/> properties.
+            </summary>
+            <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+            <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+            <returns>
+            An <see cref="T:System.IAsyncResult"/> that references the asynchronous operation.
+            </returns>
+        </member>
+        <member name="M:Rebex.TerminalEmulation.SshTerminalControl.ConnectAsync(System.Object)">
+            <summary>
+            Begins asynchronous Connect operation.
+            Connects to the SSH server specified by <see cref="P:Rebex.TerminalEmulation.SshTerminalControl.ServerName"/> and <see cref="P:Rebex.TerminalEmulation.SshTerminalControl.ServerPort"/> properties
+            and authenticates using the credential specified by <see cref="P:Rebex.TerminalEmulation.SshTerminalControl.UserName"/>, <see cref="P:Rebex.TerminalEmulation.SshTerminalControl.UserPassword"/> and <see cref="P:Rebex.TerminalEmulation.SshTerminalControl.UserPrivateKey"/> properties.
+            </summary>
+            <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+        </member>
+        <member name="M:Rebex.TerminalEmulation.SshTerminalControl.EndConnect(System.IAsyncResult)">
+            <summary>
+            Ends an asynchronous BeginConnect operation.
+            </summary>
+            <param name="asyncResult">Stores state information for this asynchronous operation as well as any user defined data.</param>
+        </member>
+        <member name="P:Rebex.TerminalEmulation.SshTerminalControl.Proxy">
+            <summary>
+            Gets or sets the network proxy to use to access a remote server.
+            </summary>
+            <value>The <see cref="P:Rebex.TerminalEmulation.SshTerminalControl.Proxy"/> to use to access a remote server.</value>
+        </member>
+        <member name="P:Rebex.TerminalEmulation.SshTerminalControl.ServerName">
+            <summary>
+            Gets or sets the server address - either a hostname or a dotted string IP address.
+            </summary>
+            <value>Server address.</value>
+        </member>
+        <member name="P:Rebex.TerminalEmulation.SshTerminalControl.ServerPort">
+            <summary>
+            Gets or sets the server port. Default value is 22.
+            </summary>
+            <value>Server port.</value>
+        </member>
+        <member name="P:Rebex.TerminalEmulation.SshTerminalControl.ServerParameters">
+            <summary>
+            Gets or sets the SSH security parameters.
+            </summary>
+            <value>SSH security parameters.</value>
+        </member>
+        <member name="P:Rebex.TerminalEmulation.SshTerminalControl.UserName">
+            <summary>
+            Gets or sets the username to be used to authenticate to the server.
+            </summary>
+            <value>The username.</value>
+        </member>
+        <member name="P:Rebex.TerminalEmulation.SshTerminalControl.UserPassword">
+            <summary>
+            Gets or sets the password to be used to authenticate to the server.
+            </summary>
+            <value>The password.</value>
+        </member>
+        <member name="P:Rebex.TerminalEmulation.SshTerminalControl.UserPrivateKey">
+            <summary>
+            RSA or DSA private key for key-based authentication.
+            </summary>
+            <value>RSA or DSA private key.</value>
+        </member>
+        <member name="P:Rebex.TerminalEmulation.SshTerminalControl.Fingerprint">
+            <summary>
+            Gets the server public key fingerprint.
+            </summary>
+            <value>Server fingerprint.</value>
+        </member>
+        <member name="P:Rebex.TerminalEmulation.SshTerminalControl.Text">
+            <summary>
+            Gets or sets the text associated with this control.  
+            </summary>
+        </member>
+        <member name="P:Rebex.TerminalEmulation.SshTerminalControl.LogWriter">
+            <summary>
+            Gets or sets the logger used by this object.
+            </summary>
+            <value>Logger.</value>
+        </member>
+        <member name="E:Rebex.TerminalEmulation.SshTerminalControl.Connected">
+            <summary>
+            Occurs when connected to the server.
+            </summary>
+        </member>
+        <member name="T:Rebex.Net.SshTunnel">
+            <summary>
+            Represents an active SSH tunnel.
+            </summary>
+        </member>
+        <member name="M:Rebex.Net.SshTunnel.Close">
+            <summary>
+            Closes the tunnel. Stops new connections from being accepted, but leaves the current connections active.
+            </summary>
+        </member>
+    </members>
+</doc>

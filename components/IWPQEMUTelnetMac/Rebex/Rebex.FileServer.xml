@@ -1,0 +1,1653 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Rebex.FileServer</name>
+    </assembly>
+    <members>
+        <member name="P:Rebex.Common.MscorlibVersion">
+            <summary>
+            Gets version of the mscorlib assembly.<br/>
+            If the version cannot be somehow retrieved, returns <see cref="F:Rebex.Common.UnknownVerison"/> object (so never retuns null). 
+            </summary>
+        </member>
+        <member name="M:Rebex.IO.Compression.ICompressor.SetInput(System.Byte[],System.Int32,System.Int32,Rebex.IO.Compression.BlockFlag)">
+            <summary>
+            SetInput method doesn't set state to MoreOutput necessarily. It may remain in NewInput state. In ZlibDecompressor it may even set state to Finish.
+            </summary>
+        </member>
+        <member name="M:Rebex.IO.Compression.ICompressor.Process(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Process method may return zero at any time of the (de)compression process (not only when (de)compressing final block). 
+            It may arise typically when requesting new input.
+            </summary>
+        </member>
+        <member name="M:Rebex.IO.Compression.ICompressor.Finish">
+            <summary>
+            Resets (de)compressor for future use.
+            </summary>
+            <returns>Number of bytes remained in the input buffer (that buffer specified to the SetInput method).</returns>
+        </member>
+        <member name="M:Rebex.IO.Compression.DeflateCompressor.Analyze">
+            <summary>
+            Performs frequence analysis, computes dynamic tree and decides which method to use.
+            </summary>
+        </member>
+        <member name="M:Rebex.IO.Compression.DeflateCompressor.BlockCompressed">
+            <summary>
+            Decides what to do next (block has been completely flushed).
+            </summary>
+        </member>
+        <member name="M:Rebex.IO.Compression.DeflateDecompressor.ReadBits(System.Int32)">
+            <summary>
+            Read next (one to _bits) bits from the input buffer.
+            </summary>
+        </member>
+        <member name="M:Rebex.IO.Compression.DeflateDecompressor.DecodeRunningLength(System.Int32)">
+            <summary>
+            Decodes running length. Value is stored in _codeLengthBuffer. More bits can be read during decoding.
+            </summary>
+            <param name="value">Value of the running length.</param>
+            <returns>True if the running length was decoded. False if more input is needed.</returns>
+        </member>
+        <member name="M:Rebex.IO.Compression.DeflateDecompressor.DecompressDataFast(System.Int32@)">
+            <returns>True if the end of block was reached; false otherwise.</returns>
+        </member>
+        <member name="M:Rebex.IO.Compression.DeflateDecompressor.DecodeCopyLength(System.Int32)">
+            <summary>
+            Decodes LZ77 length value. Sets internal properties to correct continuation of the LZ77 copying.
+            </summary>
+            <param name="value">Value of the LZ77 length to be decoded (HAS TO be greater than 256).</param>
+        </member>
+        <member name="M:Rebex.IO.Compression.DeflateDecompressor.DecodeDistanceLength(System.Int32)">
+            <summary>
+            Decodes LZ77 distance value. Sets internal properties to correct continuation of the LZ77 copying.
+            </summary>
+            <param name="value">Value of the LZ77 distance to be decoded.</param>
+        </member>
+        <member name="T:Rebex.IO.Compression.InvalidCompressedDataException">
+            <summary>
+            The exception that is thrown when an invalid compressed data occurs while decompressing.
+            </summary>
+        </member>
+        <member name="M:Rebex.IO.Compression.HuffmanTree.Decode(System.Int32@,System.Int32@)">
+            <summary>
+            Returns the value of the specified huffman code.
+            </summary>
+        </member>
+        <member name="M:Rebex.IO.Compression.HuffmanTree.Build(System.Int32[],System.Int32[],System.Int32[],System.Int32)">
+            <summary>
+            Builds dynamic legth limited huffman tree.
+            </summary>
+            <param name="frequency">Frequencies of the values.</param>
+            <param name="codeLengths">An array to fill. It will contain code lengths.</param>
+            <param name="codes">An array to fill. It will contain codes.</param>
+            <param name="maxTreeLength">Maximum tree length.</param>
+            <returns>Number of computed code lengths (and codes).</returns>
+        </member>
+        <member name="T:Rebex.Messages">
+            <summary>
+            Provides methods for constructing exception messages.
+            </summary>
+        </member>
+        <member name="M:Rebex.StringUtil.BitConverterGetBytes(System.String)">
+            <summary>
+            Gets the bytes array from specified hexadecimal string representation. 
+            Inverse method to BitConverter.GetString(byte[]).
+            </summary>
+            <param name="data">Hexadecimal string in format AA-BB-CC.</param>
+            <returns>An array of bytes converted from specified hexadecimal string.</returns>
+        </member>
+        <member name="M:Rebex.StringUtil.HexStringGetBytes(System.String)">
+            <summary>
+            Gets the bytes array from specified hexadecimal string representation. 
+            </summary>
+            <param name="data">Hexadecimal string in format AABBCC.</param>
+            <returns>An array of bytes converted from specified hexadecimal string.</returns>
+        </member>
+        <member name="F:Rebex.StringUtil.Base32Mode.Basic">
+            <summary>
+            Convert with no additions.
+            </summary>
+        </member>
+        <member name="F:Rebex.StringUtil.Base32Mode.AcceptNull">
+            <summary>
+            Converts null to 0 (0 is not in base32 alphabet)
+            </summary>
+        </member>
+        <member name="T:Rebex.Net.Servers.Binding">
+            <summary>
+            Represents a binding of a server module to an endpoint.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.Binding.EndPoint">
+            <summary>
+            Gets the endpoint.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.Binding.Module">
+            <summary>
+            Gets the module.
+            </summary>
+        </member>
+        <member name="T:Rebex.Net.Servers.BindingCollection">
+            <summary>
+            A collection of server bindings.
+            </summary>
+        </member>
+        <member name="M:Rebex.Net.Servers.BindingCollection.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through all the bindings in the collection.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Rebex.Net.Servers.BindingCollection.GetBindings(System.Net.EndPoint)">
+            <summary>
+            Returns a collection of bindings for the specified endpoint.
+            </summary>
+            <param name="endPoint">Endpoint.</param>
+            <returns>A collection of bindings.</returns>
+        </member>
+        <member name="M:Rebex.Net.Servers.BindingCollection.GetBindings(System.Int32)">
+            <summary>
+            Returns a collection of bindings for the specified port.
+            </summary>
+            <param name="port">Port.</param>
+            <returns>A collection of bindings.</returns>
+        </member>
+        <member name="M:Rebex.Net.Servers.BindingCollection.GetBindings(System.Net.IPAddress)">
+            <summary>
+            Returns a collection of bindings for the specified address.
+            </summary>
+            <param name="address">Address.</param>
+            <returns>A collection of bindings.</returns>
+        </member>
+        <member name="M:Rebex.Net.Servers.BindingCollection.GetBindings(Rebex.Net.Servers.Core.ServerModule)">
+            <summary>
+            Returns a collection of bindings for the specified module.
+            </summary>
+            <param name="module">Server module.</param>
+            <returns>A collection of bindings.</returns>
+        </member>
+        <member name="P:Rebex.Net.Servers.BindingCollection.Count">
+            <summary>
+            Returns the number of bindings.
+            </summary>
+        </member>
+        <member name="T:Rebex.Net.Servers.Core.DiffieHellmanParametersCache">
+            <summary>
+            Security parameters.
+            </summary>
+        </member>
+        <member name="M:Rebex.Net.Servers.Core.DiffieHellmanParametersCache.#ctor">
+            <summary>
+            Initializes a new instance of SshParameters with default parameters.
+            </summary>
+        </member>
+        <member name="M:Rebex.Net.Servers.Core.DiffieHellmanParametersCache.SetDiffieHellmanKeySizeRange(System.Int32,System.Int32)">
+            <summary>
+            Sets the allowed key size range for Diffie-Hellman keys used during SSH negotiation. Only used by server-side SSH.
+            </summary>
+            <param name="minKeySize">Minumum allowed key size.</param>
+            <param name="maxKeySize">Maximum allowed key size.</param>
+        </member>
+        <member name="M:Rebex.Net.Servers.Core.DiffieHellmanParametersCache.GetDiffieHellmanKeySizeRange(System.Int32@,System.Int32@)">
+            <summary>
+            Gets the allowed key size range for Diffie-Hellman keys used during SSH negotiation. Only used by server-side SSH.
+            </summary>
+            <param name="minKeySize">Minumum allowed key size.</param>
+            <param name="maxKeySize">Maximum allowed key size.</param>
+        </member>
+        <member name="M:Rebex.Net.Servers.Core.DiffieHellmanParametersCache.IsSupportedKeySize(System.Int32)">
+            <summary>
+            Determines whether the key cache supports keys of the specified size.
+            </summary>
+            <param name="keySize">Key size.</param>
+            <returns>True if the key size is supported; false otherwise.</returns>
+        </member>
+        <member name="M:Rebex.Net.Servers.Core.DiffieHellmanParametersCache.GetSupportedKeySizes(System.Int32)">
+            <summary>
+            Returns a list of supported key sizes.
+            </summary>
+            <returns>List of supported key sizes.</returns>
+        </member>
+        <member name="M:Rebex.Net.Servers.Core.DiffieHellmanParametersCache.GetDiffieHellmanParameters(System.Int32)">
+            <summary>
+            Gets one of Diffie-Hellman parameters corresponding to the specified key size. Only used by server-side SSH.
+            </summary>
+            <param name="keySize">Key size.</param>
+            <returns>Diffie-Hellman parameters.</returns>
+            <remarks>
+            If no parameters are found in the cache, they are generated. This can be quite slow for large key sizes.
+            </remarks>
+        </member>
+        <member name="M:Rebex.Net.Servers.Core.DiffieHellmanParametersCache.Clear">
+            <summary>
+            Clears Diffie-Hellman parameters cache. Only used by server-side SSH.
+            </summary>
+        </member>
+        <member name="M:Rebex.Net.Servers.Core.DiffieHellmanParametersCache.Add(Rebex.Security.Cryptography.DiffieHellmanParameters)">
+            <summary>
+            Adds Diffie-Hellman parameters to parameters cache. Only used by server-side SSH.
+            </summary>
+            <param name="parameters">Diffie-Hellman parameters.</param>
+        </member>
+        <member name="M:Rebex.IO.IFilesystem.OpenDirectory(System.String,System.String)">
+            <summary>
+            Starts traversing through the directory. Call <see cref="M:Rebex.IO.IFilesystem.ReadNextItem(Rebex.IO.IHandle)"/> to get file infos.
+            </summary>
+            <param name="path"></param>
+            <param name="mask"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Rebex.IO.IFilesystem.ReadNextItem(Rebex.IO.IHandle)">
+            <summary>
+            Returns <see cref="T:Rebex.IO.ItemInfo"/> for next item in directory. Call <see cref="M:Rebex.IO.IFilesystem.OpenDirectory(System.String,System.String)"/> to get a first item info.
+            </summary>
+            <param name="handle">Handle returned by <see cref="M:Rebex.IO.IFilesystem.OpenDirectory(System.String,System.String)"/> or <see cref="M:Rebex.IO.IFilesystem.ReadNextItem(Rebex.IO.IHandle)"/>. </param>
+            <returns></returns>
+        </member>
+        <member name="M:Rebex.IO.IFilesystem.Rename(System.String,System.String)">
+            <summary>
+            Renames file or directory.
+            </summary>
+            <param name="sourcePath"></param>
+            <param name="targetPath"></param>
+        </member>
+        <member name="M:Rebex.IO.IFilesystem.GetFilesystemInfo">
+            <summary>
+            Returns <see cref="T:Rebex.IO.FilesystemInfo"/> information about the Filesystem.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Rebex.IO.IFilesystem.Normalize(System.String)">
+            <summary>
+            Converts the path to normalized form. Throws an exception if path is invalid.
+            </summary>
+            <param name="absolutePath">path to normalize</param>
+            <remarks>Replaces AltDirectorySeparators with DirectorySeparators. Throws an exception when '..' or '.' are used as folder names.</remarks>
+            <exception cref="T:Rebex.IO.FilesystemException">Status set to FilesystemExceptionStatus.InvalidPath.</exception>
+            <returns></returns>
+        </member>
+        <member name="M:Rebex.IO.IFilesystem.ResolvePath(System.String,System.String)">
+            <summary>
+            Resolves and joins two paths. Similar to <see cref="M:System.IO.Path.Combine(System.String,System.String)"/>. 
+            </summary>
+            <param name="path"></param>
+            <param name="relativePath"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Rebex.Net.Servers.AuthenticationMethods">
+            <summary>
+            User authentication method.
+            </summary>
+        </member>
+        <member name="F:Rebex.Net.Servers.AuthenticationMethods.None">
+            <summary>
+            No authentication method.
+            </summary>
+        </member>
+        <member name="F:Rebex.Net.Servers.AuthenticationMethods.Password">
+            <summary>
+            Password authentication.
+            </summary>
+        </member>
+        <member name="F:Rebex.Net.Servers.AuthenticationMethods.PublicKey">
+            <summary>
+            Public key authentication.
+            </summary>
+        </member>
+        <member name="F:Rebex.Net.Servers.AuthenticationMethods.External">
+            <summary>
+            External authentication.
+            </summary>
+        </member>
+        <member name="F:Rebex.Net.Servers.AuthenticationMethods.Any">
+            <summary>
+            Allow any authentication method.
+            </summary>
+        </member>
+        <member name="T:Rebex.Net.Servers.AuthenticationBaseEventArgs">
+            <summary>
+            Base class for <see cref="T:Rebex.Net.Servers.PreAuthenticationEventArgs"/> and <see cref="T:Rebex.Net.Servers.AuthenticationEventArgs"/>.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.AuthenticationBaseEventArgs.UserName">
+            <summary>
+            Gets the user name of the client trying to authenticate.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.AuthenticationBaseEventArgs.ClientEndPoint">
+            <summary>
+            Gets the endpoint of the client trying to authenticate.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.AuthenticationBaseEventArgs.ClientAddress">
+            <summary>
+            Gets the IP address of the client trying to authenticate.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.AuthenticationBaseEventArgs.Users">
+            <summary>
+            Returns <see cref="P:Rebex.Net.Servers.Core.Server.Users">Users</see> collection on the server authenticating the request.
+            </summary>
+        </member>
+        <member name="T:Rebex.Net.Servers.PreAuthenticationEventArgs">
+            <summary>
+            Provides data for <see cref="E:Rebex.Net.Servers.Core.Server.PreAuthentication">Authentication</see> event.
+            </summary>
+        </member>
+        <member name="M:Rebex.Net.Servers.PreAuthenticationEventArgs.Reject">
+            <summary>
+            Reject authentication request for this user.
+            </summary>
+        </member>
+        <member name="M:Rebex.Net.Servers.PreAuthenticationEventArgs.Accept(Rebex.Net.Servers.AuthenticationMethods)">
+            <summary>
+            Accept authentication request for this user and allow the specified authentication methods.
+            </summary>
+            <param name="methods">Accepted authentication methods.</param>
+        </member>
+        <member name="M:Rebex.Net.Servers.PreAuthenticationEventArgs.Accept(Rebex.Net.Servers.AuthenticationMethods[])">
+            <summary>
+            Accept authentication request for this user and allow the specified authentication methods.
+            </summary>
+            <param name="methods">Accepted authentication methods.</param>
+        </member>
+        <member name="P:Rebex.Net.Servers.PreAuthenticationEventArgs.AllowedMethods">
+            <summary>
+            Indicates which methods are allowed to be used.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.PreAuthenticationEventArgs.AcceptedMethods">
+            <summary>
+            Indicates which methods were accepted by the event handler.
+            </summary>
+        </member>
+        <member name="T:Rebex.Net.Servers.AuthenticationEventArgs">
+            <summary>
+            Provides data for <see cref="E:Rebex.Net.Servers.Core.Server.Authentication">Authentication</see> event.
+            </summary>
+        </member>
+        <member name="M:Rebex.Net.Servers.AuthenticationEventArgs.Accept(Rebex.Net.Servers.ServerUser)">
+            <summary>
+            Accept the client as the specified user.
+            </summary>
+        </member>
+        <member name="M:Rebex.Net.Servers.AuthenticationEventArgs.Reject">
+            <summary>
+            Reject the client.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.AuthenticationEventArgs.Password">
+            <summary>
+            Gets the password.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.AuthenticationEventArgs.Key">
+            <summary>
+            Gets the user public key.
+            </summary>
+        </member>
+        <member name="T:Rebex.Net.Servers.ErrorEventArgs">
+            <summary>
+            Provides data for the <see cref="E:Rebex.Net.Servers.Core.Server.ErrorOccurred">ErrorOccurred</see> event.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.ErrorEventArgs.SessionId">
+            <summary>
+            Gets session ID.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.ErrorEventArgs.ModuleType">
+            <summary>
+            Gets module type.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.ErrorEventArgs.Error">
+            <summary>
+            Gets the error.
+            </summary>
+        </member>
+        <member name="T:Rebex.Net.Servers.DisconnectedEventArgs">
+            <summary>
+            Provides data for the <see cref="E:Rebex.Net.Servers.Core.Server.Disconnected">Disconnected</see> event.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.DisconnectedEventArgs.ClientAddress">
+            <summary>
+            Gets the IP address of the disconnected client.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.DisconnectedEventArgs.ClientEndPoint">
+            <summary>
+            Gets the endpoint of the disconnected client.
+            </summary>
+        </member>
+        <member name="T:Rebex.Net.Servers.ConnectingEventArgs">
+            <summary>
+            Provides data for the <see cref="E:Rebex.Net.Servers.Core.Server.Connecting">Connecting</see> event.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.ConnectingEventArgs.ClientAddress">
+            <summary>
+            Gets the IP address of the connecting client.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.ConnectingEventArgs.ClientEndPoint">
+            <summary>
+            Gets the endpoint of the connecting  client.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.ConnectingEventArgs.Accept">
+            <summary>
+            Gets or sets a value indicating whether to accept a new session.
+            </summary>
+            <value>True to accept the session; false to reject it.</value>
+            <remarks>Default is true.</remarks>
+        </member>
+        <member name="T:Rebex.Net.Servers.ShellCommandEventArgs">
+            <summary>
+            Provides data for the <see cref="E:Rebex.Net.Servers.FileServer.ShellCommand">ShellCommand</see> event.
+            </summary>
+        </member>
+        <member name="M:Rebex.Net.Servers.ShellCommandEventArgs.Write(System.Object)">
+            <summary>
+            Writes the text representation of the specified object to the console.
+            </summary>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="M:Rebex.Net.Servers.ShellCommandEventArgs.WriteLine(System.Object)">
+            <summary>
+            Writes the text representation of the specified object to the console, followed by an end-of-line sequence.
+            </summary>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="M:Rebex.Net.Servers.ShellCommandEventArgs.Write(System.String,System.Object[])">
+            <summary>
+            Writes the text representation of the specified array of objects to the remote console
+            using the specified format information.
+            </summary>
+            <param name="format">A format string.</param>
+            <param name="args">An array of objects to write using the specified format.</param>
+        </member>
+        <member name="M:Rebex.Net.Servers.ShellCommandEventArgs.WriteLine(System.String,System.Object[])">
+            <summary>
+            Writes the text representation of the specified array of objects to the remote console
+            using the specified format information, followed by an end-of-line sequence.
+            </summary>
+            <param name="format">A format string.</param>
+            <param name="args">An array of objects to write using the specified format.</param>
+        </member>
+        <member name="M:Rebex.Net.Servers.ShellCommandEventArgs.WriteLine">
+            <summary>
+            Writes an end-of-line sequence to the remote console.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.ShellCommandEventArgs.Session">
+            <summary>
+            Gets session info.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.ShellCommandEventArgs.User">
+            <summary>
+            User on behalf of whom the command is being executed.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.ShellCommandEventArgs.Command">
+            <summary>
+            Gets the name of the command to be executed.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.ShellCommandEventArgs.Arguments">
+            <summary>
+            Gets the arguments of the command to be executed.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.ShellCommandEventArgs.Action">
+            <summary>
+            Gets or sets a delegate to run the specified command.
+            </summary>
+            <remarks>
+            Use this for commands that need to read from the console or take a long time to execute.
+            </remarks>
+        </member>
+        <member name="P:Rebex.Net.Servers.ShellCommandEventArgs.ExitCode">
+            <summary>
+            Gets or sets the exit code. Only used for commands processed inside the event handler.
+            </summary>
+        </member>
+        <member name="T:Rebex.Net.Servers.FileServerProtocol">
+            <summary>
+            Specifies a protocol (module) to be used with <see cref="T:Rebex.Net.Servers.FileServer"/>.
+            </summary>
+        </member>
+        <member name="F:Rebex.Net.Servers.FileServerProtocol.Sftp">
+            <summary>
+            SFTP protocol.
+            </summary>
+        </member>
+        <member name="F:Rebex.Net.Servers.FileServerProtocol.Scp">
+            <summary>
+            SCP protocol. A simple virtual SSH shell for accessing the virtual filesystem.
+            </summary>
+        </member>
+        <member name="F:Rebex.Net.Servers.FileServerProtocol.Shell">
+            <summary>
+            Virtual shell for SSH remote shell or for SCP protocol.
+            </summary>
+        </member>
+        <member name="F:Rebex.Net.Servers.FileServerProtocol.Tunneling">
+            <summary>
+            SSH tunneling (port forwarding). Only outgoing tunnels are supported at the moment.
+            </summary>
+        </member>
+        <member name="T:Rebex.Net.Servers.ShellType">
+            <summary>
+            Specifies virtual shell type.
+            </summary>
+        </member>
+        <member name="F:Rebex.Net.Servers.ShellType.Default">
+            <summary>
+            Default shell type (determined by server module).
+            </summary>
+        </member>
+        <member name="F:Rebex.Net.Servers.ShellType.Empty">
+            <summary>
+            Customizable shell. Only provides an "exit" command by default.
+            </summary>
+        </member>
+        <member name="F:Rebex.Net.Servers.ShellType.Scp">
+            <summary>
+            Simple shell that provides basic commands used by SCP clients.
+            </summary>
+        </member>
+        <member name="T:Rebex.Net.Servers.FileServer">
+            <summary>
+            Implements the SFTP/SSH server.
+            </summary>
+        </member>
+        <member name="T:Rebex.Net.Servers.Core.Server">
+            <summary>
+            Represents the base class for servers. In most cases, use <see cref="T:Rebex.Net.Servers.FileServer"/> instead.
+            </summary>
+        </member>
+        <member name="M:Rebex.Net.Servers.Core.Server.#ctor">
+            <summary>
+            Creates an instance of a generic server.
+            </summary>
+        </member>
+        <member name="M:Rebex.Net.Servers.Core.Server.OnHostCreated(Rebex.Net.Servers.Core.ServerModuleHost)">
+            <summary>
+            Called when a server module host has been created.
+            </summary>
+            <param name="host">Host that has just been created.</param>
+        </member>
+        <member name="M:Rebex.Net.Servers.Core.Server.OnHostClosed(Rebex.Net.Servers.Core.ServerModuleHost)">
+            <summary>
+            Called when a server module host has been closed
+            </summary>
+            <param name="host">Host that has just been closed.</param>
+        </member>
+        <member name="M:Rebex.Net.Servers.Core.Server.Start">
+            <summary>
+            Starts the server.
+            </summary>
+        </member>
+        <member name="M:Rebex.Net.Servers.Core.Server.Stop">
+            <summary>
+            Stops the server.
+            </summary>
+        </member>
+        <member name="M:Rebex.Net.Servers.Core.Server.Bind(Rebex.Net.Servers.Core.ServerModule)">
+            <summary>
+            Binds the specified module to its default port on all network interfaces.
+            </summary>
+            <param name="module">Module to bind.</param>
+        </member>
+        <member name="M:Rebex.Net.Servers.Core.Server.Bind(System.Int32,Rebex.Net.Servers.Core.ServerModule)">
+            <summary>
+            Binds the specified module to the specified port on all network interfaces.
+            </summary>
+            <param name="port">Port to which to bind the module.</param>
+            <param name="module">Module to bind.</param>
+        </member>
+        <member name="M:Rebex.Net.Servers.Core.Server.Bind(System.Net.IPEndPoint,Rebex.Net.Servers.Core.ServerModule)">
+            <summary>
+            Binds the specified module to the specified endpoint.
+            </summary>
+            <param name="endPoint">Endpoint to which to bind the module.</param>
+            <param name="module">Module to bind.</param>
+        </member>
+        <member name="M:Rebex.Net.Servers.Core.Server.Unbind(Rebex.Net.Servers.Core.ServerModule)">
+            <summary>
+            Unbinds the specified module from all endpoints.
+            </summary>
+            <param name="module">Module to unbind.</param>
+        </member>
+        <member name="M:Rebex.Net.Servers.Core.Server.Unbind(System.Net.IPEndPoint)">
+            <summary>
+            Unbinds all modules bound to the specified endpoint.
+            </summary>
+            <param name="endPoint">Endpoint to unbind.</param>
+        </member>
+        <member name="M:Rebex.Net.Servers.Core.Server.Unbind(System.Net.IPAddress)">
+            <summary>
+            Unbinds all modules bound to the specified address.
+            </summary>
+            <param name="address">Address to unbind.</param>
+        </member>
+        <member name="M:Rebex.Net.Servers.Core.Server.Unbind(System.Int32)">
+            <summary>
+            Unbinds all modules bound to the specified port.
+            </summary>
+            <param name="port">Port to unbind.</param>
+        </member>
+        <member name="M:Rebex.Net.Servers.Core.Server.Unbind">
+            <summary>
+            Unbinds all modules.
+            </summary>
+        </member>
+        <member name="E:Rebex.Net.Servers.Core.Server.PreAuthentication">
+            <summary>
+            Occurs when client authentication is about to start.
+            </summary>
+        </member>
+        <member name="E:Rebex.Net.Servers.Core.Server.Authentication">
+            <summary>
+            Occurs when client is being authenticated.
+            </summary>
+        </member>
+        <member name="E:Rebex.Net.Servers.Core.Server.Connecting">
+            <summary>
+            Occurs when a client is connecting.
+            </summary>
+        </member>
+        <member name="E:Rebex.Net.Servers.Core.Server.Disconnected">
+            <summary>
+            Occurs when a client has disconnected.
+            </summary>
+        </member>
+        <member name="E:Rebex.Net.Servers.Core.Server.ErrorOccurred">
+            <summary>
+            Occurs when an error occurs while processing requests.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.Core.Server.LogWriter">
+            <summary>
+            Gets or sets the log writer used by this object.
+            </summary>
+            <value>Log writer.</value>
+        </member>
+        <member name="P:Rebex.Net.Servers.Core.Server.IsRunning">
+            <summary>
+            Gets a value indicating whether the server is currently running.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.Core.Server.Settings">
+            <summary>
+            Gets server settings.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.Core.Server.Users">
+            <summary>
+            Gets a collection of users. Provides a simple user database which is used by default when no custom authentication has been defined.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.Core.Server.Keys">
+            <summary>
+            Gets a collection of server keys.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.Core.Server.Modules">
+            <summary>
+            Gets an enumerator for currently bound modules.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.Core.Server.Bindings">
+            <summary>
+            Gets a read-only collection of server bindings.
+            </summary>
+            <remarks>
+            Use one of the <see cref="M:Rebex.Net.Servers.Core.Server.Bind(System.Net.IPEndPoint,Rebex.Net.Servers.Core.ServerModule)">Bind</see> and <see cref="M:Rebex.Net.Servers.Core.Server.Unbind(System.Net.IPEndPoint)">Unbind</see> methods to add a binding.
+            </remarks>
+        </member>
+        <member name="P:Rebex.Net.Servers.Core.Server.Sessions">
+            <summary>
+            Gets an enumerator for currently active sessions.
+            </summary>
+        </member>
+        <member name="M:Rebex.Net.Servers.FileServer.#ctor">
+            <summary>
+            Initializes a new instance of this object.
+            </summary>
+        </member>
+        <member name="M:Rebex.Net.Servers.FileServer.Bind(Rebex.Net.Servers.FileServerProtocol)">
+            <summary>
+            Binds the specified protocol to its default port on all network interfaces.
+            </summary>
+            <param name="module">Module to bind.</param>
+        </member>
+        <member name="M:Rebex.Net.Servers.FileServer.Bind(System.Int32,Rebex.Net.Servers.FileServerProtocol)">
+            <summary>
+            Binds the specified protocol to the specified port on all network interfaces.
+            </summary>
+            <param name="port">Port to which to bind the module.</param>
+            <param name="module">Module to bind.</param>
+        </member>
+        <member name="M:Rebex.Net.Servers.FileServer.Bind(System.Net.IPEndPoint,Rebex.Net.Servers.FileServerProtocol)">
+            <summary>
+            Binds the specified protocol to the specified endpoint.
+            </summary>
+            <param name="endPoint">Endpoint to which to bind the module.</param>
+            <param name="module">Module to bind.</param>
+        </member>
+        <member name="M:Rebex.Net.Servers.FileServer.OnHostCreated(Rebex.Net.Servers.Core.ServerModuleHost)">
+            <summary>
+            Called when a server module host has been created.
+            </summary>
+            <param name="host">Host that has just been created.</param>
+        </member>
+        <member name="P:Rebex.Net.Servers.FileServer.Settings">
+            <summary>
+            Gets server settings.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.FileServer.Users">
+            <summary>
+            Gets a user collection that provide a simple default user database which is used when no custom authentication has been defined.
+            </summary>
+        </member>
+        <member name="E:Rebex.Net.Servers.FileServer.FileDownloaded">
+            <summary>
+            Occurs after a file (or a part of a file) has been downloaded.
+            </summary>
+        </member>
+        <member name="E:Rebex.Net.Servers.FileServer.FileUploaded">
+            <summary>
+            Occurs after a file (or a part of a file) has been uploaded.
+            </summary>
+        </member>
+        <member name="E:Rebex.Net.Servers.FileServer.PathAccessAuthorization">
+            <summary>
+            Occurs when path access authorization is required.
+            </summary>
+        </member>
+        <member name="E:Rebex.Net.Servers.FileServer.ShellCommand">
+            <summary>
+            Occurs when a shell command is executed.
+            </summary>
+        </member>
+        <member name="E:Rebex.Net.Servers.FileServer.TunnelRequested">
+            <summary>
+            Occurs when a tunnel is requested.
+            </summary>
+        </member>
+        <member name="T:Rebex.Net.Servers.FileServerUserCollection">
+            <summary>
+            Provides a simple default user database that is used when no custom authentication has been defined.
+            </summary>
+        </member>
+        <member name="T:Rebex.Net.Servers.Core.UserCollection`1">
+            <summary>
+            Provides a simple default user database that is used when no custom authentication has been defined.
+            </summary>
+        </member>
+        <member name="M:Rebex.Net.Servers.Core.UserCollection`1.#ctor(System.Collections.Generic.IDictionary{System.String,Rebex.Net.Servers.ServerUser})">
+            <summary>
+            Creates a collection of users based on the specified dictionary.
+            </summary>
+            <param name="users">Dictionary of users.</param>
+        </member>
+        <member name="M:Rebex.Net.Servers.Core.UserCollection`1.Add(`0)">
+            <summary>
+            Adds a user to the collection.
+            </summary>
+            <param name="user">User to add.</param>
+        </member>
+        <member name="M:Rebex.Net.Servers.Core.UserCollection`1.Clear">
+            <summary>
+            Removes all users from the colleciton.
+            </summary>
+        </member>
+        <member name="M:Rebex.Net.Servers.Core.UserCollection`1.Contains(System.String)">
+            <summary>
+            Returns a value indicating whether the collection contains a user with the specified name.
+            </summary>
+            <param name="userName">User name.</param>
+            <returns>True if yes.</returns>
+        </member>
+        <member name="M:Rebex.Net.Servers.Core.UserCollection`1.Contains(`0)">
+            <summary>
+            Returns a value indicating whether the collection contains a specified user.
+            </summary>
+            <param name="user">User.</param>
+            <returns>True if yes.</returns>
+        </member>
+        <member name="M:Rebex.Net.Servers.Core.UserCollection`1.System#Collections#Generic#ICollection{T}#CopyTo(`0[],System.Int32)">
+            <summary>
+            Copies users to the specified array.
+            </summary>
+            <param name="array">Target array.</param>
+            <param name="index">Index in target array.</param>
+        </member>
+        <member name="M:Rebex.Net.Servers.Core.UserCollection`1.Remove(System.String)">
+            <summary>
+            Removes the user with the specified name from the collection.
+            </summary>
+            <param name="userName">Name of user to remove.</param>
+            <returns>True if removed.</returns>
+        </member>
+        <member name="M:Rebex.Net.Servers.Core.UserCollection`1.Remove(`0)">
+            <summary>
+            Removes the specified user from the collection.
+            </summary>
+            <param name="user">User to remove.</param>
+            <returns>True if removed.</returns>
+        </member>
+        <member name="M:Rebex.Net.Servers.Core.UserCollection`1.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the collection.
+            </summary>
+            <returns>Enumerator.</returns>
+        </member>
+        <member name="M:Rebex.Net.Servers.Core.UserCollection`1.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the collection.
+            </summary>
+            <returns>Enumerator.</returns>
+        </member>
+        <member name="P:Rebex.Net.Servers.Core.UserCollection`1.Item(System.String)">
+            <summary>
+            Gets a ServerUser with the specified userName.
+            </summary>
+            <param name="userName">UserName of the user to get.</param>
+            <returns>A ServerUser.</returns>
+        </member>
+        <member name="P:Rebex.Net.Servers.Core.UserCollection`1.Count">
+            <summary>
+            Returns the number of users in the collection.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.Core.UserCollection`1.System#Collections#Generic#ICollection{T}#IsReadOnly">
+            <summary>
+            Returns a value indicating whether the collection is read-only.
+            </summary>
+        </member>
+        <member name="M:Rebex.Net.Servers.FileServerUserCollection.Add(System.String,System.String)">
+            <summary>
+            Adds a new file server user with the specified password.
+            </summary>
+            <param name="userName">User name.</param>
+            <param name="password">Password.</param>
+            <returns>An instance of the newly-created user.</returns>
+            <remarks>
+            The password is one-way transformed to a SHA-256 hash with a random salt value.
+            </remarks>
+        </member>
+        <member name="M:Rebex.Net.Servers.FileServerUserCollection.Add(System.String,System.String,System.String)">
+            <summary>
+            Adds a new file server user with the specified password and their virtual filesystem based at the specified path.
+            </summary>
+            <param name="userName">User name.</param>
+            <param name="password">Password.</param>
+            <param name="physicalRootPath">The placement of the virtual root of the user.</param>
+            <returns>An instance of the newly-created user.</returns>
+            <remarks>
+            The password is one-way transformed to a SHA-256 hash with a random salt value.
+            </remarks>
+        </member>
+        <member name="M:Rebex.Net.Servers.FileServerUserCollection.Add(System.String,System.String,Rebex.Net.Servers.ShellType)">
+            <summary>
+            Adds a new file server user with the specified password and their virtual filesystem based at the specified path.
+            </summary>
+            <param name="userName">User name.</param>
+            <param name="password">Password.</param>
+            <param name="shellType">Specifies which kind of shell to use for this user.</param>
+            <returns>An instance of the newly-created user.</returns>
+            <remarks>
+            The password is one-way transformed to a SHA-256 hash with a random salt value.
+            </remarks>
+        </member>
+        <member name="M:Rebex.Net.Servers.FileServerUserCollection.Add(System.String,System.String,System.String,Rebex.Net.Servers.ShellType)">
+            <summary>
+            Adds a new file server user with the specified password and their virtual filesystem based at the specified path.
+            </summary>
+            <param name="userName">User name.</param>
+            <param name="password">Password.</param>
+            <param name="physicalRootPath">The placement of the virtual root of the user.</param>
+            <param name="shellType">Specifies which kind of shell to use for this user.</param>
+            <returns>An instance of the newly-created user.</returns>
+            <remarks>
+            The password is one-way transformed to a SHA-256 hash with a random salt value.
+            </remarks>
+        </member>
+        <member name="M:Rebex.Net.Servers.FileServerUserCollection.Add(System.String,System.String,System.String,System.String)">
+            <summary>
+            Adds a new file server user with the specified password, their virtual filesystem based at the specified path, and initial path in the virtual filesystem.
+            </summary>
+            <param name="userName">User name.</param>
+            <param name="password">Password.</param>
+            <param name="physicalRootPath">The placement of the virtual root of the user.</param>
+            <param name="initialVirtualPath">The initial path (i.e. home directory) of the user. This is virtual filesystem path, relative to the virtual root.</param>
+            <returns>An instance of the newly-created user.</returns>
+            <remarks>
+            The password is one-way transformed to a SHA-256 hash with a random salt value.
+            </remarks>
+        </member>
+        <member name="T:Rebex.Net.Servers.FileServerSettings">
+            <summary>
+            File server settings.
+            </summary>
+        </member>
+        <member name="T:Rebex.Net.Servers.Core.ServerSettings">
+            <summary>
+            File server settings.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.Core.ServerSettings.AllowedAuthenticationMethods">
+            <summary>
+            Gets or sets allowed authentication methods.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.Core.ServerSettings.MaxAuthenticationAttempts">
+            <summary>
+            Gets or sets maximum number of authentication retry attempts on a single session.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.Core.ServerSettings.Banner">
+            <summary>
+            Gets or sets the banner message announced to the client before authentication.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.Core.ServerSettings.KeepSessionsAlive">
+            <summary>
+            Gets or sets a value indicating whether to keep active sessions running when the server is stopped.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.FileServerSettings.UseNativeFilesystem">
+            <summary>
+            Gets or sets a value indicating whether to prefer filesystem access through Win32 API (native) or through System.IO.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.FileServerSettings.ShellHostName">
+            <summary>
+            Gets or sets the server's host name for SCP subsystem.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.FileServerSettings.ShellWelcomeMessage">
+            <summary>
+            Gets or sets the user's welcome message for SCP subsystem.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.FileServerSettings.ShellPrompt">
+            <summary>
+            Gets or sets the user's prompt for SCP subsystem.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.FileServerSettings.ShellName">
+            <summary>
+            Gets or sets the shell name for SCP subsystem.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.FileServerSettings.ShellSystemType">
+            <summary>
+            Gets or sets the system type for SCP subsystem.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.FileServerSettings.ShellSystemVersion">
+            <summary>
+            Gets or sets the system version for SCP subsystem.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.FileServerSettings.ShellEncoding">
+            <summary>
+            Gets or sets charset to be used by SCP subsystem.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.FileServerSettings.SftpEncoding">
+            <summary>
+            Gets or sets charset to be used by SFTP v3.
+            </summary>
+            <remarks>SFTP v4 always uses UTF-8.</remarks>
+        </member>
+        <member name="P:Rebex.Net.Servers.FileServerSettings.SshParameters">
+            <summary>
+            Gets or sets SSH parameters.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.FileServerSettings.DiffieHellmanParametersCache">
+            <summary>
+            Gets or sets Diffie-Hellman parameters cache.
+            </summary>
+        </member>
+        <member name="T:Rebex.IO.FilesystemInfo">
+            <summary>
+            Basic information about filesystem
+            </summary>
+        </member>
+        <member name="M:Rebex.IO.FilesystemInfo.GetInvalidPathChars">
+            <summary>
+              Gets an array containing the characters that are not allowed in path names. 
+            </summary>
+            <returns> An array containing the characters that are not allowed in path names.</returns>
+        </member>
+        <member name="P:Rebex.IO.FilesystemInfo.DirectorySeparatorChar">
+            <summary>
+            Provides a platform-specific character used to separate directory levels in a path string that reflects a hierarchical file system organization.
+            </summary>
+            <see cref="F:System.IO.Path.DirectorySeparatorChar"/>
+            <example>Usually '/' or '\\'.</example>
+        </member>
+        <member name="P:Rebex.IO.FilesystemInfo.AltDirectorySeparatorChar">
+            <summary>
+            Provides a platform-specific alternate character used to separate directory levels in a path string that reflects a hierarchical file system organization.
+            </summary>
+        </member>
+        <member name="P:Rebex.IO.FilesystemInfo.VolumeSeparatorChar">
+            <summary>
+            Provides a platform-specific volume separator character. 
+            </summary>
+            <see cref="F:System.IO.Path.VolumeSeparatorChar"/>
+            <example>Usually ':' on Windows and '/' on *nix filesystems.</example>
+        </member>
+        <member name="P:Rebex.IO.FilesystemInfo.CaseSensitive">
+            <summary>
+            True if filesystem is case sensitive ("TestPath" is NOT the same as "testpath")
+            </summary>
+        </member>
+        <member name="T:Rebex.Net.Servers.ServerUserCollection">
+            <summary>
+            Provides a simple default user database that is used when no custom authentication has been defined.
+            </summary>
+        </member>
+        <member name="M:Rebex.Net.Servers.ServerUserCollection.Add(System.String,System.String)">
+            <summary>
+            Adds a user with the specified user name and password to the collection.
+            </summary>
+            <param name="userName">User name.</param>
+            <param name="password">Password.</param>
+            <returns>An instance of the newly-created user.</returns>
+        </member>
+        <member name="T:Rebex.Net.Servers.SessionState">
+            <summary>
+            Session state.
+            </summary>
+        </member>
+        <member name="F:Rebex.Net.Servers.SessionState.Closed">
+            <summary>
+            Session is closed.
+            </summary>
+        </member>
+        <member name="F:Rebex.Net.Servers.SessionState.Initializing">
+            <summary>
+            Session initialization is in progress.
+            </summary>
+        </member>
+        <member name="F:Rebex.Net.Servers.SessionState.KeyExchange">
+            <summary>
+            Key exchange is in progress.
+            </summary>
+        </member>
+        <member name="F:Rebex.Net.Servers.SessionState.Authentication">
+            <summary>
+            Authentication is in progress.
+            </summary>
+        </member>
+        <member name="F:Rebex.Net.Servers.SessionState.Running">
+            <summary>
+            Server is active and running.
+            </summary>
+        </member>
+        <member name="F:Rebex.Net.Servers.SessionState.Closing">
+            <summary>
+            Server is being closed.
+            </summary>
+        </member>
+        <member name="T:Rebex.Net.Servers.ServerSession">
+            <summary>
+            Represents a protocol session.
+            </summary>
+        </member>
+        <member name="M:Rebex.Net.Servers.ServerSession.Close">
+            <summary>
+            Close the session.
+            </summary>
+        </member>
+        <member name="M:Rebex.Net.Servers.ServerSession.SendMessage(System.String)">
+            <summary>
+            Sends a message to this session.
+            </summary>
+            <param name="message">The message to be sent.</param>
+        </member>
+        <member name="P:Rebex.Net.Servers.ServerSession.State">
+            <summary>
+            Gets the current state of the session.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.ServerSession.UserName">
+            <summary>
+            Gets the current session user name.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.ServerSession.User">
+            <summary>
+            Gets the current session user.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.ServerSession.ClientAddress">
+            <summary>
+            Gets the IP address of the connecting client.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.ServerSession.ClientEndPoint">
+            <summary>
+            Gets the endpoint of the connecting client.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.ServerSession.Duration">
+            <summary>
+            Gets the current duration of the session.
+            </summary>
+        </member>
+        <member name="T:Rebex.Net.Servers.ServerUser">
+            <summary>
+            Represents a server user.
+            </summary>
+        </member>
+        <member name="M:Rebex.Net.Servers.ServerUser.#ctor(System.String,System.String)">
+            <summary>
+            Creates a new server user with the specified password.
+            </summary>
+            <param name="userName">User name.</param>
+            <param name="password">Password.</param>
+            <remarks>
+            The password is one-way transformed to a SHA-256 hash with a random salt value.
+            (In .NET Compact Framework, SHA-1 is used instead.) 
+            </remarks>
+        </member>
+        <member name="M:Rebex.Net.Servers.ServerUser.CheckPassword(System.String)">
+            <summary>
+            Checks whether the specified password is correct.
+            </summary>
+            <param name="password">Password to check.</param>
+            <returns>True if correct, false otherwise.</returns>
+        </member>
+        <member name="M:Rebex.Net.Servers.ServerUser.ToString">
+            <summary>
+            Returns a string that represents the user.
+            </summary>
+            <returns>User name.</returns>
+        </member>
+        <member name="P:Rebex.Net.Servers.ServerUser.Name">
+            <summary>
+            Gets the user name.
+            </summary>
+        </member>
+        <member name="T:Rebex.Net.Servers.FileServerUser">
+            <summary>
+            Represents a user of the <see cref="T:Rebex.Net.Servers.FileServer"/>.
+            </summary>
+        </member>
+        <member name="M:Rebex.Net.Servers.FileServerUser.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Creates a new file server user with the specified password and their virtual filesystem based at the specified path.
+            </summary>
+            <param name="userName">User name.</param>
+            <param name="password">Password.</param>
+            <param name="physicalRootPath">The placement of the virtual root of the user.</param>
+            <remarks>
+            The password is one-way transformed to a SHA-256 hash with a random salt value.
+            </remarks>
+        </member>
+        <member name="M:Rebex.Net.Servers.FileServerUser.#ctor(System.String,System.String,Rebex.Net.Servers.ShellType)">
+            <summary>
+            Creates a new file server user with the specified password and their virtual filesystem based at the specified path.
+            </summary>
+            <param name="userName">User name.</param>
+            <param name="password">Password.</param>
+            <param name="shellType">Specifies which kind of shell to use for this user.</param>
+            <remarks>
+            The password is one-way transformed to a SHA-256 hash with a random salt value.
+            </remarks>
+        </member>
+        <member name="M:Rebex.Net.Servers.FileServerUser.#ctor(System.String,System.String,System.String,Rebex.Net.Servers.ShellType)">
+            <summary>
+            Creates a new file server user with the specified password and their virtual filesystem based at the specified path.
+            </summary>
+            <param name="userName">User name.</param>
+            <param name="password">Password.</param>
+            <param name="physicalRootPath">The placement of the virtual root of the user.</param>
+            <param name="shellType">Specifies which kind of shell to use for this user.</param>
+            <remarks>
+            The password is one-way transformed to a SHA-256 hash with a random salt value.
+            </remarks>
+        </member>
+        <member name="M:Rebex.Net.Servers.FileServerUser.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Creates a new file server user with the specified password, their virtual filesystem based at the specified path, and initial path in the virtual filesystem.
+            </summary>
+            <param name="userName">User name.</param>
+            <param name="password">Password.</param>
+            <param name="physicalRootPath">The placement of the virtual root of the user.</param>
+            <param name="initialVirtualPath">The initial path (i.e. home directory) of the user.</param>
+            <remarks>
+            The password is one-way transformed to a SHA-256 hash with a random salt value.
+            </remarks>
+        </member>
+        <member name="T:Rebex.Net.Servers.TunnelRequestedEventArgs">
+            <summary>
+            Provides data for the <see cref="E:Rebex.Net.Servers.FileServer.TunnelRequested"/> event.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.TunnelRequestedEventArgs.RemoteHostName">
+            <summary>
+            Gets the name of the remote host to connect to.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.TunnelRequestedEventArgs.RemotePort">
+            <summary>
+            Gets the port of the remote host to connect to.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.TunnelRequestedEventArgs.User">
+            <summary>
+            Gets the <see cref="T:Rebex.Net.Servers.FileServerUser"/> that requests the tunnel.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.TunnelRequestedEventArgs.Accept">
+            <summary>
+            Gets or sets a value indicating whether to accept the tunneling request.
+            </summary>
+            <value>True to accept the request; false to reject it.</value>
+            <remarks>Default is true.</remarks>
+        </member>
+        <member name="T:Rebex.Net.Servers.Core.SshSubsystemModule">
+            <summary>
+            Represents a generic SSH subsystem module.
+            </summary>
+        </member>
+        <member name="T:Rebex.Net.Servers.Core.ServerModule">
+            <summary>
+            Represents a server module implementing a protocol.
+            </summary>
+        </member>
+        <member name="M:Rebex.Net.Servers.Core.ServerModule.#ctor(System.String)">
+            <summary>
+            Creates a new instance of base server module class with the specified name.
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:Rebex.Net.Servers.Core.ServerModule.GetDefaultPort">
+            <summary>
+            Returns a default TCP port used by this module.
+            </summary>
+            <returns>Default TCP port.</returns>
+        </member>
+        <member name="M:Rebex.Net.Servers.Core.ServerModule.CreateHost(Rebex.Net.Servers.Core.Server)">
+            <summary>
+            Creates a module host for this module to be used by the specified server.
+            </summary>
+            <param name="server">Server that will use the module host.</param>
+            <returns>Module host for this module.</returns>
+        </member>
+        <member name="P:Rebex.Net.Servers.Core.ServerModule.Name">
+            <summary>
+            Gets module name.
+            </summary>
+        </member>
+        <member name="M:Rebex.Net.Servers.Core.SshSubsystemModule.#ctor(System.String,System.String)">
+            <summary>
+            Creates a new instance of SSH subsystem module.
+            </summary>
+            <param name="name">Module name.</param>
+            <param name="subsystemName">SSH subsystem name.</param>
+        </member>
+        <member name="M:Rebex.Net.Servers.Core.SshSubsystemModule.GetDefaultPort">
+            <summary>
+            Returns a default TCP port used by this module.
+            </summary>
+            <returns>Default TCP port.</returns>
+        </member>
+        <member name="M:Rebex.Net.Servers.Core.SshSubsystemModule.CreateHost(Rebex.Net.Servers.Core.Server)">
+            <summary>
+            Creates a module host for this module to be used by the specified server.
+            </summary>
+            <param name="server">Server that will use the module host.</param>
+            <returns>Module host for this module.</returns>
+        </member>
+        <member name="M:Rebex.Net.Servers.Core.SshSubsystemModule.GetSubsystem(Rebex.Net.Servers.FileServer,Rebex.Net.Servers.FileServerUser,System.String,System.String)">
+            <summary>
+            Creates a stand-alone subsystem for the specified user. Intended for hosting SSH subsystems in non-SSH hosts.
+            </summary>
+            <param name="server">Server object.</param>
+            <param name="user">User object.</param>
+            <param name="argument">Subsystem argument.</param>
+            <param name="clientSoftwareIdentifier">Client software identifier.</param>
+            <returns>Subsystem communication channel.</returns>
+        </member>
+        <member name="P:Rebex.Net.Servers.Core.SshSubsystemModule.SubsystemName">
+            <summary>
+            Gets the name of SSH subsystem implemented by this module.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.Core.SshSubsystemModule.Protocol">
+            <summary>
+            Gets file transfer protocol implemented by this module.
+            </summary>
+        </member>
+        <member name="T:Rebex.Net.Servers.Core.SftpModule">
+            <summary>
+            Represents an SFTP subsystem module.
+            </summary>
+        </member>
+        <member name="M:Rebex.Net.Servers.Core.SftpModule.#ctor">
+            <summary>
+            Creates a new instance of the SFTP module.
+            </summary>
+        </member>
+        <member name="T:Rebex.Net.Servers.Core.ScpModule">
+            <summary>
+            Represents a shell subsystem module that provides simple file access commands for the SCP protocol.
+            </summary>
+        </member>
+        <member name="T:Rebex.Net.Servers.Core.ShellModule">
+            <summary>
+            Represents a virtual shell subsystem module.
+            </summary>
+        </member>
+        <member name="M:Rebex.Net.Servers.Core.ShellModule.#ctor">
+            <summary>
+            Creates a new instance of the shell module.
+            </summary>
+        </member>
+        <member name="M:Rebex.Net.Servers.Core.ScpModule.#ctor">
+            <summary>
+            Creates a new instance of the SCP module.
+            </summary>
+        </member>
+        <member name="T:Rebex.Net.Servers.Core.TunnelingModule">
+            <summary>
+            Represents a tunneling module.
+            </summary>
+        </member>
+        <member name="M:Rebex.Net.Servers.Core.TunnelingModule.#ctor">
+            <summary>
+            Creates a new instance of the tunneling module.
+            </summary>
+        </member>
+        <member name="T:Rebex.Net.Servers.Core.ServerModuleHost">
+            <summary>
+            Represents a server module host. Used by hostable modules such as SSH subsystems.
+            </summary>
+        </member>
+        <member name="M:Rebex.Net.Servers.Core.ServerModuleHost.#ctor(Rebex.Net.Servers.Core.Server)">
+            <summary>
+            Creates a new instance of module host.
+            </summary>
+        </member>
+        <member name="M:Rebex.Net.Servers.Core.ServerModuleHost.Add(Rebex.Net.Servers.Core.ServerModule)">
+            <summary>
+            Add the specified module to this host.
+            </summary>
+            <param name="module">Module to add.</param>
+        </member>
+        <member name="M:Rebex.Net.Servers.Core.ServerModuleHost.Remove(Rebex.Net.Servers.Core.ServerModule)">
+            <summary>
+            Remove the specified module from this host.
+            </summary>
+            <param name="module">Module to remove.</param>
+        </member>
+        <member name="M:Rebex.Net.Servers.Core.ServerModuleHost.OnAccepted(System.Net.Sockets.Socket)">
+            <summary>
+            Handles accepted connections.
+            </summary>
+            <param name="socket">Connection with the client.</param>
+        </member>
+        <member name="T:Rebex.Net.Servers.SshConsole">
+            <summary>
+            Represents an SSH console which provides methods for reading and writing.
+            </summary>
+        </member>
+        <member name="M:Rebex.Net.Servers.SshConsole.Clear">
+            <summary>
+            Clears the console.
+            </summary>
+        </member>
+        <member name="M:Rebex.Net.Servers.SshConsole.Write(System.String,System.Object[])">
+            <summary>
+            Writes the text respresentation of the specified array of objects to the <see cref="T:Rebex.Net.Servers.SshConsole"/> 
+            using the specified format information.
+            </summary>
+            <param name="format">A format string.</param>
+            <param name="args">An array of objects to write using the specified format.</param>
+        </member>
+        <member name="M:Rebex.Net.Servers.SshConsole.WriteLine(System.String,System.Object[])">
+            <summary>
+            Writes the text representation of the specified array of objects, followed
+            by the newline, to the <see cref="T:Rebex.Net.Servers.SshConsole"/> using the specified
+            format.
+            </summary>
+            <param name="format">A format string.</param>
+            <param name="args">An array of objects to write using format.</param>
+        </member>
+        <member name="M:Rebex.Net.Servers.SshConsole.Write(System.Object)">
+            <summary>
+            Writes the text representation of the specified object to the <see cref="T:Rebex.Net.Servers.SshConsole"/>.
+            </summary>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="M:Rebex.Net.Servers.SshConsole.WriteLine(System.Object)">
+            <summary>
+            Writes the text representation of the specified object, followed by the newline,
+            to the <see cref="T:Rebex.Net.Servers.SshConsole"/>.
+            </summary>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="M:Rebex.Net.Servers.SshConsole.WriteLine">
+            <summary>
+            Writes a newline to the <see cref="T:Rebex.Net.Servers.SshConsole"/>.
+            </summary>
+        </member>
+        <member name="M:Rebex.Net.Servers.SshConsole.ReadChar">
+            <summary>
+            Reads the next character from the <see cref="T:Rebex.Net.Servers.SshConsole"/>.
+            </summary>
+            <returns>The next character from <see cref="T:Rebex.Net.Servers.SshConsole"/>, or null if there are 
+            currently no more characters to be read.</returns>
+        </member>
+        <member name="M:Rebex.Net.Servers.SshConsole.ReadLine">
+            <summary>
+            Reads the next line of characters from the <see cref="T:Rebex.Net.Servers.SshConsole"/>.
+            </summary>
+            <returns>The next line of characters from the <see cref="T:Rebex.Net.Servers.SshConsole"/>, or null if no more lines are available.</returns>
+            <remarks>The read line is displayed using the <see cref="T:Rebex.Net.Servers.SshConsole"/></remarks>
+        </member>
+        <member name="M:Rebex.Net.Servers.SshConsole.ReadLine(System.Boolean)">
+            <summary>
+            Reads the next line of characters from the <see cref="T:Rebex.Net.Servers.SshConsole"/> with the specified password mode.
+            </summary>
+            <param name="passwordMode">If set to true, the read line is masked with asterisks in the console output; otherwise it is displayed as is.</param>
+            <returns>The next line of characters from the <see cref="T:Rebex.Net.Servers.SshConsole"/>, or null if no more lines are available.</returns>
+            <remarks>The read line is displayed using the <see cref="T:Rebex.Net.Servers.SshConsole"/></remarks>
+        </member>
+        <member name="P:Rebex.Net.Servers.SshConsole.User">
+            <summary>
+            Gets the authenticated user.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.SshConsole.CurrentPath">
+            <summary>
+            Gets the current path.
+            </summary>
+        </member>
+        <member name="T:Rebex.Net.Servers.PrivateKeyCollection">
+            <summary>
+            Represents a collection of <see cref="T:Rebex.Net.SshPrivateKey"/> objects.
+            </summary>
+        </member>
+        <member name="M:Rebex.Net.Servers.PrivateKeyCollection.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Rebex.Net.Servers.PrivateKeyCollection"/> class.
+            </summary>
+        </member>
+        <member name="M:Rebex.Net.Servers.PrivateKeyCollection.Add(Rebex.Net.SshPrivateKey)">
+            <summary>
+            Adds the specified sshPrivateKey to the collection.
+            </summary>
+            <param name="sshPrivateKey">The sshPrivateKey to be added to the collection.</param>
+        </member>
+        <member name="M:Rebex.Net.Servers.PrivateKeyCollection.Remove(Rebex.Net.SshPrivateKey)">
+            <summary>
+            Removes the specified sshPrivateKey from the collection.
+            </summary>
+            <param name="sshPrivateKey">The sshPrivateKey to remove from the collection.</param>
+            <returns>True if sshPrivateKey was successfully removed from the collection; false otherwise.</returns>
+        </member>
+        <member name="M:Rebex.Net.Servers.PrivateKeyCollection.Clear">
+            <summary>
+            Removes all items from the collection.
+            </summary>
+        </member>
+        <member name="M:Rebex.Net.Servers.PrivateKeyCollection.Contains(Rebex.Net.SshPrivateKey)">
+            <summary>
+            Determines whether the sshPrivateKey is in the collection.
+            </summary>
+            <param name="sshPrivateKey">The sshPrivateKey to locate in the collection.</param>
+            <returns>True if the sshPrivateKey is located in the collection; false otherwise.</returns>
+        </member>
+        <member name="M:Rebex.Net.Servers.PrivateKeyCollection.System#Collections#Generic#ICollection{Rebex#Net#SshPrivateKey}#CopyTo(Rebex.Net.SshPrivateKey[],System.Int32)">
+            <summary>
+            Copies the range of elements from the collection to a one-dimensional
+            <see cref="T:Rebex.Net.SshPrivateKey"/> array, starting at the specified index of the target array.
+            </summary>
+            <param name="array">One-dimensional zero-based <see cref="T:Rebex.Net.SshPrivateKey"/> array that is the destination of the elements copied from the collection.</param>
+            <param name="index">A zero-based index in the destination array at which copying begins.</param>
+        </member>
+        <member name="M:Rebex.Net.Servers.PrivateKeyCollection.GetEnumerator">
+            <summary>
+            Gets an <see cref="T:System.Collections.Generic.IEnumerator`1"/> for the collection.
+            </summary>
+            <returns>An <see cref="T:System.Collections.Generic.IEnumerator`1"/> for the collection.</returns>
+        </member>
+        <member name="M:Rebex.Net.Servers.PrivateKeyCollection.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Gets an <see cref="T:System.Collections.IEnumerator"/> for the collection.
+            </summary>
+            <returns>An <see cref="T:System.Collections.IEnumerator"/> for the collection.</returns>
+        </member>
+        <member name="P:Rebex.Net.Servers.PrivateKeyCollection.Count">
+            <summary>
+            Gets the number of elements contained in the collection.
+            </summary>
+            <value>The number of elements contained in the collection.</value>
+        </member>
+        <member name="P:Rebex.Net.Servers.PrivateKeyCollection.IsReadOnly">
+            <summary>
+            Gets a value indicating whether the collection is read-only.
+            </summary>
+            <remarks>Collection is read-only while the server is running.</remarks>
+        </member>
+        <member name="T:Rebex.Net.Servers.FileSystemOperation">
+            <summary>
+            File or directory operations.
+            </summary>
+        </member>
+        <member name="F:Rebex.Net.Servers.FileSystemOperation.Read">
+            <summary>
+            Open file for reading. Get flags for file / directory.
+            </summary>
+        </member>
+        <member name="F:Rebex.Net.Servers.FileSystemOperation.Write">
+            <summary>
+            Open file for writing. Set flags for file / directory.
+            </summary>
+        </member>
+        <member name="F:Rebex.Net.Servers.FileSystemOperation.Create">
+            <summary>
+            Create file or directory.
+            </summary>
+        </member>
+        <member name="F:Rebex.Net.Servers.FileSystemOperation.Delete">
+            <summary>
+            Delete file or directory.
+            </summary>
+        </member>
+        <member name="F:Rebex.Net.Servers.FileSystemOperation.List">
+            <summary>
+            List content of directory.
+            </summary>
+        </member>
+        <member name="F:Rebex.Net.Servers.FileSystemOperation.All">
+            <summary>
+            All operations.
+            </summary>
+        </member>
+        <member name="T:Rebex.Net.Servers.PathAccessAuthorizationEventArgs">
+            <summary>
+            Provides data for the <see cref="E:Rebex.Net.Servers.FileServer.PathAccessAuthorization"/> event.
+            </summary>
+        </member>
+        <member name="M:Rebex.Net.Servers.PathAccessAuthorizationEventArgs.Allow">
+            <summary>
+            Allows requested operations.
+            </summary>
+        </member>
+        <member name="M:Rebex.Net.Servers.PathAccessAuthorizationEventArgs.Allow(Rebex.Net.Servers.FileSystemOperation)">
+            <summary>
+            Allows requested operations if they match the specified operations. Otherwise denies them.
+            </summary>
+            <param name="operation">Operations to allow.</param>
+        </member>
+        <member name="M:Rebex.Net.Servers.PathAccessAuthorizationEventArgs.Deny">
+            <summary>
+            Denies requested operations.
+            </summary>
+        </member>
+        <member name="M:Rebex.Net.Servers.PathAccessAuthorizationEventArgs.Deny(Rebex.Net.Servers.FileSystemOperation)">
+            <summary>
+            Denies requested operations if they match the specified operations. Otherwise allows them
+            </summary>
+            <param name="operation">Operations to allow.</param>
+        </member>
+        <member name="P:Rebex.Net.Servers.PathAccessAuthorizationEventArgs.Path">
+            <summary>
+            Gets the path which needs to be authorized for the specified operations.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.PathAccessAuthorizationEventArgs.User">
+            <summary>
+            Gets the <see cref="T:Rebex.Net.Servers.FileServerUser"/> which needs the path access authorization.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.PathAccessAuthorizationEventArgs.RequestedOperations">
+            <summary>
+            Gets operations that need to be authorized.
+            </summary>
+        </member>
+        <member name="T:Rebex.Net.Servers.FileTransferredEventArgs">
+            <summary>
+            Provides data for the <see cref="E:Rebex.Net.Servers.FileServer.FileUploaded"/> event.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.FileTransferredEventArgs.Path">
+            <summary>
+            Gets the path of the uploaded file, relative to root of user's virtual filesystem.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.FileTransferredEventArgs.FullPath">
+            <summary>
+            Gets the full path of the uploaded file in the local filesystem.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.FileTransferredEventArgs.User">
+            <summary>
+            Gets the <see cref="T:Rebex.Net.Servers.FileServerUser"/> that uploaded the file.
+            </summary>
+        </member>
+        <member name="P:Rebex.Net.Servers.FileTransferredEventArgs.BytesTransferred">
+            <summary>
+            Gets number of bytes written to the file.
+            </summary>
+        </member>
+    </members>
+</doc>
