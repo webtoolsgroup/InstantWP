@@ -5,15 +5,15 @@ InstantWP is a complete standalone, portable WordPress development environment.
  * [InstantWP Components ](#instantwp-components)
  * [Platform Specific Dependencies ](#platform-specific-dependencies)
 
-# InstantWP Components
+## InstantWP Components
 
-## Core Command-Line Components
+### Core Command-Line Components
 
 ### IWPServer
 
 ### GUI
 
-## Helper Components
+### Helper Components
 
  * IWPQEMUTelnet
 
