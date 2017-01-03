@@ -1,0 +1,36 @@
+#!/usr/local/PDK/bin/perlapp-gui
+PAP-Version: 1.0
+Packer: /usr/local/PDK/bin/perlapp
+Script: ssh-term.pm
+Cwd: /Users/seamus/GitHub/InstantWordPress/MainDev/bin
+Byref: 0
+Clean: 0
+Date: 2016-08-02 22:07:16
+Debug: 
+Dependent: 0
+Dyndll: 0
+Exe: ssh-term
+Force: 0
+Gui: 0
+Hostname: serenity.local
+Manifest: 
+No-Compress: 0
+No-Gui: 0
+No-Logo: 0
+Runlib: 
+Shared: none
+Singleton: 0
+Tmpdir: 
+Verbose: 0
+Version-Comments: 
+Version-CompanyName: 
+Version-FileDescription: 
+Version-FileVersion: 
+Version-InternalName: 
+Version-LegalCopyright: 
+Version-LegalTrademarks: 
+Version-OriginalFilename: 
+Version-ProductName: 
+Version-ProductVersion: 
+Warnings: 0
+Xclude: 0
