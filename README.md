@@ -2,8 +2,21 @@
 
 InstantWP is a complete standalone, portable WordPress development environment.
 
+ * [Overview ](#overview)
+ * [Usage ](#usage)
+ * [Downloads and Releases] (#downloads-and-releases)
+ * [License ] (#license)
  * [InstantWP Components ](#instantwp-components)
  * [Platform Specific Dependencies ](#platform-specific-dependencies)
+ * [Building ](#building)
+
+## Overview
+
+## Usage
+
+## Downloads and Releases
+
+## License
 
 ## InstantWP Components
 
@@ -23,7 +36,7 @@ InstantWP is a complete standalone, portable WordPress development environment.
 
 	This command-line executable opens an SSH connection and runs a command. The executable is written in F# and uses the Rebex .net libraries as listed below.
 
-
+## Building
 
 ## Platform Specific Dependencies
 
