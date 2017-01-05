@@ -3,7 +3,11 @@
 ;; (c) Corvideon Ltd 2016
 ;; Seamus Brady <seamus@corvideon.ie>
 
-;; Import "-stdlib=libc++ -mmacosx-version-min=10.7" : EndImport
+CompilerIf #PB_Compiler_OS = #PB_OS_MacOS
+
+  Import "-stdlib=libc++ -mmacosx-version-min=10.7" : EndImport
+  
+CompilerEndIf
 
 XIncludeFile "MainWindow.pbf" ; Include the main window definition
 
@@ -107,9 +111,8 @@ Repeat
 Until Event = #PB_Event_CloseWindow ; Quit on any window close
                                     
 QuitGui()
-; IDE Options = PureBasic 5.50 (Windows - x86)
-; CursorPosition = 22
-; FirstLine = 9
-; Folding = --
+; IDE Options = PureBasic 5.50 (MacOS X - x64)
+; CursorPosition = 9
+; Folding = ---
 ; EnableXP
 ; EnableUnicode

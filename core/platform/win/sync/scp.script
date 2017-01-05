@@ -1,0 +1,19 @@
+# Automatically abort script on errors
+option batch abort
+ 
+# Disable overwrite confirmations that conflict with the previous
+option confirm off
+ 
+# Force binary mode transfer
+option transfer binary
+
+ 
+open sftp://%1%:%2%@%3%:%4%/ -hostkey=*
+ 
+# Publish local theme up to server, while deleting obsolete files from server.
+ 
+synchronize both -mirror %5% %6%
+ 
+echo Job is complete.
+ 
+exit
