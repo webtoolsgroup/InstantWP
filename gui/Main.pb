@@ -24,7 +24,7 @@ Procedure RunIWPCLI(Command$)
      Ret = RunProgram(PWD$ + "/iwpcli", Command$, "", #PB_Program_Open)
    Else
      ; Windows
-     MessageRequester("InstantWP", PWD$ + "/iwpcli.exe", #PB_MessageRequester_Ok | #PB_MessageRequester_Info)
+     ;;MessageRequester("InstantWP", PWD$ + "/iwpcli.exe", #PB_MessageRequester_Ok | #PB_MessageRequester_Info)
      Ret = RunProgram(PWD$ + "/iwpcli.exe",  Command$, "", #PB_Program_Open)
    EndIf
    If Ret
@@ -111,8 +111,8 @@ Repeat
 Until Event = #PB_Event_CloseWindow ; Quit on any window close
                                     
 QuitGui()
-; IDE Options = PureBasic 5.50 (MacOS X - x64)
-; CursorPosition = 9
+; IDE Options = PureBasic 5.50 (Windows - x86)
+; CursorPosition = 26
 ; Folding = ---
 ; EnableXP
 ; EnableUnicode

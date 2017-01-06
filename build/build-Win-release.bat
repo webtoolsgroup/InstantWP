@@ -7,8 +7,9 @@ echo Win IWP Release Build Script
 echo ----------------------------
 
 REM some constants
-SET REL_ROOT=C:\Users\paperspace\Documents\GitHub\InstantWordPress\zzRelease
-SET SOURCE_DIR=C:\Users\paperspace\Documents\GitHub\InstantWordPress
+mkdir C:\Users\paperspace\Documents\GitHub\InstantWP\build\release
+SET REL_ROOT=C:\Users\paperspace\Documents\GitHub\InstantWP\build\release
+SET SOURCE_DIR=C:\Users\paperspace\Documents\GitHub\InstantWP
 SET VM_FILE=iwpserver-1.1.qcow2
 
 REM set release root
@@ -25,38 +26,39 @@ mkdir %REL_DIR%\docs
 mkdir %REL_DIR%\platform
 mkdir %REL_DIR%\platform\win
 mkdir %REL_DIR%\htdocs
+mkdir %REL_DIR%\htdocs\wordpress
 mkdir %REL_DIR%\vm
 
 echo Copying files...
 
 REM startup files
-copy %SOURCE_DIR%\MainDev\iwpcli.exe %REL_DIR%\
-copy %SOURCE_DIR%\MainDev\Start-InstantWP.bat %REL_DIR%\
-copy %SOURCE_DIR%\MainDev\Quit-InstantWP.bat %REL_DIR%\
-copy %SOURCE_DIR%\MainDev\ReadMe\ReadMe-WIN.txt %REL_DIR%\
+copy %SOURCE_DIR%\core\iwpcli.exe %REL_DIR%\
+copy %SOURCE_DIR%\core\Start-InstantWP.bat %REL_DIR%\
+copy %SOURCE_DIR%\core\Quit-InstantWP.bat %REL_DIR%\
+copy %SOURCE_DIR%\core\ReadMe\ReadMe-WIN.txt %REL_DIR%\
 
 REM bin directory
-copy %SOURCE_DIR%\MainDev\bin\InstantWP.exe %REL_DIR%\bin\
-xcopy /s %SOURCE_DIR%\MainDev\bin\images %REL_DIR%\bin\images
-copy %SOURCE_DIR%\MainDev\bin\iwp.exe %REL_DIR%\bin\
+copy %SOURCE_DIR%\core\bin\InstantWP.exe %REL_DIR%\bin\
+xcopy /s %SOURCE_DIR%\core\bin\images %REL_DIR%\bin\images
+copy %SOURCE_DIR%\core\bin\iwp.exe %REL_DIR%\bin\
 
 REM config directory
-copy %SOURCE_DIR%\MainDev\config\iwp-win.ini %REL_DIR%\config\
+copy %SOURCE_DIR%\core\config\iwp-win.ini %REL_DIR%\config\
 
 REM doc directory
-copy %SOURCE_DIR%\MainDev\docs\about.html %REL_DIR%\docs
-copy %SOURCE_DIR%\MainDev\docs\documentation.html %REL_DIR%\docs\
+copy %SOURCE_DIR%\core\docs\about.html %REL_DIR%\docs
+copy %SOURCE_DIR%\core\docs\documentation.html %REL_DIR%\docs\
 
 REM htdocs
-xcopy /s %SOURCE_DIR%\MainDev\htdocs %REL_DIR%\htdocs
+xcopy /s %SOURCE_DIR%\core\htdocs %REL_DIR%\htdocs
 
 
 REM platform directory
 
-xcopy /s %SOURCE_DIR%\MainDev\platform\win %REL_DIR%\platform\win
+xcopy /s %SOURCE_DIR%\core\platform\win %REL_DIR%\platform\win
 
 REM vm directory
-copy %SOURCE_DIR%\MainDev\vm\%VM_FILE% %REL_DIR%\vm
+copy %SOURCE_DIR%\core\vm\%VM_FILE% %REL_DIR%\vm
 
 REM zipping the release
 REM echo Making release zip $REL_ROOT/$1.zip

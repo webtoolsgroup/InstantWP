@@ -1,65 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project xmlns="http://www.purebasic.com/namespace" version="1.0" creator="PureBasic 5.50 (MacOS X - x64)">
+<project xmlns="http://www.purebasic.com/namespace" version="1.0" creator="PureBasic 5.50 (Windows - x86)">
   <section name="config">
     <options closefiles="1" openmode="0" name="IWP GUI"/>
   </section>
   <section name="data">
-    <explorer view="../../../" pattern="0"/>
+    <explorer view="..\..\..\" pattern="0"/>
     <log show="1"/>
-    <lastopen date="2017-01-06 11:47" user="seamus" host="serenity.local"/>
+    <lastopen date="2017-01-06 06:50" user="paperspace" host="PSZ7Y3UK"/>
   </section>
   <section name="files">
-    <file name="images/admin.jpg">
+    <file name="images\admin.jpg">
       <config load="0" scan="0" panel="1" warn="1" lastopen="0" panelstate="+-"/>
       <fingerprint md5="43e080c8265389df5abf7b8893ecb153"/>
     </file>
-    <file name="images/docs.jpg">
+    <file name="images\docs.jpg">
       <config load="0" scan="0" panel="1" warn="1" lastopen="0" panelstate="+-"/>
       <fingerprint md5="b462e68d206f6afda631da4eef57a983"/>
     </file>
-    <file name="images/frontpage.jpg">
+    <file name="images\frontpage.jpg">
       <config load="0" scan="0" panel="1" warn="1" lastopen="0" panelstate="+-"/>
       <fingerprint md5="bacc288bc1871a3ef5407baf27232ee6"/>
     </file>
-    <file name="images/logo.gif">
+    <file name="images\logo.gif">
       <config load="0" scan="0" panel="1" warn="1" lastopen="0" panelstate="+-"/>
       <fingerprint md5="91718f08f75af7a08e8fe5fd2c49c260"/>
     </file>
-    <file name="images/logo.png">
+    <file name="images\logo.png">
       <config load="0" scan="0" panel="1" warn="1" lastopen="0" panelstate="+-"/>
       <fingerprint md5="27e500be4c99f76b31911de8a0d9546d"/>
     </file>
-    <file name="images/mysql.jpg">
+    <file name="images\mysql.jpg">
       <config load="0" scan="0" panel="1" warn="1" lastopen="0" panelstate="+-"/>
       <fingerprint md5="c78a1c6d7a428d630e453f56fbf4c775"/>
     </file>
-    <file name="images/plugins.jpg">
+    <file name="images\plugins.jpg">
       <config load="0" scan="0" panel="1" warn="1" lastopen="0" panelstate="+-"/>
       <fingerprint md5="211baea453d80f5197dec0760a85b953"/>
     </file>
-    <file name="images/resources.jpg">
+    <file name="images\resources.jpg">
       <config load="0" scan="0" panel="1" warn="1" lastopen="0" panelstate="+-"/>
       <fingerprint md5="5c58304ffe86d251b2fdb4be519d9fd5"/>
     </file>
-    <file name="images/themes.jpg">
+    <file name="images\themes.jpg">
       <config load="0" scan="0" panel="1" warn="1" lastopen="0" panelstate="+-"/>
       <fingerprint md5="436ae52f1de5179006f0c144da7af400"/>
     </file>
     <file name="Main.pb">
       <config load="0" scan="1" panel="1" warn="1" lastopen="1" panelstate="+"/>
-      <fingerprint md5="7c65d0de1f65ad50baff5c7b6c0dc603"/>
+      <fingerprint md5="c142478beb4b0752d4cdbb43a61a915c"/>
     </file>
     <file name="MainWindow.pbf">
-      <config load="0" scan="1" panel="1" warn="1" lastopen="1" panelstate="+"/>
-      <fingerprint md5="25047fe61c691f3a95640ac658f67013"/>
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" panelstate="+"/>
+      <fingerprint md5="f6b628564a65b945959bcab3622ced70"/>
     </file>
   </section>
   <section name="targets">
     <target name="Default Target" enabled="1" default="1">
       <inputfile value="Main.pb"/>
       <outputfile value=""/>
-      <executable value="InstantWP.app"/>
+      <executable value="InstantWP.exe"/>
       <options unicode="1" xpskin="1"/>
       <icon enable="1">logo.ico</icon>
     </target>
