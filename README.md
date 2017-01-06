@@ -1,6 +1,6 @@
 # InstantWP
 
-InstantWP is a complete standalone, portable WordPress development environment.
+InstantWP is a complete standalone, portable WordPress development environment. It turns any Windows or Mac machine into a WordPress development server. It should even run from a USB key.
 
  * [Overview ](#overview)
  * [Usage ](#usage)
@@ -11,6 +11,26 @@ InstantWP is a complete standalone, portable WordPress development environment.
  * [Building ](#building)
 
 ## Overview
+
+InstantWP contains a virtual webserver wrapped in a simple user interface that should that start up in under a minute. 
+
+* InstantWP has been under development since 2008 and was first developed as a WordPress teaching tool. 
+* InstantWP has been downloaded over a million times.
+* InstantWP is used worldwide in universities, schools and businesses for teaching, developing and working with WordPress.
+
+### Design Principles
+
+The main design principles behind InstantWP are:
+
+1. InstantWP is portable. No software should be installed on the user's machine outside of the InstantWP folder. 
+2. InstantWP is simple. Using InstantWP should be easy for a beginner. 
+3. InstantWP is quick. It should be fast to create quick, disposable WordPress installs for testing, teaching or development.
+3. InstantWP is useful. InstantWP should be a power tool for WordPress beginners and experts, theme designers or software developers. 
+4. InstantWP is free, like WordPress :)
+
+	
+
+For more information please visit the main InstantWP website: [http://www.instantwp.com ]() 
 
 ## Usage
 
