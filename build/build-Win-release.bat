@@ -7,8 +7,9 @@ echo Win IWP Release Build Script
 echo ----------------------------
 
 REM some constants
-SET REL_ROOT=C:\Users\paperspace\Documents\GitHub\InstantWordPress\zzRelease
-SET SOURCE_DIR=C:\Users\paperspace\Documents\GitHub\InstantWordPress
+mkdir C:\Users\paperspace\Documents\GitHub\InstantWP\build\release
+SET REL_ROOT=C:\Users\paperspace\Documents\GitHub\InstantWP\build\release
+SET SOURCE_DIR=C:\Users\paperspace\Documents\GitHub\InstantWP
 SET VM_FILE=iwpserver-1.1.qcow2
 
 REM set release root
