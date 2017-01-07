@@ -41,17 +41,158 @@ No install of InstantWP is necessary, simply download, unzip and run.
  * On macOS, start InstantWP by double-clicking on Start-InstantWP.
  * A command window will open and start the web-server. Once this is complete the GUI will open. 
 
+## GUI
+
+![InstantWP GUI](./images/IWP-gui-5.0.0-rc3.png)
+
+The GUI contains the following buttons:
+
+ * WordPress Frontpage
+
+ This will open the local WordPress installation in your default browser.
+ 
+ * WordPress Admin
+
+ This will open the local WordPress administration backed in your default browser. The username is ‘admin’ and the password is ‘password’ as specified.
+ * Plugins Folder
+
+ This will open the local WordPress plugins folder in Windows Explorer or macOS Finder.
+ 
+ * Themes Folder
+
+ This will open the local WordPress themes folder in Windows Explorer or macOS Finder.
+ 
+* MySQL Database Admin
+
+	This opens PHPMyAdmin in your default browser so that you can administrate the underlying MySQL database. The user is 'root' with a blank password.
+	
+* About and Documentation open the documentation.
+
+
 ## Downloads and Releases
+
+See the InstantWP Releases page:
+
+[https://github.com/corvideon/InstantWP/releases]() 
 
 ## License
 
+InstantWP is released under the GPL v3. See the included LICENSE file.
+
+You can use InstantWP for any purposes for an unlimited period of time. 
+
+InstantWP is provided free of charge.
+
+InstantWP may be installed and used on any number of systems.
+
+THIS SOFTWARE IS PROVIDED “AS IS” BY CORVIDEON LTD AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+
+All trademarks and images are copyright of their respective owners.
+
+Software licenses are provided in the respective software directories or links are included in the documentation below.
+
+InstantWP is not associated with Automattic or WordPress.com.
+
 ## InstantWP Components
 
-### Core Command-Line Components
+### InstantWP Command-Line 
+
+InstantWP comes with a command-line tool called iwpcli / iwpcli.exe.
+
+Check if IWP is running and print out a status message:
+
+```text
+iwpcli status 
+```
+
+Start InstantWP:
+
+```text
+iwpcli start
+```
+
+Quit InstantWP:
+
+```text
+iwpcli quit
+```
+
+Open WordPress frontpage:
+
+```text             
+iwpcli wpfrontpage
+```
+
+Open WordPress Dashboard:
+ 
+```text             
+iwpcli wpadmin
+```
+
+Open the plugins folder:
+
+```text
+iwpcli plugins
+```
+
+Open the themes folder:
+
+```text
+iwpcli themes
+```
+        
+Open PHPMyAdmin:
+
+```text
+iwpcli mysql
+```
+        
+Open IWP documentation:       
+
+```text             
+iwpcli docs
+```
+           
+Open IWP about page:           
+   
+```text           
+iwpcli about
+```
+              
+Open up an SSH session on the IWP VM:
+   
+```text       
+iwpcli ssh
+```
+            
+Open up the QEMU VM Monitor shell:
+ 
+```text
+iwpcli monitor
+```
+
+Restart the Apche web server and MySQLL
+              
+```text
+iwpcli restart_apache
+```
+
+Mount the IWPServer WebDav Volume (macOS only):
+
+```text
+iwpcli mount_webdav
+```
+       
+Unmount the IWPServer WebDav Volume (macOS only): 
+
+```text
+iwpcli unmount_webdav
+```       
 
 ### IWPServer
 
-### GUI
+IWPServer is based on FreeBSD 8.4.
+Please see the iwpserver README for more details.
 
 ### Helper Components
 
@@ -143,5 +284,9 @@ These dependencies are bundled as binaries into a folder called 'platform' for e
 
 	Corvideon is licensed to redistribute the component DLLs with InstantWP royalty free. See [http://www.rebex.net](http://www.rebex.net) for further information.
 
+## Building
 
+ * The Perl based executables are built using ActiveState's PerlApp.
+ * The GUI is built using PureBasic -[http://www.purebasic.com]() 
+ * The F# components are build using Xamarin Studio on macOS and Visual Studio on Windows.
 
