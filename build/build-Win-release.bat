@@ -48,6 +48,8 @@ copy %SOURCE_DIR%\core\config\iwp-win.ini %REL_DIR%\config\
 REM doc directory
 copy %SOURCE_DIR%\core\docs\about.html %REL_DIR%\docs
 copy %SOURCE_DIR%\core\docs\documentation.html %REL_DIR%\docs\
+copy %SOURCE_DIR%\core\docs\LICENSE.txt %REL_DIR%\docs\LICENSE.txt
+
 
 REM htdocs
 xcopy /s %SOURCE_DIR%\core\htdocs %REL_DIR%\htdocs

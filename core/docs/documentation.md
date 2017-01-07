@@ -1,4 +1,4 @@
-# InstantWP
+# InstantWP Documentation
 
 InstantWP is a complete standalone, portable WordPress development environment. It turns any Windows or Mac machine into a WordPress development server. It should even run from a USB key.
 
@@ -31,6 +31,10 @@ The main design principles behind InstantWP are:
 
 For more information please visit the main InstantWP website: [http://www.instantwp.com ]() 
 
+For the source code, please visit the InstantWP GitHub repo:
+[https://github.com/corvideon/InstantWP ]() 
+
+
 ## Usage
 
 No install of InstantWP is necessary, simply download, unzip and run.
@@ -43,7 +47,7 @@ No install of InstantWP is necessary, simply download, unzip and run.
 
 ## GUI
 
-![InstantWP GUI](./core/docs/images/IWP-gui-5.0.0-rc3.png)
+![InstantWP GUI](./images/IWP-gui-5.0.0-rc3.png)
 
 The GUI contains the following buttons:
 
@@ -193,7 +197,7 @@ iwpcli unmount_webdav
 
 The built in virtual webserver is called IWPServer.
 IWPServer is based on FreeBSD 8.4.
-Please see the iwpserver folder README for more details.
+Please see the iwpserver folder README in the GitHub repo for more details.
 
 ### Helper Components
 
@@ -289,16 +293,4 @@ These dependencies are bundled as binaries into a folder called 'platform' for e
  * The Perl based executables are built using ActiveState's PerlApp.
  * The GUI is built using PureBasic [http://www.purebasic.com]() 
  * The F# components are build using Xamarin Studio on macOS and Visual Studio on Windows.
-
-### PPM Modules for IWP 5.0
-
- * Moo
- * Config-Any
- * Carp
- * Proc::ProcessTable
- * Proc::Terminator
- * LWP::Simple
- * Bundle-Expect
- * Term::Spinner
- * Win32::Process::List
 

@@ -47,6 +47,7 @@ cp $SOURCE_DIR/core/config/iwp-osx.ini $REL_DIR/config/
 # doc directory
 cp $SOURCE_DIR/core/docs/about.html $REL_DIR/docs
 cp $SOURCE_DIR/core/docs/documentation.html $REL_DIR/docs/
+cp $SOURCE_DIR/core/docs/LICENSE.txt $REL_DIR/LICENSE.txt
 
 # platform directory
 cp -R $SOURCE_DIR/core/platform/osx $REL_DIR/platform/
