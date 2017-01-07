@@ -28,11 +28,18 @@ The main design principles behind InstantWP are:
 3. InstantWP is useful. InstantWP should be a power tool for WordPress beginners and experts, theme designers or software developers. 
 4. InstantWP is free, like WordPress :)
 
-	
 
 For more information please visit the main InstantWP website: [http://www.instantwp.com ]() 
 
 ## Usage
+
+No install of InstantWP is necessary, simply download, unzip and run.
+
+ * Download the latest release.
+ * Unzip the IWP folder somewhere convenient, such as your desktop.
+ * On Windows start InstantWP by double-clicking on Start-InstantWP.bat
+ * On macOS, start InstantWP by double-clicking on Start-InstantWP.
+ * A command window will open and start the web-server. Once this is complete the GUI will open. 
 
 ## Downloads and Releases
 
