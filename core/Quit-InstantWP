@@ -4,5 +4,5 @@ echo -n -e "\033]0;IWP Quit\007"
 cd "${0%/*}"
 osascript -e 'tell app "System Events" to set visible of process "qemu-system-i386" to true'
 ./iwpcli quit
-sleep 20
+sleep 3
 osascript -e 'tell application "Terminal" to close (every window whose name contains "IWP Quit")' &

@@ -208,7 +208,7 @@ Please see the iwpserver folder README for more details.
 
 ## Platform Specific Dependencies
 
-These dependencies are bundled as binaries into a folder called 'platform' for each operating system and they may be downloaded seperately here. They are listed here for convenience, you don't need to download or compile these files seperately unless you wish to.
+These dependencies are bundled as binaries into a folder called 'platform' for each operating system and they are bundled as part of any release. They are listed here for convenience, you don't need to download or compile these files seperately unless you wish to.
 
 ### Open Source Dependencies
 
