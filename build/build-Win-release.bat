@@ -10,7 +10,7 @@ REM some constants
 mkdir C:\Users\paperspace\Documents\GitHub\InstantWP\build\release
 SET REL_ROOT=C:\Users\paperspace\Documents\GitHub\InstantWP\build\release
 SET SOURCE_DIR=C:\Users\paperspace\Documents\GitHub\InstantWP
-SET VM_FILE=iwpserver-1.1.qcow2
+SET VM_FILE=iwpserver-2.0.qcow2
 
 REM set release root
 SET REL_DIR=%REL_ROOT%\%1

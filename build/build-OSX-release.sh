@@ -12,7 +12,7 @@ cd "${0%/*}"
 mkdir /Users/seamus/GitHub/InstantWP/build/release
 REL_ROOT=/Users/seamus/GitHub/InstantWP/build/release
 SOURCE_DIR=/Users/seamus/GitHub/InstantWP
-VM_FILE=iwpserver-1.1.qcow2
+VM_FILE=iwpserver-2.0.qcow2
 
 # set release root
 REL_DIR=$REL_ROOT/$1

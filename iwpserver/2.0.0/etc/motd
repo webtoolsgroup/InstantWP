@@ -1,0 +1,17 @@
+--------------------------------------------------
+              IWPSERVER VERSION 2.0.0
+--------------------------------------------------
+(c) Corvideon 2016
+
+Welcome to IWPServer!
+
+o  DO NOT CLOSE THIS WINDOW - This is your IWPServer running :)
+
+   To safely shutdown the server, please use the Quit button on the 
+   IWP Control Panel. Alternatively, you can type the command below:
+
+	sudo poweroff
+
+o  For more information see http://www.instantwp.com
+
+--------------------------------------------------
