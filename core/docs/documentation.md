@@ -196,7 +196,7 @@ iwpcli unmount_webdav
 ### IWPServer
 
 The built in virtual webserver is called IWPServer.
-IWPServer is based on FreeBSD 8.4.
+IWPServer is based on Alpine Linux.
 Please see the iwpserver folder README in the GitHub repo for more details.
 
 ### Helper Components

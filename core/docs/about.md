@@ -1,6 +1,6 @@
 # About InstantWP
 
-Version 5.0.0-rc4
+Version 5.0.0-rc5
 
 InstantWP is a complete standalone, portable WordPress development environment. It turns any Windows or Mac machine into a WordPress development server. It should even run from a USB key.
 
