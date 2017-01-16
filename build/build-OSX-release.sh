@@ -12,7 +12,7 @@ cd "${0%/*}"
 mkdir /Users/seamus/GitHub/InstantWP/build/release
 REL_ROOT=/Users/seamus/GitHub/InstantWP/build/release
 SOURCE_DIR=/Users/seamus/GitHub/InstantWP
-VM_FILE=iwpserver-2.0.qcow2
+VM_FILE=iwpserver-2.0.0.qcow2
 
 # set release root
 REL_DIR=$REL_ROOT/$1
@@ -25,6 +25,7 @@ echo Making build directories...
 mkdir $REL_DIR/bin
 mkdir $REL_DIR/config
 mkdir $REL_DIR/docs
+mkdir $REL_DIR/docs/images
 mkdir $REL_DIR/platform
 mkdir $REL_DIR/vm
 
@@ -48,6 +49,7 @@ cp $SOURCE_DIR/core/config/iwp-osx.ini $REL_DIR/config/
 cp $SOURCE_DIR/core/docs/about.html $REL_DIR/docs
 cp $SOURCE_DIR/core/docs/documentation.html $REL_DIR/docs/
 cp $SOURCE_DIR/core/docs/LICENSE.txt $REL_DIR/LICENSE.txt
+cp -R $SOURCE_DIR/core/docs/images $SOURCE_DIR/core/docs/images
 
 # platform directory
 cp -R $SOURCE_DIR/core/platform/osx $REL_DIR/platform/
