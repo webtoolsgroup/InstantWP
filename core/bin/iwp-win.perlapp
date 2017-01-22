@@ -15,7 +15,7 @@ Add: IWPCommandLine
 Add: IWPEnvironment
 Add: IWPTasks
 Clean: 0
-Date: 2016-12-03 18:07:51
+Date: 2017-01-22 17:32:08
 Debug: 
 Dependent: 0
 Dyndll: 0
@@ -23,7 +23,7 @@ Exe: iwp.exe
 Force: 0
 Gui: 0
 Hostname: psz7y3uk
-Lib: lib:..\lib
+Lib: lib:..\..\..\InstantWP\core\lib
 Lib: lib:..
 Lib: lib:..
 Manifest: 

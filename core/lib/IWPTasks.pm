@@ -230,6 +230,9 @@ sub quit( $self ){
         $self->wait_on_vm_quit();
     }
     
+    # cleanup!
+    system( $self->cleanup() );
+    
     
     say "Done";
     
@@ -446,7 +449,12 @@ sub restart_mysql( $self ){
     say("MySQL server restarted.");
 }
 
-
+sub cleanup( $self ) {
+    say "Clean up any processes left behind...";
+    my $cleanup_script = $self->iwp_config->get_config_setting("shutdown", "CleanUpScript");
+    $cleanup_script = $self->iwp_env->platform_dir().$cleanup_script;
+    system( $cleanup_script );
+}
 
 # show hide window, $class not used for now
 sub toggle_vm_window( $self, $window_title, $class){
