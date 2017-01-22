@@ -1,10 +1,14 @@
 @echo off 
 setlocal
+
+%~d0
 cd /d %~dp0
 
 echo IWP Startup
 title IWP Startup
-set IWPROOT=%~dp0
+
+set IWPROOT=%cd%
+
 iwpcli start 
 iwpcli hide_vm
 cd bin
