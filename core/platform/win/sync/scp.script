@@ -7,12 +7,18 @@ option confirm off
 # Force binary mode transfer
 option transfer binary
 
- 
+# open up the sftp connection to the vm
 open sftp://%1%:%2%@%3%:%4%/ -hostkey=*
  
 # Publish local theme up to server, while deleting obsolete files from server.
- 
 synchronize both -mirror %5% %6%
+
+# reset the permissions 
+call sudo chown apache -R /var/www/localhost/htdocs/wordpress/wp-content/
+call sudo chgrp apache -R /var/www/localhost/htdocs/wordpress/wp-content/
+call cd /var/www/localhost/htdocs/wordpress/wp-content/
+call sudo find . -type d -exec chmod 755 {} \; 
+call sudo find . -type f -exec chmod 644 {} \;  
  
 echo Job is complete.
  
