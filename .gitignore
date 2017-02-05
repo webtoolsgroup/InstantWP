@@ -33,3 +33,8 @@ gui/InstantWP.app
 iwpserver-1.1.qcow2.zip
 iwpserver-2.0.qcow2.zip
 core/vm/older-versions
+core/controlpanel/IWPControlPanel.app
+Pharo-dev.changes
+Pharo-dev.image
+Pharo.clean-image
+PharoV50.sources
