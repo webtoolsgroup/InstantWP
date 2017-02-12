@@ -1,0 +1,1 @@
+IWPConfig at: 'AppName'
