@@ -1,0 +1,31 @@
+
+"Load the IWP Control Panel code"
+
+
+"Load OSProcess..."
+
+Gofer new
+	squeaksource: 'OSProcess';
+	package: 'OSProcess';
+	load.
+	
+"Load WebBrowser..."
+
+Metacello new
+	smalltalkhubUser: 'TorstenBergmann' project: 'WebBrowser';
+	configuration: 'WebBrowser';
+	load.
+  
+"Load the INIFile code"
+
+Gofer it
+  smalltalkhubUser: 'TorstenBergmann' project: 'INIFile';
+  configuration;
+  loadStable.
+
+"Load the IWP code itself..."
+
+Gofer new
+      directory: '/Users/seamus/GitHub/InstantWP/core/controlpanel/source';
+      package: 'InstantWP';
+      load.
