@@ -1,1 +1,1 @@
-IWPControlPanel new openWithSpec.IWPProgressBar showProgressBar.
+IWPConfig reInit.IWPLoadingScreen new openWithSpec.IWPProgressBar showStartUpProgressBar.
