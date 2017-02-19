@@ -1,6 +1,4 @@
-
-"Load the IWP Control Panel code"
-
+"Load the IWP Control Panel code into a production image"
 
 "Load OSProcess..."
 
@@ -9,13 +7,6 @@ Gofer new
 	package: 'OSProcess';
 	load.
 	
-"Load WebBrowser..."
-
-Metacello new
-	smalltalkhubUser: 'TorstenBergmann' project: 'WebBrowser';
-	configuration: 'WebBrowser';
-	load.
-  
 "Load the INIFile code"
 
 Gofer it
@@ -29,3 +20,7 @@ Gofer new
       directory: '/Users/seamus/GitHub/InstantWP/core/controlpanel/source';
       package: 'InstantWP';
       load.
+      
+"Run the startup script"
+
+IWPEnvironment startUp.

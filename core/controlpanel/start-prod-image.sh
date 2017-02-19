@@ -7,4 +7,5 @@ DIR=`pwd`
 cd - > /dev/null 
 # disable parameter expansion to forward all arguments unprocessed to the VM
 set -f
-./controlpanel-ui ./image/Pharo-dev.image st "$DIR"/"./scripts/load.st"
+./controlpanel-ui ./image/InstantWP.image st "$DIR"/"./scripts/run.st"
+
