@@ -1,5 +1,7 @@
 "Load the IWP Control Panel code into a production image"
 
+
+
 "Load OSProcess..."
 
 Gofer new
@@ -23,6 +25,8 @@ Gofer new
       
 "Run the startup script"
 
-IWPEnvironment startUp.
+IWPConfig initialize.
+
+IWPLoadingScreen new openWorldWithSpec.
 
 Smalltalk snapshot: true andQuit: false.

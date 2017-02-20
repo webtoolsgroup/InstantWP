@@ -3,4 +3,4 @@
 
 IWPConfig initialize.
 IWPLoadingScreen new openWorldWithSpec.
-IWPProgressBar showStartUpProgressBar.
+[ IWPProgressBar showStartUpProgressBar ] fork

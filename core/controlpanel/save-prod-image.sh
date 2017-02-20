@@ -7,6 +7,6 @@ DIR=`pwd`
 cd - > /dev/null 
 # disable parameter expansion to forward all arguments unprocessed to the VM
 set -f
-cp ./image/Pharo.clean-image ./image/InstantWP.image
+cp ./image/Pharo-prod.image ./image/InstantWP.image
 ./controlpanel-ui ./image/InstantWP.image st "$DIR"/"./scripts/save.st"
 

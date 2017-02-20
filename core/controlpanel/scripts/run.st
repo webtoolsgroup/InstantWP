@@ -7,12 +7,6 @@ Gofer new
 	package: 'OSProcess';
 	load.
 	
-"Load the INIFile code"
-
-Gofer it
-  smalltalkhubUser: 'TorstenBergmann' project: 'INIFile';
-  configuration;
-  loadStable.
 
 "Load the IWP code itself..."
 
