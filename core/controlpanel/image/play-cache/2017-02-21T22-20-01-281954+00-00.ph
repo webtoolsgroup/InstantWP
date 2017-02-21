@@ -1,0 +1,1 @@
+IWPConfig initialize.IWPControlPanel new openDialogWithSpec 

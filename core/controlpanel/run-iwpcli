@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# disable parameter expansion to forward all arguments unprocessed to the VM
+set -f
+cd ../
+./iwpcli "$@"
+
