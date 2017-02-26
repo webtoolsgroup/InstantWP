@@ -2,7 +2,7 @@
 
 echo -n -e "\033]0;IWP Startup\007"
 cd "${0%/*}"
+./controlpanel/start-ui &
 ./iwpcli start
-./bin/InstantWP.app/Contents/MacOS/InstantWP $PWD &
 osascript -e 'tell app "System Events" to set visible of process "qemu-system-i386" to false'
 osascript -e 'tell application "Terminal" to close (every window whose name contains "IWP Startup")' &

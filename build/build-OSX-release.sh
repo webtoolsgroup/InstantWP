@@ -28,6 +28,11 @@ mkdir $REL_DIR/docs
 mkdir $REL_DIR/docs/images
 mkdir $REL_DIR/platform
 mkdir $REL_DIR/vm
+mkdir $REL_DIR/controlpanel
+mkdir $REL_DIR/controlpanel/image
+mkdir $REL_DIR/controlpanel/scripts
+mkdir $REL_DIR/controlpanel/images
+
 
 echo Copying files...
 
@@ -49,7 +54,18 @@ cp $SOURCE_DIR/core/config/iwp-osx.ini $REL_DIR/config/
 cp $SOURCE_DIR/core/docs/about.html $REL_DIR/docs
 cp $SOURCE_DIR/core/docs/documentation.html $REL_DIR/docs/
 cp $SOURCE_DIR/core/docs/LICENSE.txt $REL_DIR/LICENSE.txt
-cp -R $SOURCE_DIR/core/docs/images $SOURCE_DIR/core/docs/images
+cp -R $SOURCE_DIR/core/docs/images $REL_DIR/docs/images
+
+# control panel dir
+cp -R $SOURCE_DIR/core/images $REL_DIR/images
+cp $SOURCE_DIR/core/controlpanel/controlpanel-ui $REL_DIR/controlpanel/
+cp $SOURCE_DIR/core/controlpanel/start-InstantWP $REL_DIR/controlpanel/
+cp $SOURCE_DIR/core/controlpanel/run-iwpcli $REL_DIR/controlpanel/
+cp -R $SOURCE_DIR/core/controlpanel/IWPControlPanel.app $REL_DIR/controlpanel/
+cp $SOURCE_DIR/core/controlpanel/scripts/start-iwp.st $REL_DIR/controlpanel/scripts
+cp $SOURCE_DIR/core/controlpanel/image/InstantWP.image $REL_DIR/controlpanel/image/
+cp $SOURCE_DIR/core/controlpanel/image/InstantWP.changes $REL_DIR/controlpanel/image/
+
 
 # platform directory
 cp -R $SOURCE_DIR/core/platform/osx $REL_DIR/platform/
