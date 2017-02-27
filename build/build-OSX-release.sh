@@ -31,7 +31,6 @@ mkdir $REL_DIR/vm
 mkdir $REL_DIR/controlpanel
 mkdir $REL_DIR/controlpanel/image
 mkdir $REL_DIR/controlpanel/scripts
-mkdir $REL_DIR/controlpanel/images
 
 
 echo Copying files...
@@ -59,7 +58,7 @@ cp -R $SOURCE_DIR/core/docs/images $REL_DIR/docs/images
 # control panel dir
 cp -R $SOURCE_DIR/core/images $REL_DIR/images
 cp $SOURCE_DIR/core/controlpanel/controlpanel-ui $REL_DIR/controlpanel/
-cp $SOURCE_DIR/core/controlpanel/start-InstantWP $REL_DIR/controlpanel/
+cp $SOURCE_DIR/core/controlpanel/start-ui $REL_DIR/controlpanel/
 cp $SOURCE_DIR/core/controlpanel/run-iwpcli $REL_DIR/controlpanel/
 cp -R $SOURCE_DIR/core/controlpanel/IWPControlPanel.app $REL_DIR/controlpanel/
 cp $SOURCE_DIR/core/controlpanel/scripts/start-iwp.st $REL_DIR/controlpanel/scripts

@@ -1,0 +1,1 @@
+IWPControlPanel new openWithSpec
