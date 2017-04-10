@@ -9,11 +9,15 @@ Gofer new
 	
 
 "Load the IWP code itself..."
+Gofer new
+      directory: '/Users/seamus/GitHub/InstantWP/core/controlpanel/source';
+      package: 'InstantWP-ControlPanel';
+      load.
 
 Gofer new
       directory: '/Users/seamus/GitHub/InstantWP/core/controlpanel/source';
-      package: 'InstantWP';
-      load.
+      package: 'InstantWP-WebControlPanel';
+      load.   
       
 "Run the startup script"
 
