@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo -n -e "\033]0;InstantWP SSH\007"
+cd "${0%/*}"
