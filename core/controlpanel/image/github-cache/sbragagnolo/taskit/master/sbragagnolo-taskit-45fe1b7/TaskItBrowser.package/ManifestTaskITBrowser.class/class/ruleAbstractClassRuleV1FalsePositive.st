@@ -1,0 +1,3 @@
+code-critics
+ruleAbstractClassRuleV1FalsePositive
+^ #(#(#(#RGMethodDefinition #(#TKTProcessDataSource #receiverMenuColumn:row: #false)) #'2015-07-27T11:44:24.118702+02:00') #(#(#RGMethodDefinition #(#TKTProcessDataSource #jobMenuColumn:row: #false)) #'2015-07-27T11:44:24.11865+02:00') #(#(#RGMethodDefinition #(#TKTProcessDataSource #nameMenuColumn:row: #false)) #'2015-07-27T11:44:24.11867+02:00') #(#(#RGMethodDefinition #(#TKTProcessDataSource #argumentsMenuColumn:row: #false)) #'2015-07-27T11:44:24.118682+02:00') #(#(#RGMethodDefinition #(#TKTProcessDataSource #selectorMenuColumn:row: #false)) #'2015-07-27T11:44:24.118692+02:00') #(#(#RGMethodDefinition #(#TKTProcessDataSource #taskMenuColumn:row: #false)) #'2015-07-27T11:44:24.118712+02:00') )

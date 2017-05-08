@@ -1,0 +1,48 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = SFTPPrefTableView; LANGUAGE = ObjC; SUPERCLASS = NSTableView; }, 
+        {
+            ACTIONS = {
+                addFavorite = id; 
+                addTextExtension = id; 
+                checkForUpdates = id; 
+                chooseDefaultLocalDirectory = id; 
+                clearDefaults = id; 
+                deleteFavorite = id; 
+                deleteKnownHost = id; 
+                deleteTextExtension = id; 
+                saveKnownHosts = id; 
+                setGeneralDefaults = id; 
+                setODBTextEditor = id; 
+                setPostEditBehaviour = id; 
+                setSortingBehaviour = id; 
+                toggleRetainFileTime = id; 
+            }; 
+            CLASS = SFTPPrefs; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                prefDefaultHost = NSComboBox; 
+                prefDefaultLDir = NSTextField; 
+                prefDefaultPort = NSTextField; 
+                prefDefaultRDir = NSTextField; 
+                prefDefaultUser = NSTextField; 
+                prefFavTable = SFTPPrefTableView; 
+                prefFavoritesView = NSView; 
+                prefFilesView = NSView; 
+                prefGeneralView = NSView; 
+                prefKnownHostsTable = SFTPPrefTableView; 
+                prefKnownHostsView = NSView; 
+                prefPanel = NSPanel; 
+                prefPostEditMatrix = NSMatrix; 
+                prefRetainFileTimeSwitch = NSButton; 
+                prefSortingMatrix = NSMatrix; 
+                prefTextEditorPopUp = NSPopUpButton; 
+                prefTransfersView = NSView; 
+                prefViewBox = NSBox; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }
+    ); 
+    IBVersion = 1; 
+}

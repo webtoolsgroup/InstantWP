@@ -1,0 +1,124 @@
+/* Header for number of items */
+"AllItemCount" = "%d filer";
+
+/* Message displayed while authenticating */
+"AuthMessage" = "Godkender....";
+
+/* Error displayed when parameter exceeds bounds */
+"BufferOverflowMessage" = "Længde på parameter er for lang. Prøv igen.";
+
+/* Error message for failed bundle load */
+"BundleError" = "Kunne ikke loade nib fil fra programpakken!";
+
+/* Cancel */
+"Cancel" = "Annuller";
+
+/* Connecting Message */
+"ConnectingMessage" = "Forbinder til %@...";
+
+/* Delete */
+"Delete" = "Slet";
+
+/* Disconnect
+   Disconnect menu item */
+"Disconnect" = "Afbryd forbindelse";
+
+/* Error reported when requested item doesn't exist */
+"DoesNotExistMessage" = "%@: fil eller mappe eksisterer ikke.";
+
+/* Download */
+"Download" = "Download";
+
+/* Downloading message */
+"Downloading" = "Downloader %s...";
+
+/* Prompt user when they try to download a directory */
+"DownloadWarning" = "Advarsel: OpenSSH's sftp klient kan ikke downloade mapper.";
+
+/* Error */
+"Error" = "Fejl";
+
+/* Hide Special Files Menu Item */
+"HideSpecialFiles" = "Skjul specielle filer";
+
+/* Invalid port number in Connect sheet. */
+"InvalidPort" = "Ugyldigt portnummer. Tast det venligst igen eller lad feltet være tomt, for på den måde at bruge standard porten (22).";
+
+/* Requesting file listing message */
+"ListingMessage" = "Henter filliste fra server...";
+
+/* Prompt when user asks to delete local item */
+"LocalDeletePrompt" = "Vil du flytte %@ til papirkurven?";
+
+/* Sub-message in delete prompt */
+"LocalDeleteSubPrompt" = "Du kan ikke fortyde denne handling.";
+
+/* localhost: disconnected */
+"localhost: disconnected" = "localhost: ikke forbundet";
+
+/* %@ (localhost): disconnected */
+"%@ (localhost): disconnected" = "%@ (localhost): ikke forbundet";
+
+/* Title for \"Locally\" button in Make New Directory and Go To.. Sheets */
+"LocallyTitle" = "Lokalt";
+
+/* Error for local directory creation */
+"MakeLocalDirError" = "Kunne ikke oprette %@: %s";
+
+/* Error message when user does not give username and server address */
+"MissingParameters" = "Du skal skrive et brugernavn og en serveradresse for at fortætte.";
+
+/* OK */
+"OK" = "OK";
+
+/* No comment provided by engineer. */
+"Overwrite" = "Overskriv";
+
+/* Prompt to display when user tries to overwrite a file. */
+"OverwritePrompt" = "%@ findes allerede. Skal filen overskrives?";
+
+/* Authentication failed message */
+"PermissionDenied" = "Adgang nægtet. Præv igen.";
+
+/* Bold delete prompt */
+"RemoteDeletePrompt" = "Slet %@?";
+
+/* Remote delete message */
+"RemoteDeleteSubPrompt" = "%@ vil blive slettet øjeblikkeligt. Det er ikke muligt at fortryde denne handling.";
+
+/* Offer to download directory with SCP */
+"SCPDownloadOffer" = "√ònsker du at downloade %@ til %@ med SCP i stedet for?";
+
+/* string when deleting multiple files */
+"SelectedItemsMessage" = "de valgte emner";
+
+/* Show Files Menu Item */
+"ShowHiddenFiles" = "Vis skjulte filer";
+
+/* Update available header */
+"UpdateAvailable" = "En ny version af Fugu er tilgængelig.";
+
+/* Update available message */
+"UpdateAvailableMessage" = "RSUG har frigivet en nyere version af Fugu end den du har. Vil du hente den?";
+
+/* Error occurred checking for updates. */
+"UpdateCheckError" = "En fejl skete i forbindelse med søgning efter opdateringer.";
+
+/* Update check error message. */
+"UpdateCheckErrorMessage" = "Undersøg venligst om du er forbundet til internettet. Hvis du er forbundet, og stadig ikke kan forbinde, kontakt da Fugu's udviklere.";
+
+/* Version is up to date */
+"UpdateNotNeeded" = "Du har den nyeste version af Fugu.";
+
+/* Full message displayed when canceling with items in queue */
+"UploadQueueSubWarning" = "Der er %d filer tilbage i uploadkøen. Hvis du annullerer vil disse ikke bliver uploadet. Ønsker du at afbryde uden at uploade disse filer?";
+
+/* Bold warning displayed when canceling with items in queue */
+"UploadQueueWarning" = "Advarsel: Uploadkøen er ikke tom.";
+
+/* Header for number of visible items */
+"VisibleItemCount" = "%d filer (%d skjulte)";
+
+/* Write Failure Message */
+"WriteFailure" = "Fejl: Skrev ikke det korrekte antal bytes!";
+

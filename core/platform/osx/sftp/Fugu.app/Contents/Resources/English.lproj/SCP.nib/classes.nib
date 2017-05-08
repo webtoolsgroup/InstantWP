@@ -1,0 +1,51 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {
+                acceptHost = id; 
+                authenticate = id; 
+                beginSCP = id; 
+                cancelSCP = id; 
+                cancelSCPDialog = id; 
+                chooseLocalFile = id; 
+                refuseHost = id; 
+            }; 
+            CLASS = SCPController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                addToKeychainSwitch = NSButton; 
+                authProgBar = NSProgressIndicator; 
+                bytesCopiedField = NSTextField; 
+                connectProgMsg = NSTextField; 
+                connectProgView = NSView; 
+                copyType = NSMatrix; 
+                destPathField = NSTextField; 
+                destPortField = NSTextField; 
+                destServerField = NSComboBox; 
+                destUserNameField = NSTextField; 
+                etaField = NSTextField; 
+                localFileField = NSTextField; 
+                localFileImageView = NSImageView; 
+                passErrorField = NSTextField; 
+                passPromptField = NSTextField; 
+                passpromptView = NSView; 
+                passwordField = NSTextField; 
+                percentDoneField = NSTextField; 
+                progBar = NSProgressIndicator; 
+                recentCopiesList = NSPopUpButton; 
+                scpLogDrawer = NSDrawer; 
+                scpLogField = NSTextView; 
+                scpSheet = NSPanel; 
+                scpWindow = NSWindow; 
+                unknownHostKeyField = NSTextField; 
+                unknownHostMsgField = NSTextField; 
+                unknownHostView = NSView; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {CLASS = UMDragDropImageView; LANGUAGE = ObjC; SUPERCLASS = NSImageView; }, 
+        {CLASS = UMTextField; LANGUAGE = ObjC; SUPERCLASS = NSTextField; }
+    ); 
+    IBVersion = 1; 
+}

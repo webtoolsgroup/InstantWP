@@ -1,0 +1,17 @@
+{
+	"category" : "TaskItServices",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "GuillermoPolito 8/23/2016 15:03",
+	"instvars" : [
+		"worker",
+		"stopRequested",
+		"stopCallback",
+		"stopCallbacks" ],
+	"name" : "TKTService",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }

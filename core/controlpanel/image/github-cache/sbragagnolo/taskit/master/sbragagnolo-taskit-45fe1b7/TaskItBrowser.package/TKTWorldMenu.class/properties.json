@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "SantiagoBragagnolo 7/22/2015 16:48",
+	"super" : "Object",
+	"category" : "TaskItBrowser-Widget",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "TKTWorldMenu",
+	"type" : "normal"
+}

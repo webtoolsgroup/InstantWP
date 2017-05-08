@@ -1,0 +1,11 @@
+{
+	"class" : {
+		 },
+	"instance" : {
+		"testWorkerExceptionIsHandledByExceptionHandler" : "guille 8/21/2016 16:49:35",
+		"testWorkerProcessDiesAfterStop" : "guille 8/21/2016 16:49:35",
+		"testWorkerProcessDiesAfterWorkerAndAllFuturesAreCollected" : "guille 8/21/2016 16:49:35",
+		"testWorkerProcessDiesAfterWorkerIsCollected" : "guille 8/21/2016 16:49:35",
+		"testWorkerProcessIsWorkingUntilAllTasksAreDone" : "guille 8/21/2016 16:49:35",
+		"testWorkerRunsAlwaysInSameProcess" : "guille 8/21/2016 16:49:35",
+		"testWorkerRunsInSeparateProcess" : "guille 8/21/2016 16:49:35" } }

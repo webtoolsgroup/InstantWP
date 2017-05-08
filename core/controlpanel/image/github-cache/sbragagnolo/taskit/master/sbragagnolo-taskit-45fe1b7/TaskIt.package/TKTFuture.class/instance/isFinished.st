@@ -1,0 +1,4 @@
+testing
+isFinished
+
+	^ result isFinished

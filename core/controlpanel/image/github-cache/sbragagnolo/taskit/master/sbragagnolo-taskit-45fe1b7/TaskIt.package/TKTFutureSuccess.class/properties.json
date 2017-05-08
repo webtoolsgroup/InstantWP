@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "GuillermoPolito 8/15/2016 11:50",
+	"super" : "TKTFutureState",
+	"category" : "TaskIt-Futures",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"value"
+	],
+	"name" : "TKTFutureSuccess",
+	"type" : "normal"
+}

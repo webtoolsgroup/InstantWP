@@ -1,0 +1,46 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {
+                acceptHost = id; 
+                authenticate = id; 
+                cancelTunnelCreation = id; 
+                closeTunnel = id; 
+                getNewTunnelSheet = id; 
+                refuseHost = id; 
+                selectFromFavorites = id; 
+                selectService = id; 
+                startTunnel = id; 
+            }; 
+            CLASS = SSHTunnel; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                addToKeychainSwitch = NSButton; 
+                authProgBar = NSProgressIndicator; 
+                authProgMsg = NSTextField; 
+                connectMsg = NSTextField; 
+                connectProgBar = NSProgressIndicator; 
+                localPortField = NSTextField; 
+                passErrorField = NSTextField; 
+                passPromptField = NSTextField; 
+                passpromptView = NSView; 
+                passwordField = NSTextField; 
+                remoteHostField = NSComboBox; 
+                remotePortField = NSComboBox; 
+                sshTunnelInfoButton = NSPopUpButton; 
+                sshtunnelSheet = NSPanel; 
+                sshtunnelWindow = NSWindow; 
+                tunnelCreationView = NSView; 
+                tunnelHostField = NSTextField; 
+                tunnelPortField = NSTextField; 
+                unknownHostKeyField = NSTextField; 
+                unknownHostMsgField = NSTextField; 
+                unknownHostView = NSView; 
+                usernameField = NSTextField; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }
+    ); 
+    IBVersion = 1; 
+}

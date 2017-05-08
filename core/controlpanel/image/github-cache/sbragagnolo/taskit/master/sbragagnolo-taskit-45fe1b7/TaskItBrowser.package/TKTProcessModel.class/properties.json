@@ -1,0 +1,19 @@
+{
+	"commentStamp" : "SantiagoBragagnolo 7/22/2015 13:11",
+	"super" : "Object",
+	"category" : "TaskItBrowser-Widget",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"process",
+		"actionIcon",
+		"receiver",
+		"selector",
+		"arguments",
+		"job",
+		"task"
+	],
+	"name" : "TKTProcessModel",
+	"type" : "normal"
+}

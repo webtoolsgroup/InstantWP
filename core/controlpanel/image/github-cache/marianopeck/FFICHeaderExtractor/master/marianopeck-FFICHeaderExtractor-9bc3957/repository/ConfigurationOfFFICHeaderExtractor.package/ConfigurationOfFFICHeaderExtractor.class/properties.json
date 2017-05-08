@@ -1,0 +1,14 @@
+{
+	"category" : "ConfigurationOfFFICHeaderExtractor",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "MarianoMartinezPeck 1/27/2016 10:38",
+	"instvars" : [
+		 ],
+	"name" : "ConfigurationOfFFICHeaderExtractor",
+	"pools" : [
+		 ],
+	"super" : "ConfigurationOf",
+	"type" : "normal" }

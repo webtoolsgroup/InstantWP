@@ -1,0 +1,14 @@
+{
+	"category" : "TaskIt-Tests",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "GuillermoPolito 8/15/2016 12:33",
+	"instvars" : [
+		"error" ],
+	"name" : "TKTTestExceptionHandler",
+	"pools" : [
+		 ],
+	"super" : "TKTExceptionHandler",
+	"type" : "normal" }

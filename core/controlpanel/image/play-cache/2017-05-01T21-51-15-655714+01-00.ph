@@ -1,0 +1,1 @@
+IWPConfig initialize.IWPLoadingScreen new openDialogWithSpec.[ IWPProgressBar showStartUpProgressBar ] fork.

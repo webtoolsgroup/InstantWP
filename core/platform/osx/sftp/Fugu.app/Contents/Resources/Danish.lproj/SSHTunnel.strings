@@ -1,0 +1,39 @@
+/* Menu item title allowing user to add a service favorite. */
+"AddService" = "Tilføj tjeneste...";
+
+/* Close Tunnel */
+"Close Tunnel" = "Luk tunnel";
+
+/* Warning Header displayed when user tries to close ssh tunnel. */
+"CloseTunnelInfo" = "Er du sikker på at du vil lukke denne tunnel?";
+
+/* Message informing user which tunnel will be closed */
+"CloseTunnelWarning" = "Tunnel til port %@ på server %@ vil blive lukket.";
+
+/* Error message when user doesn't fill all fields. */
+"InvalidParameters" = "Du skal udfylde alle felter. Prøv venligst igen.";
+
+/* Error message shown when user tries to use a port < 1024 */
+"PrivilegedPortError" = "%d er en reserveret port. Den lokale port skal have en værdi højere end 1024. Fugu tillader ikke videresendelse af reserverede porte.";
+
+/* Connnected Window Title for SSH Tunnel window. */
+"SSHTunnelConnectedWindowTitle" = "Tunnel: lokal port %@ til port %@ på %@";
+
+/* Default Window Title for SSH Tunnel window. */
+"SSHTunnelDefaultWindowTitle" = "Opret SSH tunnel";
+
+/* Title of connected ssh tunnel popup button */
+"TunnelMenuHeader" = "Information om tunnel";
+
+/* Menu item in popup button listing local port */
+"TunnelMenuLocalPort" = "Lokal port: %@";
+
+/* Menu item in popup button listing remote host */
+"TunnelMenuRemoteHost" = "Server: %@";
+
+/* Menu item in popup button listing local port */
+"TunnelMenuRemotePort" = "Serverport: %@";
+
+/* Menu item in popup button listing tunnel host */
+"TunnelMenuTunnelHost" = "Tunnelvært: %@";
+

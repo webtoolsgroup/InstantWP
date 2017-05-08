@@ -1,0 +1,8 @@
+{
+	"class" : {
+		 },
+	"instance" : {
+		"tearDown" : "GuillermoPolito 8/23/2016 12:05",
+		"testServiceExecutesStartUpOnStart" : "GuillermoPolito 8/23/2016 12:10",
+		"testServiceExecutesTearDownOnStop" : "GuillermoPolito 8/23/2016 12:10",
+		"testServiceRunsAfterStart" : "GuillermoPolito 8/23/2016 12:07" } }

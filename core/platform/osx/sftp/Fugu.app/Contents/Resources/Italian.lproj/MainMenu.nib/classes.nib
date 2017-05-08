@@ -1,0 +1,207 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {dismissReadMe = id; emailAuthor = id; viewReadMe = id; visitHomePage = id; }; 
+            CLASS = SFTPAboutPanel; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                creditsTextField = NSTextView; 
+                emailButton = NSButton; 
+                homepageButton = NSButton; 
+                pufferIconField = NSImageView; 
+                readMeButton = NSButton; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {CLASS = SFTPBrowser; LANGUAGE = ObjC; SUPERCLASS = NSBrowser; }, 
+        {
+            ACTIONS = {
+                addToFavorites = id; 
+                cancelConnection = id; 
+                cancelLogin = id; 
+                cdFromLPathPopUp = id; 
+                cdFromRPathPopUp = id; 
+                cdLocalHome = id; 
+                cdRemoteHome = id; 
+                changeDirectory = id; 
+                changeLOwnerAndGroup = id; 
+                changeLocalMode = id; 
+                changeRGroup = id; 
+                changeROwner = id; 
+                changeRemoteMode = id; 
+                checkForUpdates = id; 
+                continueConnecting = id; 
+                createNewDirectory = id; 
+                delete = id; 
+                deleteLocalFile = id; 
+                deleteRemoteFile = id; 
+                disconnect = id; 
+                dismissGotoDirPanel = id; 
+                dismissNewDirPanel = id; 
+                dotdot = id; 
+                downloadButtonClick = id; 
+                focusOnLocalPane = id; 
+                focusOnRemotePane = id; 
+                getGotoDirPanel = id; 
+                getHelpForAuth = id; 
+                getInfo = id; 
+                gotoLocalDirectory = id; 
+                gotoRemoteDirectory = id; 
+                localBrowserDoubleClick = id; 
+                localBrowserSingleClick = id; 
+                localCdDotDot = id; 
+                localPermissionSwitchClick = id; 
+                newSSHTunnel = id; 
+                openItem = id; 
+                refreshBrowsers = id; 
+                remoteBrowserDoubleClick = id; 
+                remoteBrowserSingleClick = id; 
+                remoteCdDotDot = id; 
+                remotePermissionSwitchClick = id; 
+                renameLocalItem = id; 
+                renameRemoteItem = id; 
+                scp = id; 
+                secureCopy = id; 
+                selectFromFavorites = id; 
+                selectRendezvousServer = id; 
+                sendManualCommand = id; 
+                sendPassword = id; 
+                sftpConnect = id; 
+                showConnectingInterface = id; 
+                showConnectingSheet = id; 
+                showItemFromHelpMenu = id; 
+                showLogPanel = id; 
+                showPrefs = id; 
+                toggleAdvConnectionView = id; 
+                toggleDirCreationButtons = id; 
+                toggleDots = id; 
+                toggleGoToButtons = id; 
+                uploadButtonClick = id; 
+            }; 
+            CLASS = SFTPController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                addToFavButton = NSButton; 
+                addToKeychainSwitch = NSButton; 
+                advAdditionalOptionsField = NSTextField; 
+                advConnectionBox = NSBox; 
+                advConnectionView = NSView; 
+                advEnableCompressionSwitch = NSButton; 
+                advForceSSH1Switch = NSButton; 
+                authProgBar = NSProgressIndicator; 
+                commandButton = NSButton; 
+                connectButton = NSButton; 
+                connectingProgress = NSProgressIndicator; 
+                connectingToField = NSTextField; 
+                connectingView = NSView; 
+                downloadProgBar = NSProgressIndicator; 
+                downloadProgInfo = NSTextField; 
+                downloadSheet = NSPanel; 
+                downloadTextField = NSTextField; 
+                downloadTimeField = NSTextField; 
+                gotoButton = NSButton; 
+                gotoDirNameField = NSComboBox; 
+                gotoDirPanel = NSPanel; 
+                groupField = NSTextField; 
+                hostKeyUnauth = id; 
+                infoPanel = NSPanel; 
+                infoPathField = NSTextField; 
+                infoTabView = NSTabView; 
+                lPathPopUp = NSPopUpButton; 
+                laExecSwitch = NSButton; 
+                laReadSwitch = NSButton; 
+                laWriteSwitch = NSButton; 
+                largeIcon = NSImageView; 
+                lgExecSwitch = NSButton; 
+                lgReadSwitch = NSButton; 
+                lgWriteSwitch = NSButton; 
+                loExecSwitch = NSButton; 
+                loReadSwitch = NSButton; 
+                loWriteSwitch = NSButton; 
+                localBox = NSBox; 
+                localBrowser = SFTPTableView; 
+                localDirCreateButton = NSButton; 
+                localGotoButton = NSButton; 
+                localTableMenu = NSMenu; 
+                localView = NSView; 
+                logField = NSTextView; 
+                logPanel = NSPanel; 
+                loginDirField = NSTextField; 
+                loginView = NSView; 
+                mainWindow = SFTPMainWindow; 
+                manualComField = NSTextField; 
+                modDateField = NSTextField; 
+                newDirCreateButton = NSButton; 
+                newDirNameField = NSTextField; 
+                newDirPanel = NSPanel; 
+                ownerField = NSTextField; 
+                passAuthButton = NSButton; 
+                passCancelButton = NSButton; 
+                passErrorField = NSTextField; 
+                passHeader = NSTextField; 
+                passView = NSView; 
+                passWord = NSTextField; 
+                permField = NSTextField; 
+                popUpFavs = id; 
+                portField = id; 
+                rGroupField = NSTextField; 
+                rIcon = NSImageView; 
+                rInfoPathField = NSTextField; 
+                rModDateField = NSTextField; 
+                rOwnerField = NSTextField; 
+                rPathPopUp = NSPopUpButton; 
+                rPermField = NSTextField; 
+                rSizeField = NSTextField; 
+                rTypeField = NSTextField; 
+                rWhereField = NSTextField; 
+                raExecSwitch = NSButton; 
+                raReadSwitch = NSButton; 
+                raWriteSwitch = NSButton; 
+                remoteBox = NSBox; 
+                remoteBrowser = SFTPTableView; 
+                remoteColumnFooter = NSTextField; 
+                remoteDirCreateButton = NSButton; 
+                remoteGotoButton = NSButton; 
+                remoteHost = id; 
+                remoteMsgField = NSTextField; 
+                remoteProgBar = NSProgressIndicator; 
+                remoteTableMenu = NSMenu; 
+                remoteView = NSView; 
+                rendezvousPopUp = NSPopUpButton; 
+                rgExecSwitch = NSButton; 
+                rgReadSwitch = NSButton; 
+                rgWriteSwitch = NSButton; 
+                roExecSwitch = NSButton; 
+                roReadSwitch = NSButton; 
+                roWriteSwitch = NSButton; 
+                sizeField = NSTextField; 
+                typeField = NSTextField; 
+                unauthHostInfo = id; 
+                uploadProgBar = NSProgressIndicator; 
+                uploadProgInfo = NSTextField; 
+                uploadProgItemsLeft = NSTextField; 
+                uploadProgName = NSTextField; 
+                uploadProgPanel = NSPanel; 
+                uploadTimeField = NSTextField; 
+                userName = id; 
+                verifyConnectSheet = id; 
+                whereField = NSTextField; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            CLASS = SFTPDownload; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {myOutlet = id; }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {CLASS = SFTPErrorHandler; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = SFTPMainWindow; LANGUAGE = ObjC; SUPERCLASS = NSWindow; }, 
+        {CLASS = SFTPNode; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = SFTPScrollView; LANGUAGE = ObjC; SUPERCLASS = NSScrollView; }, 
+        {CLASS = SFTPSplitView; LANGUAGE = ObjC; SUPERCLASS = NSSplitView; }, 
+        {CLASS = SFTPTableView; LANGUAGE = ObjC; SUPERCLASS = NSTableView; }
+    ); 
+    IBVersion = 1; 
+}

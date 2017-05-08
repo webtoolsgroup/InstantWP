@@ -1,0 +1,778 @@
+{\rtf1\mac\ansicpg10000\cocoartf102
+{\fonttbl\f0\fswiss\fcharset77 Helvetica;\f1\fswiss\fcharset77 Helvetica-Bold;\f2\fnil\fcharset77 LucidaGrande;
+\f3\fnil\fcharset77 LucidaGrande-Bold;}
+{\colortbl;\red255\green255\blue255;\red0\green7\blue120;\red0\green4\blue255;\red0\green8\blue255;
+\red0\green0\blue255;}
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\qc
+\cf0 {{\NeXTGraphic fuguicon2.png \width4460 \height2560
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\qc
+
+\f0\fs24 \cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\qc
+
+\f1\b\fs84 \cf0 Fugu
+\fs48  
+\fs82 1.1
+\fs48 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\qc
+
+\fs36 \cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\qc
+
+\fs32 \cf0 24 oktober 2003
+\fs36 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\qc
+
+\fs24 \cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\qc
+
+\fs26 \cf0 Een Open-Source Mac OS X voorkant voor de OpenSSH SFTP client
+\fs24 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\qc
+
+\f0\b0\fs26 \cf0 Het wijzigbare deel van de Blowfish
+\fs24 \
+\
+
+\fs26 http://rsug.itd.umich.edu/software/fugu\
+fugu@umich.edu\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\qc
+
+\fs22 \cf0 \'a9 2003 The Regents of the University of Michigan\
+Alle rechten voorbehouden.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural
+\cf0 Toestemming om te gebruiken, kopi\'91ren, aanpassen en verspreiden van deze programmatuur en zijn documentatie voor enig doel en zonder vergoeding te vragen wordt hierbij gegeven, vooropgesteld dat bovenstaande kopierecht vermelding in alle kopie\'91n aanwezig is en dat zowel de kopierecht vermelding als deze toestemming weergegeven worden in ondersteunende documentatie en dat de naam van de The University of Michigan niet gebruikt wordt in reclame- of publiciteit-uitingen behorende bij de verspreiding van de programmatuur zonder voorafgaande, schriftelijke toestemming. Deze programmatuur wordt geleverd zoals hij is ("as-is") zonder impliciete of expliciete garanties van enig soort.
+\fs24 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\qc
+\cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural
+\cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural
+
+\f1\b\fs28 \cf2 Wat is Fugu?\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\ql\qnatural
+
+\f0\b0\fs24 \cf0 Fugu is een grafische voorkant voor de tekst-gebaseerde Secure File Transfer Protocol (SFTP) client die bij Mac OS X geleverd wordt. SFTP lijkt op FTP, maar de hele sessie is versleuteld, wat inhoud dat niets, inclusief wachtwoorden, vrijelijk leesbaar verzonden wordt. Fugu levert een vriendelijke, intu\'95tieve interface voor de OpenSSH SFTP client, met ondersteuning voor bestandsoverdracht met slepen-en-neerzetten. Met Fugu kunt u uw voordeel doen met de sterke versleuteling van SFTP zonder aan gebruiksgemak in te boeten. Daarbij ondersteunt Fugu versleutelde bestandsoverdracht met gebruik van Secure Copy (SCP) en het maken en gebruiken van SSH tunnels om veilige interactie tussen machines te faciliteren.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural
+
+\f1\b \cf0 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural
+
+\fs28 \cf2 Inhoud\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\ql\qnatural
+
+\fs24 \cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural
+\cf0 \'a5 Minimum eisen\
+\
+\'a5 SFTP gebruiken met Fugu:\
+ 	\'a5 Verbinden\
+	\'a5 Uploaden\
+	\'a5 Downloaden\
+	\'a5 Navigeren\
+	\'a5 Verwijderen\
+	\'a5 Hernoemen\
+	\'a5 Bestand- of map-informatie weergeven\
+\
+\'a5 SCP gebruiken met Fugu\
+\
+\'a5 Een SSH tunnel maken met Fugu:\
+	\'a5 Wat u nodig heeft\
+	\'a5 De tunnel maken\
+	\'a5 De tunnel gebruiken\
+	\'a5 De tunnel sluiten\
+\
+\'a5 Veel gestelde vragen:\
+	\'a5 Waarom vertelt Fugu me niet hoever het is met uploaden of downloaden van een bestand?\
+	\'a5 Waarom kan ik geen mappen downloaden met SFTP?\
+	\'a5 Ik wil graag een vertaling bijdragen. Met wie moet ik contact opnemen?\
+	\'a5 Waar kan ik de broncode krijgen?\
+	\'a5 Ik wil graag een patch bijdragen. Hoe dien ik deze in?\
+	\'a5 Komt er ook traditionele FTP support?\
+	\'a5 Hoe gebruik ik Publieke Sleutel (Public Key) authenticatie in Fugu?\
+\
+\'a5 Versie geschiedenis\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\ql\qnatural
+\cf0 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural
+
+\fs28 \cf2 Minimum eisen
+\fs24 \cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\ql\qnatural
+\cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\ql\qnatural
+
+\f0\b0 \cf0 Fugu is getest op Mac OS X 10.2.x, maar zou ook moeten werken met alle versies van Mac OS X 10.1. U moet ook het BSD subsysteem ge\'95nstalleerd hebben, waar de OpenSSH SFTP client een deel van is. Dit zit in de standaard installatie van Mac OS X. Mac OS X 10.0 wordt niet ondersteund.
+\f1\b \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural
+
+\fs28 \cf2 SFTP gebruiken met Fugu\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\ql\qnatural
+
+\fs24 \cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural
+\cf0 \'a5 Verbinden met een SFTP server\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\ql\qnatural
+
+\f0\b0 \cf0 \
+Start Fugu. Voer in het veld 
+\f1\b Verbinden met
+\f0\b0 , de naam van de SFTP server in. Voer de gebruikersnaam die u heeft op die server in, in het veld 
+\f1\b Gebruikersnaam
+\f0\b0 . Het veld 
+\f1\b Poort
+\f0\b0  en het veld 
+\f1\b Map
+\f0\b0  zijn optioneel. Als u weet dat de SFTP server draait op een niet-standaard poort, zou u het poortnummer van de server in het veld 
+\f1\b Poort 
+\f0\b0 invoeren. Wanneer u direct naar een map wilt gaan die anders is dan de standaard (normalerwijs uw Thuis map), voert u deze dan in in het veld 
+\f1\b Map
+\f0\b0 .\
+\
+Als u alle informatie ingevuld heeft, kunt u optioneel deze informatie aan uw lijst met 
+\f1\b Favorieten
+\f0\b0  toevoegen, door op de knop 
+\f1\b Voeg toe aan favorieten
+\f0\b0  te klikken. Nadat u een server aan uw lijst met Favorieten heeft toegevoegd, kunt u deze selecteren uit het popup-menu links onderin de hoek van het paneel verbinding. De voorkeuren aanpassen gebeurt in het Fugu paneel voorkeuren.\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\qc
+\cf0 {{\NeXTGraphic Pasted Graphic.tiff \width6580 \height6340
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\qc
+
+\f0\fs24 \cf0 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\ql\qnatural
+\cf0 \
+Wanneer u gereed bent om te verbinden, drukt op de knop 
+\f1\b Verbinden
+\f0\b0 . Wanneer Fugu uw wachtwoord nodig heeft, zal het hierom vragen, zoals u hieronder ziet:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\ql\qnatural
+
+\f1\b \cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\qc
+\cf0 {{\NeXTGraphic Pasted Graphic 1.tiff \width5940 \height5420
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\qc
+
+\f1\fs24 \cf0 \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\li720\ql\qnatural
+
+\f0\b0 \cf0 Voer uw wachtwoord in, in het daarvoor bestemde veld. U kunt optioneel uw wachtwoord bewaren in uw sleutelhanger door het selectievakje 
+\f1\b Voeg wachtwoord toe aan sleutelhanger
+\f0\b0  aan te vinken.\
+\
+Nadat uw wachtwoord hebt ingevoerd, drukt u op 
+\f1\b Authenticeer.
+\f0\b0  \
+\
+\
+\
+\pard\tx0\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
+
+\f1\b \cf0 \'a5 Uploaden van bestanden en mappen\
+\
+\pard\tx0\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\li720\ql\qnatural
+
+\f0\b0 \cf0 Sleep de onderdelen die u wilt uploaden vanuit het paneel 
+\f1\b Lokaal 
+\f0\b0 (linkerkant) en laat ze los in het paneel 
+\f1\b Server
+\f0\b0  (rechterkant).\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\qc
+\cf0 {{\NeXTGraphic FuguScreenSnapz005.png \width6940 \height4900
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\qc
+
+\f0\fs24 \cf0 \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
+
+\f1\b \cf0 \'a5 Downloaden van bestanden\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\li720\ql\qnatural
+
+\f0\b0 \cf0 \
+Downloaden van bestanden werkt net als uploaden. Sleep de bestanden die u wilt downloaden vanuit het paneel 
+\f1\b Server
+\f0\b0  en laat ze los in het paneel 
+\f1\b Lokaal
+\f0\b0 .\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\qc
+\cf0 {{\NeXTGraphic FuguScreenSnapz002.png \width6940 \height4900
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\qc
+
+\f0\fs24 \cf0 \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
+
+\f1\b \cf0 \'a5 Downloaden van mappen\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\li720\ql\qnatural
+
+\f0\b0 \cf0 \
+De SFTP client waar Fugu omheen functioneert ondersteunt het downloaden van mappen niet. Om om deze beperking heen te werken, gebruikt Fugu SCP om mappen te downloaden. Wanneer u probeert een map te downloaden, zal Fugu aanbieden om dat via SCP te doen. Als u kiest voor 
+\f1\b Download met SCP
+\f0\b0 , zal Fugu het venster SCP weergeven voor de overdracht (zie de sectie SCP hieronder voor meer informatie).\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
+\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
+
+\f1\b \cf0 \'a5 Navigeren\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\li720\ql\qnatural
+
+\f0\b0 \cf0 \
+Dubbelklik op mappen om hun inhoud weer te geven. Om een niveau omhoog te gaan, drukt op de knop 
+\f1\b pijl omhoog
+\f0\b0  naast het popup-menu waarin uw huidige locatie staat. Om naar map in het pad van uw huidige locatie te navigeren, drukt u op het popup-menu en drukt u op de gewenste map uit de lijst.\
+\
+Fugu houdt ook de geschiedenis voor de panelen 
+\f1\b Lokaal
+\f0\b0  en 
+\f1\b Server
+\f0\b0  bij, met de laatste 20 plaatsen waar u bent geweest. U kunt op de knoppen 
+\f1\b Geschiedenis
+\f0\b0  in de knoppenbalk drukken en de locatie selecteren waar u heen wilt.\
+\
+U kunt ook de pijltoetsen gebruiken.\
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
+
+\f1\b \cf0 \'a5 Bestanden en mappen verwijderen\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\li720\ql\qnatural
+
+\f0\b0 \cf0 Om een onderdeel te verwijderen, selecteert u deze en drukt u op de 
+\f1\b wis
+\f0\b0  toets op uw toetsenbord; Of selecteert u het onderdeel en drukt op de knop 
+\f1\b Verwijder
+\f0\b0  in de knoppenbalk. U zult om bevestiging gevraagd worden voor verwijdering van het onderdeel.\
+\pard\tx0\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\li720\ql\qnatural
+\cf0 \
+De SFTP client waar Fugu omheen gebouwd is, weet niet hoe deze recursief mappen moet verwijderen. Dat betekent dat u een foutmelding krijgt wanneer u een map probeert te verwijderen die niet leeg is. Verwijder eerst de onderdelen in de map en verwijder dan de map zelf.\
+\
+\
+\pard\tx0\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
+
+\f1\b \cf0 \'a5 Bestanden en mappen hernoemen\
+\
+\pard\tx0\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\li720\ql\qnatural
+
+\f0\b0 \cf0 Om een onderdeel te hernoemen, selecteert u het onderdeel en drukt op de toets 
+\f1\b Enter
+\f0\b0  op uw toetsenbord; Of geeft u een rechter- of CTRL+muisklik op het onderdeel en selecteert u 
+\f1\b Hernoem
+\f0\b0  uit het contextuele menu. Fugu zal de naam van het onderdeel selecteren en wijzigbaar maken.\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\qc
+\cf0 {{\NeXTGraphic FuguScreenSnapz003.png \width3460 \height4900
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\qc
+
+\f0\fs24 \cf0 		{{\NeXTGraphic FuguScreenSnapz004.png \width3460 \height4900
+}¬}
+\f0\fs24 \
+\pard\tx0\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\li720\ql\qnatural
+\cf0 \
+Wanneer u gereed bent met de nieuwe naam, drukt u op de toets 
+\f1\b Return
+\f0\b0  op uw toetsenbord. Om het wijzigen te annuleren klikt u op een ander onderdeel.\
+\
+\
+\pard\tx0\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
+
+\f1\b \cf0 \'a5 Bestand- of map-informatie tonen\
+\
+\pard\tx0\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\li720\ql\qnatural
+
+\f0\b0 \cf0 Om alle attributen van een onderdeel weer te geven, of dat nu op uw computer of op de SFTP server is, selecteert u het onderdeel en kiest u 
+\f1\b toon info
+\f0\b0  uit het menu 
+\f1\b SFTP
+\f0\b0 . In het paneel Info, kunt bevoegdheden voor bestanden en mappen wijzigen, de eigenaar en groep instellen en overige informatie behorende bij het geselecteerde onderdeel zien.\
+\
+\
+\pard\tx0\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
+
+\f1\b \cf0 \'a5 En meer....\
+\pard\tx0\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\li720\ql\qnatural
+
+\f0\b0 \cf0 \
+Fugu heeft nog veel meer mogelijkheden. Probeert u de knoppenbalk naar uw smaak in te richten, of kijkt u eens naar de Fugu console om te zien wat er zich onder de motorkap afspeelt.\
+\
+
+\f1\b \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural
+
+\fs28 \cf2 SCP gebruiken met Fugu
+\fs24 \cf0 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\ql\qnatural
+
+\f0\b0 \cf0 Verbinden om SCP te gebruiken werkt net als het verbinden met Fugu om SFTP te gebruiken, behalve dat u nu specifiek gevraagd wordt om het pad naar het onderdeel dat wilt overzetten of overhalen.\
+\
+Selecteer 
+\f1\b Nieuwe Veilige Kopie
+\f0\b0  uit het menu 
+\f1\b SCP
+\f0\b0 . In het venster SCP, voert u de naam van de server waarmee u gaat verbinden in, in het veld 
+\f1\b Server
+\f0\b0 . In het veld 
+\f1\b Gebruikersnaam
+\f0\b0 , voert u de gebruikersnaam in die u heeft op de server. Wanneer u kopieert van uw computer naar de server, drukt u op de knop 
+\f1\b Kiezen...
+\f0\b0  en selecteert u het te kopi\'91ren onderdeel. Wanneer het onderdeel zich op de server bevindt, moet u het pad naar het onderdeel invoeren in het veld 
+\f1\b Te kopi\'91ren onderdeel
+\f0\b0 . U kunt optioneel ook de locatie opgeven waarnaar toe u het onderdeel wilt kopi\'91ren in het veld 
+\f1\b Kopieer naar pad
+\f0\b0 .\
+\
+Om aan te geven of het onderdeel gaat downloaden of uploaden, kiest u ofwel voor 
+\f1\b Upload onderdeel naar server 
+\f0\b0 ofwel voor 
+\f1\b Download onderdeel van server
+\f0\b0  uit het veld 
+\f1\b Kopieer type
+\f0\b0 . \
+\
+Wanneer u gereed bent om het kopi\'91ren te starten, drukt op de knop 
+\f1\b Veilige Kopie
+\f0\b0  en voert u uw wachtwoord in wanneer u dat gevraagd wordt.\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\qc
+\cf0 {{\NeXTGraphic Pasted Graphic 2.tiff \width8500 \height6720
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\qc
+
+\f0\fs24 \cf0 \
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
+
+\f1\b \cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural
+
+\fs28 \cf2 Een SSH tunnel maken met Fugu
+\fs24 \cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural
+
+\f0\b0 \cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural
+
+\f1\b \cf0 \'a5 Wat u nodig heeft\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\ql\qnatural
+
+\f0\b0 \cf0 Om een SSH tunnel te kunnen maken, heeft u een account nodig op een machine waarop SSH draait en als tunnel medium voor u zal dienen. Wanneer u geen toegang heeft tot zo'n machine, kunt u uw Mac gebruiken als tunnel medium. Als dit het geval is, zult u Extern Inloggen moet activeren in het paneel Samengebruik van de Apple Systeemvoorkeuren.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\ql\qnatural
+
+\f1\b \cf0 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural
+\cf0 \'a5 De tunnel maken\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\ql\qnatural
+
+\f0\b0 \cf0 Vanuit het menu 
+\f1\b SSH
+\f0\b0 , selecteert u 
+\f1\b Nieuwe SSH tunnel.
+\f0\b0  In het veld 
+\f1\b Server
+\f0\b0 , voert u de naam van de server in waarmee u wilt verbinden via de SSH tunnel. In het veld 
+\f1\b Server poort, 
+\f0\b0 voert u het nummer in van de poort waarop de voorziening die u wilt gebruiken draait. Als de server waarmee u verbindt FTP draait, zal dit poortnummer meestal 21 zijn. In het veld 
+\f1\b Lokale poort
+\f0\b0 , voert u een getal groter dan 1024 in. Het maakt niets uit welk.\
+\
+In het veld 
+\f1\b Tunnel server
+\f0\b0 , voert u de naam van de computer in waarop u een geldig SSH account heeft. Voer de gebruikersnaam die u op die server heeft in, in het veld 
+\f1\b Gebruikersnaam
+\f0\b0 . Het veld 
+\f1\b Poort
+\f0\b0  is optioneel.\
+\
+Wanneer u alle informatie ingevuld heeft, drukt op de knop 
+\f1\b Start tunnel
+\f0\b0 . Nadat u geauthenticeert bent, zal een klein venster rechts bovenin het scherm verschijnen, met een popup-menu waarin de tunnel informatie weergegeven wordt.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural
+
+\f1\b \cf0 \
+\'a5 De tunnel gebruiken\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\ql\qnatural
+
+\f0\b0 \cf0 Als uw SSH tunnel eenmaal tot stand is gebracht, kunt u hierdoor met de server verbinden die u ingevoerd had in het veld 
+\f1\b Server
+\f0\b0 . Om deze verbinding tot stand te brengen, verbind u niet met de 
+\f1\b Server
+\f0\b0 , maar met uw eigen computer, ofwel "localhost". Stel, bijvoorbeeld, dat u tunnelt naar een FTP server. Nadat u uw SSH tunnel opgezet heeft, opent u een FTP client en u voert in het veld 
+\f1\b Server 
+\f0\b0 -of een equivalent veld- "localhost" in. In het veld 
+\f1\b Poort
+\f0\b0 , voert u het getal in dat u ingevuld had in het veld 
+\f1\b Lokale poort
+\f0\b0  van het Fugu venster SSH tunnel. In het veld 
+\f1\b Wachtwoord
+\f0\b0 , voert u het wachtwoord in dat u voor de FTP server gebruikt en u verbindt. Uw verbinding wordt beveiligd omgeleid door uw tunnel server naar de FTP server.\
+\
+Wanneer u, zoals in dit voorbeeld, tunnelt naar een FTP server, moet u erop letten dat u de Passieve modus geactiveert hebt in uw FTP client.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural
+\cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural
+
+\f1\b \cf0 \'a5 De tunnel sluiten\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\ql\qnatural
+
+\f0\b0 \cf0 Wanneer u klaar bent met de tunnel, drukt u gewoon op de knop 
+\f1\b Sluit tunnel
+\f0\b0 . U zult om bevestiging voor het sluiten gevraagd worden. Druk op 
+\f1\b Sluit tunnel
+\f0\b0 .
+\f1\b \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural
+\cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural
+
+\fs28 \cf2 Veel gestelde vragen
+\fs24 \cf0 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\ql\qnatural
+\cf0 V: Waarom vertelt Fugu me niet hoever het is met uploaden of downloaden van een bestand?
+\f0\b0 \
+\
+A: De OpenSSH SFTP client ondersteunt de benodigde terugmelding die nodig is voor het weergeven van die informatie nog niet. Zodra dit wel mogelijk is, zal Fugu dit soort informatie ook weergeven. In de tussentijd, laat Fugu u weten dat bestanden worden ge-upload of gedownload en werkt het de GUI bij indien zo'n operatie is voltooid. U kunt ook in de Fugu Console kijken voor informatie of fouten.\
+\
+\
+
+\f1\b V: Waarom kan ik geen mappen downloaden met SFTP?
+\f0\b0 \
+\
+A: Fugu is alleen om de OpenSSH command line SFTP client gebouwd. Deze client is niet in staat om mappen te downloaden of uploaden. Fugu voegt wel de mogelijkheid voor het uploaden van mappen toe, maar ondersteunt nog niet het downloaden van mappen of het recursief verwijderen van mappen op de server. Alhoewel SFTP nog niet de mogelijkheid ondersteunt om mappen te downloaden, zal Fugu u vragen wanneer u probeert een map te downloaden, of u het in plaats daarvan met SCP with downloaden. Het is geen ideale oplossing, maar het werkt in elk geval zolang.\
+\
+\
+
+\f1\b V: Ik wil graag een vertaling bijdragen. Met wie moet ik contact opnemen?\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\ql\qnatural
+
+\f0\b0 \cf0 A:Stuurt u alstublieft een e-mail \cf3 fugu@umich.edu\cf0  wanneer u graag een vertaling wilt bijdragen. De ontwikkelaars zullen dit graag met u overleggen.\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\ql\qnatural
+
+\f1\b \cf0 V: Waar kan ik de broncode krijgen?\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\ql\qnatural
+
+\f0\b0 \cf0 A: De broncode is verkrijgebaar via anonieme CVS. Om deze op te halen, stel u uw CVSROOT in op:\
+\
+	\cf4 :pserver:anonymous@rsug.itd.umich.edu:/usr/local/src/cvsroot\cf0 \
+\
+Log in met gebruiker cvs. Het wachtwoord is "RSUG", zonder quotes. U kunt ook door de broncode op het web bladeren door te gaan naar:\
+\
+	\cf4 http://rsug.itd.umich.edu/cgi-bin/cvsweb.cgi/fugu/\
+\
+\cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\ql\qnatural
+
+\f1\b \cf0 V: Ik wil graag een patch bijdragen. Hoe dien ik deze in?\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\ql\qnatural
+
+\f0\b0 \cf0 A: neemt u ten eerste contact met ons op via \cf5 fugu@umich.edu\cf0 , zodat we dit met u kunnen overleggen waar u aan wilt werken en of er al iemand anders aan uw favoriete functie werkt. Nadat we alles geregeld hebben en u uw werk grondig getest heeft, maakt u een patch van de broncode in CVS met 
+\f1\b diff -u
+\f0\b0 . Wij zouden in staat moeten zijn om de patch toe te passen op onze broncode met het commando 
+\f1\b patch
+\f0\b0 . Idealiter zou de formattering van uw broncode overeenkomen met de formattering in de Fugu broncode. Dat maakt de broncode beter leesbaar en daardoor makkelijker te accepteren.\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\ql\qnatural
+
+\f1\b \cf0 V: Komt er ook traditionele FTP support?
+\f0\b0 \
+\
+A: Ja. De bedoeling is te voorzien in een FTP optie in de versie volgend op versie 1.0. Het zal (of zou) alleen gebruikt moeten worden voor anonieme verbindingen. In de tussentijd gebruikt u, als u traditionele FTP moet gebruiken, de Fugu SSH tunnel capaciteiten om een beveiligde tunnel verbinding aan te maken naar uw server.\
+\
+\
+\
+
+\f1\b V: Hoe gebruik ik Openbare Sleutel (Public Key) authenticatie in Fugu?\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\ql\qnatural
+
+\f0\b0 \cf0 \
+A: Ik raad u aan om SSH Agent (\cf4 http://www.phil.uu.nl/~xges/ssh\cf0 ) te gebruiken. Dit is een GUI voorkant voor de SSH hulpprogramma's die de juiste omgevingsvariabelen instellen voor zulk soort authenticatie. Documentatie voor cre\'91ren van geautoriseerde sleutelbestanden en openbare/persoonlijke sleutelparen (public/private key pairs) is te vinden op vele plaatsen op het web. Er is wat discussie gaande voor het verbeteren van het gebruik van sleutels door Fugu.\
+\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural
+
+\f1\b\fs28 \cf2 Versie geschiedenis\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural
+
+\f2\b0\fs24 \cf0 \CocoaLigature0 \'a5 
+\f3\b 1.1 
+\f2\b0 (24 Oct 2003):\
+	\'a5 Fix for continuous beeping occurring when transferring files and window is minimized.\
+        	\'a5 Sort items by name if size, date, owner, group or permissions are the same.\
+          \'a5 Fix: added columns appeared in English even if Fugu was running in another language.\
+          \'a5 Fixed a crash caused by corrupted autosaved NSTableViews.\
+          \'a5 Fix for endless progress bar spinning when refreshing directory listings.\
+          \'a5 Restored local port field to SSH Tunnel window.\
+          \'a5 Prefs loaded more reliably.\
+          \'a5 Some toolbar image tweaks.\
+          \'a5 International version has localizations in Dutch, Finnish, French, German, and Spanish.
+\f1\b\fs28 \cf2 \CocoaLigature1 \
+\
+
+\f2\b0\fs24 \cf0 \CocoaLigature0 \'a5 
+\f3\b 1.1 beta 
+\f2\b0 (3 sep 2003):\
+	\'a5 Externe editor ondersteuning (BBEdit, BBEdit Lite, SubEthaEdit, TextWrangler).\
+	\'a5 Voorvertoningen van afbeeldingen.\
+	\'a5 Aanpasbare informatieweergave in bestandenbrowsers.\
+	\'a5 Nieuwe iconen in knoppenbalk.\
+	\'a5 Ondersteuning voor OpenSSH 3.6 (met progressieindicatie)\
+	\'a5 Informatiepaneel herzien.\
+	\'a5 Ondersteuning voor compressie toegevoegd, forceren van SSH1 verbindingen en extra SSH commandline opties toegevoegd.\
+	\'a5 Rendezvous ondersteuning.\
+ 	\'a5 Voorkeuren uitgebreid en nieuw uiterlijk voor voorkeurenpaneel.\
+	\'a5 Optionele ASCII-volgorde of alfabetische bestandensortering.\
+	\'a5 Snelheid van sorteren verbeterd.\
+	\'a5 SSH tunnel interface versimpeld.\
+	\'a5 Ondersteuning voor servers die draaien onder Cygwin.\
+	\'a5 Ondersteuning voor servers die draaien onder OpenSSH 2.x.\
+	\'a5 Opgelost: veranderende weergave na het wijzigen van de eigenaar/groep/modus van een onderdeel op de server.\
+	\'a5 Verbeterde icoonweergave.\
+	\'a5 Opgelost: schakelen tussen lokaal en server met de tab werkt nu.\
+	\'a5 Opgelost: bijnamen voor favorieten worden nu bewaard.\
+	\'a5 Opgelost: verplaatsen van bestanden naar de prullen is nu betrouwbaarder.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural
+
+\f1\b\fs28 \cf2 \CocoaLigature1 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural
+
+\f2\b0\fs24 \cf0 \CocoaLigature0 \'a5 
+\f3\b 1.0 
+\f2\b0 (10 apr 2003):\
+	\'a5 Verbeterd zoeken met vooruit-typen, meer als in de Finder.\
+	\'a5 Ondersteuning voor hernoemen van bestanden en mappen.\
+	\'a5 Probleem opgelost waarbij er geen bestanden of mappen werden getoond bij het verbinden met een VShell serverroot map.\
+	\'a5 Aantal interface problemen opgelost; grenzen aan de grootte van de SFTP panelen gesteld.\
+	\'a5 Bijnamen voor Favorieten in voorkeuren.\
+	\'a5 Verbeterde documentatie.\
+	\'a5 Karaktercoderingen enigszins verbeterd.\
+	\'a5 Indien beschikbaar, bijnamen gebruiken in Favorieten popup-knop.\
+	\'a5 Dialoogvensters gebruiken in plaats van modale vensters indien mogelijk.\
+	\'a5 Programma niet afsluiten als het laatste venster gesloten wordt.\
+	\'a5 NSCell subklasse gebruiken in plaats van NSBrowserCell, die voor wat grafische problemen zorgde.\
+	\'a5 Verbeterde foutweergave wanneer er iets misgaat bij het gebruik va de Sleutelhanger.\
+	\'a5 Gebruiker laten weten als de host waarmee hij tracht te verbinden niet bestaat.\
+	\'a5 Nederlandse vertaling door Alexander Henket.\
+\
+\'a5 
+\f3\b 0.9.4
+\f2\b0  (3 Apr 2003):\
+\pard\tx960\tx1920\tx2880\tx3840\tx4800\tx5760\tx6720\tx7680\tx8640\tx9600\tx10560\tx11520\tx12480\tx13440\tx14400\tx15360\tx16320\tx17280\tx18240\tx19200\tx20160\tx21120\tx22080\tx23040\tx24000\tx24960\tx25920\tx26880\tx27840\tx28800\tx29760\tx30720\tx31680\tx32640\tx33600\tx34560\tx35520\tx36480\tx37440\tx38400\tx39360\tx40320\tx41280\tx42240\tx43200\tx44160\tx45120\tx46080\tx47040\tx48000\tx48960\tx49920\tx50880\tx51840\tx52800\tx53760\tx54720\tx55680\tx56640\tx57600\tx58560\tx59520\tx60480\tx61440\tx62400\tx63360\tx64320\tx65280\tx66240\tx67200\tx68160\tx69120\tx70080\tx71040\tx72000\tx72960\tx73920\tx74880\tx75840\tx76800\tx77760\tx78720\tx79680\tx80640\tx81600\tx82560\tx83520\tx84480\tx85440\tx86400\tx87360\tx88320\tx89280\tx90240\tx91200\tx92160\tx93120\tx94080\tx95040\tx96000\li720\ql\qnatural
+\cf0 \'a5 Keychain support.\
+\'a5 Support for connections to Windows machines running VShell.\
+\'a5 German localization by Thomas Fuchs.\
+\'a5 Basic type-ahead find implementation.\
+\'a5 Fix for hang occurring when Fugu encounters filenames containing characters that do not conform to UTF-8. (Recognizing and properly handling all character sets is in progress.)\
+\'a5 Fix for problem in which Fugu would upload a file to the current remote directory instead of the folder on which it was dropped.\
+\'a5 Fix for incorrect permission check box settings.\
+\'a5 Support, in a way, for the ~ shortcut in the Go To sheet when moving to another remote directory. (OpenSSH's sftp client does not expand ~ in paths.)\
+\'a5 Local filenames are displayed using -displayNameAtPath:\
+\'a5 File listings are properly reloaded following a successfuly secure copy.\
+\'a5 Redesigned connection interface, relying less on sheets.\
+\'a5 Only one trash can in toolbar.\
+\'a5 Keyboard shortcuts allowing user to shift focus from one pane to another.\
+\'a5 Increased and improved use of tooltips.\
+\'a5 Removed obsolete Connect toolbar item.\
+\pard\tx960\tx1920\tx2880\tx3840\tx4800\tx5760\tx6720\tx7680\tx8640\tx9600\tx10560\tx11520\tx12480\tx13440\tx14400\tx15360\tx16320\tx17280\tx18240\tx19200\tx20160\tx21120\tx22080\tx23040\tx24000\tx24960\tx25920\tx26880\tx27840\tx28800\tx29760\tx30720\tx31680\tx32640\tx33600\tx34560\tx35520\tx36480\tx37440\tx38400\tx39360\tx40320\tx41280\tx42240\tx43200\tx44160\tx45120\tx46080\tx47040\tx48000\tx48960\tx49920\tx50880\tx51840\tx52800\tx53760\tx54720\tx55680\tx56640\tx57600\tx58560\tx59520\tx60480\tx61440\tx62400\tx63360\tx64320\tx65280\tx66240\tx67200\tx68160\tx69120\tx70080\tx71040\tx72000\tx72960\tx73920\tx74880\tx75840\tx76800\tx77760\tx78720\tx79680\tx80640\tx81600\tx82560\tx83520\tx84480\tx85440\tx86400\tx87360\tx88320\tx89280\tx90240\tx91200\tx92160\tx93120\tx94080\tx95040\tx96000\ql\qnatural
+\cf0              \
+    \'a5 
+\f3\b 0.9.3
+\f2\b0  (14 Feb 2003):\
+	\'a5 Support for non-ASCII characters in filenames, including Chinese\
+	   and Japanese glyphs.\
+	\'a5 Support for localizations (Fugu is currently only available in English).\
+	\'a5 Fixed memory leak in sftp process thread.\
+	\'a5 Added local and remote history buttons to toolbar.\
+	\'a5 Fugu now remembers the size and position of the sftp window between\
+	   sessions.\
+	\'a5 Workaround popup button's refusal to include multiple items of the same name.\
+	\'a5 Fix for bug causing Fugu to overwrite a file even if user doesn't want it to.\
+	\'a5 Fix for directory drops on remote directories: files are now properly uploaded to\
+	   that directory, instead of to its parent directory.\
+	\'a5 Added ability to check for new versions of Fugu.\
+	\'a5 Fugu can now delete multiple files locally and remotely. Please note that this\
+	   does not mean Fugu can delete directories that are not empty.\
+	\'a5 Fixed memory leak in scp process thread.\
+	\'a5 Fixed memory leak in ssh process thread.\
+	\'a5 Info panel does not allow user to select the Remote tab unless Fugu is\
+	   connected to an sftp server.\
+	\'a5 Fix for upload progress bar remaining a barber pole after initial upload.\
+	\'a5 using -UTF8String instead of the deprecated -cString.\
+	\
+    \'a5 
+\f3\b 0.9.2
+\f2\b0 :\
+	\'a5 Favorites can now store username, server name, port, and directory.\
+	\'a5 Fugu now always prompts when user asks to delete or to overwrite\
+	   something.\
+	\'a5 Contextual menus have been added to both SFTP panes:\
+	   Get Info, SCP, and Delete. The local menu also has Open.\
+	\'a5 Info panel automatically selects correct info tab depending on\
+	   active SFTP pane.\
+	\'a5 Info panel interface improvements.\
+	\'a5 Fixed bug changing local file permissions.\
+        	\'a5 Ability to choose from favorites in SSH Tunnel window.\
+        	\'a5 Added tunnel shortcut for AFP.\
+	\'a5 Preferences panel interface has been improved.\
+	\'a5 Fugu borders the active SFTP pane with a blue highlight.\
+	\'a5 Tab between SFTP panes.\
+	\'a5 New keyboard shortcuts to connect and disconnect.\
+	\'a5 New help menu.\
+	\'a5 Fixed small memory leak occurring when getting info.\
+        	\'a5 Fixed rare problem preventing addition of new favorite.\
+	\'a5 New directory keyboard shortcut restored.\
+	\'a5 Modified remote delete icon.\
+	\
+    \'a5 
+\f3\b 0.9.1
+\f2\b0 :\
+	\'a5 Fixed directory upload bug causing nested files and folders to\
+	   appear at the top level of the uploaded directory.\
+	\'a5 Fixed bug preventing Fugu from making another connection following\
+	   a cancel.\
+	\'a5 Complete overhaul of the interface: Fugu now features a customizable\
+	   toolbar.\
+	\'a5 Fugu now checks the local version of SSH before connecting,\
+	   and if it discovers a version of OpenSSH 3.5 or newer,\
+	   adjusts its commands accordingly.\
+	\'a5 SFTP local and remote panes are now resizable.\
+	\'a5 Modified login panel appearance.\
+	\'a5 Fugu now displays an authenticating UI until the connection is\
+	   established, instead of dismissing the password sheet and\
+	   waiting for a response from the server.\
+	\'a5 Modified and enchanced info panel: added chmod, chown and chgrp\
+	   abilities to interface.\
+	\'a5 SCP support significantly enchanced: download support, directory\
+	   upload and download support.\
+	\'a5 Added Go To Directory for localhost.\
+	\'a5 Refresh command now refreshes local and remote panes.\
+	\'a5 Fixed bug causing a memory leak when SCP or SSH Tunnel windows\
+	   were opened and closed rapidly.\
+	\'a5 New Fugu icon.\
+	\'a5 Delete key now deletes selected item in pane that has keyboard focus.\
+	\'a5 Right arrow key moves into currently selected directory,\
+	   if applicable.\
+	\'a5 Left arrow key moves to parent directory.\
+	\'a5 Can now select and download multiple files from server.\
+	\'a5 SSH Tunnel favorites added.\
+\
+    \'a5 
+\f3\b 0.9.0
+\f2\b0 :\
+	\'a5 Fixed memory leak that occurred during directory upload.\
+	\'a5 Added SCP support and SCP system service: you can now select a file\
+	   in the Finder and choose Fugu > Secure Copy... from the \
+	   Services menu to transfer single files.\
+	\'a5 Dropping files on the Fugu icon now brings forward the SCP dialog.\
+	\'a5 Added ability to create SSH tunnels.\
+	\'a5 Added timers to upload/download sheets.\
+	\'a5 Added preferences for default local directory and default username.\
+	\'a5 The remote pane now properly handles multiple file/folder drops,\
+	   instead of just uploading the first item.\
+\
+    \'a5 
+\f3\b 0.8.5
+\f2\b0 :\
+	\'a5 Added support for Public Key authentication and S/Key passwords.\
+	\'a5 Added support for connections to ssh servers listening on ports\
+	   other than the default (22).\
+	\'a5 Added basic preference panel.\
+	\'a5 Tested on 10.1.x and developer builds of 10.2.\
+	\'a5 Fixed bug in which Fugu would try to upload when disconnected,\
+	  leading to an abnormal exit.\
+	\'a5 Modified About Fugu panel, enabled link to homepage,\
+	  changed contact address, changed README panel.\
+\
+    \'a5 
+\f3\b 0.8.2
+\f2\b0 :\
+	\'a5 Fixed problem moving to a directory from the popup list when a\
+	  path element contained a space.\
+	\'a5 Added better dialogs for time outs and cases when the remote host\
+	  identification have changed.\
+	\'a5 Fixed an issue downloading in which the downloaded file was put in\
+	  a different directory than the one specified.\
+	\'a5 Cancel buttons on connecting, password, upload and download sheets\
+	  now function. Occasionally cancelling during connecting or at the\
+	  password prompt will prevent Fugu from making other connections.\
+	  The temporary solution is to quit and relaunch Fugu.\
+	\'a5 If the SFTP session ends unexpectedly, Fugu now handles it better,\
+	  reseting itself and preparing for another connection.\
+\
+    \'a5 
+\f3\b 0.8.1
+\f2\b0 :\
+	\'a5 Fixed Add To Favorites button: only enables when there is text in\
+	  the hostname field.\
+	\'a5 Fixed issue causing a PANIC message: no writes to fd when not\
+	  connected.\
+	\'a5 Better error reporting, including "Permission denied" dialogs\
+	  when appropriate.\
+	\'a5 Fixed issue where Fugu might not realize it had a directory listing.\
+	\'a5 Fixed upload/download arrow actions: they now do as they are\
+	  supposed to.\
+	\'a5 Fixed problem deleting remote files: we now remove empty directories\
+	  properly. Still no support for removing directories containing\
+	  other files/directories.\
+\
+    \'a5 
+\f3\b 0.8
+\f2\b0 :\
+	\'a5 Initial public release.\
+        \
+        \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural
+
+\f1\b\fs28 \cf2 \CocoaLigature1 Credits\
+\
+	
+\f2\b0\fs24 \cf0 \CocoaLigature0 Geschreven door Andrew Mortensen.\
+\
+	Vertalers:\
+        		\'a5 Deens: Jes Kasper Klittum\
+		\'a5 Nederlands: 
+\f0 \CocoaLigature1 Alexander Henket\
+                        
+\f2 \CocoaLigature0 \'a5 Frans: 
+\f0 \CocoaLigature1 Laurent Lestrade\
+                        
+\f2 \CocoaLigature0 \'a5 Duits: 
+\f0 \CocoaLigature1 Thomas Fuchs\
+                        
+\f2 \CocoaLigature0 \'a5 Italiaans: 
+\f0 \CocoaLigature1 Livius Milanesio\
+                        
+\f2 \CocoaLigature0 \'a5 Japans: 
+\f0 \CocoaLigature1 Tatsuma "TED" Nakayama\
+                        
+\f2 \CocoaLigature0 \'a5 Spaans: 
+\f0 \CocoaLigature1 Jose Gil Cabedo\
+		
+\f2 \CocoaLigature0 \
+}

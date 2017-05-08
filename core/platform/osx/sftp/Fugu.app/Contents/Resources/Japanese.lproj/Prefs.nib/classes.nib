@@ -1,0 +1,36 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = SFTPPrefTableView; LANGUAGE = ObjC; SUPERCLASS = NSTableView; }, 
+        {
+            ACTIONS = {
+                addFavorite = id; 
+                applyPrefs = id; 
+                checkForUpdates = id; 
+                chooseDefaultLocalDirectory = id; 
+                clearDefaults = id; 
+                deleteFavorite = id; 
+                dismissPrefPanel = id; 
+                ok = id; 
+            }; 
+            CLASS = SFTPPrefs; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                prefDefaultHost = NSComboBox; 
+                prefDefaultLDir = NSTextField; 
+                prefDefaultPort = NSTextField; 
+                prefDefaultRDir = NSTextField; 
+                prefDefaultUser = NSTextField; 
+                prefFavTable = NSTableView; 
+                prefFavoritesView = NSView; 
+                prefGeneralView = NSView; 
+                prefKnownHostsTable = SFTPPrefTableView; 
+                prefKnownHostsView = NSView; 
+                prefPanel = NSPanel; 
+                prefViewBox = NSBox; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }
+    ); 
+    IBVersion = 1; 
+}

@@ -1,0 +1,10 @@
+{
+	"class" : {
+		 },
+	"instance" : {
+		"testFutureExecutes" : "guille 8/21/2016 16:49:35",
+		"testFutureExecutesByDefaultInGlobalWorkerPool" : "guille 8/21/2016 16:49:35",
+		"testFutureExecutesConcurrently" : "guille 8/21/2016 16:49:35",
+		"testFutureReturnsAssociatedFutureObject" : "guille 8/21/2016 16:49:35",
+		"testFutureWithFutureInsideSchedulesOk" : "guille 8/21/2016 16:49:35",
+		"testScheduleExecutes" : "guille 8/21/2016 16:49:35" } }

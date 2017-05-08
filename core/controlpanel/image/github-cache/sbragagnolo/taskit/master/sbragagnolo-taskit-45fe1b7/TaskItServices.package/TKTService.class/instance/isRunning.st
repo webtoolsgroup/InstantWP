@@ -1,0 +1,4 @@
+testing
+isRunning
+	
+	^ worker isRunning

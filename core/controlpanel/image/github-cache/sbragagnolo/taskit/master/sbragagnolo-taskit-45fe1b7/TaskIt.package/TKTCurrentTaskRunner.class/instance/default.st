@@ -1,0 +1,4 @@
+accessing
+default
+
+	^ TKTWorkerPool global

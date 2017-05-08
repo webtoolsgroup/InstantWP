@@ -1,0 +1,1 @@
+I am a trait implementing the main behavior of a task executor. That is, an object that knows how to execute a task and handle its unhandled exceptions using an exception handler

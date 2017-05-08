@@ -1,0 +1,15 @@
+{
+	"classtraitcomposition" : "TTaskScheduler classTrait",
+	"classvars" : [ ],
+	"instvars" : [
+		"queue"
+	],
+	"name" : "TKTQueueTaskScheduler",
+	"commentStamp" : "GuillermoPolito 8/15/2016 12:31",
+	"super" : "Object",
+	"traitcomposition" : "TTaskScheduler",
+	"type" : "normal",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"category" : "TaskIt-Worker"
+}

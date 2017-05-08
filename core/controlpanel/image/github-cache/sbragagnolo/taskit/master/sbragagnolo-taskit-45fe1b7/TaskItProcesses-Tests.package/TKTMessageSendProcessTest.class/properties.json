@@ -1,0 +1,17 @@
+{
+	"category" : "TaskItProcesses-Tests",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"dummyObject",
+		"process",
+		"processStarted",
+		"processFinishing" ],
+	"name" : "TKTMessageSendProcessTest",
+	"pools" : [
+		 ],
+	"super" : "TestCase",
+	"type" : "normal" }

@@ -1,0 +1,3 @@
+private
+privateEnsureProcess
+	self assert: self isRunningInTheSameProcess

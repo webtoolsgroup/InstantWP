@@ -1,0 +1,27 @@
+/* Error for invalid group identification number */
+"InvalidChgrp" = "Ugyldigt gruppenummer.";
+
+/* Description of chgrp error */
+"InvalidChgrpMessage" = "Du skal skrive et numerisk gid for at gøre dette.";
+
+/* Error for invalid permissions mode */
+"InvalidChmod" = "Ugyldig oktal chmod værdi.";
+
+/* Error message for invalid permissions mode */
+"InvalidChmodMessage" = "Du skal skrive en firecifret oktal chmod værdi for at gøre dette.";
+
+/* Error for invalid owner user identification number */
+"InvalidChown" = "Ejers brugerid ugyldigt.";
+
+/* Description of chown error */
+"InvalidChownMessage" = "Du skal skrive et numerisk uid for at gøre dette.";
+
+/* Error header for failed local chmod */
+"LocalChmodError" = "EKunne ikke ændre rettigheder.";
+
+/* Error header for failed local chown */
+"LocalChownError" = "Kunne ikke skifte ejer.";
+
+/* Error getting local file information. */
+"LocalInfoFailed" = "Kunne ikke hente lokale informationer om fil.";
+

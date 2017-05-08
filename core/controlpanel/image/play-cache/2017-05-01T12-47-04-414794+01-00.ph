@@ -1,0 +1,1 @@
+IWPEnvironment startUp.IWPControlPanel new openDialogWithSpec.

@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "SantiagoBragagnolo 8/23/2016 11:11",
+	"super" : "TKTProcessProvider",
+	"category" : "TaskItProcesses",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "TKTTaskItProcessProvider",
+	"type" : "normal"
+}

@@ -1,0 +1,32 @@
+{
+	"instance" : {
+		"nameColumn:row:" : "SantiagoBragagnolo 6/17/2016 13:50:44",
+		"noteProcessCancelled:" : "SantiagoBragagnolo 6/17/2016 13:50:44",
+		"initialize" : "SantiagoBragagnolo 6/17/2016 13:50:44",
+		"jobColumn:row:" : "SantiagoBragagnolo 6/17/2016 13:50:44",
+		"jobMenuColumn:row:" : "SantiagoBragagnolo 6/17/2016 13:50:44",
+		"noteProcessFinished:" : "SantiagoBragagnolo 6/17/2016 13:50:44",
+		"receiverColumn:row:" : "SantiagoBragagnolo 6/17/2016 13:50:44",
+		"noteProcessResumed:" : "SantiagoBragagnolo 6/17/2016 13:50:44",
+		"removeAll" : "SantiagoBragagnolo 6/17/2016 13:50:44",
+		"searchText:" : "SantiagoBragagnolo 6/17/2016 13:50:44",
+		"argumentsColumn:row:" : "SantiagoBragagnolo 6/17/2016 13:50:44",
+		"nameMenuColumn:row:" : "SantiagoBragagnolo 6/17/2016 13:50:44",
+		"receiverMenuColumn:row:" : "SantiagoBragagnolo 6/17/2016 13:50:44",
+		"noteProcessSuspended:" : "SantiagoBragagnolo 6/17/2016 13:50:44",
+		"createBaseElements" : "SantiagoBragagnolo 6/17/2016 13:50:44",
+		"taskColumn:row:" : "SantiagoBragagnolo 6/17/2016 13:50:44",
+		"stateColumn:row:" : "SantiagoBragagnolo 6/17/2016 13:50:44",
+		"taskMenuColumn:row:" : "SantiagoBragagnolo 6/17/2016 13:50:44",
+		"iconFor:" : "SantiagoBragagnolo 6/17/2016 13:50:44",
+		"selectorMenuColumn:row:" : "SantiagoBragagnolo 6/17/2016 13:50:44",
+		"menuColumn:row:" : "SantiagoBragagnolo 8/23/2016 13:59",
+		"colorFor:" : "SantiagoBragagnolo 6/17/2016 13:50:44",
+		"toString:" : "SantiagoBragagnolo 8/23/2016 13:46",
+		"cellColumn:row:" : "SantiagoBragagnolo 8/23/2016 13:58",
+		"argumentsMenuColumn:row:" : "SantiagoBragagnolo 6/17/2016 13:50:44",
+		"noteProcessStarted:" : "SantiagoBragagnolo 6/17/2016 13:50:44",
+		"selectorColumn:row:" : "SantiagoBragagnolo 6/17/2016 13:50:44"
+	},
+	"class" : { }
+}

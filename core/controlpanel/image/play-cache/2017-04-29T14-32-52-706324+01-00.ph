@@ -1,0 +1,1 @@
+OSProcessAccessor initialize.IWPControlPanel new openDialogWithSpec 

@@ -1,0 +1,5 @@
+(name 'TaskIt-SantiagoBragagnolo.4' message 'Assigning a default name to the workers. ' id 'dfbe8f9c-73c7-4b8c-988c-836fd63cd0d2' date '23 August 2016' time '2:46:45.288673 pm' author 'SantiagoBragagnolo' ancestors ((name 'TaskIt-guille.3' message '- Added testing method #isEmpty in Worker
+- Worker pool should create workers named by him
+- Service should create workers named by them' id '2fe6e103-d0e8-45c9-b1b2-e73c625e9b73' date '23 August 2016' time '9:46:03.955727 am' author 'GuillermoPolito' ancestors ((name 'TaskIt-guille.2' message 'Services have a setup and tear down
+' id '33693c47-4b10-589c-9e67-133c7364f2b0' date '21 August 2016' time '6:23:27 pm' author 'guille' ancestors () stepChildren ())) stepChildren ())) stepChildren ())
+

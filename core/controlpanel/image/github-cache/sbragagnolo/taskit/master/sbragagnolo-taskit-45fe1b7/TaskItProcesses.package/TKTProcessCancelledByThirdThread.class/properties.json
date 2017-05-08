@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "SantiagoBragagnolo 7/16/2015 10:12",
+	"super" : "TKTProcessAnnouncement",
+	"category" : "TaskItProcesses",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"suspendedContext"
+	],
+	"name" : "TKTProcessCancelledByThirdThread",
+	"type" : "normal"
+}

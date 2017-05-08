@@ -1,0 +1,12 @@
+/* Amount of item copied feedback */
+"SCPAmountCopied" = "%d %sbytes kopieret";
+
+/* Message displayed while scp'ing */
+"SCPCopyingMessage" = "Kopierer %@...";
+
+/* % done scp feedback */
+"SCPPercentDone" = "%s færdig";
+
+/* Time remaing feedback */
+"SCPTimeRemaining" = "Tid tilbage: %s";
+

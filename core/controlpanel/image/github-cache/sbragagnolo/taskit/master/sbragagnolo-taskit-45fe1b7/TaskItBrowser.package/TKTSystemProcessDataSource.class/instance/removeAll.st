@@ -1,0 +1,3 @@
+initialization
+removeAll
+	^ elements removeAll

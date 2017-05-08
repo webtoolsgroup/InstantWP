@@ -1,0 +1,9 @@
+SmalltalkCISpec {
+  #loading : [
+    SCIMetacelloLoadSpec {
+      #baseline : 'FFICHeaderExtractor',
+      #directory : 'repository',
+      #platforms : [ #pharo ]
+    }
+  ]
+}

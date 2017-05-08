@@ -1,0 +1,4 @@
+accessing
+valueForFuture: aFuture
+
+	^ value

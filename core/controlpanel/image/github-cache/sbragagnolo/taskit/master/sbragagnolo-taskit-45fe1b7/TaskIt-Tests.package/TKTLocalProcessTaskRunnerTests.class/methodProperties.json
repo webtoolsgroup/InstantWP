@@ -1,0 +1,6 @@
+{
+	"class" : {
+		 },
+	"instance" : {
+		"testLocalProcessTaskRunnerExceptionIsHandledByExceptionHandler" : "guille 8/21/2016 16:49:35",
+		"testLocalProcessTaskRunnerRunsInLocalProcess" : "guille 8/21/2016 16:49:35" } }

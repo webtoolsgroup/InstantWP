@@ -1,0 +1,14 @@
+{
+	"category" : "TaskIt-Tests",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "TKTPharoProcessProviderTests",
+	"pools" : [
+		 ],
+	"super" : "TestCase",
+	"type" : "normal" }

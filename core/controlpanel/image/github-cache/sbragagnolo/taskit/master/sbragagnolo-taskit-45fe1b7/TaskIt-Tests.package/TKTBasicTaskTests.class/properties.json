@@ -1,0 +1,14 @@
+{
+	"category" : "TaskIt-Tests",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "TKTBasicTaskTests",
+	"pools" : [
+		 ],
+	"super" : "TestCase",
+	"type" : "normal" }

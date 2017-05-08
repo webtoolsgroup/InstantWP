@@ -1,0 +1,4 @@
+accessing
+resetGlobal
+	
+	GlobalInstance := nil

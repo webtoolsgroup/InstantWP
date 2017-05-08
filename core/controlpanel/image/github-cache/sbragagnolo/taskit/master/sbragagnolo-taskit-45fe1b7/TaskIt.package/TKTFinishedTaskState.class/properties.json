@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "GuillermoPolito 8/16/2016 02:51",
+	"super" : "TKTTaskState",
+	"category" : "TaskIt-Kernel",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "TKTFinishedTaskState",
+	"type" : "normal"
+}

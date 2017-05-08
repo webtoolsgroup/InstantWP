@@ -1,0 +1,1 @@
+I am an abstract task scheduler that schedules tasks inside a queue to be consumed afterwards

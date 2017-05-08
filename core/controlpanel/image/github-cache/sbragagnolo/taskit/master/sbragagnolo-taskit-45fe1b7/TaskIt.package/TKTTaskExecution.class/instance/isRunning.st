@@ -1,0 +1,4 @@
+testing
+isRunning
+
+	^ state isRunning

@@ -1,6 +1,8 @@
 #!/bin/bash
 
-echo -n -e "\033]0;InstantWP SSH\007"
+echo -n -e "\033]0;InstantWP SFTP\007"
 cd "${0%/*}"
 cd ../../..
-./iwpcli monitor
+./platform/osx/sftp/Fugu.app/Contents/MacOS/Fugu &
+osascript -e 'tell application "System Events"\n tell process "Fugu"\n set frontmost to true'
+osascript -e 'tell application "Terminal" to close (every window whose name contains "InstantWP SFTP")' &

@@ -1,0 +1,18 @@
+{
+	"commentStamp" : "GuillermoPolito 8/16/2016 01:48",
+	"super" : "Object",
+	"category" : "TaskIt-Kernel",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"runner",
+		"task",
+		"executionProcess",
+		"isRunning",
+		"cancelled",
+		"state"
+	],
+	"name" : "TKTTaskExecution",
+	"type" : "normal"
+}

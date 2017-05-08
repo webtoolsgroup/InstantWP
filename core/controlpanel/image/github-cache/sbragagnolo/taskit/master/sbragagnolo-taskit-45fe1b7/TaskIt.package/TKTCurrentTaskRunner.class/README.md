@@ -1,0 +1,1 @@
+I am a process local variable containing the task runner in charge of the current thread. If the current thread is not dominated by a task runner, my default value is the global worker pool.

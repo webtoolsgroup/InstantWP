@@ -1,0 +1,1 @@
+This is almost a dummy class that just contains the logic for creating a fast table configured with the proper data source 

@@ -1,0 +1,1 @@
+I am a mock exception handler used for testing purposes

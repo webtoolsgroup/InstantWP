@@ -1,0 +1,1 @@
+Integrates the process browser into the system.

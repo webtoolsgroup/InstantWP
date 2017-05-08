@@ -1,0 +1,2 @@
+This process model represents the TKTProcess. For allowing to watch the information of the processes it picks it up, to avoid garbage collection. 
+`However, once the table is closed, all will be garbage collected. 

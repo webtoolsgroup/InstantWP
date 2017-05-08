@@ -1,0 +1,18 @@
+{
+	"class" : {
+		 },
+	"instance" : {
+		"doStop" : "guille 8/23/2016 09:46:39",
+		"initialize" : "guille 8/23/2016 09:46:39",
+		"isRunning" : "guille 8/23/2016 09:46:39",
+		"kill" : "guille 8/23/2016 09:46:39",
+		"launch" : "GuillermoPolito 8/23/2016 10:04",
+		"name" : "guille 8/23/2016 09:46:39",
+		"onStoppedDo:" : "guille 8/23/2016 09:46:39",
+		"scheduleRecursiveTask" : "guille 8/23/2016 09:46:39",
+		"setUp" : "guille 8/23/2016 09:46:39",
+		"start" : "guille 8/23/2016 09:46:39",
+		"stepService" : "guille 8/23/2016 09:46:39",
+		"stop" : "guille 8/23/2016 09:46:39",
+		"tearDown" : "guille 8/23/2016 09:46:39",
+		"worker" : "guille 8/23/2016 09:46:39" } }

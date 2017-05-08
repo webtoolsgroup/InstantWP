@@ -1,0 +1,1 @@
+This is an announcement that contains a process. Is the root of the lowlevel announcement API. Since it is a subclass of SystemAnnouncement, it inherits the timestamp management

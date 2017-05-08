@@ -1,0 +1,13 @@
+{
+	"class" : {
+		 },
+	"instance" : {
+		"initialize" : "guille 8/23/2016 09:46:39",
+		"name" : "guille 8/23/2016 09:46:39",
+		"name:" : "guille 8/23/2016 09:46:39",
+		"onSetUpDo:" : "guille 8/23/2016 09:46:39",
+		"onTearDownDo:" : "guille 8/23/2016 09:46:39",
+		"setUp" : "guille 8/23/2016 09:46:39",
+		"step:" : "guille 8/23/2016 09:46:39",
+		"stepService" : "guille 8/23/2016 09:46:39",
+		"tearDown" : "guille 8/23/2016 09:46:39" } }

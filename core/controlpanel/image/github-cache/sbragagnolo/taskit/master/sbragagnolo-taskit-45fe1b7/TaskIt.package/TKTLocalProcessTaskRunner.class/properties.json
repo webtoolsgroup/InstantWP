@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "GuillermoPolito 8/13/2016 21:14",
+	"super" : "TKTRunner",
+	"category" : "TaskIt-Kernel",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"process"
+	],
+	"name" : "TKTLocalProcessTaskRunner",
+	"type" : "normal"
+}

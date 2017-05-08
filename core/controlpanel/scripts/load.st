@@ -1,6 +1,13 @@
 
 "Load the IWP Control Panel code into a dev image"
 
+	
+"Load CommandShell"
+Gofer new
+	squeaksource: 'CommandShell';
+	package: 'CommandShell-Piping';
+	load.
+	
 "Load OSProcess..."
 Gofer new
 	squeaksource: 'OSProcess';
@@ -26,6 +33,12 @@ Metacello new
     smalltalkhubUser: 'TorstenBergmann' project: 'WebBrowser';
     configuration: 'WebBrowser';
     load.
+
+"Load TaskIt task runner"
+Metacello new
+  baseline: 'TaskIt';
+  repository: 'github://sbragagnolo/taskit';
+  load.
 
 "Load the IWP code itself..."
 Gofer new

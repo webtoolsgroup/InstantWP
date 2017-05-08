@@ -1,0 +1,78 @@
+/* Download Toolbar Button */
+"Download" = "Download";
+
+/* Download Tooltip */
+"DownloadTooltip" = "Download det valgte fra server.";
+
+/* Go To Toolbar Button */
+"GoTo" = "Gå til...";
+
+/* Go To Tooltip */
+"GoToTooltip" = "Gå direkte til en mappe.";
+
+/* Info Toolbar Button */
+"Info" = "Info";
+
+/* Info Tooltip */
+"InfoTooltip" = "Hent information om det valgte.";
+
+/* Local Delete Toolbar Button */
+"LocalDelete" = "Slet";
+
+/* Local Delete Tooltip */
+"LocalDeleteTooltip" = "Flyt den valgte lokale fil eller mappe til papirkurven.";
+
+/* Local History Button */
+"LocalHistory" = "Historie";
+
+/* Local History Tooltip */
+"LocalHistoryTooltip" = "Liste over lokale mapper vist i denne session.";
+
+/* Local Home Toolbar Button */
+"LocalHome" = "Lokalt hjemmekatalog";
+
+/* Local Home Tooltip */
+"LocalHomeTooltip" = "Gå til lokalt hjemmekatalog.";
+
+/* New Folder Toolbar Button */
+"NewFolder" = "Ny mappe";
+
+/* New Folder Tooltip */
+"NewFolderTooltip" = "Opret ny mappe.";
+
+/* Refresh Toolbar Button */
+"Refresh" = "Opdater";
+
+/* Refresh Tooltip */
+"RefreshTooltip" = "Opdater den aktive mappes indhold.";
+
+/* Remote Delete Toolbar Button */
+"RemoteDelete" = "Slet";
+
+/* Remote Delete Tooltip */
+"RemoteDeleteTooltip" = "Slet de valgte emner fra server.";
+
+/* Remote History Button */
+"RemoteHistory" = "Historie";
+
+/* Remote History Tooltip */
+"RemoteHistoryTooltip" = "Liste over servermapper vist i denne session.";
+
+/* Remote Home Toolbar Button */
+"RemoteHome" = "Servers hjemmekatalog";
+
+/* Remote Home Tooltip */
+"RemoteHomeTooltip" = "Gå til servers hjemmekatalog.";
+
+/* Disconnect Toolbar Button */
+"ToolbarDisconnect" = "Afbryd forbindelse";
+
+/* Disconnect Tooltip */
+"ToolbarDisconnectTooltip" = "Afbryd forbindelse til SFTP server.";
+
+/* Upload Toolbar Button */
+"Upload" = "Upload";
+
+/* Upload Tooltip */
+"UploadTooltip" = "Upload valgte emner til server.";
+

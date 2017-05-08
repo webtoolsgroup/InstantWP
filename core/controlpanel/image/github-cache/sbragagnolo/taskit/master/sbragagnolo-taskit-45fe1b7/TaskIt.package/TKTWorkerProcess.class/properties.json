@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "GuillermoPolito 8/15/2016 12:29",
+	"super" : "TKTAbstractExecutor",
+	"category" : "TaskIt-Worker",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"taskQueue",
+		"name",
+		"process"
+	],
+	"name" : "TKTWorkerProcess",
+	"type" : "normal"
+}

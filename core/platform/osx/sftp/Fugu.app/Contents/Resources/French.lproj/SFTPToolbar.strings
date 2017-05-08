@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Delete</key>
+	<string>Effacer</string>
+	<key>Delete selected item from server.</key>
+	<string>Effacer les éléments sélectionnés du serveur.</string>
+	<key>Disconnect</key>
+	<string>Déconnecter</string>
+	<key>Download</key>
+	<string>Télécharger</string>
+	<key>Download selected items from server.</key>
+	<string>Télécharger les éléments sélectionnés depuis le serveur.</string>
+	<key>Edit</key>
+	<string>Editer</string>
+	<key>Edit selected item in external editor.</key>
+	<string>Editer les éléments sélectionnés dans un éditeur de texte externe.</string>
+	<key>Get information for the selected item.</key>
+	<string>Lire les informations de l'élément sélectionné.</string>
+	<key>Go To...</key>
+	<string>Aller à...</string>
+	<key>Go directly to a directory.</key>
+	<string>Aller directement à un dossier.</string>
+	<key>Go to local home directory.</key>
+	<string>Aller au dossier home local.</string>
+	<key>Go to remote home directory.</key>
+	<string>Aller au dossier home distant.</string>
+	<key>History</key>
+	<string>Historique</string>
+	<key>Info</key>
+	<string>Info</string>
+	<key>List of local directories viewed during this session.</key>
+	<string>Liste des dossiers locaux visités au cours cette session.</string>
+	<key>List of remote directories visited during this session.</key>
+	<string>Liste des dossiers distants visités au cours cette session.</string>
+	<key>Local Home</key>
+	<string>Home local</string>
+	<key>Make new folder.</key>
+	<string>Créer un dossier.</string>
+	<key>Move selected items to trash.</key>
+	<string>Placer les éléments sélectionnés dans la corbeille.</string>
+	<key>Move selected local items or directories to the trash.</key>
+	<string>Placer les éléments locaux ou dossiers sélectionnés dans la corbeille.</string>
+	<key>New Folder</key>
+	<string>Nouveau dossier</string>
+	<key>Preview</key>
+	<string>Prévisualisation</string>
+	<key>Preview selected remote item.</key>
+	<string>Prévisualiser les éléments distants sélectionnés.</string>
+	<key>Reload</key>
+	<string>Rafraîchir</string>
+	<key>Reload current item display.</key>
+	<string>Rafraîchir cette liste d'éléments.</string>
+	<key>Remote Home</key>
+	<string>Home distant</string>
+	<key>Upload</key>
+	<string>Décharger</string>
+	<key>Upload selected items to server.</key>
+	<string>Décharger les éléments sélectionnés sur le serveur.</string>
+</dict>
+</plist>

@@ -1,0 +1,12 @@
+/* Amount of item copied feedback */
+"SCPAmountCopied" = "%d %sbytes ÉRÉsÅ[Ç≥ÇÍÇ‹ÇµÇΩÅB";
+
+/* Message displayed while scp'ing */
+"SCPCopyingMessage" = "%@ ÉRÉsÅ[ÇµÇƒÇ¢Ç‹Ç∑...";
+
+/* % done scp feedback */
+"SCPPercentDone" = "%s äÆóπ";
+
+/* Time remaing feedback */
+"SCPTimeRemaining" = "écÇËéûä‘: %s";
+

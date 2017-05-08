@@ -1,0 +1,1 @@
+I represent a task execution with a result: I have an associated future where I will deploy my result, as either a success or a failure.
