@@ -1,4 +1,0 @@
-starting
-start
-	
-	process start

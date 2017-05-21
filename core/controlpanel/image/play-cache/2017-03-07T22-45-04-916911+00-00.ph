@@ -1,1 +1,0 @@
-Gofer new    url: 'http://smalltalkhub.com/mc/TorstenBergmann/WebBrowser/main';    package: 'ConfigurationOfWebBrowser';    load.

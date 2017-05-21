@@ -1,1 +1,0 @@
-IWPControlPanel new openDialogWithSpec 

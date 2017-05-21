@@ -1,1 +1,0 @@
-[ OSProcess command: IWPEnvironment instantWPCLIExecPath, ' wpFrontPage' ] fork.[ OSProcess command: 'pwd' ] fork.

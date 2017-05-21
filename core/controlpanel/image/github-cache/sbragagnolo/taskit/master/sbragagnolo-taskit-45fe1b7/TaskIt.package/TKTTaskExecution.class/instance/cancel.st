@@ -1,4 +1,0 @@
-evaluating
-cancel
-
-	self cancelWithReason: ''

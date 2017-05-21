@@ -1,3 +1,0 @@
-code-critics
-ruleBadMessageRuleV1FalsePositive
-^ #(#(#(#RGMethodDefinition #(#TKTLazyResult #asString #false)) #'2015-07-27T11:44:24.100529+02:00') #(#(#RGMethodDefinition #(#TKTLazyResult #deployValue: #false)) #'2015-07-27T11:44:24.100641+02:00') #(#(#RGMethodDefinition #(#TKTLazyResult #size #false)) #'2015-07-27T11:44:24.100473+02:00') #(#(#RGMethodDefinition #(#TKTLazyResult #perform: #false)) #'2015-07-27T11:44:24.10063+02:00') #(#(#RGMethodDefinition #(#TKTLazyResult #value #false)) #'2015-07-27T11:44:24.100617+02:00') #(#(#RGMethodDefinition #(#TKTAsyncExecution #debugErrors #false)) #'2015-07-28T14:51:17.852667+02:00') )

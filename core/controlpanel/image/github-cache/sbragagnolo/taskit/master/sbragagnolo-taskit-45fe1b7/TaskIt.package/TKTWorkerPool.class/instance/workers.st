@@ -1,4 +1,0 @@
-accessing
-workers
-	
-	^ workers copy

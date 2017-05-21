@@ -1,1 +1,0 @@
-I represent the execution of a given task. I know if the task is finished or not and I can cancel it while it is being executed.

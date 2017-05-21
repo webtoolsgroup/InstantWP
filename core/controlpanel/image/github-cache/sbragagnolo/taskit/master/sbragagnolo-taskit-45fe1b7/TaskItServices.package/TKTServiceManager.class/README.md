@@ -1,1 +1,0 @@
-The service manager keeps a list of the currently installed tests and their state.

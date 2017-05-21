@@ -1,3 +1,0 @@
-as yet unclassified
-testProcessFinishingAnnouncementNotReceivedBeforeRun
-	self assert: processFinishing equals: nil

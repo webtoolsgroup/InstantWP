@@ -1,1 +1,0 @@
-I am a mock service used for testing purposes.

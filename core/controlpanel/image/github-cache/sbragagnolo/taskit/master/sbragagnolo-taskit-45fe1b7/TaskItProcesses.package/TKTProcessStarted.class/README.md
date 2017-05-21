@@ -1,2 +1,0 @@
-Process finishing is an announcement that announce that the process just started. 
-	This announcement is called by the process it self just before begin with the process related message send. So the announcement mechanism will run into this thread.

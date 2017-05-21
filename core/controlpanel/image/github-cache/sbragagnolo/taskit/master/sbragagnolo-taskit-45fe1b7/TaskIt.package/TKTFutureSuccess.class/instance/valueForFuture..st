@@ -1,4 +1,0 @@
-accessing
-valueForFuture: aFuture
-
-	^ value

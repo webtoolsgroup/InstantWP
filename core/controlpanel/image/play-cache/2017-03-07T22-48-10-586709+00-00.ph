@@ -1,1 +1,0 @@
-Metacello new    smalltalkhubUser: 'TorstenBergmann' project: 'WebBrowser';    configuration: 'WebBrowser';    load

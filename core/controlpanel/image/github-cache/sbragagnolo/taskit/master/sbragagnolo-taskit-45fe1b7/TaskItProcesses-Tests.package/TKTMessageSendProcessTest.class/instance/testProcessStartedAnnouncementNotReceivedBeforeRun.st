@@ -1,3 +1,0 @@
-parallel running test
-testProcessStartedAnnouncementNotReceivedBeforeRun
-	self assert: processStarted equals: nil

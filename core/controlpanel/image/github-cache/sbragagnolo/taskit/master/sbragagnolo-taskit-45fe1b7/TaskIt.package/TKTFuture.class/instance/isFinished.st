@@ -1,4 +1,0 @@
-testing
-isFinished
-
-	^ result isFinished

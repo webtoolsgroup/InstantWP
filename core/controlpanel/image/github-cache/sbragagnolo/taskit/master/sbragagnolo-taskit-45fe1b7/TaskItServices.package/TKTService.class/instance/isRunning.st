@@ -1,4 +1,0 @@
-testing
-isRunning
-	
-	^ worker isRunning

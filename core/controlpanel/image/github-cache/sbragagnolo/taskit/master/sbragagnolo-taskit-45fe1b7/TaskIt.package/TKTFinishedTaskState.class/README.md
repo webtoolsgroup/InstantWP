@@ -1,1 +1,0 @@
-I represent an already finished task state.  Both cancelling and performing a task that is already finished results in an exception.

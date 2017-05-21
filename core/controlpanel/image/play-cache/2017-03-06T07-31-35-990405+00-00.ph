@@ -1,1 +1,0 @@
-IWPProgressBar showQuitProgressBar 

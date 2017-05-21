@@ -1,3 +1,0 @@
-as yet unclassified
-testProcessCancelledAnnouncementNotReceivedBeforeRun
-	self assert: processCancelled equals: nil

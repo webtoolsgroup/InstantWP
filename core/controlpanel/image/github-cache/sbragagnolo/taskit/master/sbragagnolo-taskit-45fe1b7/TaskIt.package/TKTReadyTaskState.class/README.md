@@ -1,1 +1,0 @@
-I represent a ready to run task. A ready task will start running when asked, or be cancelled immediately if cancelled.

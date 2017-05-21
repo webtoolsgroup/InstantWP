@@ -1,1 +1,0 @@
-This class is a specific wrapper for process, used strictly for system processes. 

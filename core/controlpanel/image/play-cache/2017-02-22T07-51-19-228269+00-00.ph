@@ -1,1 +1,0 @@
-IWPConfig initialize.IWPControlPanel new openWithSpec 

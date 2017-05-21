@@ -54,7 +54,7 @@ No install of InstantWP is necessary, simply download, unzip and run.
 
 ## GUI
 
-![InstantWP GUI](./core/docs/images/IWP-gui-5.0.0-rc3.png)
+![InstantWP GUI](./core/docs/images/IWP-gui-5.0.0-rc6.png)
 
 The GUI contains the following buttons:
 
@@ -78,6 +78,8 @@ The GUI contains the following buttons:
 	This opens PHPMyAdmin in your default browser so that you can administrate the underlying MySQL database. The user is 'root' with a blank password.
 	
 * About and Documentation open the documentation.
+
+* The Advanced button opens the InstantWP web based control panel that contains links to SSH and SFTP shortcuts, amongst other things.
 
 
 ## Downloads and Releases
@@ -182,7 +184,7 @@ Open up the QEMU VM Monitor shell:
 iwpcli monitor
 ```
 
-Restart the Apche web server and MySQLL
+Restart the Apche web server and MySQL
               
 ```text
 iwpcli restart_apache
@@ -245,6 +247,27 @@ These dependencies are bundled as binaries into a folder called 'platform' for e
 	 * Libpng 1.6
 	 * Libtasn 1.0.
 
+* Fugu
+
+Fugu is a graphical frontend to the commandline Secure File Transfer application (SFTP) for Mac OS X. 
+
+	* Version 1.2.0-English
+	* Homepage: [http://rsug.itd.umich.edu/software/fugu/]() 
+	* Source code: [https://sourceforge.net/projects/fugussh/files/]()
+	* License: [http://rsug.itd.umich.edu/software/copyright.html]() (BSD-style)
+
+
+* Pharo Smalltalk 
+
+Pharo is a pure object-oriented programming language and a powerful environment, focused on simplicity and immediate feedback. 
+
+InstantWP also uses the Seaside web framework which is also written in Smalltalk: [http://seaside.st]() 
+
+	* Version 5.0
+	* Homepage: [http://pharo.org]() 
+	* Source code: [http://pharo.org/download]()
+	* License: [http://pharo.org/license]() (MIT)
+
 **Windows Dependencies**
 
  * QEMU
@@ -274,17 +297,10 @@ These dependencies are bundled as binaries into a folder called 'platform' for e
 	* Homepage: [http://www.chiark.greenend.org.uk/~sgtatham/putty/]() 
 	* Source code: [https://the.earth.li/~sgtatham/putty/latest/putty-0.67.tar.gz]()
 	* License: [http://www.chiark.greenend.org.uk/~sgtatham/putty/licence.html](MIT) 
+
  
 
 ### Closed Source Dependencies
-
- * NirCmd
-
-	NirCmd is a small Windows command-line utility that allows you to do some useful tasks without displaying any user interface.
-	
- 	* Version 2.8.1
-	* Homepage: [http://www.nirsoft.net/utils/nircmd.html]() 
-	* License: Distributable Freeware.
 
 * Rebex .Net 
 

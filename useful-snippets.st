@@ -1,4 +1,12 @@
 
+
+
+IWPConfig initialize.
+IWPLoadingScreen new openDialogWithSpec.
+[ IWPProgressBar showStartUpProgressBar ] fork.
+
+DisplayScreen hostWindowTitle: 'InstantWP Control Panel'
+
 IWPWebServer start.
 IWPWebServer stop.
 

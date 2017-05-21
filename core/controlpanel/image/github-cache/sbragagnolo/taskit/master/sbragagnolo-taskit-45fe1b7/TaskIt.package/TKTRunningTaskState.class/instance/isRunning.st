@@ -1,4 +1,0 @@
-testing
-isRunning
-
-	^ true

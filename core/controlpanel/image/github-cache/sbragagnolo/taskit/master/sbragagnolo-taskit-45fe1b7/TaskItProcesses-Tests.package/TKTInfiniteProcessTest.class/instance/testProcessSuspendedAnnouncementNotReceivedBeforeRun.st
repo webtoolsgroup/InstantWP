@@ -1,3 +1,0 @@
-parallel running test
-testProcessSuspendedAnnouncementNotReceivedBeforeRun
-	self assert: processSuspended equals: nil

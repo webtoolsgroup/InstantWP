@@ -1,4 +1,0 @@
-stepping
-tearDown
-
-	isShutDown := true

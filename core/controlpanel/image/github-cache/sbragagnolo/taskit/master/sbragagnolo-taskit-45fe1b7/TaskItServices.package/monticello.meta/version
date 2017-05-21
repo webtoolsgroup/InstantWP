@@ -1,2 +1,0 @@
-(name 'TaskItServices-guille.5' message 'Added class comments' id 'e2543716-5d07-4b72-8ae1-4126e93a34e9' date '23 August 2016' time '3:03:52.616897 pm' author 'GuillermoPolito' ancestors ((name 'TaskItServices-guille.4' message 'Fix issue #5. testing that workers of a pool are correctly collected after pool is collected.
-' id 'd8d7f27c-513f-5e36-a448-a039796c3084' date '23 August 2016' time '11:17:15 am' author 'guille' ancestors () stepChildren ())) stepChildren ())

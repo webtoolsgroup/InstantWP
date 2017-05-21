@@ -1,4 +1,0 @@
-executing
-performTaskExecution: aTaskExecution
-
-	self signalCancelledException

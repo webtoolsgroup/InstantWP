@@ -1,4 +1,0 @@
-private
-privateExecuteAndFinalizeProcess
-	self privateExecution.
-	self privateFinalizePharoProcess

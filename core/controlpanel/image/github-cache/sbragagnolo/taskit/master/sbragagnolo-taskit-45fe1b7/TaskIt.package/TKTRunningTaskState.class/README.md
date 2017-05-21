@@ -1,1 +1,0 @@
-I represent a running task. A running task cannot be asked to be executed while it is running. Cancelling a running task will throw an exception and interrupt its execution.

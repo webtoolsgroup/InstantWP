@@ -1,1 +1,0 @@
-TKTProcess is this framework reification of processing. This is a quite low level class for the idea of the framework

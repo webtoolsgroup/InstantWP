@@ -1,4 +1,0 @@
-accessing
-exceptionHandler
-
-	self requirement

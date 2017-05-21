@@ -1,2 +1,0 @@
-(name 'TaskIt-Tests-guille.4' message 'Issue #5. Suspending tests temporarily between collections to allow running of finialization.' id '8810e882-3fc7-484f-a4fc-5640b3635aa6' date '23 August 2016' time '11:47:45.542987 am' author 'GuillermoPolito' ancestors ((name 'TaskIt-Tests-guille.3' message 'Issue #5. Adding tests to test garbage collection of workers of a pool.
-' id '617cfc3e-c80f-50d8-b018-fde7c842fa73' date '23 August 2016' time '11:42:37 am' author 'guille' ancestors () stepChildren ())) stepChildren ())

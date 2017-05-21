@@ -1,4 +1,0 @@
-stepping
-stepService
-
-	self subclassResponsibility

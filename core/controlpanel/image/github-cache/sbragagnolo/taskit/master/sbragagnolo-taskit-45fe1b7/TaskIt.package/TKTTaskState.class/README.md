@@ -1,1 +1,0 @@
-I represent the state of a scheduled task. A task can be either be ready to be run,  cancelled, running or finished.

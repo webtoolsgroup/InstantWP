@@ -1,3 +1,0 @@
-accessing
-processStarted: aProcessStartedAnnouncement
-	processStarted := aProcessStartedAnnouncement process.

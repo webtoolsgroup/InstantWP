@@ -1,4 +1,0 @@
-testing
-isEmpty
-
-	^ queue isEmpty

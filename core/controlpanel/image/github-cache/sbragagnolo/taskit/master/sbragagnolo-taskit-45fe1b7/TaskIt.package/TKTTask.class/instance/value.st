@@ -1,4 +1,0 @@
-executing
-value
-
-	self subclassResponsibility

@@ -1,4 +1,0 @@
-testing
-isFinished
-
-	^ state isFinished

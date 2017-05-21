@@ -1,3 +1,0 @@
-accessing
-priority
-	^ process priority

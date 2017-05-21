@@ -1,4 +1,0 @@
-stepping
-setUp
-
-	isStarted := true
