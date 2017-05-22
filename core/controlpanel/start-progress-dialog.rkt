@@ -1,4 +1,14 @@
 #lang racket
+
+#|
+start-progress-dialoh.rkt --- InstantWP starting up progress dialog 
+Copyright (c) 2010-2017 Corvideon Ltd http://www.corvideon.ie
+Author: Seamus Brady seamus@corvideon.ie
+Homepage: http://www.instantwp.com
+License; GPLv3
+|#
+
+
 (require racket/gui)
 
 ;; define root window

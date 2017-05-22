@@ -1,18 +1,20 @@
 #lang racket
 
 #|
-iwp.rkt --- Instant WordPress startup module
-Copyright (c) 2010-2015 Corvideon Ltd http://www.corvideon.ie
+main.rkt --- InstantWP Control Panel 
+Copyright (c) 2010-2017 Corvideon Ltd http://www.corvideon.ie
 Author: Seamus Brady seamus@corvideon.ie
-Created: 30/05/2015
 Homepage: http://www.instantwp.com
+License; GPLv3
 |#
 
 (require racket/gui
          racket/runtime-path
          yaml
+         "start-progress-dialog.rkt"
+         "control-panel-dialog.rkt"
          "logger.rkt"
-         "iwp-control-panel.rkt")
+         )
 
 ;; setup some defaults to avoid console window
 ;(current-output-port (open-output-nowhere))

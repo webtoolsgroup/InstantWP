@@ -1,11 +1,11 @@
 #lang racket
 
 #|
-logger.rkt --- Instant WordPress logging module
-Copyright (c) 2010-2015 Corvideon Ltd http://www.corvideon.ie
+logger.rkt --- InstantWP logging module
+Copyright (c) 2010-2017 Corvideon Ltd http://www.corvideon.ie
 Author: Seamus Brady seamus@corvideon.ie
-Created: 30/05/2015
 Homepage: http://www.instantwp.com
+License; GPLv3
 |#
 
 (require racket/date
