@@ -12,6 +12,30 @@ License; GPLv3
 
 (provide read-ini-file)
 
+
+;; get-setting-values
+;; takes the list of ini file sections and gives back a list of settings values
+;; (get-setting-values (get-section-contents (read-ini-file (open-input-file "/Users/seamus/GitHub/InstantWP/core/config/iwp-osx.ini"))))
+(define (get-setting-values lst)
+  (map (λ (l) (map cdr l)) lst))
+
+;; get-setting-names
+;; takes the list of ini file sections and gives back a list of settings names
+;; (get-setting-names (get-section-contents (read-ini-file (open-input-file "/Users/seamus/GitHub/InstantWP/core/config/iwp-osx.ini"))))
+(define (get-setting-names lst)
+  (map (λ (l) (map car l)) lst))
+
+
+;; get-section-details
+;; takes the list of ini file sections and gives back a list of settings
+;; (get-section-contents (read-ini-file (open-input-file "/Users/seamus/GitHub/InstantWP/core/config/iwp-osx.ini")))
+(define (get-section-contents lst)
+  (map cdr lst))
+
+;; read-ini-file
+;; takes an open input port and reads back the contents of an ini file as a list
+;; (read-ini-file (open-input-file "/Users/seamus/GitHub/InstantWP/core/config/iwp-osx.ini")))
+;; code provided by TonyG at https://github.com/tonyg/racket-inverted-index/blob/master/inifile.rkt
 (define (read-ini-file [p (current-input-port)])
   (let loop ((name #f)
 	     (acc '())
