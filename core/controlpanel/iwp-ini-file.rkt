@@ -1,4 +1,4 @@
-#lang racket/base
+#lang racket
 
 #|
 iwp-inin-file.rkt --- InstantWP ini file functions
@@ -13,24 +13,30 @@ License; GPLv3
 (provide read-ini-file)
 
 
+(define config-hash (make-hash))
+
+;; add-setting-to-hash
+;; adds settings to config hash
+(define (add-setting-to-hash lst)
+  (map (λ (l)
+         (hash-set! config-hash  (first l)  (second l)))
+       lst))
+
+
 ;; get-setting-values
 ;; takes the list of ini file sections and gives back a list of settings values
 ;; (get-setting-values (get-section-contents (read-ini-file (open-input-file "/Users/seamus/GitHub/InstantWP/core/config/iwp-osx.ini"))))
 (define (get-setting-values lst)
-  (map (λ (l) (map cdr l)) lst))
+  (map add-setting-to-hash lst)
+  (print config-hash))
 
-;; get-setting-names
-;; takes the list of ini file sections and gives back a list of settings names
-;; (get-setting-names (get-section-contents (read-ini-file (open-input-file "/Users/seamus/GitHub/InstantWP/core/config/iwp-osx.ini"))))
-(define (get-setting-names lst)
-  (map (λ (l) (map car l)) lst))
 
 
 ;; get-section-details
 ;; takes the list of ini file sections and gives back a list of settings
 ;; (get-section-contents (read-ini-file (open-input-file "/Users/seamus/GitHub/InstantWP/core/config/iwp-osx.ini")))
 (define (get-section-contents lst)
-  (map cdr lst))
+  (map rest lst))
 
 ;; read-ini-file
 ;; takes an open input port and reads back the contents of an ini file as a list
