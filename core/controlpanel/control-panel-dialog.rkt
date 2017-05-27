@@ -1,24 +1,36 @@
 #lang racket
 
-#|
-iwp-control-panel.rkt --- Instant WordPress main window module
-Copyright (c) 2010-2015 Corvideon Ltd http://www.corvideon.ie
-Author: Seamus Brady seamus@corvideon.ie
-Created: 30/05/2015
-Homepage: http://www.instantwp.com
-|#
 
-(require racket/gui/base)
-(provide show-main-window)
+;; This module implements IWP main control panel window
+;; License GPLv3
+;; (c) 2010-2017 Corvideon Ltd
 
-;; define root window
+(provide
+;; show the main gui
+ show-main-window)
+
+;; —————————————————————————————————
+;; import and implementation section
+
+(require
+  racket/gui/base
+  "iwp-constants.iwp")
+
+
+;; define root window value hash
 (define iwp-window-hash (make-hash))
-(hash-set! iwp-window-hash "label" "Instant WordPress")
+
+;; set the root window hash values
+(hash-set! iwp-window-hash "label" IWP_DIALOG_TITLE)
 (hash-set! iwp-window-hash "width" 750)
 (hash-set! iwp-window-hash "height" 400)
-(define my-tabs-list (list "Control Panel"
-                           "Advanced"
-                           "WordPress Resources"))
+
+;; set up tabs
+(define my-tabs-list (list CONTROL_PANEL_TAB
+                           ADVANCED_TAB
+                           WP_RESOURCES_TAB))
+
+;; main window
 (define root-wnd (new frame% [label (hash-ref iwp-window-hash "label")]
                              [width (hash-ref iwp-window-hash "width")]
                              [height (hash-ref iwp-window-hash "height")]
@@ -36,7 +48,7 @@ Homepage: http://www.instantwp.com
                                  ((2) (send tpanel change-children (lambda (children) (list 2-panel)))))))))
 ;; define panels
 (define 0-panel (new panel% (parent tab-panel)))
-(define a-text (new message% (parent 0-panel) (label "Control Panel")))
+;; (define a-text (new message% (parent 0-panel) (label "Control Panel")))
 
 ;; horizontal panel
 (define 0-panel-h0 (new horizontal-pane% (parent 0-panel) [alignment '(center top)]))
