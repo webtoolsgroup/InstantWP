@@ -17,14 +17,34 @@
           racket/string
           string-trim
           string-split
-          string-join))
+          string-join)
+          racket/gui)
 
 ;; define a local config hash
 (define local-config-hash (make-hash))
 
+;; open config file port
+(define (get-config-data port config-path-string)
+  (with-handlers ([exn:fail? (λ (exn) (exit-with-config-error))])
+    (call-with-input-file config-path-string
+      (λ (port)
+        (read-ini-file port)))))
+
+
+;; define the file and port and load
+(define (load-config config-path-string) 
+  (let* ([iwp-config-port (open-input-file config-path-string)]
+         [iwp-config-file-contents (get-config-data iwp-config-port config-path-string)])
+    iwp-config-file-contents))
+
+;; handle error loading config file
+(define (exit-with-config-error)
+  (message-box "IWP Config error" "Error loading IWP config file!" #f '(ok no-icon))
+  (exit))
+
 ;; returns a hash of config items
 (define (get-config-hash config-path-string)
-  (define ini-file (read-ini-file (open-input-file config-path-string)))
+  (define ini-file (load-config config-path-string))
   (define sections (get-section-contents ini-file))
   (get-setting-values sections)
   local-config-hash) 
