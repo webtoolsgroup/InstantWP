@@ -18,11 +18,9 @@
 (current-output-port (open-output-nowhere))
 
 ;; var to hold config hash
-(define *iwp-config* (load-config))
-
+(define iwp-config-hash (get-config-hash "/Users/seamus/GitHub/InstantWP/core/config/iwp-osx.ini"))
 
 (module+ main
   ;; load config
   (display "Starting IWP...\n")
-  (show-main-window)
-  )
+  (show-start-window))

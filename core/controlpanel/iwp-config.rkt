@@ -23,31 +23,31 @@
 ;; define a local config hash
 (define local-config-hash (make-hash))
 
-;; open config file port
-(define (get-config-data port config-path-string)
-  (with-handlers ([exn:fail? (λ (exn) (exit-with-config-error))])
+;; open config file port - this closes the file automatically
+(define (call-with-input-config-file port config-path-string)
     (call-with-input-file config-path-string
       (λ (port)
-        (read-ini-file port)))))
+        (read-ini-file port))))
 
 
 ;; define the file and port and load
-(define (load-config config-path-string) 
+(define (load-file-contents config-path-string) 
   (let* ([iwp-config-port (open-input-file config-path-string)]
-         [iwp-config-file-contents (get-config-data iwp-config-port config-path-string)])
+         [iwp-config-file-contents (call-with-input-config-file iwp-config-port config-path-string)])
     iwp-config-file-contents))
 
 ;; handle error loading config file
 (define (exit-with-config-error)
-  (message-box "IWP Config error" "Error loading IWP config file!" #f '(ok no-icon))
+  (message-box "IWP Config Error" "Error loading IWP config file! \nIWP will now exit." #f '(ok no-icon))
   (exit))
 
 ;; returns a hash of config items
 (define (get-config-hash config-path-string)
-  (define ini-file (load-config config-path-string))
-  (define sections (get-section-contents ini-file))
-  (get-setting-values sections)
-  local-config-hash) 
+  (with-handlers ([exn:fail? (λ (exn) (exit-with-config-error))])
+    (define ini-file-contents (load-file-contents config-path-string))
+    (define ini-file-sections (get-section-contents ini-file-contents))
+    (get-setting-values ini-file-sections)
+    local-config-hash))
 
 ;; adds settings to config hash
 (define (add-setting-to-hash lst)
@@ -55,11 +55,9 @@
          (hash-set! local-config-hash (first l)  (second l)))
        lst))
 
-
 ;; returns a list of settings values
 (define (get-setting-values lst)
   (map add-setting-to-hash lst))
-
 
 ;; takes the list of ini file sections and gives back a list of settings
 (define (get-section-contents lst)

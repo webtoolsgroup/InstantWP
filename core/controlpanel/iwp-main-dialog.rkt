@@ -1,6 +1,5 @@
 #lang racket
 
-
 ;; This module implements IWP main control panel window
 ;; License GPLv3
 ;; (c) 2010-2017 Corvideon Ltd
@@ -17,14 +16,13 @@
   "iwp-constants.rkt"
   "iwp-environment.rkt")
 
-
 ;; define root window value hash
 (define iwp-window-hash (make-hash))
 
 ;; set the root window hash values
 (hash-set! iwp-window-hash "label" IWP_DIALOG_TITLE)
-(hash-set! iwp-window-hash "width" GUI_WIDTH)
-(hash-set! iwp-window-hash "height" GUI_HEIGHT)
+(hash-set! iwp-window-hash "width" MAIN_GUI_WIDTH)
+(hash-set! iwp-window-hash "height" MAIN_GUI_HEIGHT)
 
 ;; set up tabs
 (define my-tabs-list (list CONTROL_PANEL_TAB
@@ -108,6 +106,6 @@
      [callback (lambda (button event)
                  (display "Quit"))]))
 
-; Show the frame by calling its show method
+;; Show the frame by calling its show method
 (define (show-main-window)
   (send root-window show #t))
