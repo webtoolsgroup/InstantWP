@@ -30,6 +30,17 @@
 ;; resource path
 (define iwp-resource-dir-path (build-path (current-directory) "resources/"))
 
+;; get list of iwp paths
+(define (get-iwp-paths)
+  (pathlist-closure (list (build-path (current-directory)))))
+
+;; get the iwp-clippath
+(map (λ (path)
+         (define test-path (build-path path "iwpcli"))
+         (cond 
+           [(file-exists? test-path)  test-path]))
+         (get-iwp-paths))
+
 ;; define button bitmaps
 (define wp-admin-bitmap (read-bitmap  (build-path iwp-resource-dir-path "images/admin.jpg")))
 (define wp-frontpage-bitmap (read-bitmap  (build-path iwp-resource-dir-path "images/frontpage.jpg")))
