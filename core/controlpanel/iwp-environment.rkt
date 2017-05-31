@@ -21,7 +21,8 @@
 ;; —————————————————————————————————
 ;; import and implementation section
 (require
-  racket/gui/base)
+  racket/gui/base
+  control)
 
 
 ;; config file path
@@ -32,14 +33,15 @@
 
 ;; get list of iwp paths
 (define (get-iwp-paths)
-  (pathlist-closure (list (build-path (current-directory)))))
+  (let ([test-path (build-path (current-directory) "..")] )
+    (for ([i (range 10)])
+      (cond
+        [ (file-exists? (build-path test-path "README.md")) (iwp-path test-path )]
+        [ (not (file-exists? (build-path test-path "README.md"))) (set! test-path (build-path test-path ".."))]
+      ))))
 
 ;; get the iwp-clippath
-(map (λ (path)
-         (define test-path (build-path path "iwpcli"))
-         (cond 
-           [(file-exists? test-path)  test-path]))
-         (get-iwp-paths))
+(define (iwp-path path) (print path))
 
 ;; define button bitmaps
 (define wp-admin-bitmap (read-bitmap  (build-path iwp-resource-dir-path "images/admin.jpg")))
