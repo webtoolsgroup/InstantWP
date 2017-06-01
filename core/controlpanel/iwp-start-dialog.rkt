@@ -21,6 +21,7 @@
 (require
   racket/gui
   "iwp-constants.rkt"
+  "iwp-resources.rkt"
   "iwp-main-dialog.rkt")
 
 ;; define root window value hash

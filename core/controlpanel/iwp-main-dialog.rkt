@@ -14,7 +14,9 @@
 (require
   racket/gui/base
   "iwp-constants.rkt"
-  "iwp-environment.rkt")
+  "iwp-resources.rkt"
+  "iwp-environment.rkt"
+  "iwp-actions.rkt")
 
 ;; define root window value hash
 (define iwp-window-hash (make-hash))
@@ -72,7 +74,7 @@
      [label wp-frontpage-bitmap]
      ; Callback procedure for a button click:
      [callback (lambda (button event)
-                 (display "Frontpage"))]))
+                 ( do-wpfrontpage-action))]))
 
 (define wp-themes-button (new button% [parent start-panel-h1]
      [label wp-themes-bitmap]

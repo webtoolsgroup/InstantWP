@@ -6,15 +6,7 @@
 ;; (c) 2010-2017 Corvideon Ltd
 
 ;; list of constants declared
-(provide MAIN_GUI_WIDTH
-         MAIN_GUI_HEIGHT
-         IWP_DIALOG_TITLE
-         CONTROL_PANEL_TAB
-         ADVANCED_TAB
-         WP_RESOURCES_TAB
-         START_QUIT_GUI_WIDTH
-         START_QUIT_GUI_HEIGHT
-         STARTING_IWP)
+(provide (all-defined-out))
 
 ;; —————————————————————————————————
 ;; import and implementation section
@@ -28,3 +20,20 @@
 (define ADVANCED_TAB "Advanced")
 (define WP_RESOURCES_TAB "WordPress Resources")
 (define STARTING_IWP "Starting InstantWP...")
+(define IWPCLI_WIN "iwpcli.exe")
+(define IWPCLI_MAC "iwpcli")
+(define IWP_CONFIG_DIR "config")
+(define IWP_CONFIG_FILE_WIN "iwp-win.ini")
+(define IWP_CONFIG_FILE_MAC "iwp-osx.ini")
+(define IWPCLI_STATUS "status")
+(define IWPCLI_START "start")
+(define IWPCLI_QUIT "quit")
+(define IWPCLI_WPFRONTPAGE "wpfrontpage")
+(define IWPCLI_WPADMIN "wpadmin")
+(define IWPCLI_PLUGINS "plugins")
+(define IWPCLI_THEMES "themes")
+(define IWPCLI_MYSQL "mysql")
+(define IWPCLI_DOCS "docs")
+(define IWPCLI_ABOUT "about")
+(define IWPCLI_SSH "ssh")
+(define IWPCLI_MONITOR "monitor")
