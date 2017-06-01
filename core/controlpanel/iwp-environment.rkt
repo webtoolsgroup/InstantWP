@@ -31,14 +31,13 @@
 ;; resource path
 (define iwp-resource-dir-path (build-path (current-directory) "resources/"))
 
-;; get list of iwp paths
-(define (get-iwp-paths)
+;; get the root directory of IWP
+(define (get-iwp-root-dir)
   (let ([test-path (build-path (current-directory) "..")] )
-    (for ([i (range 10)])
-      (cond
-        [ (file-exists? (build-path test-path "README.md")) (iwp-path test-path )]
-        [ (not (file-exists? (build-path test-path "README.md"))) (set! test-path (build-path test-path ".."))]
-      ))))
+    (for/list ([i (range 10)]
+               #:break (file-exists? (build-path test-path "iwpcli")))
+      (set! test-path (build-path test-path ".."))) 
+    test-path))
 
 ;; get the iwp-clippath
 (define (iwp-path path) (print path))
