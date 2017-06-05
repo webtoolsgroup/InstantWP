@@ -8,49 +8,76 @@
  ;; the path to the config file
  iwp-config-file-path
  ;; the path to iwpcli
- iwpcli-path
+ iwpcli-run-path
  ;; the path to control panel resources
- iwp-resource-dir-path)
+ iwp-images-dir-path)
 
 
 ;; —————————————————————————————————
 ;; import and implementation section
 (require
   racket/gui/base
-  control
+  racket/runtime-path
   "iwp-constants.rkt")
 
 
+;; get the local path of the executable
+;; and adjust if we are in DrRacket
+(define (get-dir-of-current-script)
+  (define local-script-path (get-path-to-current-stript))
+  (cond
+    [(is-dev-mode? local-script-path) (current-directory)]
+    [else local-script-path]))
+
+;; returns the current script path or DrRacket path
+(define (get-path-to-current-stript)
+  (path->string
+   (path-only
+    (path->complete-path
+     (find-system-path 'run-file)))))
+
+;; tell if we are running in DrRacket
+(define (is-dev-mode? script-path)
+  (string-contains? script-path "DrRacket"))
+
 ;; iwpcli file path
-(define (iwpcli-path)
-  (build-path (get-iwp-root-dir) (iwpcli-executable-name)))
+(define (iwpcli-run-path)
+  (build-path (get-iwp-root-dir) (iwpcli-runscript-name)))
 
 ;; config file path
 (define (iwp-config-file-path)
-  (build-path (get-iwp-root-dir) IWP_CONFIG_DIR (iwpcli-config-name)))
+  (build-path (get-iwp-root-dir) IWP_CONFIG_DIR (iwpcli-config-filename)))
 
 ;; resource path
-(define (iwp-resource-dir-path)
-  (build-path (current-directory) "resources/"))
+(define (iwp-images-dir-path)
+  (build-path  (get-iwp-root-dir) "images"))
 
 ;; search for the root directory of IWP
 (define (search-for-iwp-root-dir)
-  (let ([test-path (build-path (current-directory) "..")] )
+  (let ([test-path (clean-and-simplify-path (build-path (get-dir-of-current-script) ".."))] )
     (for/list ([i (range 10)]
                #:break (file-exists? (build-path test-path (iwpcli-executable-name))))
       (set! test-path (build-path test-path ".."))) 
     test-path))
 
+;; build the test path for search
+(define (clean-and-simplify-path path)
+  (define local-cleaned-path (cleanse-path path))
+  (define local-simpler-path (simplify-path local-cleaned-path #t))
+  (path->directory-path local-simpler-path))
+
 ;; get the iwp root dir
 (define (get-iwp-root-dir)
-  (define iwp-root-dir (search-for-iwp-root-dir))
-    (cond
-    [(file-exists? (build-path iwp-root-dir (iwpcli-executable-name))) iwp-root-dir]
-    [(file-exists? (build-path iwp-root-dir (iwpcli-executable-name))) (exit-with-root-dir-error)]))
+  (define local-iwp-root-dir (search-for-iwp-root-dir))
+  (define local-iwp-root-test  (build-path local-iwp-root-dir (iwpcli-executable-name)))
+  (cond
+    [(file-exists? local-iwp-root-test) local-iwp-root-dir]
+    [(not (file-exists? local-iwp-root-test)) (exit-with-root-dir-error local-iwp-root-test)]))
 
 ;; handle error finding iwp root dr
-(define (exit-with-root-dir-error)
-  (message-box "IWP Config Error" "Error finding IWP roor directory! \nIWP will now exit." #f '(ok no-icon))
+(define (exit-with-root-dir-error iwp-root-test)
+  (define local-exit-msg (string-append "IWP root directory is incorrect: "  (path->string iwp-root-test)  "\nIWP will now exit."))
+  (message-box "IWP Config Error" local-exit-msg #f '(ok no-icon))
   (exit))
 
 ;; are we on macos?
@@ -67,8 +94,14 @@
     [(is-windows?) IWPCLI_WIN]
     [(is-macos?) IWPCLI_MAC]))
 
+;; name of the run iwpcli shell script
+(define (iwpcli-runscript-name)
+  (cond
+    [(is-windows?) RUN_IWPCLI_WIN]
+    [(is-macos?) RUN_IWPCLI_MAC]))
+
 ;; name of the config file
-(define (iwpcli-config-name)
+(define (iwpcli-config-filename)
   (cond
     [(is-windows?) IWP_CONFIG_FILE_WIN]
     [(is-macos?) IWP_CONFIG_FILE_MAC]))

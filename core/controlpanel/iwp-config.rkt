@@ -6,9 +6,11 @@
 
 
 (provide
-;; get the hash of configuration settings
-;; (hash-ref (get-config-hash "/Users/seamus/GitHub/InstantWP/core/config/iwp-osx.ini") "QEMUBinary")
- get-config-hash)
+ ;; get the hash of configuration settings
+ ;; (hash-ref (get-config-hash "/Users/seamus/GitHub/InstantWP/core/config/iwp-osx.ini") "QEMUBinary")
+ get-config-hash
+ ;; get one config setting (get-config-setting "QEMUBinary")
+ get-config-setting)
 
 ;; —————————————————————————————————
 ;; import and implementation section
@@ -18,10 +20,17 @@
           string-trim
           string-split
           string-join)
-          racket/gui)
+          racket/gui
+          "iwp-environment.rkt")
 
 ;; define a local config hash
 (define local-config-hash (make-hash))
+
+;; get a config setting
+(define (get-config-setting setting)
+  (get-config-hash (iwp-config-file-path))
+  (hash-ref local-config-hash setting))
+
 
 ;; open config file port - this closes the file automatically
 (define (call-with-input-config-file port config-path-string)
@@ -69,21 +78,21 @@
   (let loop ((name #f)
 	     (acc '())
 	     (sections '()))
-    (define (finish-section)
+    (define (local-finish-section)
       (if name
 	  (cons (cons name (reverse acc)) sections)
 	  sections))
-    (define line (read-line p 'any))
-    (if (eof-object? line)
-	(reverse (finish-section))
-	(let ((line (string-trim line)))
+    (define local-line (read-line p 'any))
+    (if (eof-object? local-line)
+	(reverse (local-finish-section))
+	(let ((line (string-trim local-line)))
 	  (cond
 	   [(equal? line "") (loop name acc sections)]
 	   [(eqv? (string-ref line 0) #\[) (loop (substring line 1 (- (string-length line) 1))
 						 '()
-						 (finish-section))]
+						 (local-finish-section))]
 	   [else
-	    (define pieces (string-split line "="))
+	    (define local-pieces (string-split line "="))
 	    (loop name
-		  (cons (list (car pieces) (string-join (cdr pieces) "=")) acc)
+		  (cons (list (car local-pieces) (string-join (cdr local-pieces) "=")) acc)
 		  sections)])))))

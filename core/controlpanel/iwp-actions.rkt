@@ -6,7 +6,19 @@
 
 (provide
  ;; open the wp-frontpage
- do-wpfrontpage-action)
+ do-wpfrontpage-action
+ ;; open wp admin
+ do-wpadmin-action
+ ;; open the plugins folder
+ do-plugins-action
+ ;; open the themes folder
+ do-themes-action
+ ;; open phpmyadmin
+ do-mysql-action
+ ;; open the docs
+ do-docs-action
+ ;; open about doc
+ do-about-action)
 
 ;; —————————————————————————————————
 ;; import and implementation section
@@ -18,8 +30,27 @@
 (define (do-wpfrontpage-action)
   (do-iwpcli-action IWPCLI_WPFRONTPAGE))
 
+(define (do-wpadmin-action)
+  (do-iwpcli-action IWPCLI_WPADMIN))
+
+(define (do-plugins-action)
+  (do-iwpcli-action IWPCLI_PLUGINS))
+
+(define (do-themes-action)
+  (do-iwpcli-action IWPCLI_THEMES))
+
+(define (do-mysql-action)
+  (do-iwpcli-action IWPCLI_MYSQL))
+
+(define (do-docs-action)
+  (do-iwpcli-action IWPCLI_DOCS))
+
+(define (do-about-action)
+  (do-iwpcli-action IWPCLI_ABOUT))
+
 (define (do-iwpcli-action command)
   (system (iwpcli-command-string command)))
 
 (define (iwpcli-command-string command)
-  (string-append (path->string (iwpcli-path)) " " command))
+  (print iwpcli-run-path)
+  (string-append (path->string (iwpcli-run-path)) " " command))

@@ -52,6 +52,8 @@
 (define start-panel (new panel% (parent tab-control)))
 (define advanced-panel (new panel% (parent tab-control)))
 (define wp-resources-panel (new panel% (parent tab-control)))
+;; this panel holds the buttons at the bottom of dialog
+(define base-buttons-panel (new horizontal-pane% (parent root-window) [alignment '(right bottom)] [stretchable-height #f]))
 
 ;; hide other tabs
 (send tab-control change-children (lambda (children) (list start-panel)))
@@ -59,54 +61,62 @@
 ;; start panel horizontal panels
 (define start-panel-h0 (new horizontal-pane% (parent start-panel) [alignment '(center top)]))
 (define start-panel-h1 (new horizontal-pane% (parent start-panel) [alignment '(center center)]))
-(define start-panel-h2 (new horizontal-pane% (parent start-panel) [alignment '(center bottom)]))
+(define start-panel-h2 (new horizontal-pane% (parent start-panel) [alignment '(right bottom)]))
 
 
 ;; start panel button definitions
 
 (define wp-admin-button (new button% [parent start-panel-h0]
-     [label wp-admin-bitmap]
+     [label (wp-admin-bitmap)]
      ; Callback procedure for a button click:
      [callback (lambda (button event)
-                 (display "Admin"))]))
+                 (do-wpadmin-action))]))
 
 (define wp-frontpage-button (new button% [parent start-panel-h0]
-     [label wp-frontpage-bitmap]
+     [label (wp-frontpage-bitmap)]
      ; Callback procedure for a button click:
      [callback (lambda (button event)
-                 ( do-wpfrontpage-action))]))
+                 (do-wpfrontpage-action))]))
 
 (define wp-themes-button (new button% [parent start-panel-h1]
-     [label wp-themes-bitmap]
+     [label (wp-themes-bitmap)]
      ; Callback procedure for a button click:
      [callback (lambda (button event)
-                 (display "Themes"))]))
+                 (do-themes-action))]))
 
 (define wp-plugins-button (new button% [parent start-panel-h1]
-     [label wp-plugins-bitmap]
+     [label (wp-plugins-bitmap)]
      ; Callback procedure for a button click:
      [callback (lambda (button event)
-                 (display "Plugins"))]))
+                 (do-plugins-action))]))
 
 (define mysql-button (new button% [parent start-panel-h2]
-     [label wp-mysql-bitmap]
+     [label (wp-mysql-bitmap)]
      ; Callback procedure for a button click:
      [callback (lambda (button event)
-                 (display "MySql"))]))
+                 (do-mysql-action))]))
 
 (define docs-button (new button% [parent start-panel-h2]
-     [label wp-docs-bitmap]
+     [label (wp-docs-bitmap)]
      ; Callback procedure for a button click:
      [callback (lambda (button event)
-                 (display "Docs"))]))
+                 (do-docs-action))]))
 
 
 ;; Quit button definition
-(define quit-button (new button% [parent root-window]
+(define about-button (new button% [parent base-buttons-panel]
+     [label "About"]
+     ; Callback procedure for a button click:
+     [callback (lambda (button event)
+                 (do-about-action))]))
+
+;; Quit button definition
+(define quit-button (new button% [parent base-buttons-panel]
      [label "Quit"]
      ; Callback procedure for a button click:
      [callback (lambda (button event)
                  (display "Quit"))]))
+
 
 ;; Show the frame by calling its show method
 (define (show-main-window)
