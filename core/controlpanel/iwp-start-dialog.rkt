@@ -6,14 +6,7 @@
 
 (provide
  ;; show the start gui
- show-start-window
- ;; start the progress text
- show-progress-text
- ;; enable the start button
- enable-start-button
- ;; disable the start button
- disable-start-button
- )
+ show-start-window)
 
 ;; —————————————————————————————————
 ;; import and implementation section
@@ -22,6 +15,7 @@
   racket/gui
   "iwp-constants.rkt"
   "iwp-resources.rkt"
+  "iwp-http-client.rkt"
   "iwp-main-dialog.rkt")
 
 ;; define root window value hash
@@ -42,15 +36,14 @@
 (define logo (read-bitmap "/Users/seamus/GitHub/InstantWP/core/images/logo.gif"))
 (define logo-label (new message% (parent main-panel) (label logo)))
 
-;; add field to frame
-(define progress-textbox
-  (new text-field% [label ""] [parent root-window]
-       [style '(single)]
-       [min-height 10]
-       [min-width 350]
-       [stretchable-width 350]
-       [vert-margin 0]
-)) 
+;; add progress bar
+(define a-gauge (new gauge% [label "Loading..."]
+                     [range 100]
+                     [parent root-window]
+                     [min-height 10]
+                     [min-width 350]
+                     [stretchable-width 350]
+                     [vert-margin 0]))
 
 ;; start button definition
 (define start-button (new button% [parent root-window]
@@ -68,18 +61,21 @@
   (send start-button enable #f))
 
 ;; the textbox to show progress
-(define (show-progress-text) 
-(define progress-textedit (send progress-textbox get-editor))
-(for ([i (in-range 20)]) ; iterator binding
-  (send progress-textedit erase)
-  (send progress-textedit insert (string-append "Loading " (number->string i) "%"))
-  (sleep 1))
-  (enable-start-button)
-  (show-main-window)
-  (send root-window show #f))
+(define (do-progress-bar) 
+  (for/list ([i (range 100)])
+    (send a-gauge set-value i)
+    (cond
+      [(not (is-vm-webserver-up?)) (sleep 1)]))
+  (after-progress-bar))
 
 ;; Show the frame by calling its show method
 (define (show-start-window)
   (send root-window show #t)
   (disable-start-button)
-  (show-progress-text))
+  (do-progress-bar))
+
+;; what happens after the progress bar
+(define (after-progress-bar)
+  (enable-start-button)
+  (show-main-window)
+  (send root-window show #f))
