@@ -42,3 +42,4 @@
 (define PORTOFFSET "PortOffset")
 (define HTTP "HTTP")
 (define LOCALHOST "127.0.0.1")
+(define PHP_INFO "phpinfo.php")

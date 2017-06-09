@@ -64,8 +64,9 @@
 (define (do-progress-bar) 
   (for/list ([i (range 100)])
     (send a-gauge set-value i)
+    (define wp-available (is-vm-webserver-up?))
     (cond
-      [(not (is-vm-webserver-up?)) (sleep 1)]))
+      [(not wp-available) (sleep 1)]))
   (after-progress-bar))
 
 ;; Show the frame by calling its show method
