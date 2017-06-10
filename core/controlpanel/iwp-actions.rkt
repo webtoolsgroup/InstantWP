@@ -18,14 +18,17 @@
  ;; open the docs
  do-docs-action
  ;; open about doc
- do-about-action)
+ do-about-action
+ ;; should quit?
+ should-quit-iwp?)
 
 ;; —————————————————————————————————
 ;; import and implementation section
 
 (require
-  "iwp-constants.rkt"
-  "iwp-environment.rkt")
+    racket/gui/base
+    "iwp-constants.rkt"
+    "iwp-environment.rkt")
 
 (define (do-wpfrontpage-action)
   (do-iwpcli-action IWPCLI_WPFRONTPAGE))
@@ -48,9 +51,19 @@
 (define (do-about-action)
   (do-iwpcli-action IWPCLI_ABOUT))
 
+(define (do-quit-action)
+  (do-iwpcli-action IWPCLI_QUIT))
+
 (define (do-iwpcli-action command)
   (system (iwpcli-command-string command)))
 
 (define (iwpcli-command-string command)
   (print iwpcli-run-path)
   (string-append (path->string (iwpcli-run-path)) " " command))
+
+(define (should-quit-iwp?)
+  (define answer (message-box "Quit InstantWP" "Quit InstantWP?" #f '(yes-no)))
+  (cond
+    [(symbol=? answer 'yes) #t]
+    [(symbol=? answer 'no) #f]))
+

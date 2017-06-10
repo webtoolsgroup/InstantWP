@@ -6,7 +6,9 @@
 
 (provide
  ;; show the main gui
- show-main-window)
+ show-main-window
+ ;; hide the main gui
+ hide-main-window)
 
 ;; —————————————————————————————————
 ;; import and implementation section
@@ -16,7 +18,8 @@
   "iwp-constants.rkt"
   "iwp-resources.rkt"
   "iwp-environment.rkt"
-  "iwp-actions.rkt")
+  "iwp-actions.rkt"
+  "iwp-quit-dialog.rkt")
 
 ;; define root window value hash
 (define iwp-window-hash (make-hash))
@@ -115,9 +118,24 @@
      [label "Quit"]
      ; Callback procedure for a button click:
      [callback (lambda (button event)
-                 (display "Quit"))]))
+                 (do-quit-action))]))
 
 
 ;; Show the frame by calling its show method
 (define (show-main-window)
   (send root-window show #t))
+
+;; Hide the frame by calling its show method
+(define (hide-main-window)
+  (send root-window show #f))
+
+;; quit action
+(define (do-quit-action)
+  (cond
+    [(should-quit-iwp?) (do-exit)]))
+
+(define (do-exit)
+  (hide-main-window)
+  (show-quit-window)
+  (do-quit-action))
+

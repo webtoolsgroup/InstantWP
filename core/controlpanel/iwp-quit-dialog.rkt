@@ -1,21 +1,34 @@
 #lang racket
 
-#|
-quit-progress-dialog.rkt --- InstantWP closing down progress dialog 
-Copyright (c) 2010-2017 Corvideon Ltd http://www.corvideon.ie
-Author: Seamus Brady seamus@corvideon.ie
-Homepage: http://www.instantwp.com
-License; GPLv3
-|#
+;; This module implements IWP quit panel window
+;; License GPLv3
+;; (c) 2010-2017 Corvideon Ltd
 
+(provide
+ ;; show the start gui
+ show-quit-window)
 
-(require racket/gui)
+;; —————————————————————————————————
+;; import and implementation section
+
+(require
+  racket/gui
+  "iwp-constants.rkt"
+  "iwp-resources.rkt"
+  "iwp-config.rkt")
+
+;; define root window value hash
+(define iwp-window-hash (make-hash))
+
+;; get some constants
+(define QUIT_TIMEOUT (string->number (get-config-setting "WaitOnVMQuitSeconds")))
+(define SLEEP_DELAY (string->number (get-config-setting "QuitProgressBarDelay")))
+
 
 ;; define root window
-(define iwp-window-hash (make-hash))
-(hash-set! iwp-window-hash "label" "Starting InstantWP...")
-(hash-set! iwp-window-hash "width" 400)
-(hash-set! iwp-window-hash "height" 100)
+(hash-set! iwp-window-hash "label" QUITTING_IWP_TITLE)
+(hash-set! iwp-window-hash "width" START_QUIT_GUI_WIDTH)
+(hash-set! iwp-window-hash "height" START_QUIT_GUI_HEIGHT)
 
 (define root-window (new frame% [label (hash-ref iwp-window-hash "label")]
                              [width (hash-ref iwp-window-hash "width")]
@@ -24,32 +37,31 @@ License; GPLv3
 
 ;; define panels
 (define main-panel (new panel% (parent root-window)))
-(define logo (read-bitmap "/Users/seamus/GitHub/InstantWP/core/images/logo.gif"))
+(define logo (iwp-logo))
 (define logo-label (new message% (parent main-panel) (label logo)))
 
-(define progress-textbox
-  (new text-field% [label ""] [parent root-window]
-       [style '(single)]
-       [min-height 10]
-       [min-width 350]
-       [stretchable-width 350]
-       [vert-margin 0]
-)) ;; add field to frame
-
-(define start-button (new button% [parent root-window]
-     [label "Start"]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (display "Frontpage"))]))
+;; add progress bar
+(define a-gauge (new gauge% [label QUITTING_LABEL]
+                     [range 100]
+                     [parent root-window]
+                     [min-height 30]
+                     [min-width 350]
+                     [stretchable-width 350]
+                     [vert-margin 0]))
 
 
-(send root-window show #t)
-(send start-button enable #f)
-(define textedit (send progress-textbox get-editor))
+;; the textbox to show progress
+(define (do-progress-bar) 
+  (for/list ([i (range QUIT_TIMEOUT)])
+    (send a-gauge set-value i)
+    (sleep SLEEP_DELAY))
+  (after-progress-bar))
 
-(for ([i (in-range 20)]) ; iterator binding
-  (send textedit erase)
-  (send textedit insert (string-append "Loading " (number->string i) "%"))
-  (sleep 1)) ; body
+;; Show the frame by calling its show method
+(define (show-quit-window)
+  (send root-window show #t)
+  (do-progress-bar))
 
-(send start-button enable #t)
+;; what happens after the progress bar
+(define (after-progress-bar)
+  (exit))

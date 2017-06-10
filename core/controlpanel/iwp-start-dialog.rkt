@@ -16,13 +16,18 @@
   "iwp-constants.rkt"
   "iwp-resources.rkt"
   "iwp-http-client.rkt"
-  "iwp-main-dialog.rkt")
+  "iwp-main-dialog.rkt"
+  "iwp-config.rkt")
 
 ;; define root window value hash
 (define iwp-window-hash (make-hash))
 
+;; get some constants
+(define START_TIMEOUT (string->number (get-config-setting "StartProgressBarDelay")))
+(define SLEEP_DELAY (string->number (get-config-setting "WebCheckTimeoutSeconds")))
+
 ;; define root window
-(hash-set! iwp-window-hash "label" STARTING_IWP)
+(hash-set! iwp-window-hash "label" STARTING_IWP_TITLE)
 (hash-set! iwp-window-hash "width" START_QUIT_GUI_WIDTH)
 (hash-set! iwp-window-hash "height" START_QUIT_GUI_HEIGHT)
 
@@ -33,50 +38,34 @@
 
 ;; define panels
 (define main-panel (new panel% (parent root-window)))
-(define logo (read-bitmap "/Users/seamus/GitHub/InstantWP/core/images/logo.gif"))
+(define logo (iwp-logo))
 (define logo-label (new message% (parent main-panel) (label logo)))
 
 ;; add progress bar
-(define a-gauge (new gauge% [label "Loading..."]
+(define a-gauge (new gauge% [label LOADING_LABEL]
                      [range 100]
                      [parent root-window]
-                     [min-height 10]
+                     [min-height 30]
                      [min-width 350]
                      [stretchable-width 350]
                      [vert-margin 0]))
 
-;; start button definition
-(define start-button (new button% [parent root-window]
-     [label "Start"]
-             ; Callback procedure for a button click:
-             [callback (lambda (button event)
-                         (display "Frontpage"))]))
-
-;; Enable the start button
-(define (enable-start-button)
-  (send start-button enable #t))
-
-;; Disable the start button
-(define (disable-start-button)
-  (send start-button enable #f))
 
 ;; the textbox to show progress
 (define (do-progress-bar) 
-  (for/list ([i (range 100)])
+  (for/list ([i (range START_TIMEOUT)])
     (send a-gauge set-value i)
     (define wp-available (is-vm-webserver-up?))
     (cond
-      [(not wp-available) (sleep 1)]))
+      [(not wp-available) (sleep SLEEP_DELAY)]))
   (after-progress-bar))
 
 ;; Show the frame by calling its show method
 (define (show-start-window)
   (send root-window show #t)
-  (disable-start-button)
   (do-progress-bar))
 
 ;; what happens after the progress bar
 (define (after-progress-bar)
-  (enable-start-button)
-  (show-main-window)
-  (send root-window show #f))
+  (send root-window show #f)
+  (show-main-window))

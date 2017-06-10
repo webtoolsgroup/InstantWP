@@ -33,3 +33,6 @@
 
 (define (wp-docs-bitmap)
   (read-bitmap  (build-path (iwp-images-dir-path) "docs.jpg")))
+
+(define (iwp-logo)
+  (read-bitmap  (build-path (iwp-images-dir-path) "logo.gif")))
