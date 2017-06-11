@@ -34,11 +34,15 @@
                            ADVANCED_TAB
                            WP_RESOURCES_TAB))
 
-;; main window
-(define root-window (new frame% [label (hash-ref iwp-window-hash "label")]
-                      [width (hash-ref iwp-window-hash "width")]
-                      [height (hash-ref iwp-window-hash "height")]
-                      [style '(no-resize-border)]))
+;; custom frame with exit - main window
+(define root-window (new (class frame% (super-new)
+                         (define/augment (on-close)
+                           (do-exit)))
+                       [label (hash-ref iwp-window-hash "label")]
+                       [width (hash-ref iwp-window-hash "width")]
+                       [height (hash-ref iwp-window-hash "height")]
+                       [style '(no-resize-border)]))
+
 
 ;; define tab control
 (define tab-control (new tab-panel%
@@ -135,6 +139,7 @@
     [(should-quit-iwp?) (do-exit)]))
 
 (define (do-exit)
+  (message-box "InstantWP Close" "InstantWP will now close." #f '(ok no-icon))
   (hide-main-window)
   (show-quit-window)
   (do-quit-action))

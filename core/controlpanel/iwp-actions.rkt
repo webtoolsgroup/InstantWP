@@ -19,6 +19,8 @@
  do-docs-action
  ;; open about doc
  do-about-action
+ ;; quit action
+ do-quit-action
  ;; should quit?
  should-quit-iwp?)
 
@@ -58,7 +60,7 @@
   (system (iwpcli-command-string command)))
 
 (define (iwpcli-command-string command)
-  (print iwpcli-run-path)
+  ;; (message-box "IWPCLI Path" (path->string (iwpcli-run-path)) #f '(ok no-icon))
   (string-append (path->string (iwpcli-run-path)) " " command))
 
 (define (should-quit-iwp?)

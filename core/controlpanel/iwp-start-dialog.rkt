@@ -25,6 +25,8 @@
 ;; get some constants
 (define START_TIMEOUT (string->number (get-config-setting "StartProgressBarDelay")))
 (define SLEEP_DELAY (string->number (get-config-setting "WebCheckTimeoutSeconds")))
+(define START_PROGRESS_DELAY (string->number (get-config-setting "DelayPing")))
+
 
 ;; define root window
 (hash-set! iwp-window-hash "label" STARTING_IWP_TITLE)
@@ -55,7 +57,8 @@
 (define (do-progress-bar) 
   (for/list ([i (range START_TIMEOUT)])
     (send a-gauge set-value i)
-    (define wp-available (is-vm-webserver-up?))
+    ;; test the web server once the progress bar has moved a bit
+    (define wp-available (is-wp-available? i))
     (cond
       [(not wp-available) (sleep SLEEP_DELAY)]))
   (after-progress-bar))
@@ -69,3 +72,9 @@
 (define (after-progress-bar)
   (send root-window show #f)
   (show-main-window))
+
+;; call the web server vm
+(define (is-wp-available? progress)
+  (cond
+    [(>= progress START_PROGRESS_DELAY) (is-vm-webserver-up?)]
+    [(<= progress START_PROGRESS_DELAY) #f]))

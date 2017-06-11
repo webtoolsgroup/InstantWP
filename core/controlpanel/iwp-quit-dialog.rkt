@@ -15,7 +15,8 @@
   racket/gui
   "iwp-constants.rkt"
   "iwp-resources.rkt"
-  "iwp-config.rkt")
+  "iwp-config.rkt"
+  "iwp-actions.rkt")
 
 ;; define root window value hash
 (define iwp-window-hash (make-hash))
@@ -51,7 +52,9 @@
 
 
 ;; the textbox to show progress
-(define (do-progress-bar) 
+(define (do-progress-bar)
+  ;; start the quit cmd in new thread
+  (thread (lambda () (do-quit-action)))
   (for/list ([i (range QUIT_TIMEOUT)])
     (send a-gauge set-value i)
     (sleep SLEEP_DELAY))
