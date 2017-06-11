@@ -46,3 +46,36 @@
 (define HTTP "HTTP")
 (define LOCALHOST "127.0.0.1")
 (define PHP_INFO "phpinfo.php")
+(define SSH_INFO #<<EOF
+This button will open an SSH session to the VM. 
+You will be logged in automatically as user "iwp" with password "iwp".
+The web root folder is at /var/www/localhost/htdocs/
+EOF
+)
+(define SFTP_INFO #<<EOF
+This will open the SFTP client - Fugu SFTP on OSX and WinSCP on Windows.
+You can use the following details to login to the VM:
+ - The server to connect to: 127.0.0.1
+ - The username: root
+ - The network port: 10022
+ - The password: root
+The web root directory is at /var/www/localhost/htdocs/
+EOF
+)
+(define QEMU_MONITOR_INFO #<<EOF
+Access to the QEMU monitor console for interacting with Virtual Machine. 
+You can control various aspects of the virtual machine. 
+See the QEMU Monitor documentation for more information at https://en.wikibooks.org/wiki/QEMU/Monitor
+EOF
+)
+(define EDIT_CONFIG_INFO #<<EOF
+This will open the InstantWP config file in your default text editor.
+EOF
+)
+(define WEB_FILE_MANAGER_INFO #<<EOF
+Login with user 'iwp' and password 'iwp' for normal access.
+Login with user 'root' and password 'root' for administrator access.
+
+EOF
+)
+(define PHP_INFO_INFO "Information about the installed version of PHP.")
