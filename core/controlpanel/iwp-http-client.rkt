@@ -14,12 +14,10 @@
   net/http-client
   net/url
   "iwp-constants.rkt"
-  "iwp-ports.rkt")
-
-(define phpinfo-url (string-append "http://" LOCALHOST ":" (number->string (get-vm-http-port)) "/" PHP_INFO))
+  "iwp-config.rkt")
 
 (define (is-vm-webserver-up?)
-  (define response (fetch-url (string->url phpinfo-url)))
+  (define response (fetch-url (string->url (get-phpinfo-url))))
   (cond
     [(string? response) (string-contains? response "PHP Version")]
     [(not (string? response)) response]))

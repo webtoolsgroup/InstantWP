@@ -10,7 +10,13 @@
  ;; (hash-ref (get-config-hash "/Users/seamus/GitHub/InstantWP/core/config/iwp-osx.ini") "QEMUBinary")
  get-config-hash
  ;; get one config setting (get-config-setting "QEMUBinary")
- get-config-setting)
+ get-config-setting
+ ;; get a port setting (get-port-setting "HTTP")
+ get-port-setting
+ ;; get the vm http port setting
+ get-vm-http-port
+ ;; get the phpinfo url
+ get-phpinfo-url)
 
 ;; —————————————————————————————————
 ;; import and implementation section
@@ -21,7 +27,8 @@
           string-split
           string-join)
           racket/gui
-          "iwp-environment.rkt")
+          "iwp-environment.rkt"
+          "iwp-constants.rkt")
 
 ;; define a local config hash
 (define local-config-hash (make-hash))
@@ -96,3 +103,16 @@
 	    (loop name
 		  (cons (list (car local-pieces) (string-join (cdr local-pieces) "=")) acc)
 		  sections)])))))
+
+;; get vm http port
+(define (get-vm-http-port)
+  (get-port-setting HTTP))
+
+;; get a port setting
+(define (get-port-setting port-type)
+  (define local-portoffset (get-config-setting PORTOFFSET))
+  (define local-port-type (get-config-setting port-type))
+  (+ (string->number local-port-type) (string->number local-portoffset)))
+
+;; phpinfo url
+(define (get-phpinfo-url) (string-append "http://" LOCALHOST ":" (number->string (get-vm-http-port)) "/" PHP_INFO))

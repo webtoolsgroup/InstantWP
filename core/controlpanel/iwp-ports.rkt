@@ -24,5 +24,6 @@
   (define local-port-type (get-config-setting port-type))
   (+ (string->number local-port-type) (string->number local-portoffset)))
 
+;; get vm http port
 (define (get-vm-http-port)
   (get-port-setting HTTP))

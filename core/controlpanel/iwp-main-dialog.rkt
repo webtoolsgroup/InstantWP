@@ -15,6 +15,8 @@
 
 (require
   racket/gui/base
+  net/sendurl
+  "iwp-config.rkt"
   "iwp-constants.rkt"
   "iwp-resources.rkt"
   "iwp-environment.rkt"
@@ -260,7 +262,7 @@
      [min-width 150]
      ; Callback procedure for a button click:
      [callback (lambda (button event)
-                 (display "PHP Info"))]))
+                 (send-url (get-phpinfo-url)))]))
 
 (define php-info-label (new text-field%
                     [label ""]
