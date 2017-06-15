@@ -66,19 +66,22 @@
   (do-iwpcli-action IWPCLI_QUIT))
 
 (define (do-iwpcli-action command)
-  (system (iwpcli-command-string command)))
+  (do-action (iwpcli-command-string command)))
 
 (define (do-start-ssh)
-  (system (get-ssh-script-path)))
+  (do-action (path->string (get-ssh-script-path))))
 
 (define (do-start-sftp)
-  (system (get-sftp-script-path)))
+  (do-action (path->string (get-sftp-script-path))))
 
 (define (do-start-qemu-monitor)
-  (system (get-qemu-script-path)))
+  (do-action (path->string (get-qemu-script-path))))
 
 (define (do-start-edit-config)
-  (system (get-edit-config-script-path)))
+  (do-action (path->string (get-edit-config-script-path))))
+
+(define (do-action action-string)
+  (process action-string))
 
 (define (iwpcli-command-string command)
   ;; (message-box "IWPCLI Path" (path->string (iwpcli-run-path)) #f '(ok no-icon))
