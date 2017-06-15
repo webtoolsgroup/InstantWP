@@ -21,6 +21,14 @@
  do-about-action
  ;; quit action
  do-quit-action
+ ;; start ssh
+ do-start-ssh
+ ;; start sftp
+ do-start-sftp
+ ;; start qemu monitor
+ do-start-qemu-monitor
+ ;; start edit config
+ do-start-edit-config
  ;; should quit?
  should-quit-iwp?)
 
@@ -30,7 +38,8 @@
 (require
     racket/gui/base
     "iwp-constants.rkt"
-    "iwp-environment.rkt")
+    "iwp-environment.rkt"
+    "iwp-config.rkt")
 
 (define (do-wpfrontpage-action)
   (do-iwpcli-action IWPCLI_WPFRONTPAGE))
@@ -58,6 +67,18 @@
 
 (define (do-iwpcli-action command)
   (system (iwpcli-command-string command)))
+
+(define (do-start-ssh)
+  (system (get-ssh-script-path)))
+
+(define (do-start-sftp)
+  (system (get-sftp-script-path)))
+
+(define (do-start-qemu-monitor)
+  (system (get-qemu-script-path)))
+
+(define (do-start-edit-config)
+  (system (get-edit-config-script-path)))
 
 (define (iwpcli-command-string command)
   ;; (message-box "IWPCLI Path" (path->string (iwpcli-run-path)) #f '(ok no-icon))

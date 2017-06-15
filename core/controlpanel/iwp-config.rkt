@@ -1,6 +1,6 @@
 #lang racket
 
-;; This module implements IWP ini file functions
+;; This module implements configuration functions for IWP
 ;; License GPLv3
 ;; (c) 2010-2017 Corvideon Ltd 
 
@@ -16,7 +16,18 @@
  ;; get the vm http port setting
  get-vm-http-port
  ;; get the phpinfo url
- get-phpinfo-url)
+ get-phpinfo-url
+ ;; web filemanager url
+ get-filemanager-url
+ ;; ssh path
+ get-ssh-script-path
+ ;; sftp path
+ get-sftp-script-path
+ ;; qemu monitor path
+ get-qemu-script-path
+ ;; edit config file path
+ get-edit-config-script-path)
+
 
 ;; —————————————————————————————————
 ;; import and implementation section
@@ -115,4 +126,32 @@
   (+ (string->number local-port-type) (string->number local-portoffset)))
 
 ;; phpinfo url
-(define (get-phpinfo-url) (string-append "http://" LOCALHOST ":" (number->string (get-vm-http-port)) "/" PHP_INFO))
+(define (get-phpinfo-url)
+  (define local-portoffset (get-config-setting PORTOFFSET))
+  (string-append "http://" LOCALHOST ":" (number->string (get-vm-http-port)) "/" PHP_INFO))
+
+;; filemanager url
+(define (get-filemanager-url)
+  (define local-portoffset (get-config-setting PORTOFFSET))
+  (string-append "http://" LOCALHOST ":" (number->string (get-vm-http-port)) "/" WEB_FILEMANAGER))
+
+
+;; startSSHScript
+(define (get-ssh-script-path)
+   (define local-ssh-script-path (get-config-setting START_SSH))
+  (build-path (path->string (iwp-platform-dir-path)) local-ssh-script-path))
+
+;; startSFTPScript
+(define (get-sftp-script-path)
+   (define local-sftp-script-path (get-config-setting START_SFTP))
+  (build-path (path->string (iwp-platform-dir-path)) local-sftp-script-path))
+
+;; startQEMUMonitorScript
+(define (get-qemu-script-path)
+   (define local-qemu-script-path (get-config-setting START_QEMU))
+  (build-path (path->string (iwp-platform-dir-path)) local-qemu-script-path))
+
+;; startEditConfigFileScript
+(define (get-edit-config-script-path)
+   (define local-edit-config-script-path (get-config-setting START_EDIT_CONFIG))
+  (build-path (path->string (iwp-platform-dir-path)) local-edit-config-script-path))

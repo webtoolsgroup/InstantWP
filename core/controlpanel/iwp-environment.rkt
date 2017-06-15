@@ -1,6 +1,6 @@
 #lang racket
 
-;; This module contains IWP environment code
+;; This module sets up the IWP environment
 ;; License GPLv3
 ;; (c) 2010-2017 Corvideon Ltd
 
@@ -10,7 +10,9 @@
  ;; the path to iwpcli
  iwpcli-run-path
  ;; the path to control panel resources
- iwp-images-dir-path)
+ iwp-images-dir-path
+ ;; path for platform dir
+ iwp-platform-dir-path)
 
 
 ;; —————————————————————————————————
@@ -51,6 +53,10 @@
 ;; resource path
 (define (iwp-images-dir-path)
   (build-path  (get-iwp-root-dir) "images"))
+
+;; platform path
+(define (iwp-platform-dir-path)
+  (build-path  (get-iwp-root-dir) "platform"))
 
 ;; search for the root directory of IWP
 (define (search-for-iwp-root-dir)

@@ -172,7 +172,7 @@
      [min-width 150]
      ; Callback procedure for a button click:
      [callback (lambda (button event)
-                 (display "SSH"))]))
+                 (do-start-ssh))]))
 
 (define ssh-label (new text-field%
                     [label ""]
@@ -190,13 +190,13 @@
      [min-width 150]
      ; Callback procedure for a button click:
      [callback (lambda (button event)
-                 (display "SFTP Client"))]))
+                 (do-start-sftp))]))
 
 (define sftp-label (new text-field%
                     [label ""]
                     [style '(multiple)]
                     [enabled #f]
-                    [min-height 20]
+                    [min-height 30]
                     [parent advanced-panel-h1]
                     [stretchable-height #f]))
 
@@ -208,53 +208,53 @@
      [min-width 150]
      ; Callback procedure for a button click:
      [callback (lambda (button event)
-                 (display "QEMU Monitor"))]))
+                 (do-start-qemu-monitor))]))
 
 (define qemu-monitor-label (new text-field%
                     [label ""]
                     [style '(multiple)]
                     [enabled #f]
-                    [min-height 20]
+                    [min-height 30]
                     [parent advanced-panel-h2]
                     [stretchable-height #f]))
 
 (send qemu-monitor-label set-value QEMU_MONITOR_INFO)
 
-;; Edit config button and label
-(define do-edit-config-button (new button% [parent advanced-panel-h3]
-     [label "Edit Config File"]
-     [min-width 150]
-     ; Callback procedure for a button click:
-     [callback (lambda (button event)
-                 (display "Edit Config File"))]))
-
-(define edit-config-label (new text-field%
-                    [label ""]
-                    [style '(multiple)]
-                    [enabled #f]
-                    [min-height 20]
-                    [parent advanced-panel-h3]
-                    [stretchable-height #f]))
-
-(send edit-config-label set-value EDIT_CONFIG_INFO)
-
-;; EWeb file manager button and label
-(define do-web-file-manager-button (new button% [parent advanced-panel-h4]
+;; Web file manager button and label
+(define do-web-file-manager-button (new button% [parent advanced-panel-h3]
      [label "Web File Manager"]
      [min-width 150]
      ; Callback procedure for a button click:
      [callback (lambda (button event)
-                 (display "Web File Manager"))]))
+                 (send-url (get-filemanager-url)))]))
 
 (define web-file-manager-label (new text-field%
                     [label ""]
                     [style '(multiple)]
                     [enabled #f]
+                    [min-height 10]
+                    [parent advanced-panel-h3]
+                    [stretchable-height #f]))
+
+(send web-file-manager-label set-value WEB_FILE_MANAGER_INFO)
+
+;; Edit config button and label
+(define do-edit-config-button (new button% [parent advanced-panel-h4]
+     [label "Edit Config File"]
+     [min-width 150]
+     ; Callback procedure for a button click:
+     [callback (lambda (button event)
+                 (do-start-edit-config))]))
+
+(define edit-config-label (new text-field%
+                    [label ""]
+                    [style '(single)]
+                    [enabled #f]
                     [min-height 20]
                     [parent advanced-panel-h4]
                     [stretchable-height #f]))
 
-(send web-file-manager-label set-value WEB_FILE_MANAGER_INFO)
+(send edit-config-label set-value EDIT_CONFIG_INFO)
 
 ;; PHP info button and label
 (define do-php-info-button (new button% [parent advanced-panel-h5]
@@ -266,7 +266,7 @@
 
 (define php-info-label (new text-field%
                     [label ""]
-                    [style '(multiple)]
+                    [style '(single)]
                     [enabled #f]
                     [min-height 20]
                     [parent advanced-panel-h5]
