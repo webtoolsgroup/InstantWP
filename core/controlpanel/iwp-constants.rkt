@@ -51,6 +51,7 @@
 (define START_SFTP "startSFTPScript")
 (define START_QEMU "startQEMUMonitorScript")
 (define START_EDIT_CONFIG "startEditConfigFileScript")
+(define START_TERMINAL "startTerminal")
 (define SSH_INFO #<<EOF
 This button will open an SSH session to the VM. 
 You will be logged in automatically as user 'iwp' with password 'iwp'.

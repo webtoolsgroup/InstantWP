@@ -26,7 +26,9 @@
  ;; qemu monitor path
  get-qemu-script-path
  ;; edit config file path
- get-edit-config-script-path)
+ get-edit-config-script-path
+ ;; start terminal path
+ get-start-terminal-script-path)
 
 
 ;; —————————————————————————————————
@@ -154,4 +156,9 @@
 ;; startEditConfigFileScript
 (define (get-edit-config-script-path)
    (define local-edit-config-script-path (get-config-setting START_EDIT_CONFIG))
+  (build-path (path->string (iwp-platform-dir-path)) local-edit-config-script-path))
+
+;; startTerminal script
+(define (get-start-terminal-script-path)
+   (define local-edit-config-script-path (get-config-setting START_TERMINAL))
   (build-path (path->string (iwp-platform-dir-path)) local-edit-config-script-path))

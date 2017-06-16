@@ -12,7 +12,12 @@
  ;; the path to control panel resources
  iwp-images-dir-path
  ;; path for platform dir
- iwp-platform-dir-path)
+ iwp-platform-dir-path
+ ;; start terminal script
+ start-terminal-script-path
+ ;; identify OS
+ is-windows?
+ is-macos?)
 
 
 ;; —————————————————————————————————
@@ -57,6 +62,11 @@
 ;; platform path
 (define (iwp-platform-dir-path)
   (build-path  (get-iwp-root-dir) "platform"))
+
+;; startTerminal path
+(define (start-terminal-script-path)
+  (build-path (iwp-platform-dir-path) START_TERMINAL))
+
 
 ;; search for the root directory of IWP
 (define (search-for-iwp-root-dir)

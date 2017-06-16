@@ -69,13 +69,13 @@
   (do-action (iwpcli-command-string command)))
 
 (define (do-start-ssh)
-  (do-action (path->string (get-ssh-script-path))))
+  (do-action-in-terminal (path->string (get-ssh-script-path))))
 
 (define (do-start-sftp)
   (do-action (path->string (get-sftp-script-path))))
 
 (define (do-start-qemu-monitor)
-  (do-action (path->string (get-qemu-script-path))))
+  (do-action-in-terminal (path->string (get-qemu-script-path))))
 
 (define (do-start-edit-config)
   (do-action (path->string (get-edit-config-script-path))))
@@ -83,6 +83,15 @@
 (define (do-action action-string)
   (process action-string))
 
+(define (do-action-in-terminal action-string)
+    (cond
+    [(is-windows?) ""] ;;TBD
+    [(is-macos?)  (start-osx-terminal action-string)]))
+
+(define (start-osx-terminal action-string)
+  (system  (string-append  "open " action-string)))
+
+  
 (define (iwpcli-command-string command)
   ;; (message-box "IWPCLI Path" (path->string (iwpcli-run-path)) #f '(ok no-icon))
   (string-append (path->string (iwpcli-run-path)) " " command))
