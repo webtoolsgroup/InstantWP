@@ -1,7 +1,7 @@
 #!C:\Program Files (x86)\ActiveState Perl Dev Kit 9.5.1\bin\perlapp-gui.exe
 PAP-Version: 1.0
 Packer: C:\Program Files (x86)\ActiveState Perl Dev Kit 9.5.1\bin\perlapp.exe
-Script: iwp.pm
+Script: ..\..\..\InstantWP\core\bin\iwp.pm
 Cwd: C:\Users\paperspace\Documents\GitHub\InstantWordPress\MainDev\bin
 Add: Config::INI::Reader
 Add: Getopt::Long
@@ -15,11 +15,11 @@ Add: IWPCommandLine
 Add: IWPEnvironment
 Add: IWPTasks
 Clean: 0
-Date: 2017-01-22 17:32:08
+Date: 2017-01-23 17:30:58
 Debug: 
 Dependent: 0
 Dyndll: 0
-Exe: iwp.exe
+Exe: ..\..\..\InstantWP\core\bin\iwp.exe
 Force: 0
 Gui: 0
 Hostname: psz7y3uk

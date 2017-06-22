@@ -40,11 +40,9 @@
 
 ;; define panels
 (define main-panel (new panel% (parent root-window)))
-(define logo (iwp-logo))
-(define logo-label (new message% (parent main-panel) (label logo)))
 
 ;; add progress bar
-(define a-gauge (new gauge% [label LOADING_LABEL]
+(define a-gauge (new gauge% [label ""]
                      [range 100]
                      [parent root-window]
                      [min-height 30]
@@ -54,7 +52,7 @@
 
 
 ;; the textbox to show progress
-(define (do-progress-bar) 
+(define (do-start-progress-bar) 
   (for/list ([i (range START_TIMEOUT)])
     (send a-gauge set-value i)
     ;; test the web server once the progress bar has moved a bit
@@ -66,7 +64,8 @@
 ;; Show the frame by calling its show method
 (define (show-start-window)
   (send root-window show #t)
-  (do-progress-bar))
+  (send root-window center)
+  (do-start-progress-bar))
 
 ;; what happens after the progress bar
 (define (after-progress-bar)

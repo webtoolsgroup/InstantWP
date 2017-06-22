@@ -38,11 +38,9 @@
 
 ;; define panels
 (define main-panel (new panel% (parent root-window)))
-(define logo (iwp-logo))
-(define logo-label (new message% (parent main-panel) (label logo)))
 
 ;; add progress bar
-(define a-gauge (new gauge% [label QUITTING_LABEL]
+(define a-gauge (new gauge% [label ""]
                      [range 100]
                      [parent root-window]
                      [min-height 30]
@@ -63,6 +61,7 @@
 ;; Show the frame by calling its show method
 (define (show-quit-window)
   (send root-window show #t)
+  (send root-window center)
   (do-progress-bar))
 
 ;; what happens after the progress bar

@@ -14,7 +14,7 @@
 (define MAIN_GUI_WIDTH 750)
 (define MAIN_GUI_HEIGHT 450)
 (define START_QUIT_GUI_WIDTH 400)
-(define START_QUIT_GUI_HEIGHT 100)
+(define START_QUIT_GUI_HEIGHT 30)
 (define IWP_DIALOG_TITLE "InstantWP Control Panel")
 (define CONTROL_PANEL_TAB "Control Panel")
 (define ADVANCED_TAB "Advanced")
