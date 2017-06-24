@@ -89,7 +89,7 @@
     [(is-macos?)  (start-osx-terminal action-string)]))
 
 (define (start-osx-terminal action-string)
-  (system  (string-append  "open " action-string)))
+  (system  (string-append  "open -a 'Terminal' " action-string)))
 
   
 (define (iwpcli-command-string command)

@@ -130,12 +130,12 @@
 ;; phpinfo url
 (define (get-phpinfo-url)
   (define local-portoffset (get-config-setting PORTOFFSET))
-  (string-append "http://" LOCALHOST ":" (number->string (get-vm-http-port)) "/" PHP_INFO))
+  (string-append "http://" LOCALHOST ":" (number->string (get-vm-http-port)) "/" (get-config-setting PHP_INFO)))
 
 ;; filemanager url
 (define (get-filemanager-url)
   (define local-portoffset (get-config-setting PORTOFFSET))
-  (string-append "http://" LOCALHOST ":" (number->string (get-vm-http-port)) "/" WEB_FILEMANAGER))
+  (string-append "http://" LOCALHOST ":" (number->string (get-vm-http-port)) "/" (get-config-setting WEB_FILEMANAGER)))
 
 
 ;; startSSHScript

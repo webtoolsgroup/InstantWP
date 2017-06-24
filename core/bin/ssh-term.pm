@@ -17,7 +17,7 @@
 #
 
 if( ! defined $ARGV[0] ) {
-	print "Usage: ssh.pl <host> [ <username> [ <password> ] <port> ]\n";
+	print "Usage: ssh-term <host> [ <username> [ <password> ] <port> ]\n";
 	exit;
 }
 
@@ -40,7 +40,7 @@ sub winch {
 	my $signame = shift;
 	my $pid = $spawn->pid;
 	$shucks++;
-	print "count $shucks,pid $pid, SIG$signame\n";
+	# print "count $shucks,pid $pid, SIG$signame\n";
 	$spawn->slave->clone_winsize_from(\*STDIN);
 	kill WINCH => $spawn->pid if $spawn->pid;
 }

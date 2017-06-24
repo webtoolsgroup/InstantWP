@@ -17,22 +17,46 @@
 
 ;; define main button bitmaps
 (define (wp-admin-bitmap)
-  (read-bitmap  (build-path (iwp-images-dir-path) "admin.jpg")))
+  (read-bitmap  (build-path (iwp-images-dir-path) "settings.png")))
 
 (define (wp-frontpage-bitmap)
-  (read-bitmap  (build-path (iwp-images-dir-path) "frontpage.jpg")))
+  (read-bitmap  (build-path (iwp-images-dir-path) "world.png")))
 
 (define (wp-mysql-bitmap)
-  (read-bitmap  (build-path (iwp-images-dir-path) "mysql.jpg")))
+  (read-bitmap  (build-path (iwp-images-dir-path) "database.png")))
 
 (define (wp-themes-bitmap)
-  (read-bitmap  (build-path (iwp-images-dir-path) "themes.jpg")))
+  (read-bitmap  (build-path (iwp-images-dir-path) "folder.png")))
 
 (define (wp-plugins-bitmap)
-  (read-bitmap  (build-path (iwp-images-dir-path) "plugins.jpg")))
+  (read-bitmap  (build-path (iwp-images-dir-path) "folder.png")))
 
 (define (wp-docs-bitmap)
-  (read-bitmap  (build-path (iwp-images-dir-path) "docs.jpg")))
+  (read-bitmap  (build-path (iwp-images-dir-path) "documents.png")))
+
+(define (about-bitmap)
+  (read-bitmap  (build-path (iwp-images-dir-path) "project.png")))
+
+(define (quit-bitmap)
+  (read-bitmap  (build-path (iwp-images-dir-path) "quit.png")))
+
+(define (ssh-bitmap)
+  (read-bitmap  (build-path (iwp-images-dir-path) "ssh.png")))
+
+(define (sftp-bitmap)
+  (read-bitmap  (build-path (iwp-images-dir-path) "sftp.png")))
+
+(define (qemu-bitmap)
+  (read-bitmap  (build-path (iwp-images-dir-path) "config.png")))
+
+(define (filemanager-bitmap)
+  (read-bitmap  (build-path (iwp-images-dir-path) "folder.png")))
+
+(define (edit-config-bitmap)
+  (read-bitmap  (build-path (iwp-images-dir-path) "pencil.png")))
+
+(define (phpinfo-bitmap)
+  (read-bitmap  (build-path (iwp-images-dir-path) "settings.png")))
 
 (define (iwp-logo)
-  (read-bitmap  (build-path (iwp-images-dir-path) "logo.gif")))
+  (read-bitmap  (build-path (iwp-images-dir-path) "logo-top.png")))

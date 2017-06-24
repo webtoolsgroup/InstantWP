@@ -12,9 +12,17 @@
 ;; import and implementation section
 
 (define MAIN_GUI_WIDTH 750)
-(define MAIN_GUI_HEIGHT 450)
-(define START_QUIT_GUI_WIDTH 400)
-(define START_QUIT_GUI_HEIGHT 100)
+(define MAIN_GUI_HEIGHT 550)
+(define START_QUIT_GUI_WIDTH 100)
+(define START_QUIT_GUI_HEIGHT 50)
+(define MAIN_BTN_WIDTH 225)
+(define MAIN_BTN_HEIGHT 40)
+(define MAIN_LBL_WIDTH 300)
+(define MAIN_LBL_HEIGHT 10)
+(define ADV_BTN_WIDTH 200)
+(define ADV_BTN_HEIGHT 10)
+(define ADV_LBL_WIDTH 400)
+(define ADV_LBL_HEIGHT 10)
 (define IWP_DIALOG_TITLE "InstantWP Control Panel")
 (define CONTROL_PANEL_TAB "Control Panel")
 (define ADVANCED_TAB "Advanced")
@@ -45,42 +53,22 @@
 (define PORTOFFSET "PortOffset")
 (define HTTP "HTTP")
 (define LOCALHOST "127.0.0.1")
-(define PHP_INFO "phpinfo.php")
+(define PHP_INFO "PHPInfo")
 (define WEB_FILEMANAGER "FileManager")
 (define START_SSH "startSSHScript")
 (define START_SFTP "startSFTPScript")
 (define START_QEMU "startQEMUMonitorScript")
 (define START_EDIT_CONFIG "startEditConfigFileScript")
 (define START_TERMINAL "startTerminal")
-(define SSH_INFO #<<EOF
-This button will open an SSH session to the VM. 
-You will be logged in automatically as user 'iwp' with password 'iwp'.
-The web root folder is at /var/www/localhost/htdocs/
-EOF
-)
-(define SFTP_INFO #<<EOF
-This will open the SFTP client - Fugu SFTP on OSX and WinSCP on Windows.
-You can use the following details to login to the VM:
- - The server to connect to: 127.0.0.1
- - The username: root
- - The network port: 10022
- - The password: root
-The web root directory is at /var/www/localhost/htdocs/
-EOF
-)
-(define QEMU_MONITOR_INFO #<<EOF
-Access to the QEMU monitor console for interacting with the Virtual Machine. 
-See the QEMU Monitor documentation for more information at https://en.wikibooks.org/wiki/QEMU/Monitor
-EOF
-)
-(define EDIT_CONFIG_INFO #<<EOF
-This will open the InstantWP config file in your default text editor.
-EOF
-)
-(define WEB_FILE_MANAGER_INFO #<<EOF
-Login with user 'iwp' and password 'iwp' for normal access.
-Login with user 'root' and password 'root' for administrator access.
-
-EOF
-)
+(define WPFRONTPAGE_INFO "Opens the WordPress website.")
+(define WPADMIN_INFO "Opens the WordPress Dashboard.\nYou can login with 'admin' and 'password'.")
+(define WPTHEMES_INFO "Opens the WordPress wp-themes directory.")
+(define WPPLUGINS_INFO "Opens the WordPress wp-plugins directory.")
+(define MYSQL_INFO "Opens PHPMyAdmin.\nYou can login with 'root' with a blank password.")
+(define DOCS_INFO  "Opens the InstantWP documentation.")
+(define SSH_INFO "Open an SSH session as user 'iwp' with password 'iwp'.\nThe web root folder is at /var/www/localhost/htdocs/")
+(define SFTP_INFO "Opens the SFTP client. Use the following details - \nHost: 127.0.0.1, Port: 10022, Username: 'root', Password: 'root'.")
+(define QEMU_MONITOR_INFO "Open the QEMU Monitor console for interacting with the VM.")
+(define EDIT_CONFIG_INFO "This will open the InstantWP config file in your default text editor.")
+(define WEB_FILE_MANAGER_INFO "Opens the web based file manager.\nLogin with user 'iwp' and password 'iwp'.")
 (define PHP_INFO_INFO "Information about the installed version of PHP.")

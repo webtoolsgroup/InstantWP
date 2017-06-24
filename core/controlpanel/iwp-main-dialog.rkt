@@ -24,6 +24,28 @@
   "iwp-quit-dialog.rkt")
 
 ;; --------------------------------------
+;; button and label creation functions
+;; --------------------------------------
+
+
+(define (create-new-button parent bitmap label width height callback)
+  (new button% [parent parent]
+     [label (list bitmap label 'left)]
+     [min-width width]
+     [min-height height]
+     [callback callback]))
+
+
+(define (create-new-label label width height parent)
+  (new message%
+     [label label]
+     [enabled #f]
+     [min-width width]
+     [min-height height]
+     [parent parent]
+     [stretchable-height #f]))
+
+;; --------------------------------------
 ;; define main window
 ;; --------------------------------------
 
@@ -49,6 +71,10 @@
                        [height (hash-ref iwp-window-hash "height")]
                        [style '(no-resize-border)]))
 
+;; logo at the top of dialog
+(define logo (iwp-logo))
+(define logo-label (new message% (parent root-window) (label logo)))
+
 
 ;; define tab control
 (define tab-control (new tab-panel%
@@ -65,11 +91,13 @@
 (define start-panel (new panel% (parent tab-control)))
 (define advanced-panel (new vertical-panel% (parent tab-control)))
 (define wp-resources-panel (new panel% (parent tab-control)))
+
 ;; this panel holds the buttons at the bottom of dialog
 (define base-buttons-panel (new horizontal-pane% (parent root-window) [alignment '(right bottom)] [stretchable-height #f]))
 
 ;; hide other tabs
 (send tab-control change-children (lambda (children) (list start-panel)))
+
 
 ;; --------------------------------------
 ;; main window control functions
@@ -89,7 +117,7 @@
     [(should-quit-iwp?) (do-exit)]))
 
 (define (do-exit)
-  (message-box "InstantWP Close" "InstantWP will now close." #f '(ok no-icon))
+  ;;(message-box "InstantWP Close" "InstantWP will now close." #f '(ok no-icon))
   (hide-main-window)
   (show-quit-window)
   (do-quit-action))
@@ -98,179 +126,136 @@
 ;; start panel control definitions
 ;; --------------------------------------
 
+;; start panel vertical panel for holding horizontal panels
+(define start-panel-v0 (new vertical-pane% (parent start-panel) [alignment '(center center)]))
+
 ;; start panel horizontal panels
-(define start-panel-h0 (new horizontal-pane% (parent start-panel) [alignment '(center top)]))
-(define start-panel-h1 (new horizontal-pane% (parent start-panel) [alignment '(center center)]))
-(define start-panel-h2 (new horizontal-pane% (parent start-panel) [alignment '(right bottom)]))
+(define start-panel-h0 (new horizontal-pane% (parent start-panel-v0) [alignment '(center center)]))
+(define start-panel-h1 (new horizontal-pane% (parent start-panel-v0) [alignment '(center center)]))
+(define start-panel-h2 (new horizontal-pane% (parent start-panel-v0) [alignment '(center center)]))
+(define start-panel-h3 (new horizontal-pane% (parent start-panel-v0) [alignment '(center center)]))
+(define start-panel-h4 (new horizontal-pane% (parent start-panel-v0) [alignment '(center center)]))
+(define start-panel-h5 (new horizontal-pane% (parent start-panel-v0) [alignment '(center center)]))
 
-(define wp-admin-button (new button% [parent start-panel-h0]
-     [label (wp-admin-bitmap)]
-     ; Callback procedure for a button click:
-     [callback (lambda (button event)
-                 (do-wpadmin-action))]))
+(define wp-frontpage-button
+  (create-new-button start-panel-h0 (wp-frontpage-bitmap) "WordPress Frontpage" MAIN_BTN_WIDTH MAIN_BTN_HEIGHT
+                     (lambda (button event) (do-wpfrontpage-action))))
 
-(define wp-frontpage-button (new button% [parent start-panel-h0]
-     [label (wp-frontpage-bitmap)]
-     ; Callback procedure for a button click:
-     [callback (lambda (button event)
-                 (do-wpfrontpage-action))]))
+(define wp-frontpage-label
+  (create-new-label WPFRONTPAGE_INFO MAIN_LBL_WIDTH 10 start-panel-h0))
 
-(define wp-themes-button (new button% [parent start-panel-h1]
-     [label (wp-themes-bitmap)]
-     ; Callback procedure for a button click:
-     [callback (lambda (button event)
-                 (do-themes-action))]))
+(define wp-admin-button
+  (create-new-button start-panel-h1 (wp-admin-bitmap) "WordPress Admin" MAIN_BTN_WIDTH MAIN_BTN_HEIGHT
+                     (lambda (button event) (do-wpadmin-action))))
 
-(define wp-plugins-button (new button% [parent start-panel-h1]
-     [label (wp-plugins-bitmap)]
-     ; Callback procedure for a button click:
-     [callback (lambda (button event)
-                 (do-plugins-action))]))
+(define wp-admin-label
+  (create-new-label WPADMIN_INFO MAIN_LBL_WIDTH MAIN_LBL_HEIGHT start-panel-h1))
 
-(define mysql-button (new button% [parent start-panel-h2]
-     [label (wp-mysql-bitmap)]
-     ; Callback procedure for a button click:
-     [callback (lambda (button event)
-                 (do-mysql-action))]))
 
-(define docs-button (new button% [parent start-panel-h2]
-     [label (wp-docs-bitmap)]
-     ; Callback procedure for a button click:
-     [callback (lambda (button event)
-                 (do-docs-action))]))
+(define wp-themes-button
+  (create-new-button start-panel-h2 (wp-themes-bitmap) "Themes Folder" MAIN_BTN_WIDTH MAIN_BTN_HEIGHT
+                     (lambda (button event) (do-themes-action))))
 
+(define wp-themes-label
+  (create-new-label WPTHEMES_INFO MAIN_LBL_WIDTH MAIN_LBL_HEIGHT start-panel-h2))
+
+(define wp-plugins-button
+  (create-new-button start-panel-h3 (wp-plugins-bitmap) "Plugin Folder" MAIN_BTN_WIDTH MAIN_BTN_HEIGHT
+                     (lambda (button event) (do-plugins-action))))
+
+(define wp-plugins-label
+  (create-new-label WPPLUGINS_INFO MAIN_LBL_WIDTH MAIN_LBL_HEIGHT start-panel-h3))
+
+(define wp-mysql-button
+  (create-new-button start-panel-h4 (wp-mysql-bitmap) "MySQL Admin" MAIN_BTN_WIDTH MAIN_BTN_HEIGHT
+                     (lambda (button event) (do-mysql-action))))
+
+(define wp-mysql-label
+  (create-new-label MYSQL_INFO MAIN_LBL_WIDTH MAIN_LBL_HEIGHT start-panel-h4))
+
+(define docs-button
+  (create-new-button start-panel-h5 (wp-docs-bitmap) "Help" MAIN_BTN_WIDTH MAIN_BTN_HEIGHT
+                     (lambda (button event) (do-docs-action))))
+
+(define docs-label
+  (create-new-label DOCS_INFO MAIN_LBL_WIDTH MAIN_LBL_HEIGHT start-panel-h5))
+
+
+;; About button definition
+(define about-button
+  (create-new-button base-buttons-panel (about-bitmap) "About" MAIN_BTN_WIDTH MAIN_BTN_HEIGHT
+                     (lambda (button event) (do-about-action))))
 
 ;; Quit button definition
-(define about-button (new button% [parent base-buttons-panel]
-     [label "About"]
-     ; Callback procedure for a button click:
-     [callback (lambda (button event)
-                 (do-about-action))]))
-
-;; Quit button definition
-(define quit-button (new button% [parent base-buttons-panel]
-     [label "Quit"]
-     ; Callback procedure for a button click:
-     [callback (lambda (button event)
-                 (do-quit-action))]))
+(define quit-button
+  (create-new-button base-buttons-panel (quit-bitmap) "Quit" MAIN_BTN_WIDTH MAIN_BTN_HEIGHT
+                     (lambda (button event) (do-quit-action))))
 
 ;; --------------------------------------
 ;; advanced panel control definitions
 ;; --------------------------------------
 
+;; start panel vertical panel for holding horizontal panels
+(define advanced-panel-v0 (new vertical-pane% (parent advanced-panel) [alignment '(center center)]))
+
 ;; advanced panel horizontal panels
-(define advanced-panel-h0 (new horizontal-pane% (parent advanced-panel) [alignment '(center top)]))
-(define advanced-panel-h1 (new horizontal-pane% (parent advanced-panel) [alignment '(center top)]))
-(define advanced-panel-h2 (new horizontal-pane% (parent advanced-panel) [alignment '(center top)]))
-(define advanced-panel-h3 (new horizontal-pane% (parent advanced-panel) [alignment '(center top)]))
-(define advanced-panel-h4 (new horizontal-pane% (parent advanced-panel) [alignment '(center top)]))
-(define advanced-panel-h5 (new horizontal-pane% (parent advanced-panel) [alignment '(center top)]))
+(define advanced-panel-h0 (new horizontal-pane% (parent advanced-panel-v0) [alignment '(center top)]))
+(define advanced-panel-h1 (new horizontal-pane% (parent advanced-panel-v0) [alignment '(center top)]))
+(define advanced-panel-h2 (new horizontal-pane% (parent advanced-panel-v0) [alignment '(center top)]))
+(define advanced-panel-h3 (new horizontal-pane% (parent advanced-panel-v0) [alignment '(center top)]))
+(define advanced-panel-h4 (new horizontal-pane% (parent advanced-panel-v0) [alignment '(center top)]))
+(define advanced-panel-h5 (new horizontal-pane% (parent advanced-panel-v0) [alignment '(center top)]))
 
 ;; SSH button and label
-(define do-ssh-button (new button% [parent advanced-panel-h0]
-     [label "SSH Terminal"]
-     [min-width 150]
-     ; Callback procedure for a button click:
-     [callback (lambda (button event)
-                 (do-start-ssh))]))
+(define ssh-button
+  (create-new-button advanced-panel-h0 (ssh-bitmap) "SSH Terminal" ADV_BTN_WIDTH ADV_BTN_HEIGHT
+                     (lambda (button event) (do-start-ssh))))
 
-(define ssh-label (new text-field%
-                    [label ""]
-                    [style '(multiple)]
-                    [enabled #f]
-                    [min-height 20]
-                    [parent advanced-panel-h0]
-                    [stretchable-height #f]))
-
-(send ssh-label set-value SSH_INFO)
+(define ssh-label
+  (create-new-label SSH_INFO ADV_LBL_WIDTH ADV_LBL_HEIGHT advanced-panel-h0))
 
 ;; SFTP button and label
-(define do-sftp-button (new button% [parent advanced-panel-h1]
-     [label "SFTP Client"]
-     [min-width 150]
-     ; Callback procedure for a button click:
-     [callback (lambda (button event)
-                 (do-start-sftp))]))
+(define sftp-button
+  (create-new-button advanced-panel-h1 (sftp-bitmap) "SFTP Client" ADV_BTN_WIDTH ADV_BTN_HEIGHT
+                     (lambda (button event) (do-start-sftp))))
 
-(define sftp-label (new text-field%
-                    [label ""]
-                    [style '(multiple)]
-                    [enabled #f]
-                    [min-height 30]
-                    [parent advanced-panel-h1]
-                    [stretchable-height #f]))
+(define sftp-label
+  (create-new-label SFTP_INFO ADV_LBL_WIDTH ADV_LBL_HEIGHT advanced-panel-h1))
 
-(send sftp-label set-value SFTP_INFO)
 
 ;; QEMU monitor button and label
-(define do-monitor-button (new button% [parent advanced-panel-h2]
-     [label "QEMU Monitor"]
-     [min-width 150]
-     ; Callback procedure for a button click:
-     [callback (lambda (button event)
-                 (do-start-qemu-monitor))]))
+(define qemu-button
+  (create-new-button advanced-panel-h2 (qemu-bitmap) "QEMU Monitor" ADV_BTN_WIDTH ADV_BTN_HEIGHT
+                     (lambda (button event) (do-start-qemu-monitor))))
 
-(define qemu-monitor-label (new text-field%
-                    [label ""]
-                    [style '(multiple)]
-                    [enabled #f]
-                    [min-height 30]
-                    [parent advanced-panel-h2]
-                    [stretchable-height #f]))
+(define qemu-label
+  (create-new-label QEMU_MONITOR_INFO ADV_LBL_WIDTH ADV_LBL_HEIGHT advanced-panel-h2))
 
-(send qemu-monitor-label set-value QEMU_MONITOR_INFO)
 
 ;; Web file manager button and label
-(define do-web-file-manager-button (new button% [parent advanced-panel-h3]
-     [label "Web File Manager"]
-     [min-width 150]
-     ; Callback procedure for a button click:
-     [callback (lambda (button event)
-                 (send-url (get-filemanager-url)))]))
+(define filemanager-button
+  (create-new-button advanced-panel-h3 (filemanager-bitmap) "Web File Manager" ADV_BTN_WIDTH ADV_BTN_HEIGHT
+                     (lambda (button event) (send-url (get-filemanager-url)))))
 
-(define web-file-manager-label (new text-field%
-                    [label ""]
-                    [style '(multiple)]
-                    [enabled #f]
-                    [min-height 10]
-                    [parent advanced-panel-h3]
-                    [stretchable-height #f]))
+(define filemanager-label
+  (create-new-label WEB_FILE_MANAGER_INFO ADV_LBL_WIDTH ADV_LBL_HEIGHT advanced-panel-h3))
 
-(send web-file-manager-label set-value WEB_FILE_MANAGER_INFO)
 
 ;; Edit config button and label
-(define do-edit-config-button (new button% [parent advanced-panel-h4]
-     [label "Edit Config File"]
-     [min-width 150]
-     ; Callback procedure for a button click:
-     [callback (lambda (button event)
-                 (do-start-edit-config))]))
+(define edit-config-button
+  (create-new-button advanced-panel-h4 (edit-config-bitmap) "Edit Config File" ADV_BTN_WIDTH ADV_BTN_HEIGHT
+                     (lambda (button event) (do-start-edit-config))))
 
-(define edit-config-label (new text-field%
-                    [label ""]
-                    [style '(single)]
-                    [enabled #f]
-                    [min-height 20]
-                    [parent advanced-panel-h4]
-                    [stretchable-height #f]))
-
-(send edit-config-label set-value EDIT_CONFIG_INFO)
+(define edit-config-label
+  (create-new-label EDIT_CONFIG_INFO ADV_LBL_WIDTH ADV_LBL_HEIGHT advanced-panel-h4))
 
 ;; PHP info button and label
-(define do-php-info-button (new button% [parent advanced-panel-h5]
-     [label "PHP Info"]
-     [min-width 150]
-     ; Callback procedure for a button click:
-     [callback (lambda (button event)
-                 (send-url (get-phpinfo-url)))]))
+(define phpinfo-button
+  (create-new-button advanced-panel-h5 (phpinfo-bitmap) "PHP Info" ADV_BTN_WIDTH ADV_BTN_HEIGHT
+                     (lambda (button event) (send-url (get-phpinfo-url)))))
 
-(define php-info-label (new text-field%
-                    [label ""]
-                    [style '(single)]
-                    [enabled #f]
-                    [min-height 20]
-                    [parent advanced-panel-h5]
-                    [stretchable-height #f]))
+(define phpinfo-label
+  (create-new-label PHP_INFO_INFO ADV_LBL_WIDTH ADV_LBL_HEIGHT advanced-panel-h5))
 
-(send php-info-label set-value PHP_INFO_INFO)
+
 

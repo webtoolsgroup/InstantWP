@@ -16,6 +16,7 @@
   "iwp-constants.rkt"
   "iwp-config.rkt")
 
+
 (define (is-vm-webserver-up?)
   (define response (fetch-url (string->url (get-phpinfo-url))))
   (cond
