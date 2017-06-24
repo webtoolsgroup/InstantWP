@@ -45,7 +45,7 @@
 
 ;; tell if we are running in DrRacket
 (define (is-dev-mode? script-path)
-  (string-contains? script-path "DrRacket"))
+  (string-contains? script-path "Racket"))
 
 ;; iwpcli file path
 (define (iwpcli-run-path)

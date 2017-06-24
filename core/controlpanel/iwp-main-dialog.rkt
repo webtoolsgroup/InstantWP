@@ -105,7 +105,8 @@
 
 ;; Show the frame by calling its show method
 (define (show-main-window)
-  (send root-window show #t))
+  (send root-window show #t)
+  (send root-window center))
 
 ;; Hide the frame by calling its show method
 (define (hide-main-window)

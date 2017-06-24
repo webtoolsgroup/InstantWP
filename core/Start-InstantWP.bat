@@ -8,10 +8,8 @@ echo IWP Startup
 title IWP Startup
 
 set IWPROOT=%cd%
-
+start controlpanel\InstantWP.exe 
 iwpcli start 
 iwpcli hide_vm
-cd bin
-start InstantWP.exe %IWPROOT%
 %IWPROOT%\platform\win\nircmd\nircmdc.exe win hide title "IWP Startup"
 exit /b
