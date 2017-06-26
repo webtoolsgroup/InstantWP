@@ -27,6 +27,10 @@
  do-start-sftp
  ;; start qemu monitor
  do-start-qemu-monitor
+ ;; start web filemanager
+ do-filemanager-action
+ ;; start php info page
+ do-phpinfo-action
  ;; start edit config
  do-start-edit-config
  ;; should quit?
@@ -37,9 +41,12 @@
 
 (require
     racket/gui/base
+    net/sendurl
     "iwp-constants.rkt"
     "iwp-environment.rkt"
     "iwp-config.rkt")
+
+;; button actions
 
 (define (do-wpfrontpage-action)
   (do-iwpcli-action IWPCLI_WPFRONTPAGE))
@@ -80,16 +87,27 @@
 (define (do-start-edit-config)
   (do-action (path->string (get-edit-config-script-path))))
 
+(define (do-filemanager-action)
+  (send-url (get-filemanager-url)))
+
+(define (do-phpinfo-action)
+  (send-url (get-phpinfo-url)))
+
+;; process system event functions
+
 (define (do-action action-string)
   (process action-string))
 
 (define (do-action-in-terminal action-string)
     (cond
-    [(is-windows?) ""] ;;TBD
+    [(is-windows?) (start-win-terminal action-string)]
     [(is-macos?)  (start-osx-terminal action-string)]))
 
 (define (start-osx-terminal action-string)
   (system  (string-append  "open -a 'Terminal' " action-string)))
+
+(define (start-win-terminal action-string)
+  (system  (string-append  "start " action-string)))
 
   
 (define (iwpcli-command-string command)

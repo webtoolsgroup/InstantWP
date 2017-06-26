@@ -40,6 +40,8 @@
 
 ;; define panels
 (define main-panel (new panel% (parent root-window)))
+;; (define logo (iwp-logo))
+;; (define logo-label (new message% (parent main-panel) (label logo)))
 
 ;; add progress bar
 (define a-gauge (new gauge% [label ""]
@@ -52,11 +54,12 @@
 
 
 ;; the textbox to show progress
-(define (do-start-progress-bar) 
-  (for/list ([i (range START_TIMEOUT)])
+(define (do-progress-bar)
+  (define wp-available #f)
+  (for/list ([i (range START_TIMEOUT)] #:break (equal? #t wp-available))
     (send a-gauge set-value i)
     ;; test the web server once the progress bar has moved a bit
-    (define wp-available (is-wp-available? i))
+    (set! wp-available (is-wp-available? i))
     (cond
       [(not wp-available) (sleep SLEEP_DELAY)]))
   (after-progress-bar))
@@ -65,7 +68,7 @@
 (define (show-start-window)
   (send root-window show #t)
   (send root-window center)
-  (do-start-progress-bar))
+  (do-progress-bar))
 
 ;; what happens after the progress bar
 (define (after-progress-bar)
