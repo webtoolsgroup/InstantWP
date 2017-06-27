@@ -45,7 +45,7 @@
 (define (create-new-label label width height parent)
   (new message%
      [label label]
-     [enabled #f]
+     [enabled LBL_ENABLED]
      [min-width width]
      [min-height height]
      [parent parent]
@@ -76,6 +76,7 @@
                        [width (hash-ref iwp-window-hash "width")]
                        [height (hash-ref iwp-window-hash "height")]
                        [style '(no-resize-border)]))
+
 
 ;; logo at the top of dialog
 (define logo (iwp-logo))

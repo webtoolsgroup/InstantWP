@@ -11,18 +11,72 @@
 ;; —————————————————————————————————
 ;; import and implementation section
 
+
+
+;; ---------------------------------------
+;; some local func to test OS
+;; stops a circular dependency having them here
+;; ---------------------------------------
+
+;; are we on macos?
+(define (is-macos-constant?)
+  (equal? (system-type) 'macosx))
+
+;; are we on windows?
+(define (is-windows-constant?)
+  (equal? (system-type) 'windows))
+
+
+;; ---------------------------------------
+;; GUI constants
+;; some OS dependent
+;; ---------------------------------------
+
 (define MAIN_GUI_WIDTH 750)
 (define MAIN_GUI_HEIGHT 550)
 (define START_QUIT_GUI_WIDTH 100)
 (define START_QUIT_GUI_HEIGHT 50)
-(define MAIN_BTN_WIDTH 225)
-(define MAIN_BTN_HEIGHT 40)
-(define MAIN_LBL_WIDTH 300)
-(define MAIN_LBL_HEIGHT 10)
-(define ADV_BTN_WIDTH 200)
-(define ADV_BTN_HEIGHT 10)
-(define ADV_LBL_WIDTH 400)
-(define ADV_LBL_HEIGHT 10)
+(define MAIN_BTN_WIDTH
+  (cond
+    [(is-windows-constant?) 225]
+    [(is-macos-constant?)  225 ]))
+(define MAIN_BTN_HEIGHT
+  (cond
+    [(is-windows-constant?) 40]
+    [(is-macos-constant?)  40 ]))
+(define MAIN_LBL_WIDTH
+    (cond
+    [(is-windows-constant?) 300]
+    [(is-macos-constant?)  300 ]))
+(define MAIN_LBL_HEIGHT
+  (cond
+    [(is-windows-constant?) 10]
+    [(is-macos-constant?)  10 ]))
+(define ADV_BTN_WIDTH
+  (cond
+    [(is-windows-constant?) 200]
+    [(is-macos-constant?)  200 ]))
+(define ADV_BTN_HEIGHT
+  (cond
+    [(is-windows-constant?) 10]
+    [(is-macos-constant?)  10 ]))
+(define ADV_LBL_WIDTH
+  (cond
+    [(is-windows-constant?) 400]
+    [(is-macos-constant?)  400 ]))
+(define ADV_LBL_HEIGHT
+  (cond
+    [(is-windows-constant?) 10]
+    [(is-macos-constant?)  10 ]))
+(define LBL_ENABLED
+  (cond
+    [(is-windows-constant?) #t]
+    [(is-macos-constant?)  #f]))
+
+;; ---------------------------------------
+;; Button/dialog captions
+;; ---------------------------------------
+
 (define IWP_DIALOG_TITLE "InstantWP Control Panel")
 (define CONTROL_PANEL_TAB "Control Panel")
 (define ADVANCED_TAB "Advanced")
@@ -31,6 +85,11 @@
 (define QUITTING_LABEL "Quitting...")
 (define STARTING_IWP_TITLE "Starting InstantWP - please wait...")
 (define QUITTING_IWP_TITLE "Quitting InstantWP - please wait...")
+
+;; ---------------------------------------
+;; System config constants
+;; ---------------------------------------
+
 (define RUN_IWPCLI_WIN "bin/run-iwpcli.bat")
 (define RUN_IWPCLI_MAC "bin/run-iwpcli")
 (define IWPCLI_WIN "iwpcli.exe")
@@ -60,6 +119,11 @@
 (define START_QEMU "startQEMUMonitorScript")
 (define START_EDIT_CONFIG "startEditConfigFileScript")
 (define START_TERMINAL "startTerminal")
+
+;; ---------------------------------------
+;; Help label constants
+;; ---------------------------------------
+
 (define WPFRONTPAGE_INFO "Opens the WordPress website.")
 (define WPADMIN_INFO "Opens the WordPress Dashboard.\nYou can login with 'admin' and 'password'.")
 (define WPTHEMES_INFO "Opens the WordPress wp-themes directory.")
