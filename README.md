@@ -262,7 +262,7 @@ Fugu is a graphical frontend to the commandline Secure File Transfer application
 Racket is a general-purpose programming language as well as the world’s first ecosystem for developing and deploying new languages. 
 
 
-	* Version 5.0
+	* Version 6.9
 	* Homepage: [http://racket-lang.org/() 
 	* Source code: [https://github.com/racket]()
 	* License: [https://github.com/racket/racket/blob/master/racket/src/COPYING_LESSER.txt]() (LGPL)
