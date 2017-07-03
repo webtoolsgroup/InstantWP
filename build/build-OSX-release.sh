@@ -35,14 +35,14 @@ echo Copying files...
 
 # startup files
 cp $SOURCE_DIR/core/iwpcli $REL_DIR/
-cp $SOURCE_DIR/core/Start-InstantWP $REL_DIR/
-cp $SOURCE_DIR/core/Quit-InstantWP $REL_DIR/
+cp -R $SOURCE_DIR/core/Start-InstantWP.app $REL_DIR/
 cp $SOURCE_DIR/core/ReadMe/ReadMe-OSX.txt $REL_DIR/
 
 # bin directory
 cp $SOURCE_DIR/core/bin/iwp $REL_DIR/bin/
 cp $SOURCE_DIR/core/bin/ssh-term $REL_DIR/bin/
 cp $SOURCE_DIR/core/bin/run-iwpcli $REL_DIR/bin/
+cp $SOURCE_DIR/core/bin/Start-InstantWP $REL_DIR/bin/
 
 # config directory
 cp $SOURCE_DIR/core/config/iwp-osx.ini $REL_DIR/config/

@@ -4,7 +4,7 @@ InstantWP is a complete standalone, portable WordPress development environment. 
 
  * [Overview ](#overview)
  * [Usage ](#usage)
- * [Downloads and Releases] (#downloads-and-releases)
+ * [Downloads and Releases ] (#downloads-and-releases)
  * [License ] (#license)
  * [InstantWP Components ](#instantwp-components)
  * [Platform Specific Dependencies ](#platform-specific-dependencies)
@@ -257,16 +257,15 @@ Fugu is a graphical frontend to the commandline Secure File Transfer application
 	* License: [http://rsug.itd.umich.edu/software/copyright.html]() (BSD-style)
 
 
-* Pharo Smalltalk 
+* Racket Programming Language
 
-Pharo is a pure object-oriented programming language and a powerful environment, focused on simplicity and immediate feedback. 
+Racket is a general-purpose programming language as well as the world’s first ecosystem for developing and deploying new languages. 
 
-InstantWP also uses the Seaside web framework which is also written in Smalltalk: [http://seaside.st]() 
 
 	* Version 5.0
-	* Homepage: [http://pharo.org]() 
-	* Source code: [http://pharo.org/download]()
-	* License: [http://pharo.org/license]() (MIT)
+	* Homepage: [http://racket-lang.org/() 
+	* Source code: [https://github.com/racket]()
+	* License: [https://github.com/racket/racket/blob/master/racket/src/COPYING_LESSER.txt]() (LGPL)
 
 **Windows Dependencies**
 

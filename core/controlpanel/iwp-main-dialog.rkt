@@ -63,10 +63,15 @@
 (hash-set! iwp-window-hash "width" MAIN_GUI_WIDTH)
 (hash-set! iwp-window-hash "height" MAIN_GUI_HEIGHT)
 
+;; turn on/off the WP Resources in tab list
+(define (get-tab-list)
+  (cond
+    [(string=? (get-config-setting "showWPResourcesTab") "no") (list CONTROL_PANEL_TAB ADVANCED_TAB)]
+    [(string=? (get-config-setting "showWPResourcesTab") "yes") (list CONTROL_PANEL_TAB ADVANCED_TAB WP_RESOURCES_TAB)]))
+
 ;; set up tabs
-(define my-tabs-list (list CONTROL_PANEL_TAB
-                           ADVANCED_TAB
-                           WP_RESOURCES_TAB))
+(define my-tabs-list (get-tab-list))
+
 
 ;; custom frame with exit - main window
 (define root-window (new (class frame% (super-new)
@@ -98,6 +103,8 @@
 (define start-panel (new panel% (parent tab-control)))
 (define advanced-panel (new vertical-panel% (parent tab-control)))
 (define wp-resources-panel (new panel% (parent tab-control)))
+
+
 
 ;; this panel holds the buttons at the bottom of dialog
 (define base-buttons-panel (new horizontal-pane% (parent root-window) [alignment '(right bottom)] [stretchable-height #f]))
