@@ -4,8 +4,8 @@ InstantWP is a complete standalone, portable WordPress development environment. 
 
  * [Overview ](#overview)
  * [Usage ](#usage)
- * [Downloads and Releases ] (#downloads-and-releases)
- * [License ] (#license)
+ * [Downloads and Releases ](#downloads-and-releases)
+ * [License ](#license)
  * [InstantWP Components ](#instantwp-components)
  * [Platform Specific Dependencies ](#platform-specific-dependencies)
  * [Building ](#building)
