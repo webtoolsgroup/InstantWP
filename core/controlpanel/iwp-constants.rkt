@@ -119,6 +119,7 @@
 (define START_QEMU "startQEMUMonitorScript")
 (define START_EDIT_CONFIG "startEditConfigFileScript")
 (define START_TERMINAL "startTerminal")
+(define OPEN_URL "openURL")
 
 ;; ---------------------------------------
 ;; Help label constants

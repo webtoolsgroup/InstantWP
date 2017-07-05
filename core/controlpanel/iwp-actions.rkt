@@ -88,10 +88,10 @@
   (do-action (path->string (get-edit-config-script-path))))
 
 (define (do-filemanager-action)
-  (send-url (get-filemanager-url)))
+  (do-open-url (get-filemanager-url)))
 
 (define (do-phpinfo-action)
-  (send-url (get-phpinfo-url)))
+  (do-open-url (get-phpinfo-url)))
 
 ;; process system event functions
 
@@ -102,6 +102,11 @@
     (cond
     [(is-windows?) (start-win-terminal action-string)]
     [(is-macos?)  (start-osx-terminal action-string)]))
+
+(define (do-open-url url-string)
+    (cond
+    [(is-windows?) (system (string-append  "start " url-string))]
+    [(is-macos?) (system  (string-append  "open " url-string))]))
 
 (define (start-osx-terminal action-string)
   (system  (string-append  "open -a 'Terminal' " action-string)))

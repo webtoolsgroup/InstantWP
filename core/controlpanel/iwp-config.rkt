@@ -28,7 +28,9 @@
  ;; edit config file path
  get-edit-config-script-path
  ;; start terminal path
- get-start-terminal-script-path)
+ get-start-terminal-script-path
+ ;; open url script path
+ get-open-url-script)
 
 
 ;; —————————————————————————————————
@@ -161,4 +163,9 @@
 ;; startTerminal script
 (define (get-start-terminal-script-path)
    (define local-edit-config-script-path (get-config-setting START_TERMINAL))
+  (build-path (path->string (iwp-platform-dir-path)) local-edit-config-script-path))
+
+;; startTerminal script
+(define (get-open-url-script)
+   (define local-edit-config-script-path (get-config-setting OPEN_URL))
   (build-path (path->string (iwp-platform-dir-path)) local-edit-config-script-path))
