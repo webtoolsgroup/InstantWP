@@ -50,7 +50,7 @@
     [(is-macos-constant?)  300 ]))
 (define MAIN_LBL_HEIGHT
   (cond
-    [(is-windows-constant?) 10]
+    [(is-windows-constant?) 5]
     [(is-macos-constant?)  10 ]))
 (define ADV_BTN_WIDTH
   (cond
@@ -72,7 +72,14 @@
   (cond
     [(is-windows-constant?) #t]
     [(is-macos-constant?)  #f]))
-
+(define LEFT_PADDING
+  (cond
+    [(is-windows-constant?) "    "]
+    [(is-macos-constant?)  ""]))
+(define TOP_PADDING
+  (cond
+    [(is-windows-constant?) 10]
+    [(is-macos-constant?)  5]))
 ;; ---------------------------------------
 ;; Button/dialog captions
 ;; ---------------------------------------
@@ -125,15 +132,36 @@
 ;; Help label constants
 ;; ---------------------------------------
 
-(define WPFRONTPAGE_INFO "Opens the WordPress website.")
+(define WPFRONTPAGE_INFO 
+  (cond
+    [(is-windows-constant?) "Opens the WordPress website.\n"]
+    [(is-macos-constant?)  "Opens the WordPress website." ]))
 (define WPADMIN_INFO "Opens the WordPress Dashboard.\nYou can login with 'admin' and 'password'.")
-(define WPTHEMES_INFO "Opens the WordPress wp-themes directory.")
-(define WPPLUGINS_INFO "Opens the WordPress wp-plugins directory.")
+(define WPTHEMES_INFO
+  (cond
+    [(is-windows-constant?)  "Opens the WordPress wp-themes directory.\n"]
+    [(is-macos-constant?)   "Opens the WordPress wp-themes directory." ]))
+(define WPPLUGINS_INFO 
+  (cond
+    [(is-windows-constant?)  "Opens the WordPress wp-plugins directory.\n"]
+    [(is-macos-constant?)   "Opens the WordPress wp-plugins directory." ]))
 (define MYSQL_INFO "Opens PHPMyAdmin.\nYou can login with 'root' with a blank password.")
-(define DOCS_INFO  "Opens the InstantWP documentation.")
+(define DOCS_INFO  
+  (cond
+    [(is-windows-constant?)  "Opens the InstantWP documentation.\n"]
+    [(is-macos-constant?)  "Opens the InstantWP documentation." ]))
 (define SSH_INFO "Open an SSH session as user 'iwp' with password 'iwp'.\nThe web root folder is at /var/www/localhost/htdocs/")
 (define SFTP_INFO "Opens the SFTP client. Use the following details - \nHost: 127.0.0.1, Port: 10022, Username: 'root', Password: 'root'.")
-(define QEMU_MONITOR_INFO "Open the QEMU Monitor console for interacting with the VM.")
-(define EDIT_CONFIG_INFO "This will open the InstantWP config file in your default text editor.")
+(define QEMU_MONITOR_INFO 
+  (cond
+    [(is-windows-constant?)  "Open the QEMU Monitor console for interacting with the VM.\n"]
+    [(is-macos-constant?)  "Open the QEMU Monitor console for interacting with the VM." ]))
+(define EDIT_CONFIG_INFO 
+  (cond
+    [(is-windows-constant?) "This will open the InstantWP config file in your default text editor.\n"]
+    [(is-macos-constant?) "This will open the InstantWP config file in your default text editor." ]))
 (define WEB_FILE_MANAGER_INFO "Opens the web based file manager.\nLogin with user 'iwp' and password 'iwp'.")
-(define PHP_INFO_INFO "Information about the installed version of PHP.")
+(define PHP_INFO_INFO 
+  (cond
+    [(is-windows-constant?) "Information about the installed version of PHP.\n"]
+    [(is-macos-constant?) "Information about the installed version of PHP." ]))

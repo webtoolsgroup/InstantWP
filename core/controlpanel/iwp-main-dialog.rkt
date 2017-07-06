@@ -32,7 +32,7 @@
 
 (define (create-new-button parent bitmap label width height callback)
   (new button% [parent parent]
-     [label (list bitmap label 'left)]
+     [label (list bitmap (lpad label) 'left)]
      [min-width width]
      [min-height height]
      [callback (lambda (button event)
@@ -50,6 +50,9 @@
      [min-height height]
      [parent parent]
      [stretchable-height #f]))
+
+(define (lpad label-string)
+  (string-append LEFT_PADDING  label-string))
 
 ;; --------------------------------------
 ;; define main window
@@ -142,15 +145,15 @@
 ;; --------------------------------------
 
 ;; start panel vertical panel for holding horizontal panels
-(define start-panel-v0 (new vertical-pane% (parent start-panel) [alignment '(center center)]))
+(define start-panel-v0 (new vertical-pane% (parent start-panel) [alignment '(center center)] [border 10]))
 
 ;; start panel horizontal panels
-(define start-panel-h0 (new horizontal-pane% (parent start-panel-v0) [alignment '(center center)]))
-(define start-panel-h1 (new horizontal-pane% (parent start-panel-v0) [alignment '(center center)]))
-(define start-panel-h2 (new horizontal-pane% (parent start-panel-v0) [alignment '(center center)]))
-(define start-panel-h3 (new horizontal-pane% (parent start-panel-v0) [alignment '(center center)]))
-(define start-panel-h4 (new horizontal-pane% (parent start-panel-v0) [alignment '(center center)]))
-(define start-panel-h5 (new horizontal-pane% (parent start-panel-v0) [alignment '(center center)]))
+(define start-panel-h0 (new horizontal-pane% (parent start-panel-v0) [alignment '(center top)]))
+(define start-panel-h1 (new horizontal-pane% (parent start-panel-v0) [alignment '(center top)]))
+(define start-panel-h2 (new horizontal-pane% (parent start-panel-v0) [alignment '(center top)]))
+(define start-panel-h3 (new horizontal-pane% (parent start-panel-v0) [alignment '(center top)]))
+(define start-panel-h4 (new horizontal-pane% (parent start-panel-v0) [alignment '(center top)]))
+(define start-panel-h5 (new horizontal-pane% (parent start-panel-v0) [alignment '(center top)]))
 
 (define wp-frontpage-button
   (create-new-button start-panel-h0 (wp-frontpage-bitmap) "WordPress Frontpage"
@@ -219,7 +222,7 @@
 ;; --------------------------------------
 
 ;; start panel vertical panel for holding horizontal panels
-(define advanced-panel-v0 (new vertical-pane% (parent advanced-panel) [alignment '(center center)]))
+(define advanced-panel-v0 (new vertical-pane% (parent advanced-panel) [alignment '(center center)] [border 10]))
 
 ;; advanced panel horizontal panels
 (define advanced-panel-h0 (new horizontal-pane% (parent advanced-panel-v0) [alignment '(center top)]))
