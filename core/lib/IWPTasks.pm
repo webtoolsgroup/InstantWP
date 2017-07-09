@@ -120,7 +120,7 @@ sub start_file_sync( $self ){
         my $SyncTimerSeconds = $self->iwp_config->get_config_setting("FileSync", "SyncTimerSeconds");
         my $ssh_port = $self->iwp_env->get_port_number($self->iwp_config(), "SSH");
         my $sync_params = '"'.$SyncUser.'"'.' "'.$SyncPassword.'" 127.0.0.1 '.$ssh_port.' "'.$SyncLocalRoot.'" "'.$SyncVMRoot.'" "'.$SyncTimerSeconds.'"';
-        my $batch_file_runner = $self->iwp_env->platform_dir().$SyncBinDir."chp.exe ";
+        my $batch_file_runner = $self->iwp_env->platform_dir().$SyncBinDir."NoShell.vbs ";
         $SyncCommand = "start /b ".$batch_file_runner.$self->iwp_env->platform_dir().$SyncBinDir.$SyncCommand." ".$sync_params;
         # root root 127.0.0.1 10022 C:\Users\paperspace\Downloads\WinSCP-5.9.2-Portable\wordpress /usr/local/www/apache24/data/wordpress/ 15
         system($SyncCommand);
@@ -456,15 +456,9 @@ sub cleanup( $self ) {
     system( $cleanup_script );
 }
 
-# show hide window, $class not used for now
+# show hide vm window, not implemented for now
 sub toggle_vm_window( $self, $window_title, $class){
-    if($self->iwp_env->is_osx()){
-        # to do
-    } else {
-        my $toggle_cmd = $self->iwp_env->platform_dir()."win\\ShowHideWin.bat $window_title";
-        say "Toggling visibility of QEMU window...";
-        system("start ".$toggle_cmd);
-    }
+    say "Toggling visibility of QEMU window is not currently supported. Please edit the config file parameter 'ShowQEMUWindow'.";
 }
 
 sub show_vm_window( $self ){
