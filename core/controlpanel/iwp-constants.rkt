@@ -42,24 +42,24 @@
     [(is-macos-constant?)  225 ]))
 (define MAIN_BTN_HEIGHT
   (cond
-    [(is-windows-constant?) 40]
+    [(is-windows-constant?) 45]
     [(is-macos-constant?)  40 ]))
 (define MAIN_LBL_WIDTH
     (cond
-    [(is-windows-constant?) 300]
-    [(is-macos-constant?)  300 ]))
+    [(is-windows-constant?) 400]
+    [(is-macos-constant?)  400 ]))
 (define MAIN_LBL_HEIGHT
   (cond
     [(is-windows-constant?) 5]
     [(is-macos-constant?)  10 ]))
 (define ADV_BTN_WIDTH
   (cond
-    [(is-windows-constant?) 200]
+    [(is-windows-constant?) 225]
     [(is-macos-constant?)  200 ]))
 (define ADV_BTN_HEIGHT
   (cond
-    [(is-windows-constant?) 10]
-    [(is-macos-constant?)  10 ]))
+    [(is-windows-constant?) 45]
+    [(is-macos-constant?)  40 ]))
 (define ADV_LBL_WIDTH
   (cond
     [(is-windows-constant?) 400]
@@ -97,7 +97,7 @@
 ;; System config constants
 ;; ---------------------------------------
 
-(define RUN_IWPCLI_WIN "bin/run-iwpcli.bat")
+(define RUN_IWPCLI_WIN "bin\\run-iwpcli.bat")
 (define RUN_IWPCLI_MAC "bin/run-iwpcli")
 (define IWPCLI_WIN "iwpcli.exe")
 (define IWPCLI_MAC "iwpcli")

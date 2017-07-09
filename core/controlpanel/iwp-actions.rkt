@@ -34,7 +34,9 @@
  ;; start edit config
  do-start-edit-config
  ;; should quit?
- should-quit-iwp?)
+ should-quit-iwp?
+ ;; test
+ iwpcli-command-string)
 
 ;; —————————————————————————————————
 ;; import and implementation section
@@ -96,7 +98,7 @@
 ;; process system event functions
 
 (define (do-action action-string)
-  (process action-string))
+  (system action-string))
 
 (define (do-action-in-terminal action-string)
     (cond
@@ -112,11 +114,11 @@
   (system  (string-append  "open -a 'Terminal' " action-string)))
 
 (define (start-win-terminal action-string)
-  (system  (string-append  "start " action-string)))
+   (system (string-append "start "  action-string)))
 
   
 (define (iwpcli-command-string command)
-  ;; (message-box "IWPCLI Path" (path->string (iwpcli-run-path)) #f '(ok no-icon))
+  ;;(message-box "IWPCLI Path" (path->string (iwpcli-run-path)) #f '(ok no-icon))
   (string-append (path->string (iwpcli-run-path)) " " command))
 
 (define (should-quit-iwp?)
