@@ -15,6 +15,8 @@
  iwp-platform-dir-path
  ;; start terminal script
  start-terminal-script-path
+ ;; bin dir
+ iwpcli-bin-dir
  ;; identify OS
  is-windows?
  is-macos?)
@@ -50,6 +52,10 @@
 ;; iwpcli file path
 (define (iwpcli-run-path)
   (build-path (get-iwp-root-dir) (iwpcli-runscript-name)))
+
+;; iwp bin path
+(define (iwpcli-bin-dir)
+  (build-path (get-iwp-root-dir) "bin"))
 
 ;; config file path
 (define (iwp-config-file-path)

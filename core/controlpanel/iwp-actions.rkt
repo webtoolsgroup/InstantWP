@@ -74,20 +74,17 @@
 (define (do-quit-action)
   (do-iwpcli-action IWPCLI_QUIT))
 
-(define (do-iwpcli-action command)
-  (do-action (iwpcli-command-string command)))
-
 (define (do-start-ssh)
   (do-action-in-terminal (path->string (get-ssh-script-path))))
 
 (define (do-start-sftp)
-  (do-action (path->string (get-sftp-script-path))))
+  (do-generic-action (path->string (get-sftp-script-path))))
 
 (define (do-start-qemu-monitor)
   (do-action-in-terminal (path->string (get-qemu-script-path))))
 
 (define (do-start-edit-config)
-  (do-action (path->string (get-edit-config-script-path))))
+  (do-generic-action (path->string (get-edit-config-script-path))))
 
 (define (do-filemanager-action)
   (do-open-url (get-filemanager-url)))
@@ -97,16 +94,36 @@
 
 ;; process system event functions
 
-(define (do-action action-string)
-  (system action-string))
+;; build a command string
+(define (iwpcli-command-string command)
+  ;;(message-box "IWPCLI Path" (path->string (iwpcli-run-path)) #f '(ok no-icon))
+  (string-append (path->string (iwpcli-run-path)) " " command))
 
+;; run iwpcli
+(define (do-iwpcli-action command)
+  (cond
+    [(is-windows?) (do-shell-execute command)]
+    [(is-macos?)  (system (iwpcli-command-string command))]))
+
+;; generic action func
+(define (do-generic-action action-string)
+   (cond
+    [(is-windows?) (system action-string)]
+    [(is-macos?)  (system action-string)]))
+
+;; shell-execute batch file and hide window
+(define (do-shell-execute action-string)
+  (shell-execute #f (path->string (iwpcli-run-path)) action-string (path->string (iwpcli-bin-dir)) 'SW_HIDE))
+
+;; open a terminal and do an action
 (define (do-action-in-terminal action-string)
-    (cond
+   (cond
     [(is-windows?) (start-win-terminal action-string)]
     [(is-macos?)  (start-osx-terminal action-string)]))
 
+;; open a url
 (define (do-open-url url-string)
-    (cond
+   (cond
     [(is-windows?) (system (string-append  "start " url-string))]
     [(is-macos?) (system  (string-append  "open " url-string))]))
 
@@ -116,10 +133,6 @@
 (define (start-win-terminal action-string)
    (system (string-append "start "  action-string)))
 
-  
-(define (iwpcli-command-string command)
-  ;;(message-box "IWPCLI Path" (path->string (iwpcli-run-path)) #f '(ok no-icon))
-  (string-append (path->string (iwpcli-run-path)) " " command))
 
 (define (should-quit-iwp?)
   (define answer (message-box "Quit InstantWP" "Quit InstantWP?" #f '(yes-no)))
