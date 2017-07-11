@@ -102,7 +102,7 @@
 ;; run iwpcli
 (define (do-iwpcli-action command)
   (cond
-    [(is-windows?) (do-shell-execute command)]
+    [(is-windows?) (do-shell-execute-for-iwpcli command)]
     [(is-macos?)  (system (iwpcli-command-string command))]))
 
 ;; generic action func
@@ -112,8 +112,12 @@
     [(is-macos?)  (system action-string)]))
 
 ;; shell-execute batch file and hide window
-(define (do-shell-execute action-string)
-  (shell-execute #f (path->string (iwpcli-run-path)) action-string (path->string (iwpcli-bin-dir)) 'SW_HIDE))
+(define (do-shell-execute-for-iwpcli action-string)
+  (void (shell-execute #f (path->string (iwpcli-run-path)) action-string (path->string (iwpcli-bin-dir)) 'SW_HIDE)))
+
+;; shell-execute batch file and hide window
+(define (do-generic-shell-execute command)
+  (void (shell-execute #f command "" (path->string (iwpcli-bin-dir)) 'SW_HIDE)))
 
 ;; open a terminal and do an action
 (define (do-action-in-terminal action-string)
@@ -127,12 +131,13 @@
     [(is-windows?) (system (string-append  "start " url-string))]
     [(is-macos?) (system  (string-append  "open " url-string))]))
 
+;; start Terminal
 (define (start-osx-terminal action-string)
   (system  (string-append  "open -a 'Terminal' " action-string)))
 
+;; just do a shell-ex
 (define (start-win-terminal action-string)
-   (system (string-append "start "  action-string)))
-
+   (do-generic-shell-execute action-string))
 
 (define (should-quit-iwp?)
   (define answer (message-box "Quit InstantWP" "Quit InstantWP?" #f '(yes-no)))

@@ -89,7 +89,7 @@ sub win_qemu_exe_path( $self, $config ){
         my $QEMUBinary = $config->get_config_setting("qemu", "QEMUBinary");
         $QEMUBinary = $self->platform_dir().$QEMUBinary;
         my $ssh_port = $self->get_port_number($config, "SSH");
-        my $Renamed_QEMUBinary  = $self->platform_dir()."win/qemu/qemu-system-i386-$ssh_port.exe";
+        my $Renamed_QEMUBinary  = $self->platform_dir()."win/qemu/instantwp-qemu-i386w-$ssh_port.exe";
         return $Renamed_QEMUBinary;
     }
 }

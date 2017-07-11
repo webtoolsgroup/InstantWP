@@ -33,7 +33,7 @@
 ;; ---------------------------------------
 
 (define MAIN_GUI_WIDTH 750)
-(define MAIN_GUI_HEIGHT 550)
+(define MAIN_GUI_HEIGHT 500)
 (define START_QUIT_GUI_WIDTH 100)
 (define START_QUIT_GUI_HEIGHT 50)
 (define MAIN_BTN_WIDTH

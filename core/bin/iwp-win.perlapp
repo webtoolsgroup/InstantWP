@@ -15,7 +15,7 @@ Add: IWPCommandLine
 Add: IWPEnvironment
 Add: IWPTasks
 Clean: 0
-Date: 2017-01-23 17:30:58
+Date: 2017-07-11 16:25:11
 Debug: 
 Dependent: 0
 Dyndll: 0
@@ -49,7 +49,7 @@ Version-InternalName:
 Version-LegalCopyright: 
 Version-LegalTrademarks: 
 Version-OriginalFilename: 
-Version-ProductName: 
-Version-ProductVersion: 
+Version-ProductName: InstantWP
+Version-ProductVersion: 5.0
 Warnings: 0
 Xclude: 0

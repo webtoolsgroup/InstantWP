@@ -10,7 +10,7 @@ REM some constants
 mkdir C:\Users\paperspace\Documents\GitHub\InstantWP\build\release
 SET REL_ROOT=C:\Users\paperspace\Documents\GitHub\InstantWP\build\release
 SET SOURCE_DIR=C:\Users\paperspace\Documents\GitHub\InstantWP
-SET VM_FILE=iwpserver-2.0.0.qcow2
+SET VM_FILE=iwpserver-2.0.1.qcow2
 
 REM set release root
 SET REL_DIR=%REL_ROOT%\%1
@@ -20,6 +20,7 @@ mkdir %REL_DIR%
 
 echo Making build directories...
 mkdir %REL_DIR%\bin
+mkdir %REL_DIR%\bin\lib
 mkdir %REL_DIR%\images
 mkdir %REL_DIR%\config
 mkdir %REL_DIR%\controlpanel
@@ -43,7 +44,7 @@ copy %SOURCE_DIR%\core\bin\run-iwpcli.bat %REL_DIR%\bin\
 copy %SOURCE_DIR%\core\bin\startIWP.bat %REL_DIR%\bin\
 copy %SOURCE_DIR%\core\bin\start-iwp-win.exe %REL_DIR%\bin\
 copy %SOURCE_DIR%\core\bin\iwp.exe %REL_DIR%\bin\
-xcopy /s %SOURCE_DIR%\core\bin\lib  %REL_DIR%\bin\lib
+xcopy /s /e %SOURCE_DIR%\core\bin\lib %REL_DIR%\bin\lib
 
 REM config directory
 copy %SOURCE_DIR%\core\config\iwp-win.ini %REL_DIR%\config\
@@ -54,11 +55,11 @@ copy %SOURCE_DIR%\core\docs\documentation.html %REL_DIR%\docs\
 copy %SOURCE_DIR%\core\docs\LICENSE.txt %REL_DIR%\docs\LICENSE.txt
 xcopy /s %SOURCE_DIR%\core\docs\images  %REL_DIR%\docs\images
 
-# control panel dir
-xcopy /s %SOURCE_DIR%\core\controlpanel\distribute %REL_DIR%\controlpanel
+REM control panel dir
+xcopy /s /e %SOURCE_DIR%\core\controlpanel\distribute %REL_DIR%\controlpanel
 
 REM htdocs
-xcopy /s %SOURCE_DIR%\core\htdocs %REL_DIR%\htdocs
+REM xcopy /s %SOURCE_DIR%\core\htdocs %REL_DIR%\htdocs
 
 REM images
 xcopy /s %SOURCE_DIR%\core\images %REL_DIR%\images

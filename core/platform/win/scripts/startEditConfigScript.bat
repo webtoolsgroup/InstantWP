@@ -3,5 +3,5 @@ setlocal
 cd /d %~dp0
 
 cd ../../..
-start ./config/iwp-osx.ini &
+start ./config/iwp-win.ini &
 exit 1

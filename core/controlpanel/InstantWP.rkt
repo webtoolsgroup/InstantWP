@@ -13,4 +13,8 @@
 ;; setup some defaults to avoid console window
 (current-output-port (open-output-nowhere))
 
-(show-start-window)
+(define (main)
+  (show-start-window))
+
+(main)
+

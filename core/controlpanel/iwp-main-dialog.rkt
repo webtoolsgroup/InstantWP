@@ -138,7 +138,7 @@
   (message-box "InstantWP Close" "InstantWP will now close." #f '(ok no-icon))
   (hide-main-window)
   (show-quit-window)
-  (do-quit-action))
+  (exit 1))
 
 ;; --------------------------------------
 ;; start panel control definitions
