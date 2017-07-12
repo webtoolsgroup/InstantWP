@@ -77,8 +77,11 @@
 (define (do-start-ssh)
   (do-action-in-terminal (path->string (get-ssh-script-path))))
 
+;; this needed a custom script to avoid console box
 (define (do-start-sftp)
-  (do-generic-action (path->string (get-sftp-script-path))))
+   (cond
+    [(is-windows?) (do-generic-shell-execute (path->string (get-sftp-script-path)))]
+    [(is-macos?)  (system (path->string (get-sftp-script-path)))]))
 
 (define (do-start-qemu-monitor)
   (do-action-in-terminal (path->string (get-qemu-script-path))))
@@ -113,11 +116,20 @@
 
 ;; shell-execute batch file and hide window
 (define (do-shell-execute-for-iwpcli action-string)
-  (void (shell-execute #f (path->string (iwpcli-run-path)) action-string (path->string (iwpcli-bin-dir)) 'SW_HIDE)))
+  (void
+   (shell-execute #f
+                  (path->string (iwpcli-run-path))
+                  action-string
+                  (path->string (iwpcli-bin-dir))
+                  'SW_HIDE)))
 
 ;; shell-execute batch file and hide window
 (define (do-generic-shell-execute command)
-  (void (shell-execute #f command "" (path->string (iwpcli-bin-dir)) 'SW_HIDE)))
+  (void (shell-execute #f
+                       command
+                       ""
+                       (path->string (iwpcli-bin-dir))
+                       'SW_HIDE)))
 
 ;; open a terminal and do an action
 (define (do-action-in-terminal action-string)
@@ -128,7 +140,7 @@
 ;; open a url
 (define (do-open-url url-string)
    (cond
-    [(is-windows?) (system (string-append  "start " url-string))]
+    [(is-windows?) (do-generic-shell-execute url-string)]
     [(is-macos?) (system  (string-append  "open " url-string))]))
 
 ;; start Terminal
