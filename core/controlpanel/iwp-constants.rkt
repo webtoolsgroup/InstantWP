@@ -127,6 +127,7 @@
 (define START_EDIT_CONFIG "startEditConfigFileScript")
 (define START_TERMINAL "startTerminal")
 (define OPEN_URL "openURL")
+(define HIDE_README "HideReadMeFile")
 
 ;; ---------------------------------------
 ;; Help label constants

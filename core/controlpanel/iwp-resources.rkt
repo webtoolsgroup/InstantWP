@@ -60,3 +60,6 @@
 
 (define (iwp-logo)
   (read-bitmap  (build-path (iwp-images-dir-path) "logo-top.png")))
+
+(define (readme-bitmap)
+  (read-bitmap  (build-path (iwp-images-dir-path) "readme.png")))

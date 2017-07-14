@@ -16,7 +16,7 @@
   "iwp-constants.rkt"
   "iwp-resources.rkt"
   "iwp-http-client.rkt"
-  "iwp-main-dialog.rkt"
+  "iwp-readme-dialog.rkt"
   "iwp-config.rkt")
 
 ;; define root window value hash
@@ -73,7 +73,7 @@
 ;; what happens after the progress bar
 (define (after-progress-bar)
   (send root-window show #f)
-  (show-main-window))
+  (show-readme-window))
 
 ;; call the web server vm
 (define (is-wp-available? progress)

@@ -1,5 +1,5 @@
-# Automatically abort script on errors
-option batch abort
+# Automatically continue script on errors
+option batch continue
  
 # Disable overwrite confirmations that conflict with the previous
 option confirm off
@@ -11,7 +11,7 @@ option transfer binary
 open sftp://%1%:%2%@%3%:%4%/ -hostkey=*
  
 # Publish local theme up to server, while deleting obsolete files from server.
-synchronize both -mirror %5% %6%
+synchronize both %5%/wp-content/ %6%/wp-content/
 
 # reset the permissions 
 call sudo chown apache -R /var/www/localhost/htdocs/wordpress/wp-content/

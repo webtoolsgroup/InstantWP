@@ -30,6 +30,7 @@ mkdir %REL_DIR%\platform
 mkdir %REL_DIR%\platform\win
 mkdir %REL_DIR%\htdocs
 mkdir %REL_DIR%\htdocs\wordpress
+mkdir %REL_DIR%\htdocs\wordpress\wp-content
 mkdir %REL_DIR%\vm
 
 echo Copying files...

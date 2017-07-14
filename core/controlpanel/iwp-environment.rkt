@@ -61,6 +61,7 @@
 (define (iwp-config-file-path)
   (build-path (get-iwp-root-dir) IWP_CONFIG_DIR (iwpcli-config-filename)))
 
+
 ;; resource path
 (define (iwp-images-dir-path)
   (build-path  (get-iwp-root-dir) "images"))
