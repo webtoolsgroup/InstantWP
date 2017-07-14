@@ -101,7 +101,7 @@
   (show-main-window)
   (hide-readme-window))
 
-(define (close--dont-show-action)
+(define (close-dont-show-action)
   (create-hide-readme-file)
   (close-action))
 
@@ -137,4 +137,4 @@
 (define close-dont-show-button
   (create-new-button base-buttons-panel (quit-bitmap) "Close and Don't Show Again"
                      100 30
-                     close-action))
+                     close-dont-show-action))
