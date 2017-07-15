@@ -51,9 +51,11 @@
 ;; button actions
 
 (define (do-wpfrontpage-action)
+  (web-server-warning)
   (do-iwpcli-action IWPCLI_WPFRONTPAGE))
 
 (define (do-wpadmin-action)
+  (web-server-warning)
   (do-iwpcli-action IWPCLI_WPADMIN))
 
 (define (do-plugins-action)
@@ -63,6 +65,7 @@
   (do-iwpcli-action IWPCLI_THEMES))
 
 (define (do-mysql-action)
+  (web-server-warning)
   (do-iwpcli-action IWPCLI_MYSQL))
 
 (define (do-docs-action)
@@ -156,4 +159,33 @@
   (cond
     [(symbol=? answer 'yes) #t]
     [(symbol=? answer 'no) #f]))
+
+;; --------------------------------------
+;; ;; web server warning funcs
+;; --------------------------------------
+
+(define (web-server-warning)
+  (cond
+    [(not (web-server-warning-file-exists?))
+     (do-web-server-warning-action)])
+  ;; sleep for 2 so the db can connect
+  (sleep 2))
+
+(define (do-web-server-warning-action)
+  (web-server-warning-msg)
+  (create-web-server-warning-file))
+
+(define (web-server-warning-msg)
+  (message-box "IWP Web Server Startup" WEB_SERVER_MSG #f '(ok no-icon)))
+
+(define (web-server-warning-file-path)
+  (build-path (iwp-platform-dir-path) (get-config-setting WEBSERVER_WARN)))
+
+(define (create-web-server-warning-file)
+  (define out (open-output-file (web-server-warning-file-path)))
+  (write "Message shown." out)
+  (close-output-port out))
+
+(define (web-server-warning-file-exists?)
+  (file-exists? (web-server-warning-file-path)))
 

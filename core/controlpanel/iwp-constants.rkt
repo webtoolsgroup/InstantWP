@@ -128,6 +128,8 @@
 (define START_TERMINAL "startTerminal")
 (define OPEN_URL "openURL")
 (define HIDE_README "HideReadMeFile")
+(define WEBSERVER_WARN "WebServerWarnMessage")
+(define WEB_SERVER_MSG "As this is the first time the web server has been accessed, it may take a few moments to initialise fully. Subsequent page loading will be significantly quicker.")
 
 ;; ---------------------------------------
 ;; Help label constants

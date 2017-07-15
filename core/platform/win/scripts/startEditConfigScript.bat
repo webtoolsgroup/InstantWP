@@ -3,5 +3,5 @@ setlocal
 cd /d %~dp0
 
 cd ../../..
-start ./config/iwp-win.ini &
+notepad ./config/iwp-win.ini &
 exit 1
