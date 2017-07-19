@@ -90,7 +90,9 @@
   (do-action-in-terminal (path->string (get-qemu-script-path))))
 
 (define (do-start-edit-config)
-  (do-generic-action (path->string (get-edit-config-script-path))))
+  (void  (cond
+           [(is-windows?) (do-action-in-terminal (path->string (get-edit-config-script-path)))]
+           [(is-macos?)   (do-generic-action (path->string (get-edit-config-script-path)))])))
 
 (define (do-filemanager-action)
   (do-open-url (get-filemanager-url)))
@@ -167,13 +169,13 @@
 (define (web-server-warning)
   (cond
     [(not (web-server-warning-file-exists?))
-     (do-web-server-warning-action)])
-  ;; sleep for 2 so the db can connect
-  (sleep 2))
+     (do-web-server-warning-action)]))
 
 (define (do-web-server-warning-action)
   (web-server-warning-msg)
-  (create-web-server-warning-file))
+  (create-web-server-warning-file)
+  ;; sleep for 2 so the db can connect
+  (sleep 2))
 
 (define (web-server-warning-msg)
   (message-box "IWP Web Server Startup" WEB_SERVER_MSG #f '(ok no-icon)))
