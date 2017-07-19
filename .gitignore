@@ -46,3 +46,5 @@ Pharo-prod.changes
 Pharo-prod.image
 core/controlpanel/InstantWP.app
 core/controlpanel/distribute/lib/plt/InstantWP/exts/ert/r0/dh4096.pem
+InstantWP.app
+core/Start-InstantWP.app
