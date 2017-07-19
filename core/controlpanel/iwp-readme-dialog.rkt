@@ -82,9 +82,11 @@
 
 ;; Show the frame by calling its show method
 (define (show-readme-window)
+  ;; sleep for 1 so the db can connect
+  (sleep 1)
   (cond
-  [(hide-readme-file-exists?) (show-main-window)]
-  [(not (hide-readme-file-exists?)) (show-readme-window-private)]))
+    [(hide-readme-file-exists?) (show-main-window)]
+    [(not (hide-readme-file-exists?)) (show-readme-window-private)]))
 
 (define (show-readme-window-private)
   (send root-window show #t)
@@ -120,6 +122,7 @@
 
 (define (hide-readme-file-exists?)
   (file-exists? (hide-readme-file-path)))
+
 
 ;; --------------------------------------
 ;;setup controls

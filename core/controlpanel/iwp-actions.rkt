@@ -167,9 +167,7 @@
 (define (web-server-warning)
   (cond
     [(not (web-server-warning-file-exists?))
-     (do-web-server-warning-action)])
-  ;; sleep for 2 so the db can connect
-  (sleep 2))
+     (do-web-server-warning-action)]))
 
 (define (do-web-server-warning-action)
   (web-server-warning-msg)
