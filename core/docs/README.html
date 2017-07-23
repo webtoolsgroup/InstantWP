@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>README</title>
+
+
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb
+}
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+}
+</style>
+
+
+</head>
+
+<body>
+
+<h1 id="toc_0">InstantWP</h1>
+
+<p>InstantWP is a complete standalone, portable WordPress development environment. It turns any Windows or Mac machine into a WordPress development server. It should even run from a USB key.</p>
+
+<ul>
+<li><a href="#overview">Overview </a></li>
+<li><a href="#usage">Usage </a></li>
+<li><a href="#downloads-and-releases">Downloads and Releases </a></li>
+<li><a href="#license">License </a></li>
+<li><a href="#instantwp-components">InstantWP Components </a></li>
+<li><a href="#platform-specific-dependencies">Platform Specific Dependencies </a></li>
+<li><a href="#building">Building </a></li>
+</ul>
+
+<h2 id="toc_1">Overview</h2>
+
+<p>InstantWP contains a virtual webserver wrapped in a simple user interface that should that start up in under a minute. </p>
+
+<ul>
+<li>InstantWP has been under development since 2008 and was first developed as a WordPress teaching tool. </li>
+<li>InstantWP has been downloaded over a million times.</li>
+<li>InstantWP is used worldwide in universities, schools and businesses for teaching, developing and working with WordPress.</li>
+</ul>
+
+<h2 id="toc_2">Software Versions</h2>
+
+<p>The current version of InstantWP contains the following software:</p>
+
+<ul>
+<li>WordPress Version 4.7.1</li>
+<li>PHP 7.0.14 </li>
+<li>MYSQL - 10.1.20-MariaDB MariaDB Server</li>
+<li>Apache/2.4.23 (Unix)</li>
+<li>PHPMyAdmin Version 4.6.5.2</li>
+<li>PHP Composer and WP-CLI also installed</li>
+</ul>
+
+<h3 id="toc_3">Design Principles</h3>
+
+<p>The main design principles behind InstantWP are:</p>
+
+<ol>
+<li>InstantWP is portable. No software should be installed on the user&#39;s machine outside of the InstantWP folder. </li>
+<li>InstantWP is simple. Using InstantWP should be easy for a beginner. </li>
+<li>InstantWP is quick. It should be fast to create quick, disposable WordPress installs for testing, teaching or development.</li>
+<li>InstantWP is useful. InstantWP should be a power tool for WordPress beginners and experts, theme designers or software developers. </li>
+<li>InstantWP is free, like WordPress :)</li>
+</ol>
+
+<p>For more information please visit the main InstantWP website: <a href="">http://www.instantwp.com </a> </p>
+
+<h2 id="toc_4">Usage</h2>
+
+<p>No install of InstantWP is necessary, simply download, unzip and run.</p>
+
+<ul>
+<li>Download the latest release.</li>
+<li>Unzip the IWP folder somewhere convenient, such as your desktop.</li>
+<li>On Windows start InstantWP by double-clicking on Start-InstantWP.bat</li>
+<li>On macOS, start InstantWP by double-clicking on Start-InstantWP.</li>
+<li>A command window will open and start the web-server. Once this is complete the GUI will open. </li>
+</ul>
+
+<h2 id="toc_5">GUI</h2>
+
+<p><img src="./core/docs/images/IWP-gui-5.0.0-rc6.png" alt="InstantWP GUI"></p>
+
+<p>The GUI contains the following buttons:</p>
+
+<ul>
+<li><p>WordPress Frontpage</p>
+
+<p>This will open the local WordPress installation in your default browser.</p></li>
+<li><p>WordPress Admin</p>
+
+<p>This will open the local WordPress administration backed in your default browser. The username is ‘admin’ and the password is ‘password’ as specified.</p></li>
+<li><p>Plugins Folder</p>
+
+<p>This will open the local WordPress plugins folder in Windows Explorer or macOS Finder.</p></li>
+<li><p>Themes Folder</p>
+
+<p>This will open the local WordPress themes folder in Windows Explorer or macOS Finder.</p></li>
+<li><p>MySQL Database Admin</p>
+
+<p>This opens PHPMyAdmin in your default browser so that you can administrate the underlying MySQL database. The user is &#39;root&#39; with a blank password.</p></li>
+<li><p>About and Documentation open the documentation.</p></li>
+<li><p>The Advanced button opens the InstantWP web based control panel that contains links to SSH and SFTP shortcuts, amongst other things.</p></li>
+</ul>
+
+<h2 id="toc_6">Downloads and Releases</h2>
+
+<p>See the InstantWP Releases page:</p>
+
+<p><a href="">https://github.com/corvideon/InstantWP/releases</a> </p>
+
+<h2 id="toc_7">License</h2>
+
+<p>InstantWP is released under the GPL v3. See the included LICENSE file.</p>
+
+<p>You can use InstantWP for any purposes for an unlimited period of time. </p>
+
+<p>InstantWP is provided free of charge.</p>
+
+<p>InstantWP may be installed and used on any number of systems.</p>
+
+<p>THIS SOFTWARE IS PROVIDED “AS IS” BY CORVIDEON LTD AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.</p>
+
+<p>All trademarks and images are copyright of their respective owners.</p>
+
+<p>Software licenses are provided in the respective software directories or links are included in the documentation below.</p>
+
+<p>InstantWP is not associated with Automattic or WordPress.com.</p>
+
+<h2 id="toc_8">InstantWP Components</h2>
+
+<h3 id="toc_9">InstantWP Command-Line</h3>
+
+<p>InstantWP comes with a command-line tool called iwpcli / iwpcli.exe.</p>
+
+<p>Check if IWP is running and print out a status message:</p>
+
+<div><pre><code class="language-text">iwpcli status </code></pre></div>
+
+<p>Start InstantWP:</p>
+
+<div><pre><code class="language-text">iwpcli start</code></pre></div>
+
+<p>Quit InstantWP:</p>
+
+<div><pre><code class="language-text">iwpcli quit</code></pre></div>
+
+<p>Open WordPress frontpage:</p>
+
+<div><pre><code class="language-text">iwpcli wpfrontpage</code></pre></div>
+
+<p>Open WordPress Dashboard:</p>
+
+<div><pre><code class="language-text">iwpcli wpadmin</code></pre></div>
+
+<p>Open the plugins folder:</p>
+
+<div><pre><code class="language-text">iwpcli plugins</code></pre></div>
+
+<p>Open the themes folder:</p>
+
+<div><pre><code class="language-text">iwpcli themes</code></pre></div>
+
+<p>Open PHPMyAdmin:</p>
+
+<div><pre><code class="language-text">iwpcli mysql</code></pre></div>
+
+<p>Open IWP documentation:       </p>
+
+<div><pre><code class="language-text">iwpcli docs</code></pre></div>
+
+<p>Open IWP about page:           </p>
+
+<div><pre><code class="language-text">iwpcli about</code></pre></div>
+
+<p>Open up an SSH session on the IWP VM:</p>
+
+<div><pre><code class="language-text">iwpcli ssh</code></pre></div>
+
+<p>Open up the QEMU VM Monitor shell:</p>
+
+<div><pre><code class="language-text">iwpcli monitor</code></pre></div>
+
+<p>Restart the Apche web server and MySQL</p>
+
+<div><pre><code class="language-text">iwpcli restart_apache</code></pre></div>
+
+<p>Mount the IWPServer WebDav Volume (macOS only):</p>
+
+<div><pre><code class="language-text">iwpcli mount_webdav</code></pre></div>
+
+<p>Unmount the IWPServer WebDav Volume (macOS only): </p>
+
+<div><pre><code class="language-text">iwpcli unmount_webdav</code></pre></div>
+
+<h3 id="toc_10">IWPServer</h3>
+
+<p>The built in virtual webserver is called IWPServer.
+IWPServer is based on Alpine Linux.
+Please see the iwpserver folder README for more details.</p>
+
+<h3 id="toc_11">Helper Components</h3>
+
+<ul>
+<li><p>IWPQEMUTelnet</p>
+
+<p>When QEMU is running, it provides a monitor console for interacting with QEMU. This command-line executable opens a telnet connection to communicate with the QEMU monitor process. The executable is written in F# and uses the Rebex .net libraries as listed below.</p></li>
+<li><p>IWPSSHCommand</p>
+
+<p>This command-line executable opens an SSH connection and runs a command. The executable is written in F# and uses the Rebex .net libraries as listed below.</p></li>
+</ul>
+
+<h2 id="toc_12">Platform Specific Dependencies</h2>
+
+<p>These dependencies are bundled as binaries into a folder called &#39;platform&#39; for each operating system and they are bundled as part of any release. They are listed here for convenience, you don&#39;t need to download or compile these files seperately unless you wish to.</p>
+
+<h3 id="toc_13">Open Source Dependencies</h3>
+
+<p><strong>macOS Dependencies</strong></p>
+
+<ul>
+<li><p>QEMU</p>
+
+<p>QEMU is an open source machine emulator and virtualizer, as installed and compiled by Homebrew. </p>
+
+<ul>
+<li>Version 2.8.0</li>
+<li>Homepage: <a href="">http://wiki.qemu.org/Main_Page</a> </li>
+<li>Source code: <a href="">http://wiki.qemu-project.org/download/qemu-2.8.0.tar.bz2</a></li>
+<li>License: <a href="">http://wiki.qemu.org/License</a> (GPL v2)</li>
+</ul>
+
+<p>The following Dynamic Library for macOS are also shipped with QEMU:</p>
+
+<ul>
+<li>GLib 2.0</li>
+<li>GnuMP 1.0</li>
+<li>GnuTLS 3.0</li>
+<li>Nettle 6.0</li>
+<li>Libjpeg 8</li>
+<li>Pixman 1.0</li>
+<li>Libpng 1.6</li>
+<li>Libtasn 1.0.</li>
+</ul></li>
+<li><p>Fugu</p></li>
+</ul>
+
+<p>Fugu is a graphical frontend to the commandline Secure File Transfer application (SFTP) for Mac OS X. </p>
+
+<div><pre><code class="language-none">* Version 1.2.0-English
+* Homepage: [http://rsug.itd.umich.edu/software/fugu/]() 
+* Source code: [https://sourceforge.net/projects/fugussh/files/]()
+* License: [http://rsug.itd.umich.edu/software/copyright.html]() (BSD-style)</code></pre></div>
+
+<ul>
+<li>Racket Programming Language</li>
+</ul>
+
+<p>Racket is a general-purpose programming language as well as the world’s first ecosystem for developing and deploying new languages. </p>
+
+<div><pre><code class="language-none">* Version 6.9
+* Homepage: [http://racket-lang.org/() 
+* Source code: [https://github.com/racket]()
+* License: [https://github.com/racket/racket/blob/master/racket/src/COPYING_LESSER.txt]() (LGPL)</code></pre></div>
+
+<p><strong>Windows Dependencies</strong></p>
+
+<ul>
+<li><p>QEMU</p>
+
+<p>These QEMU Binaries for Windows (32 bit) are as supplied by Stefan Weil.</p>
+
+<ul>
+<li>Version 2.5.0</li>
+<li>Homepage: <a href="">https://qemu.weilnetz.de/</a> </li>
+<li>Source code: <a href="">http://repo.or.cz/w/qemu/ar7.git/</a></li>
+<li>License: <a href="">http://wiki.qemu.org/License</a> (GPL v2)</li>
+</ul></li>
+<li><p>Ansicon</p>
+
+<p>ANSICON provides ANSI escape sequence recognition for Windows console programs (both 32- (x86) and 64-bit (x64)). </p>
+
+<ul>
+<li>Version 1.6.6</li>
+<li>Homepage: <a href="">http://adoxa.altervista.org/ansicon/</a> </li>
+<li>Source code: <a href="">https://github.com/adoxa/ansicon/</a></li>
+<li>License: <a href="">https://github.com/adoxa/ansicon/blob/master/LICENSE.txt</a> </li>
+</ul></li>
+<li><p>PuTTY / PLink</p>
+
+<p>PuTTY is a Windows SSH / Telnet client. Plink is a command-line interface to the PuTTY back end.</p>
+
+<ul>
+<li>Version 0.67</li>
+<li>Homepage: <a href="">http://www.chiark.greenend.org.uk/~sgtatham/putty/</a> </li>
+<li>Source code: <a href="">https://the.earth.li/~sgtatham/putty/latest/putty-0.67.tar.gz</a></li>
+<li>License: <a href="MIT">http://www.chiark.greenend.org.uk/~sgtatham/putty/licence.html</a> </li>
+</ul></li>
+</ul>
+
+<h3 id="toc_14">Closed Source Dependencies</h3>
+
+<ul>
+<li><p>Rebex .Net </p>
+
+<p>The QEMU telnet and ssh components use the closed source Rebex .Net Telnet and SSH libraries below:</p>
+
+<ul>
+<li>Rebex File Server 2016R1.1</li>
+<li>Rebex Ssh Pack 2016R1.1</li>
+</ul>
+
+<p>Corvideon is licensed to redistribute the component DLLs with InstantWP royalty free. See <a href="http://www.rebex.net">http://www.rebex.net</a> for further information.</p></li>
+</ul>
+
+<h2 id="toc_15">Building</h2>
+
+<ul>
+<li>The Perl based executables are built using ActiveState&#39;s PerlApp.</li>
+<li>The GUI is built using PureBasic <a href="">http://www.purebasic.com</a> </li>
+<li>The F# components are build using Xamarin Studio on macOS and Visual Studio on Windows.</li>
+</ul>
+
+<h3 id="toc_16">PPM Modules for IWP 5.0</h3>
+
+<ul>
+<li>Moo</li>
+<li>Config-Any</li>
+<li>Carp</li>
+<li>Proc::ProcessTable</li>
+<li>Proc::Terminator</li>
+<li>LWP::Simple</li>
+<li>Bundle-Expect</li>
+<li>Term::Spinner</li>
+<li>Win32::Process::List</li>
+</ul>
+
+
+
+
+</body>
+
+</html>
