@@ -33,7 +33,7 @@ InstantWP needs at least 250MG of disk space.
 
 See the InstantWP Releases page:
 
-[https://github.com/corvideon/InstantWP/releases]() 
+[https://github.com/corvideon/InstantWP/releases](https://github.com/corvideon/InstantWP/releases) 
 
 ## Troubleshooting and Technical Information
 
