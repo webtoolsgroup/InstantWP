@@ -20,15 +20,20 @@ InstantWP provides a simple GUI for managing a WordPress site. All you need to d
 
 For more information, please see the [InstantWP User Guide](https://github.com/corvideon/InstantWP/blob/master/core/docs/InstantWP-User-Guide.pdf)
 
-
 ## Downloads and Releases
 
 See the InstantWP Releases page:
 
 [https://github.com/corvideon/InstantWP/releases]() 
 
+## Troubleshooting and Technical Information
 
-## About InstantWP software versions
+The [InstantWP User Guide](https://github.com/corvideon/InstantWP/blob/master/core/docs/InstantWP-User-Guide.pdf) contains quite a bit of useful technical information.
+
+You should also look at the FAQ, which is in the [InstantWP Wiki](https://github.com/corvideon/InstantWP/wiki)
+
+
+## About InstantWP Software Versions
 
 For information on what software is provided with InstantWP please see the [about page](https://github.com/corvideon/InstantWP/blob/master/core/docs/about.md). 
 
