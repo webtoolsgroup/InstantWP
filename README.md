@@ -14,7 +14,7 @@ InstantWP contains a virtual webserver wrapped in a simple user interface that s
 * InstantWP has been downloaded over a million times.
 * InstantWP is trusted by hundreds of thousands of users worldwide in universities, schools and businesses for teaching, developing and working with WordPress.
 
-## InstantWP is easy as InstantWP is portable
+## InstantWP is Easy as InstantWP is Portable
 
 InstantWP provides a simple GUI for managing a WordPress site. All you need to do is download and unzip.
 
