@@ -16,7 +16,7 @@ InstantWP contains a virtual webserver wrapped in a simple user interface that s
 
 ## InstantWP is Portable!
 
-[](https://github.com/corvideon/InstantWP/blob/master/core/docs/images/Control-Panel-tab-macOS.png)
+![](https://github.com/corvideon/InstantWP/blob/master/core/docs/images/Control-Panel-tab-macOS.png)
 
 InstantWP provides a simple GUI for managing a WordPress site. All you need to do is download and unzip.
 
