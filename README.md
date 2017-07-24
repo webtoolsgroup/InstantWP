@@ -14,6 +14,13 @@ InstantWP contains a virtual webserver wrapped in a simple user interface that s
 * InstantWP has been downloaded over a million times.
 * InstantWP is trusted by hundreds of thousands of users worldwide in universities, schools and businesses for teaching, developing and working with WordPress.
 
+## InstantWP is Portable!
+
+[](https://github.com/corvideon/InstantWP/blob/master/core/docs/images/Control-Panel-tab-macOS.png)
+
+InstantWP provides a simple GUI for managing a WordPress site. All you need to do is download and unzip.
+
+For more information, please see the [InstantWP User Guide](https://github.com/corvideon/InstantWP/blob/master/core/docs/InstantWP-User-Guide.pdf)
 
 ## Downloads and Releases
 
