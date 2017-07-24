@@ -8,6 +8,17 @@ For the source code, please visit the InstantWP GitHub repo:
 [https://github.com/corvideon/InstantWP ]() 
 
 
+## Software Versions
+
+The current version of InstantWP contains the following software:
+
+ * WordPress Version 4.7.1
+ * PHP 7.0.14 
+ * MYSQL - 10.1.20-MariaDB MariaDB Server
+ * Apache/2.4.23 (Unix)
+ * PHPMyAdmin Version 4.6.5.2
+ * PHP Composer and WP-CLI also installed
+
 ## License
 
 InstantWP is released under the GPL v3. See the included LICENSE file.
