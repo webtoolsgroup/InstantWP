@@ -328,291 +328,37 @@ kbd {
 
 <body>
 
+<p><img src="images/logo-top.png" alt=""></p>
+
 <h1 id="toc_0">InstantWP Documentation</h1>
 
-<p>InstantWP is a complete standalone, portable WordPress development environment. It turns any Windows or Mac machine into a WordPress development server. It should even run from a USB key.</p>
+<p>The main user documentation is the InstantWP User Guide.</p>
 
-<ul>
-<li><a href="#overview">Overview </a></li>
-<li><a href="#usage">Usage </a></li>
-<li><a href="#downloads-and-releases">Downloads and Releases</a></li>
-<li><a href="#license">License </a></li>
-<li><a href="#instantwp-components">InstantWP Components </a></li>
-<li><a href="#platform-specific-dependencies">Platform Specific Dependencies </a></li>
-<li><a href="#building">Building </a></li>
-</ul>
+<p>The User Guide is provided as a PDF - <a href="InstantWP-User-Guide.pdf">InstantWP-User-Guide.pdf </a></p>
 
-<h2 id="toc_1">Overview</h2>
+<h2 id="toc_1">FAQ - Frequently Asked Questions</h2>
 
-<p>InstantWP contains a virtual webserver wrapped in a simple user interface that should that start up in under a minute. </p>
+<p>For troubleshooting and further technical tips please see the InstantWP FAQ:</p>
 
-<ul>
-<li>InstantWP has been under development since 2008 and was first developed as a WordPress teaching tool. </li>
-<li>InstantWP has been downloaded over a million times.</li>
-<li>InstantWP is used worldwide in universities, schools and businesses for teaching, developing and working with WordPress.</li>
-</ul>
+<p><a href="http://www.instantwp.com/go/FAQ/">http://www.instantwp.com/go/FAQ/ </a> </p>
 
-<h3 id="toc_2">Design Principles</h3>
+<h2 id="toc_2">Included Software</h2>
 
-<p>The main design principles behind InstantWP are:</p>
+<p>You can also find further technical information about what versions of PHP and MySQL by viewing the <a href="about.html">About </a> page.</p>
 
-<ol>
-<li>InstantWP is portable. No software should be installed on the user&#39;s machine outside of the InstantWP folder. </li>
-<li>InstantWP is simple. Using InstantWP should be easy for a beginner. </li>
-<li>InstantWP is quick. It should be fast to create quick, disposable WordPress installs for testing, teaching or development.</li>
-<li>InstantWP is useful. InstantWP should be a power tool for WordPress beginners and experts, theme designers or software developers. </li>
-<li>InstantWP is free, like WordPress :)</li>
-</ol>
+<h2 id="toc_3">GitHub Project</h2>
 
-<p>For more information please visit the main InstantWP website: <a href="">http://www.instantwp.com </a> </p>
+<p>The code for InstantWP is available at the GitHub project below:</p>
 
-<p>For the source code, please visit the InstantWP GitHub repo:
-<a href="">https://github.com/corvideon/InstantWP </a> </p>
+<p><a href="https://github.com/corvideon/InstantWP/">https://github.com/corvideon/InstantWP/ </a></p>
 
-<h2 id="toc_3">Usage</h2>
-
-<p>No install of InstantWP is necessary, simply download, unzip and run.</p>
-
-<ul>
-<li>Download the latest release.</li>
-<li>Unzip the IWP folder somewhere convenient, such as your desktop.</li>
-<li>On Windows start InstantWP by double-clicking on Start-InstantWP.bat</li>
-<li>On macOS, start InstantWP by double-clicking on Start-InstantWP.</li>
-<li>A command window will open and start the web-server. Once this is complete the GUI will open. </li>
-</ul>
-
-<h2 id="toc_4">GUI</h2>
-
-<p><img src="./images/IWP-gui-5.0.0-rc3.png" alt="InstantWP GUI"></p>
-
-<p>The GUI contains the following buttons:</p>
-
-<ul>
-<li><p>WordPress Frontpage</p>
-
-<p>This will open the local WordPress installation in your default browser.</p></li>
-<li><p>WordPress Admin</p>
-
-<p>This will open the local WordPress administration backed in your default browser. The username is ‘admin’ and the password is ‘password’ as specified.</p></li>
-<li><p>Plugins Folder</p>
-
-<p>This will open the local WordPress plugins folder in Windows Explorer or macOS Finder.</p></li>
-<li><p>Themes Folder</p>
-
-<p>This will open the local WordPress themes folder in Windows Explorer or macOS Finder.</p></li>
-<li><p>MySQL Database Admin</p>
-
-<p>This opens PHPMyAdmin in your default browser so that you can administrate the underlying MySQL database. The user is &#39;root&#39; with a blank password.</p></li>
-<li><p>About and Documentation open the documentation.</p></li>
-</ul>
-
-<h2 id="toc_5">Downloads and Releases</h2>
-
-<p>See the InstantWP Releases page:</p>
-
-<p><a href="">https://github.com/corvideon/InstantWP/releases</a> </p>
-
-<h2 id="toc_6">License</h2>
+<h2 id="toc_4">License</h2>
 
 <p>InstantWP is released under the GPL v3. See the included LICENSE file.</p>
 
-<p>You can use InstantWP for any purposes for an unlimited period of time. </p>
+<h2 id="toc_5"></h2>
 
-<p>InstantWP is provided free of charge.</p>
-
-<p>InstantWP may be installed and used on any number of systems.</p>
-
-<p>THIS SOFTWARE IS PROVIDED “AS IS” BY CORVIDEON LTD AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.</p>
-
-<p>All trademarks and images are copyright of their respective owners.</p>
-
-<p>Software licenses are provided in the respective software directories or links are included in the documentation below.</p>
-
-<p>InstantWP is not associated with Automattic or WordPress.com.</p>
-
-<h2 id="toc_7">InstantWP Components</h2>
-
-<h3 id="toc_8">InstantWP Command-Line</h3>
-
-<p>InstantWP comes with a command-line tool called iwpcli / iwpcli.exe.</p>
-
-<p>Check if IWP is running and print out a status message:</p>
-
-<div><pre><code class="language-text">iwpcli status </code></pre></div>
-
-<p>Start InstantWP:</p>
-
-<div><pre><code class="language-text">iwpcli start</code></pre></div>
-
-<p>Quit InstantWP:</p>
-
-<div><pre><code class="language-text">iwpcli quit</code></pre></div>
-
-<p>Open WordPress frontpage:</p>
-
-<div><pre><code class="language-text">iwpcli wpfrontpage</code></pre></div>
-
-<p>Open WordPress Dashboard:</p>
-
-<div><pre><code class="language-text">iwpcli wpadmin</code></pre></div>
-
-<p>Open the plugins folder:</p>
-
-<div><pre><code class="language-text">iwpcli plugins</code></pre></div>
-
-<p>Open the themes folder:</p>
-
-<div><pre><code class="language-text">iwpcli themes</code></pre></div>
-
-<p>Open PHPMyAdmin:</p>
-
-<div><pre><code class="language-text">iwpcli mysql</code></pre></div>
-
-<p>Open IWP documentation:       </p>
-
-<div><pre><code class="language-text">iwpcli docs</code></pre></div>
-
-<p>Open IWP about page:           </p>
-
-<div><pre><code class="language-text">iwpcli about</code></pre></div>
-
-<p>Open up an SSH session on the IWP VM:</p>
-
-<div><pre><code class="language-text">iwpcli ssh</code></pre></div>
-
-<p>Open up the QEMU VM Monitor shell:</p>
-
-<div><pre><code class="language-text">iwpcli monitor</code></pre></div>
-
-<p>Restart the Apche web server and MySQLL</p>
-
-<div><pre><code class="language-text">iwpcli restart_apache</code></pre></div>
-
-<p>Mount the IWPServer WebDav Volume (macOS only):</p>
-
-<div><pre><code class="language-text">iwpcli mount_webdav</code></pre></div>
-
-<p>Unmount the IWPServer WebDav Volume (macOS only): </p>
-
-<div><pre><code class="language-text">iwpcli unmount_webdav</code></pre></div>
-
-<h3 id="toc_9">IWPServer</h3>
-
-<p>The built in virtual webserver is called IWPServer.
-IWPServer is based on Alpine Linux.
-Please see the iwpserver folder README in the GitHub repo for more details.</p>
-
-<h3 id="toc_10">Helper Components</h3>
-
-<ul>
-<li><p>IWPQEMUTelnet</p>
-
-<p>When QEMU is running, it provides a monitor console for interacting with QEMU. This command-line executable opens a telnet connection to communicate with the QEMU monitor process. The executable is written in F# and uses the Rebex .net libraries as listed below.</p></li>
-<li><p>IWPSSHCommand</p>
-
-<p>This command-line executable opens an SSH connection and runs a command. The executable is written in F# and uses the Rebex .net libraries as listed below.</p></li>
-</ul>
-
-<h2 id="toc_11">Platform Specific Dependencies</h2>
-
-<p>These dependencies are bundled as binaries into a folder called &#39;platform&#39; for each operating system and they may be downloaded seperately here. They are listed here for convenience, you don&#39;t need to download or compile these files seperately unless you wish to.</p>
-
-<h3 id="toc_12">Open Source Dependencies</h3>
-
-<p><strong>macOS Dependencies</strong></p>
-
-<ul>
-<li><p>QEMU</p>
-
-<p>QEMU is an open source machine emulator and virtualizer, as installed and compiled by Homebrew. </p>
-
-<ul>
-<li>Version 2.8.0</li>
-<li>Homepage: <a href="">http://wiki.qemu.org/Main_Page</a> </li>
-<li>Source code: <a href="">http://wiki.qemu-project.org/download/qemu-2.8.0.tar.bz2</a></li>
-<li>License: <a href="">http://wiki.qemu.org/License</a> (GPL v2)</li>
-</ul>
-
-<p>The following Dynamic Library for macOS are also shipped with QEMU:</p>
-
-<ul>
-<li>GLib 2.0</li>
-<li>GnuMP 1.0</li>
-<li>GnuTLS 3.0</li>
-<li>Nettle 6.0</li>
-<li>Libjpeg 8</li>
-<li>Pixman 1.0</li>
-<li>Libpng 1.6</li>
-<li>Libtasn 1.0.</li>
-</ul></li>
-</ul>
-
-<p><strong>Windows Dependencies</strong></p>
-
-<ul>
-<li><p>QEMU</p>
-
-<p>These QEMU Binaries for Windows (32 bit) are as supplied by Stefan Weil.</p>
-
-<ul>
-<li>Version 2.5.0</li>
-<li>Homepage: <a href="">https://qemu.weilnetz.de/</a> </li>
-<li>Source code: <a href="">http://repo.or.cz/w/qemu/ar7.git/</a></li>
-<li>License: <a href="">http://wiki.qemu.org/License</a> (GPL v2)</li>
-</ul></li>
-<li><p>Ansicon</p>
-
-<p>ANSICON provides ANSI escape sequence recognition for Windows console programs (both 32- (x86) and 64-bit (x64)). </p>
-
-<ul>
-<li>Version 1.6.6</li>
-<li>Homepage: <a href="">http://adoxa.altervista.org/ansicon/</a> </li>
-<li>Source code: <a href="">https://github.com/adoxa/ansicon/</a></li>
-<li>License: <a href="">https://github.com/adoxa/ansicon/blob/master/LICENSE.txt</a> </li>
-</ul></li>
-<li><p>PuTTY / PLink</p>
-
-<p>PuTTY is a Windows SSH / Telnet client. Plink is a command-line interface to the PuTTY back end.</p>
-
-<ul>
-<li>Version 0.67</li>
-<li>Homepage: <a href="">http://www.chiark.greenend.org.uk/~sgtatham/putty/</a> </li>
-<li>Source code: <a href="">https://the.earth.li/~sgtatham/putty/latest/putty-0.67.tar.gz</a></li>
-<li>License: <a href="MIT">http://www.chiark.greenend.org.uk/~sgtatham/putty/licence.html</a> </li>
-</ul></li>
-</ul>
-
-<h3 id="toc_13">Closed Source Dependencies</h3>
-
-<ul>
-<li><p>NirCmd</p>
-
-<p>NirCmd is a small Windows command-line utility that allows you to do some useful tasks without displaying any user interface.</p>
-
-<ul>
-<li>Version 2.8.1</li>
-<li>Homepage: <a href="">http://www.nirsoft.net/utils/nircmd.html</a> </li>
-<li>License: Distributable Freeware.</li>
-</ul></li>
-<li><p>Rebex .Net </p>
-
-<p>The QEMU telnet and ssh components use the closed source Rebex .Net Telnet and SSH libraries below:</p>
-
-<ul>
-<li>Rebex File Server 2016R1.1</li>
-<li>Rebex Ssh Pack 2016R1.1</li>
-</ul>
-
-<p>Corvideon is licensed to redistribute the component DLLs with InstantWP royalty free. See <a href="http://www.rebex.net">http://www.rebex.net</a> for further information.</p></li>
-</ul>
-
-<h2 id="toc_14">Building</h2>
-
-<ul>
-<li>The Perl based executables are built using ActiveState&#39;s PerlApp.</li>
-<li>The GUI is built using PureBasic <a href="">http://www.purebasic.com</a> </li>
-<li>The F# components are build using Xamarin Studio on macOS and Visual Studio on Windows.</li>
-</ul>
+<p>&copy; Corvideon 2017  - <a href="http://www.instantwp.com">http://www.instantwp.com </a></p>
 
 
 
