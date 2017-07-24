@@ -11,16 +11,7 @@ InstantWP contains a virtual webserver wrapped in a simple user interface that s
 * InstantWP has been downloaded over a million times.
 * InstantWP is used worldwide in universities, schools and businesses for teaching, developing and working with WordPress.
 
-## Software Versions
 
-The current version of InstantWP contains the following software:
-
- * WordPress Version 4.7.1
- * PHP 7.0.14 
- * MYSQL - 10.1.20-MariaDB MariaDB Server
- * Apache/2.4.23 (Unix)
- * PHPMyAdmin Version 4.6.5.2
- * PHP Composer and WP-CLI also installed
 
 ### Design Principles
 
