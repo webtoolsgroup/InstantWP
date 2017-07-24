@@ -330,30 +330,24 @@ kbd {
 
 <h1 id="toc_0">About InstantWP</h1>
 
-<p>Version 5.0.0-rc5</p>
-
-<p>InstantWP is a complete standalone, portable WordPress development environment. It turns any Windows or Mac machine into a WordPress development server. It should even run from a USB key.</p>
-
-<ul>
-<li><a href="#usage">Usage </a></li>
-<li><a href="#license">License </a></li>
-</ul>
+<p>Version 5.0.0-rc6</p>
 
 <p>For more information please visit the main InstantWP website: <a href="">http://www.instantwp.com </a> </p>
 
 <p>For the source code, please visit the InstantWP GitHub repo:
 <a href="">https://github.com/corvideon/InstantWP </a> </p>
 
-<h2 id="toc_1">Usage</h2>
+<h2 id="toc_1">Software Versions</h2>
 
-<p>No install of InstantWP is necessary, simply download, unzip and run.</p>
+<p>The current version of InstantWP contains the following software:</p>
 
 <ul>
-<li>Download the latest release.</li>
-<li>Unzip the IWP folder somewhere convenient, such as your desktop.</li>
-<li>On Windows start InstantWP by double-clicking on Start-InstantWP.bat</li>
-<li>On macOS, start InstantWP by double-clicking on Start-InstantWP.</li>
-<li>A command window will open and start the web-server. Once this is complete the GUI will open. </li>
+<li>WordPress Version 4.7.1</li>
+<li>PHP 7.0.14 </li>
+<li>MYSQL - 10.1.20-MariaDB MariaDB Server</li>
+<li>Apache/2.4.23 (Unix)</li>
+<li>PHPMyAdmin Version 4.6.5.2</li>
+<li>PHP Composer and WP-CLI also installed</li>
 </ul>
 
 <h2 id="toc_2">License</h2>
@@ -373,103 +367,6 @@ kbd {
 <p>Software licenses are provided in the respective software directories or links are included in the documentation below.</p>
 
 <p>InstantWP is not associated with Automattic or WordPress.com.</p>
-
-<h3 id="toc_3">Open Source Dependencies</h3>
-
-<p><strong>macOS Dependencies</strong></p>
-
-<ul>
-<li><p>QEMU</p>
-
-<p>QEMU is an open source machine emulator and virtualizer, as installed and compiled by Homebrew. </p>
-
-<ul>
-<li>Version 2.8.0</li>
-<li>Homepage: <a href="">http://wiki.qemu.org/Main_Page</a> </li>
-<li>Source code: <a href="">http://wiki.qemu-project.org/download/qemu-2.8.0.tar.bz2</a></li>
-<li>License: <a href="">http://wiki.qemu.org/License</a> (GPL v2)</li>
-</ul>
-
-<p>The following Dynamic Library for macOS are also shipped with QEMU:</p>
-
-<ul>
-<li>GLib 2.0</li>
-<li>GnuMP 1.0</li>
-<li>GnuTLS 3.0</li>
-<li>Nettle 6.0</li>
-<li>Libjpeg 8</li>
-<li>Pixman 1.0</li>
-<li>Libpng 1.6</li>
-<li>Libtasn 1.0.</li>
-</ul></li>
-</ul>
-
-<p><strong>Windows Dependencies</strong></p>
-
-<ul>
-<li><p>QEMU</p>
-
-<p>These QEMU Binaries for Windows (32 bit) are as supplied by Stefan Weil.</p>
-
-<ul>
-<li>Version 2.5.0</li>
-<li>Homepage: <a href="">https://qemu.weilnetz.de/</a> </li>
-<li>Source code: <a href="">http://repo.or.cz/w/qemu/ar7.git/</a></li>
-<li>License: <a href="">http://wiki.qemu.org/License</a> (GPL v2)</li>
-</ul></li>
-<li><p>Ansicon</p>
-
-<p>ANSICON provides ANSI escape sequence recognition for Windows console programs (both 32- (x86) and 64-bit (x64)). </p>
-
-<ul>
-<li>Version 1.6.6</li>
-<li>Homepage: <a href="">http://adoxa.altervista.org/ansicon/</a> </li>
-<li>Source code: <a href="">https://github.com/adoxa/ansicon/</a></li>
-<li>License: <a href="">https://github.com/adoxa/ansicon/blob/master/LICENSE.txt</a> </li>
-</ul></li>
-<li><p>PuTTY / PLink</p>
-
-<p>PuTTY is a Windows SSH / Telnet client. Plink is a command-line interface to the PuTTY back end.</p>
-
-<ul>
-<li>Version 0.67</li>
-<li>Homepage: <a href="">http://www.chiark.greenend.org.uk/~sgtatham/putty/</a> </li>
-<li>Source code: <a href="">https://the.earth.li/~sgtatham/putty/latest/putty-0.67.tar.gz</a></li>
-<li>License: <a href="MIT">http://www.chiark.greenend.org.uk/~sgtatham/putty/licence.html</a> </li>
-</ul></li>
-</ul>
-
-<h3 id="toc_4">Closed Source Dependencies</h3>
-
-<ul>
-<li><p>NirCmd</p>
-
-<p>NirCmd is a small Windows command-line utility that allows you to do some useful tasks without displaying any user interface.</p>
-
-<ul>
-<li>Version 2.8.1</li>
-<li>Homepage: <a href="">http://www.nirsoft.net/utils/nircmd.html</a> </li>
-<li>License: Distributable Freeware.</li>
-</ul></li>
-<li><p>Rebex .Net </p>
-
-<p>The QEMU telnet and ssh components use the closed source Rebex .Net Telnet and SSH libraries below:</p>
-
-<ul>
-<li>Rebex File Server 2016R1.1</li>
-<li>Rebex Ssh Pack 2016R1.1</li>
-</ul>
-
-<p>Corvideon is licensed to redistribute the component DLLs with InstantWP royalty free. See <a href="http://www.rebex.net">http://www.rebex.net</a> for further information.</p></li>
-</ul>
-
-<h2 id="toc_5">Executables</h2>
-
-<ul>
-<li>The Perl based executables are built using ActiveState&#39;s PerlApp.</li>
-<li>The GUI is built using PureBasic <a href="">http://www.purebasic.com</a> </li>
-<li>The F# components are build using Xamarin Studio on macOS and Visual Studio on Windows.</li>
-</ul>
 
 
 
