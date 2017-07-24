@@ -1,3 +1,5 @@
+![](https://github.com/corvideon/InstantWP/blob/master/core/images/logo-top.png)
+
 # InstantWP
 
 InstantWP is a complete standalone, portable WordPress development environment. It turns any Windows or Mac machine into a WordPress development server. It should even run from a USB key.
