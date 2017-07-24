@@ -53,6 +53,7 @@ copy %SOURCE_DIR%\core\config\iwp-win.ini %REL_DIR%\config\
 REM doc directory
 copy %SOURCE_DIR%\core\docs\about.html %REL_DIR%\docs
 copy %SOURCE_DIR%\core\docs\documentation.html %REL_DIR%\docs\
+copy %SOURCE_DIR%\core\docs\InstantWP-User-Guide.pdf %REL_DIR%\docs\
 copy %SOURCE_DIR%\core\docs\LICENSE.txt %REL_DIR%\docs\LICENSE.txt
 xcopy /s %SOURCE_DIR%\core\docs\images  %REL_DIR%\docs\images
 
