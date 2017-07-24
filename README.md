@@ -12,31 +12,8 @@ InstantWP contains a virtual webserver wrapped in a simple user interface that s
 * InstantWP has been downloaded over a million times.
 * InstantWP is used worldwide in universities, schools and businesses for teaching, developing and working with WordPress.
 
-[About InstantWP](https://github.com/corvideon/InstantWP/blob/master/core/docs/about.md) 
+For information on what software is provided with InstantWP please see the [about page](https://github.com/corvideon/InstantWP/blob/master/core/docs/about.md). 
 
-
-### Design Principles
-
-The main design principles behind InstantWP are:
-
-1. InstantWP is portable. No software should be installed on the user's machine outside of the InstantWP folder. 
-2. InstantWP is simple. Using InstantWP should be easy for a beginner. 
-3. InstantWP is quick. It should be fast to create quick, disposable WordPress installs for testing, teaching or development.
-3. InstantWP is useful. InstantWP should be a power tool for WordPress beginners and experts, theme designers or software developers. 
-4. InstantWP is free, like WordPress :)
-
-
-For more information please visit the main InstantWP website: [http://www.instantwp.com ]() 
-
-## Usage
-
-No install of InstantWP is necessary, simply download, unzip and run.
-
- * Download the latest release.
- * Unzip the IWP folder somewhere convenient, such as your desktop.
- * On Windows start InstantWP by double-clicking on Start-InstantWP.bat
- * On macOS, start InstantWP by double-clicking on Start-InstantWP.
- * A command window will open and start the web-server. Once this is complete the GUI will open. 
 
 ## Downloads and Releases
 
