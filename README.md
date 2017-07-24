@@ -20,6 +20,15 @@ InstantWP provides a simple GUI for managing a WordPress site. All you need to d
 
 For more information, please see the [InstantWP User Guide](https://github.com/corvideon/InstantWP/blob/master/core/docs/InstantWP-User-Guide.pdf)
 
+## Requirements
+
+InstantWP should run on the most recent versions of macOS, Windows 10 and Windows 7.
+
+It is suggested that you have at least 4GB of RAM to run InstantWP but the amount of RAM that is needed can be adjusted if you wish. 
+See the configuration section in the [InstantWP User Guide](https://github.com/corvideon/InstantWP/blob/master/core/docs/InstantWP-User-Guide.pdf).
+
+InstantWP needs at least 250MG of disk space.
+
 ## Downloads and Releases
 
 See the InstantWP Releases page:
