@@ -113,16 +113,8 @@ sub start_file_sync( $self ){
         say "Starting file syncing...";
         my $SyncBinDir = $self->iwp_config->get_config_setting("FileSync", "SyncBinDir");
         my $SyncCommand = $self->iwp_config->get_config_setting("FileSync", "SyncCommand");
-        my $SyncUser = $self->iwp_config->get_config_setting("FileSync", "SyncUser");
-        my $SyncPassword = $self->iwp_config->get_config_setting("FileSync", "SyncPassword");
-        my $SyncLocalRoot = $self->iwp_env()->system_root_dir().$self->iwp_config->get_config_setting("FileSync", "SyncLocalRoot");
-        my $SyncVMRoot = $self->iwp_config->get_config_setting("FileSync", "SyncVMRoot");
-        my $SyncTimerSeconds = $self->iwp_config->get_config_setting("FileSync", "SyncTimerSeconds");
-        my $ssh_port = $self->iwp_env->get_port_number($self->iwp_config(), "SSH");
-        my $sync_params = '"'.$SyncUser.'"'.' "'.$SyncPassword.'" 127.0.0.1 '.$ssh_port.' "'.$SyncLocalRoot.'" "'.$SyncVMRoot.'" "'.$SyncTimerSeconds.'"';
-        my $batch_file_runner = $self->iwp_env->platform_dir().$SyncBinDir."NoShell.vbs ";
-        $SyncCommand = "start /b ".$batch_file_runner.$self->iwp_env->platform_dir().$SyncBinDir.$SyncCommand." ".$sync_params;
-        # root root 127.0.0.1 10022 C:\Users\paperspace\Downloads\WinSCP-5.9.2-Portable\wordpress /usr/local/www/apache24/data/wordpress/ 15
+        $SyncCommand = "start /b ".$self->iwp_env->platform_dir().$SyncBinDir.$SyncCommand;
+        print $SyncCommand;
         system($SyncCommand);
     }
 }

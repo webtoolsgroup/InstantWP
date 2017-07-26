@@ -78,20 +78,31 @@
   (do-iwpcli-action IWPCLI_QUIT))
 
 (define (do-start-ssh)
-  (do-action-in-terminal (path->string (get-ssh-script-path))))
+  (cond
+    [(is-windows?)
+     ;; yes, windows makes everything difficult again...
+     (run-win-script-exe (path->string (get-ssh-script-path)))]
+    [(is-macos?)  (do-action-in-terminal (path->string (get-ssh-script-path)))]))
 
 ;; this needed a custom script to avoid console box
 (define (do-start-sftp)
    (cond
-    [(is-windows?) (do-generic-shell-execute (path->string (get-sftp-script-path)))]
+    [(is-windows?)
+     ;; yes, windows makes everything difficult again...
+     (run-win-script-exe (path->string (get-sftp-script-path)))]
     [(is-macos?)  (system (path->string (get-sftp-script-path)))]))
 
 (define (do-start-qemu-monitor)
-  (do-action-in-terminal (path->string (get-qemu-script-path))))
+  (cond
+    [(is-windows?)
+     ;; yes, windows makes everything difficult again...
+     (run-win-script-exe (path->string (get-qemu-script-path)))]
+    [(is-macos?)  (do-action-in-terminal (path->string (get-qemu-script-path)))]))
+
 
 (define (do-start-edit-config)
   (void  (cond
-           [(is-windows?) (do-action-in-terminal (path->string (get-edit-config-script-path)))]
+           [(is-windows?) (run-win-script-exe (path->string (get-edit-config-script-path)))]
            [(is-macos?)   (do-generic-action (path->string (get-edit-config-script-path)))])))
 
 (define (do-filemanager-action)
@@ -112,6 +123,15 @@
   (cond
     [(is-windows?) (do-shell-execute-for-iwpcli command)]
     [(is-macos?)  (system (iwpcli-command-string command))]))
+
+;; don't ask! this stops stoopid windows security popups
+(define (run-win-script-exe command)
+  (define SCRIPT_ROOT (string-append (path->string (iwp-platform-dir-path)) (get-config-setting "scriptRootDir")))
+  (shell-execute #f
+                 command
+                 ""
+                 SCRIPT_ROOT
+                 'SW_SHOWNORMAL ))
 
 ;; generic action func
 (define (do-generic-action action-string)
@@ -135,6 +155,7 @@
                        ""
                        (path->string (iwpcli-bin-dir))
                        'SW_HIDE)))
+
 
 ;; open a terminal and do an action
 (define (do-action-in-terminal action-string)
@@ -190,4 +211,3 @@
 
 (define (web-server-warning-file-exists?)
   (file-exists? (web-server-warning-file-path)))
-
