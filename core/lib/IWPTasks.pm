@@ -114,7 +114,7 @@ sub start_file_sync( $self ){
         my $SyncBinDir = $self->iwp_config->get_config_setting("FileSync", "SyncBinDir");
         my $SyncCommand = $self->iwp_config->get_config_setting("FileSync", "SyncCommand");
         $SyncCommand = "start /b ".$self->iwp_env->platform_dir().$SyncBinDir.$SyncCommand;
-        print $SyncCommand;
+        # print $SyncCommand;
         system($SyncCommand);
     }
 }
@@ -127,10 +127,12 @@ sub quit_file_sync( $self ){
         $SyncBinDir= $self->iwp_env->platform_dir().$SyncBinDir;
         my $SyncPIDFile = $self->iwp_config->get_config_setting("FileSync", "SyncPIDFile");
         $SyncPIDFile = $SyncBinDir.$SyncPIDFile;
+        # say $SyncPIDFile;
         open my $file, '<', $SyncPIDFile; 
         my $pid = <$file>; 
         close $file;
-        kill $pid;
+        # say $pid;
+        kill -9, $pid;
     }
 }
 

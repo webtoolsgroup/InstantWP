@@ -3,7 +3,7 @@
 ;; (c) Corvideon 2017
 
 ;; Current directory
-CurrDir.s = GetCurrentDirectory()
+CurrDir.s = GetPathPart(ProgramFilename())
 
 ;; ini file
 iniFile.s = CurrDir.s + "\sync.ini"
@@ -22,7 +22,7 @@ SyncTimerMilliseconds.s = ReadPreferenceString("SyncTimerMilliseconds", "")
 ClosePreferences()
 
 ;; create a new PID file
-PidFile.s = SyncPIDFile
+PidFile.s = CurrDir.s + "\" + SyncPIDFile
 DeleteFile(PidFile.s)
 PID.l = GetCurrentProcessId_()
 If OpenFile(0, PidFile.s)    
@@ -54,7 +54,7 @@ ForEver
 
 ; IDE Options = PureBasic 5.50 (Windows - x86)
 ; ExecutableFormat = Console
-; CursorPosition = 23
+; CursorPosition = 24
 ; FirstLine = 5
 ; EnableXP
 ; Executable = InstantWP-Sync.exe
