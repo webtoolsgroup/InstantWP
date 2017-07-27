@@ -132,7 +132,7 @@
 ;; --------------------------------------
 
 ;; total number of screens for wizard
-(define readme-limit 2)
+(define readme-limit 5)
 
 ;; current screen
 (define readme-counter 1)
