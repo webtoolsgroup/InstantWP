@@ -29,7 +29,7 @@
 ;; set the root window hash values
 (hash-set! iwp-window-hash "label" "Welcome to InstantWP!")
 (hash-set! iwp-window-hash "width" MAIN_GUI_WIDTH)
-(hash-set! iwp-window-hash "height" 200)
+(hash-set! iwp-window-hash "height" 500)
 
 ;; custom frame with exit - main window
 (define root-window (new (class frame% (super-new)
@@ -48,6 +48,9 @@
 (define main-panel (new panel% (parent root-window)))
 (define title-panel (new horizontal-pane% (parent root-window) [alignment '(left top)]))
 (define readme-panel (new horizontal-pane% (parent root-window) [alignment '(left top)]))
+
+;; this panel holds the prev/next buttons at the bottom of dialog
+(define prev-next-buttons-panel (new horizontal-pane% (parent root-window) [alignment '(right bottom)] [stretchable-height #f]))
 
 ;; this panel holds the buttons at the bottom of dialog
 (define base-buttons-panel (new horizontal-pane% (parent root-window) [alignment '(right bottom)] [stretchable-height #f]))
@@ -128,9 +131,56 @@
 ;;setup controls
 ;; --------------------------------------
 
+;; total number of screens for wizard
+(define readme-limit 2)
+
+;; current screen
+(define readme-counter 1)
+
+(define (next-readme-counter)
+  (cond
+    [(= readme-limit readme-counter) (enable-close-buttons) ]
+    [else (inc-readme-counter)]))
+
+(define (prev-readme-counter)
+  (cond
+    [(= readme-counter 1) (void) ]
+    [else (dec-readme-counter)]))
+
+(define (dec-readme-counter)
+  (set! readme-counter (sub1 readme-counter)))
+
+(define (inc-readme-counter)
+  (set! readme-counter (add1 readme-counter))
+    (cond
+    [(= readme-limit readme-counter) (enable-close-buttons) ]))
+
+(define (enable-close-buttons)
+  (send close-button enable #t)
+  (send close-dont-show-button enable #t))
+
+(define (get-readme-bitmap)
+  (read-bitmap  (build-path (iwp-images-dir-path) (string-append "readme" (number->string readme-counter) ".png"))))
+
 (define readme-message
   (create-new-label (readme-bitmap)  MAIN_LBL_WIDTH 10 title-panel))
 
+(define (next-action)
+  (next-readme-counter)
+  (send readme-message set-label (get-readme-bitmap)))
+
+(define (prev-action)
+  (prev-readme-counter)
+  (send readme-message set-label (get-readme-bitmap)))
+
+(define prev-button
+  (create-new-button prev-next-buttons-panel (about-bitmap) "Prev"
+                     100 30
+                     prev-action))
+(define next-button
+  (create-new-button prev-next-buttons-panel (about-bitmap) "Next"
+                     100 30
+                     next-action))
 
 (define close-button
   (create-new-button base-buttons-panel (about-bitmap) "Close"
@@ -141,3 +191,7 @@
   (create-new-button base-buttons-panel (quit-bitmap) "Close and Don't Show Again"
                      100 30
                      close-dont-show-action))
+
+;; turn off close buttons
+(send close-button enable #f)
+(send close-dont-show-button enable #f)
