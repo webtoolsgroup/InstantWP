@@ -11,6 +11,8 @@ iniFile.s = CurrDir.s + "\sync.ini"
 ;; Params
 OpenPreferences(iniFile)
 PreferenceGroup("FileSync")
+UseSync.s = ReadPreferenceString("UseSync", "")
+SyncScript.s = ReadPreferenceString("SyncScript", "")
 SyncUser.s = ReadPreferenceString("SyncUser", "")
 SyncPassword.s = ReadPreferenceString("SyncPassword", "")
 SyncPort.s = ReadPreferenceString("SyncPort", "")
@@ -19,7 +21,14 @@ SyncLocalRoot.s = ReadPreferenceString("SyncLocalRoot", "")
 SyncVMRoot.s = ReadPreferenceString("SyncVMRoot", "")
 SyncPIDFile.s = ReadPreferenceString("SyncPIDFile", "")
 SyncTimerMilliseconds.s = ReadPreferenceString("SyncTimerMilliseconds", "")
+UseSyncLoop.s = ReadPreferenceString("UseSyncLoop", "")
 ClosePreferences()
+
+
+;; stop execution if no syncing
+If UseSync.s="no"
+  End
+EndIf
 
 ;; create a new PID file
 PidFile.s = CurrDir.s + "\" + SyncPIDFile
@@ -43,18 +52,26 @@ SetCurrentDirectory(CurrDir.s)
 
 ;; WinSCP path
 winSCP.s = CurrDir.s + "\winSCP.com"
+;; script path
+scriptPath.s = CurrDir.s + SyncScript
 ;; run WinSCP
-winscpParams.s = "/script=scp.script /parameter " + SyncUser.s + " " + SyncPassword.s  + " " + SyncHost.s  + " " + SyncPort.s  + " " + FullSyncLocalRoot.s  + " " + SyncVMRoot.s 
+winscpParams.s = "/script=" + scriptPath.s + " /parameter " + SyncUser.s + " " + SyncPassword.s  + " " + SyncHost.s  + " " + SyncPort.s  + " " + FullSyncLocalRoot.s  + " " + SyncVMRoot.s + " /log=InstantWP-sync.log" 
+
+;; don't use loop, just kickoff sync and exit
+If(UseSyncLoop="no")
+  runReturn.d = RunProgram(winSCP.s, winscpParams.s, "", #PB_Program_Open)
+  End ;; exit the program
+EndIf
 
 ;; Main program loop
 Repeat
-  runReturn.d = RunProgram(winSCP.s, winscpParams.s, "", #PB_Program_Open | #PB_Program_Hide)
+  runReturn.d = RunProgram(winSCP.s, winscpParams.s, "", #PB_Program_Open)
   Delay(ValD(SyncTimerMilliseconds.s))
 ForEver
 
 ; IDE Options = PureBasic 5.50 (Windows - x86)
 ; ExecutableFormat = Console
-; CursorPosition = 24
-; FirstLine = 5
+; CursorPosition = 64
+; FirstLine = 38
 ; EnableXP
-; Executable = InstantWP-Sync.exe
+; Executable = ..\platform\win\sync\InstantWP-Sync.exe

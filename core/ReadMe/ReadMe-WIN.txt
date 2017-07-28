@@ -3,7 +3,7 @@
 InstantWP ReadMe
 ------------------
 
-Version 5.0.0-rc6
+Version 5.1.0-rc6
 
 Please see the docs/documentation.html for the main InstantWP documentation.
 
@@ -35,7 +35,7 @@ InstantWP is provided free of charge.
 
 InstantWP may be installed and used on any number of systems.
 
-THIS SOFTWARE IS PROVIDED AS IS BY CORVIDEON LTD AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+THIS SOFTWARE IS PROVIDED AS IS BY CORVIDEON LTD AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
 
 All trademarks and images are copyright of their respective owners.
 

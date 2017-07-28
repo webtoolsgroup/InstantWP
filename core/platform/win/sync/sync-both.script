@@ -10,7 +10,7 @@ option transfer binary
 # open up the sftp connection to the vm
 open sftp://%1%:%2%@%3%:%4%/ -hostkey=*
  
-# Publish local theme up to server, while deleting obsolete files from server.
+# Both ways
 synchronize both %5%/wp-content/ %6%/wp-content/
 
 # reset the permissions 

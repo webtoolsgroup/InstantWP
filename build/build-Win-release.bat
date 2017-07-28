@@ -42,8 +42,7 @@ copy %SOURCE_DIR%\core\ReadMe\ReadMe-WIN.txt %REL_DIR%\
 
 REM bin directory
 copy %SOURCE_DIR%\core\bin\run-iwpcli.bat %REL_DIR%\bin\
-copy %SOURCE_DIR%\core\bin\startIWP.bat %REL_DIR%\bin\
-copy %SOURCE_DIR%\core\bin\start-iwp-win.exe %REL_DIR%\bin\
+copy %SOURCE_DIR%\core\bin\Start-InstantWP-Win.exe %REL_DIR%\bin\
 copy %SOURCE_DIR%\core\bin\iwp.exe %REL_DIR%\bin\
 xcopy /s /e %SOURCE_DIR%\core\bin\lib %REL_DIR%\bin\lib
 
