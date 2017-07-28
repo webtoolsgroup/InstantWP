@@ -71,7 +71,7 @@
 (define LBL_ENABLED
   (cond
     [(is-windows-constant?) #t]
-    [(is-macos-constant?)  #t]))
+    [(is-macos-constant?)  #f]))
 (define LEFT_PADDING
   (cond
     [(is-windows-constant?) "    "]
