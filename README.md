@@ -27,7 +27,7 @@ InstantWP should run on the most recent versions of macOS, Windows 10 and Window
 It is suggested that you have at least 4GB of RAM to run InstantWP but the amount of RAM that is needed can be adjusted if you wish. 
 See the configuration section in the [InstantWP User Guide](https://github.com/corvideon/InstantWP/blob/master/core/docs/InstantWP-User-Guide.pdf).
 
-InstantWP needs at least 250MG of disk space.
+InstantWP needs at least 300MG of disk space.
 
 ## Downloads and Releases
 
