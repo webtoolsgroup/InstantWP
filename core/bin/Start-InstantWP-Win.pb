@@ -16,4 +16,4 @@ RunProgram(runiwp.s, "start", "", #PB_Program_Open | #PB_Program_Hide)
 ; CursorPosition = 12
 ; EnableXP
 ; UseIcon = ..\images\IWP.ico
-; Executable = Start-InstantWP-Win.exe
+; Executable = C:\Users\paperspace\Dumpster\test-5.1.0-rc62\bin\Start-InstantWP-Win.exe
