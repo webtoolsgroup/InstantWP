@@ -521,8 +521,11 @@ sub vm_command_string( $self ){
     my $ssh_port = $self->iwp_env->get_port_number($self->iwp_config(), "SSH");
     my $http_port = $self->iwp_env->get_port_number($self->iwp_config(), "HTTP");
     my $monitor_port = $self->iwp_env->get_port_number($self->iwp_config(), "Monitor");
-    
-    
+    my $ftp1_port = $self->iwp_env->get_port_number($self->iwp_config(), "FTP1");
+    my $ftp2_port = $self->iwp_env->get_port_number($self->iwp_config(), "FTP2");
+    my $ftp3_port = $self->iwp_config->get_config_setting("vmports", "FTP3");
+    my $ftp4_port = $self->iwp_config->get_config_setting("vmports", "FTP4");
+
     # should we show any QEMU gui?
     my $ShowQEMUWindow = $self->iwp_config->get_config_setting("qemu", "ShowQEMUWindow");
     if($ShowQEMUWindow eq "no"){
@@ -544,7 +547,10 @@ sub vm_command_string( $self ){
                         " -net nic ".
                         " -net user,hostfwd=tcp::$ssh_port-:22 ".
                         " -redir tcp:".$http_port."::80 ". 
-                        " -redir tcp:10139::139 ". 
+                        " -redir tcp:".$ftp1_port."::20 ".
+                        " -redir tcp:".$ftp2_port."::21 ".
+                        " -redir tcp:".$ftp3_port."::5554 ".
+                        " -redir tcp:".$ftp4_port."::5555 ".                        
                         " -monitor telnet:127.0.0.1:$monitor_port,server,nowait ".
                         " -name IWPServer-$ssh_port";
             
