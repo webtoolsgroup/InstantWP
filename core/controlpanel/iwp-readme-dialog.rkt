@@ -132,7 +132,7 @@
 ;; --------------------------------------
 
 ;; total number of screens for wizard
-(define readme-limit 6)
+(define readme-limit (string->number (get-config-setting "readMeLimit")))
 
 ;; current screen
 (define readme-counter 1)
@@ -167,10 +167,13 @@
 
 (define (next-action)
   (next-readme-counter)
+   (cond
+    [(= readme-limit readme-counter) (send next-button enable #f) ])
   (send readme-message set-label (get-readme-bitmap)))
 
 (define (prev-action)
   (prev-readme-counter)
+  (send next-button enable #t)
   (send readme-message set-label (get-readme-bitmap)))
 
 (define prev-button
