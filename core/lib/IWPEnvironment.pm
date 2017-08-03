@@ -61,13 +61,6 @@ sub docs_dir( $self ){
     return $self->system_root_dir() ."/docs/";
 }
 
-sub htdocs_dir( $self, $config ){
-    return $self->system_root_dir().$config->get_config_setting("shortcuts", "HTDocsRoot");
-}
-
-sub webdav_root_dir( $self, $config ){
-    return $config->get_config_setting("webdav", "WebDavRoot");
-}
 
 sub config_file_path( $self ){
     if($self->is_osx()){

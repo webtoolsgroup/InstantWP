@@ -1,4 +1,4 @@
-﻿
+﻿Import "-stdlib=libc++ -mmacosx-version-min=10.7" : EndImport
 
 ;; Instant WordPress Commandline Interface
 ;; (c) Corvideon Ltd 2016
@@ -31,12 +31,6 @@ If Command$ = ""
   PrintN("              Open up an SSH session on the IWP Linux VM")
   PrintN("iwpcli monitor")                                          
   PrintN("              Open up the QEMU VM Monitor shell")         
-  PrintN("iwpcli restart_apache")                                   
-  PrintN("              Restart the Apche web server and MySQL")    
-  PrintN("iwpcli mount_webdav")                                   
-  PrintN("              Mount the IWPServer WebDav Volume")   
-  PrintN("iwpcli unmount_webdav")                                   
-  PrintN("              Unmount the IWPServer WebDav Volume")    
   End
 EndIf  
 IWPRoot$ = GetCurrentDirectory()
@@ -57,11 +51,9 @@ If OpenConsole()
 EndIf
 CloseConsole()
 End
-; IDE Options = PureBasic 5.50 (Windows - x86)
+; IDE Options = PureBasic 5.50 (MacOS X - x64)
 ; ExecutableFormat = Console
-; CursorPosition = 50
-; FirstLine = 27
 ; EnableXP
-; Executable = iwpcli.exe
+; Executable = iwpcli
 ; DisableDebugger
 ; EnableUnicode

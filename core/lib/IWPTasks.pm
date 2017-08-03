@@ -24,9 +24,6 @@ use feature qw(signatures say);
 no warnings qw(experimental::signatures);
 
 use constant LOCALHOST => "127.0.0.1";
-use constant RESTART_MYSQL => "sudo service mysql-server restart";
-use constant RESTART_APACHE=> "sudo service apache24 restart";
-use constant RESTART_APACHE=> "sudo service apache24 restart";
 use constant POWEROFF => "system_powerdown";
 use constant REBOOT => "system_reset";
 use constant QUIT => "quit";
@@ -80,26 +77,6 @@ sub start( $self ){
     # wait for the webserver to load and then hide VM window
     $self->wait_on_vm();
     
-    # start the file sync
-    $self->start_file_sync();
-    
-    # should we mount the WebDav folder?
-    my $mount_webdav = $self->iwp_config->get_config_setting("startup", "MountWebDAV");
-    if($mount_webdav eq "yes"){
-        $self->mount_webdav();
-    }
-  
-    # should we restart apache?
-    my $restart_apache = $self->iwp_config->get_config_setting("startup", "RestartApacheOnStartup");
-    if($restart_apache eq "yes"){
-        $self->restart_apache();
-    }
-
-    # should we restart mysql?
-    my $restart_mysql = $self->iwp_config->get_config_setting("startup", "RestartMySQLOnStartup");
-    if($restart_mysql eq "yes"){
-        $self->restart_mysql();
-    }
 
     # status message
     $self->status_message();
@@ -107,34 +84,6 @@ sub start( $self ){
     exit 0;
 }
 
-sub start_file_sync( $self ){
-    if($self->iwp_env()->is_windows()){
-        # sync params
-        say "Starting file syncing...";
-        my $SyncBinDir = $self->iwp_config->get_config_setting("FileSync", "SyncBinDir");
-        my $SyncCommand = $self->iwp_config->get_config_setting("FileSync", "SyncCommand");
-        $SyncCommand = "start /b ".$self->iwp_env->platform_dir().$SyncBinDir.$SyncCommand;
-        # print $SyncCommand;
-        system($SyncCommand);
-    }
-}
-
-sub quit_file_sync( $self ){
-    if($self->iwp_env()->is_windows()){
-        say "Shutting down file syncing...";
-        # sync params
-        my $SyncBinDir = $self->iwp_config->get_config_setting("FileSync", "SyncBinDir");
-        $SyncBinDir= $self->iwp_env->platform_dir().$SyncBinDir;
-        my $SyncPIDFile = $self->iwp_config->get_config_setting("FileSync", "SyncPIDFile");
-        $SyncPIDFile = $SyncBinDir.$SyncPIDFile;
-        # say $SyncPIDFile;
-        open my $file, '<', $SyncPIDFile; 
-        my $pid = <$file>; 
-        close $file;
-        # say $pid;
-        kill -9, $pid;
-    }
-}
 
 sub wait_on_vm( $self ){
     my $wait_on_vm = $self->iwp_config->get_config_setting("startup", "WaitOnVMStart");
@@ -207,13 +156,6 @@ sub quit( $self ){
     # sleep
     sleep 1;
     
-    my $mount_webdav = $self->iwp_config->get_config_setting("startup", "MountWebDAV");
-    if($mount_webdav eq "yes"){
-         $self->unmount_webdav();
-    }
-    
-    # shutdown file sync
-    $self->quit_file_sync();
     
     # quit the vm
     say "Qutting the InstantWP Server VM...";
@@ -252,39 +194,16 @@ sub about( $self ){
 
 sub plugins( $self ){
     say "Opening InstantWP plugins folder...";
-    # windows
-    if($self->iwp_env()->is_windows()){
-        my $htdocs_dir = $self->iwp_env->htdocs_dir($self->iwp_config);
-        my $plugins_dir = $self->iwp_config->get_config_setting("shortcuts", "PluginsDir");
-        say $htdocs_dir.$plugins_dir;
-        $self->open_me($htdocs_dir.$plugins_dir );
-        exit 0;
-    } else {
-        # osx
-        my $htdocs_dir = $self->iwp_env->webdav_root_dir($self->iwp_config);
-        my $plugins_dir = $self->iwp_config->get_config_setting("shortcuts", "PluginsDir");
-        say $htdocs_dir.$plugins_dir;
-        $self->open_me($htdocs_dir.$plugins_dir );
-        exit 0;
-    }
+    my $plugins_dir = $self->iwp_config->get_config_setting("shortcuts", "PluginsUrl");
+    $self->open_me($plugins_dir );
+    exit 0;
 }
 
 sub themes( $self ){
     say "Opening InstantWP theme folder...";
-    # windows
-    if($self->iwp_env()->is_windows()){
-        my $htdocs_dir = $self->iwp_env->htdocs_dir($self->iwp_config);
-        my $plugins_dir = $self->iwp_config->get_config_setting("shortcuts", "ThemesDir");
-        say $htdocs_dir.$plugins_dir;
-        $self->open_me($htdocs_dir.$plugins_dir );
-        exit 0;
-    } else {
-        # osx
-        my $htdocs_dir = $self->iwp_env->webdav_root_dir($self->iwp_config);
-        my $themes_dir = $self->iwp_config->get_config_setting("shortcuts", "ThemesDir");
-        $self->open_me( $htdocs_dir.$themes_dir );
-        exit 0;
-    }
+    my $themes_url = $self->iwp_config->get_config_setting("shortcuts", "ThemesUrl");
+    $self->open_me($themes_url);
+    exit 0;
 }
 
 sub mysql( $self ){
@@ -400,48 +319,7 @@ sub poweroff_vm( $self ){
     $self->run_qemu_command( $TelnetBinary, $monitor_port, $monitor_command );
 }
 
-sub restart_apache_mysql( $self ){
-    $self->restart_apache();
-    $self->restart_mysql();
-}
 
-sub restart_apache( $self ){
-    say "Restarting InstantWP Apache...";
-    my $IWPSSHCommand = $self->iwp_config->get_config_setting("components", "IWPSSHCommandPath");
-    $IWPSSHCommand= $self->iwp_env->platform_dir().$IWPSSHCommand;
-    my $IWPHostServPort = $self->iwp_env->get_port_number($self->iwp_config(), "IWPHostServPort");
-    my $ssh_port = $self->iwp_env->get_port_number($self->iwp_config(), "SSH");
-    my $ssh_user = $self->iwp_config->get_config_setting("IWPHostServ", "IWPHostServUser");
-    my $ssh_pass = $self->iwp_config->get_config_setting("IWPHostServ", "IWPHostServPassword");
-    my $restart_apache_command = "sudo rc-service apache2 restart";
-    if($self->iwp_env->is_osx()){
-        # osx
-        system("$IWPSSHCommand $ssh_port $ssh_user $ssh_pass '$restart_apache_command'");
-    } else {
-        # to be done, start on windows
-        
-    }
-    say("Apache web server restarted.");
-}
-
-sub restart_mysql( $self ){
-    say "Restarting InstantWP MySQL...";
-    my $IWPSSHCommand = $self->iwp_config->get_config_setting("components", "IWPSSHCommandPath");
-    $IWPSSHCommand= $self->iwp_env->platform_dir().$IWPSSHCommand;
-    my $IWPHostServPort = $self->iwp_env->get_port_number($self->iwp_config(), "IWPHostServPort");
-    my $ssh_port = $self->iwp_env->get_port_number($self->iwp_config(), "SSH");
-    my $ssh_user = $self->iwp_config->get_config_setting("IWPHostServ", "IWPHostServUser");
-    my $ssh_pass = $self->iwp_config->get_config_setting("IWPHostServ", "IWPHostServPassword");
-    my $restart_mysql_command = "sudo rc-service mariadb restart";
-    if($self->iwp_env->is_osx()){
-        # osx
-        system("$IWPSSHCommand $ssh_port $ssh_user $ssh_pass '$restart_mysql_command'");
-    } else {
-        # to be done, start on windows
-        
-    }
-    say("MySQL server restarted.");
-}
 
 sub cleanup( $self ) {
     say "Clean up any processes left behind...";
@@ -521,10 +399,10 @@ sub vm_command_string( $self ){
     my $ssh_port = $self->iwp_env->get_port_number($self->iwp_config(), "SSH");
     my $http_port = $self->iwp_env->get_port_number($self->iwp_config(), "HTTP");
     my $monitor_port = $self->iwp_env->get_port_number($self->iwp_config(), "Monitor");
-    my $ftp1_port = $self->iwp_env->get_port_number($self->iwp_config(), "FTP1");
-    my $ftp2_port = $self->iwp_env->get_port_number($self->iwp_config(), "FTP2");
-    my $ftp3_port = $self->iwp_config->get_config_setting("vmports", "FTP3");
-    my $ftp4_port = $self->iwp_config->get_config_setting("vmports", "FTP4");
+    my $spare1_port = $self->iwp_env->get_port_number($self->iwp_config(), "SparePort1");
+    my $spare2_port = $self->iwp_env->get_port_number($self->iwp_config(), "SparePort2");
+    my $spare3_port = $self->iwp_config->get_config_setting("vmports", "SparePort3");
+    my $spare4_port = $self->iwp_config->get_config_setting("vmports", "SparePort14");
 
     # should we show any QEMU gui?
     my $ShowQEMUWindow = $self->iwp_config->get_config_setting("qemu", "ShowQEMUWindow");
@@ -547,10 +425,10 @@ sub vm_command_string( $self ){
                         " -net nic ".
                         " -net user,hostfwd=tcp::$ssh_port-:22 ".
                         " -redir tcp:".$http_port."::80 ". 
-                        " -redir tcp:".$ftp1_port."::20 ".
-                        " -redir tcp:".$ftp2_port."::21 ".
-                        " -redir tcp:".$ftp3_port."::5554 ".
-                        " -redir tcp:".$ftp4_port."::5555 ".                        
+                        " -redir tcp:".$spare1_port."::5001 ".
+                        " -redir tcp:".$spare2_port."::5002 ".
+                        " -redir tcp:".$spare3_port."::5003 ".
+                        " -redir tcp:".$spare4_port."::5004 ".                        
                         " -monitor telnet:127.0.0.1:$monitor_port,server,nowait ".
                         " -name IWPServer-$ssh_port";
             
@@ -562,18 +440,6 @@ sub vm_command_string( $self ){
     return $returnString;
 }
 
-sub mount_webdav( $self ){    
-    my $webdav_script = $self->iwp_config->get_config_setting("webdav", "MountWebDevScript");
-    $webdav_script = $self->iwp_env->platform_dir().$webdav_script;
-    system( $webdav_script );
-}
-
-sub unmount_webdav( $self ) {
-    say "Shutting down the IWPServer WebDav Server..";
-    my $webdav_script = $self->iwp_config->get_config_setting("webdav", "UnmountWebDevScript");
-    $webdav_script = $self->iwp_env->platform_dir().$webdav_script;
-    system( $webdav_script );
-}
 
 sub load_vm_snaphot_command_string( $self ){
     # The command to load a particular VM snapshot via telnet into the QEMU monitor
