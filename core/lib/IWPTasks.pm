@@ -195,14 +195,16 @@ sub about( $self ){
 sub plugins( $self ){
     say "Opening InstantWP plugins folder...";
     my $plugins_dir = $self->iwp_config->get_config_setting("shortcuts", "PluginsUrl");
-    $self->open_me($plugins_dir );
+    my $http_port = $self->iwp_env->get_port_number($self->iwp_config(), "HTTP");
+    $self->open_me("http://".LOCALHOST.":".$http_port."/".$plugins_dir);
     exit 0;
 }
 
 sub themes( $self ){
     say "Opening InstantWP theme folder...";
     my $themes_url = $self->iwp_config->get_config_setting("shortcuts", "ThemesUrl");
-    $self->open_me($themes_url);
+    my $http_port = $self->iwp_env->get_port_number($self->iwp_config(), "HTTP");
+    $self->open_me("http://".LOCALHOST.":".$http_port."/".$themes_url);
     exit 0;
 }
 

@@ -19,6 +19,10 @@ The current version of InstantWP contains the following software:
  * PHPMyAdmin Version 4.6.5.2
  * PHP Composer and WP-CLI also installed
 
+For other dependencies, please see the InstantWP wiki:
+
+[https://github.com/corvideon/InstantWP/wiki/Dependencies ] ()
+
 ## License
 
 InstantWP is released under the GPL v3. See the included LICENSE file.
