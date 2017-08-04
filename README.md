@@ -43,7 +43,7 @@ You should also look at the FAQ, which is in the [InstantWP Wiki](https://github
 
 The InstantWP Wiki also contains a list of the dependencies and software used in InstantWP:
 
-[https://github.com/corvideon/InstantWP/wiki/Dependencies ]()
+[https://github.com/corvideon/InstantWP/wiki/Dependencies ](https://github.com/corvideon/InstantWP/wiki/Dependencies)
 
 You can also watch the presentation from [WordCamp Belfast 2016 about InstantWP](https://wordpress.tv/2016/11/01/seamus-brady-the-challenges-of-creating-a-cross-platform-wordpress-development-environment/).
 
