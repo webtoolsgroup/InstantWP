@@ -37,11 +37,7 @@ sub initialise_opts( $self ){
     my $ssh = 0;            # Open an SSH session
     my $monitor = 0;        # Open the QEMU monitor
     my $status = 0;         # Check if IWP is running
-    my $restart_apache = 0; # Restart Apache and MySQL services
-    my $mount_webdav = 0;   # Mount webdav server
-    my $unmount_webdav = 0; # Unmount webdav server
-    my $show_vm = 0;        # Show VM window
-    my $hide_vm = 0;        # Hide VM Window
+    my $webconsole = 0;     # Show webconsole
     my %iwp_args = (
         "iwproot" => $iwproot,
         "start" => $start,
@@ -55,12 +51,8 @@ sub initialise_opts( $self ){
         "wpadmin" => $wpadmin,     
         "ssh" => $ssh,      
         "monitor" => $monitor,
-        "status" => $status, 
-        "restart_apache" => $restart_apache,
-        "mount_webdav" => $mount_webdav,
-        "unmount_webdav" => $unmount_webdav,
-        "show_vm" => $show_vm,
-        "hide_vm" => $hide_vm, 
+        "status" => $status,
+        "webconsole" => $webconsole
     );
     GetOptions(\%iwp_args,
                 'iwproot=s',
@@ -76,11 +68,7 @@ sub initialise_opts( $self ){
                 'ssh',     
                 'monitor',
                 'status',
-                'restart_apache',
-                'mount_webdav',
-                'unmount_webdav',
-                'show_vm',
-                'hide_vm', 
+                'webconsole'
                );
     $self->args(\%iwp_args);
 }

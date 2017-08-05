@@ -27,8 +27,8 @@
  do-start-sftp
  ;; start qemu monitor
  do-start-qemu-monitor
- ;; start web filemanager
- do-filemanager-action
+ ;; start web console
+ do-webconsole-action
  ;; start php info page
  do-phpinfo-action
  ;; start edit config
@@ -74,6 +74,9 @@
 (define (do-about-action)
   (do-iwpcli-action IWPCLI_ABOUT))
 
+(define (do-webconsole-action)
+  (do-iwpcli-action IWPCLI_WEBCONSOLE))
+
 (define (do-quit-action)
   (do-iwpcli-action IWPCLI_QUIT))
 
@@ -104,9 +107,6 @@
   (void  (cond
            [(is-windows?) (run-win-script-exe (path->string (get-edit-config-script-path)))]
            [(is-macos?)   (do-generic-action (path->string (get-edit-config-script-path)))])))
-
-(define (do-filemanager-action)
-  (do-open-url (get-filemanager-url)))
 
 (define (do-phpinfo-action)
   (do-open-url (get-phpinfo-url)))

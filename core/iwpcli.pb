@@ -30,7 +30,9 @@ If Command$ = ""
   PrintN("iwpcli ssh")                                              
   PrintN("              Open up an SSH session on the IWP Linux VM")
   PrintN("iwpcli monitor")                                          
-  PrintN("              Open up the QEMU VM Monitor shell")         
+  PrintN("              Open up the QEMU VM Monitor shell")    
+  PrintN("iwpcli webconsole")                                          
+  PrintN("              Open up the Instant Web Console")  
   End
 EndIf  
 IWPRoot$ = GetCurrentDirectory()
@@ -53,6 +55,8 @@ CloseConsole()
 End
 ; IDE Options = PureBasic 5.50 (MacOS X - x64)
 ; ExecutableFormat = Console
+; CursorPosition = 34
+; FirstLine = 9
 ; EnableXP
 ; Executable = iwpcli
 ; DisableDebugger

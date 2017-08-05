@@ -116,6 +116,7 @@
 (define IWPCLI_ABOUT "about")
 (define IWPCLI_SSH "ssh")
 (define IWPCLI_MONITOR "monitor")
+(define IWPCLI_WEBCONSOLE "webconsole")
 (define PORTOFFSET "PortOffset")
 (define HTTP "HTTP")
 (define LOCALHOST "127.0.0.1")
@@ -129,11 +130,12 @@
 (define OPEN_URL "openURL")
 (define HIDE_README "HideReadMeFile")
 (define WEBSERVER_WARN "WebServerWarnMessage")
-(define WEB_SERVER_MSG "As this is the first time the web server has been accessed, it may take a few moments to initialise fully. Subsequent page loading will be significantly quicker.")
 
 ;; ---------------------------------------
 ;; Help label constants
 ;; ---------------------------------------
+
+(define WEB_SERVER_MSG "As this is the first time the web server has been accessed, it may take a few moments to initialise fully. Subsequent page loading will be significantly quicker.")
 
 (define WPFRONTPAGE_INFO 
   (cond
@@ -163,7 +165,7 @@
   (cond
     [(is-windows-constant?) "This will open the InstantWP config file in your default text editor.\n"]
     [(is-macos-constant?) "This will open the InstantWP config file in your default text editor." ]))
-(define WEB_FILE_MANAGER_INFO "Opens the web based file manager.\nLogin with user 'iwp' and password 'iwp'.")
+(define WEB_CONSOLE_INFO "Opens the InstantWP Web Console.\nLogin with user 'iwp' and password 'iwp'.")
 (define PHP_INFO_INFO 
   (cond
     [(is-windows-constant?) "Information about the installed version of PHP.\n"]

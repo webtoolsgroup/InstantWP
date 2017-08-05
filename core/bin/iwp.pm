@@ -91,25 +91,10 @@ sub run( $self ){
         $iwp_tasks->status();
     };
     
-    if( $iwp_opts->args->{restart_apache} ) {
-        $iwp_tasks->restart_apache_mysql();
+    if( $iwp_opts->args->{webconsole} ) {
+        $iwp_tasks->webconsole();
     };
     
-    if( $iwp_opts->args->{mount_webdav} ) {
-        $iwp_tasks->mount_webdav();
-    };
-        
-    if( $iwp_opts->args->{unmount_webdav} ) {
-        $iwp_tasks->unmount_webdav();
-    };
-    
-    if( $iwp_opts->args->{show_vm} ) {
-        $iwp_tasks->show_vm_window();
-    };
-    
-    if( $iwp_opts->args->{hide_vm} ) {
-        $iwp_tasks->hide_vm_window();
-    };
     
     exit 0;
 }

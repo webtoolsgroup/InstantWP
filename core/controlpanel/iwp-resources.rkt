@@ -49,8 +49,8 @@
 (define (qemu-bitmap)
   (read-bitmap  (build-path (iwp-images-dir-path) "config.png")))
 
-(define (filemanager-bitmap)
-  (read-bitmap  (build-path (iwp-images-dir-path) "folder.png")))
+(define (webconsole-bitmap)
+  (read-bitmap  (build-path (iwp-images-dir-path) "settings.png")))
 
 (define (edit-config-bitmap)
   (read-bitmap  (build-path (iwp-images-dir-path) "pencil.png")))

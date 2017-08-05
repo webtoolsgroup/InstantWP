@@ -261,14 +261,14 @@
   (create-new-label QEMU_MONITOR_INFO ADV_LBL_WIDTH ADV_LBL_HEIGHT advanced-panel-h2))
 
 
-;; Web file manager button and label
-(define filemanager-button
-  (create-new-button advanced-panel-h3 (filemanager-bitmap) "Web File Manager"
+;; Web console button and label
+(define webconsole-button
+  (create-new-button advanced-panel-h3 (webconsole-bitmap) "IWP Web Console"
                      ADV_BTN_WIDTH ADV_BTN_HEIGHT
-                     do-filemanager-action))
+                     do-webconsole-action))
 
-(define filemanager-label
-  (create-new-label WEB_FILE_MANAGER_INFO ADV_LBL_WIDTH ADV_LBL_HEIGHT advanced-panel-h3))
+(define webconsole-label
+  (create-new-label WEB_CONSOLE_INFO ADV_LBL_WIDTH ADV_LBL_HEIGHT advanced-panel-h3))
 
 
 ;; Edit config button and label

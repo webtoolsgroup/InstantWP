@@ -208,6 +208,15 @@ sub themes( $self ){
     exit 0;
 }
 
+
+sub webconsole( $self ){
+    say "Opening InstantWP webconsole...";
+    my $webconsole_url = $self->iwp_config->get_config_setting("shortcuts", "WebConsoleURL");
+    my $http_port = $self->iwp_env->get_port_number($self->iwp_config(), "HTTP");
+    $self->open_me("http://".LOCALHOST.":".$http_port."/".$webconsole_url);
+    exit 0;
+}
+
 sub mysql( $self ){
     say "Opening InstantWP PHPMyAdmin...";
     my $http_port = $self->iwp_env->get_port_number($self->iwp_config(), "HTTP");
@@ -330,22 +339,6 @@ sub cleanup( $self ) {
     system( $cleanup_script );
 }
 
-# show hide vm window, not implemented for now
-sub toggle_vm_window( $self, $window_title, $class){
-    say "Toggling visibility of QEMU window is not currently supported. Please edit the config file parameter 'ShowQEMUWindow'.";
-}
-
-sub show_vm_window( $self ){
-    # ssh port used in qemu window title
-    my $ssh_port = $self->iwp_env->get_port_number($self->iwp_config(), "SSH");
-    toggle_vm_window( $self, $ssh_port, "" );
-}
-
-sub hide_vm_window( $self ){
-    # ssh port used in qemu window title
-    my $ssh_port = $self->iwp_env->get_port_number($self->iwp_config(), "SSH");
-    toggle_vm_window( $self, $ssh_port, "" );
-}
 
 # utility function to open a folder/file/url
 sub open_me( $self, $item_to_open){
@@ -403,8 +396,8 @@ sub vm_command_string( $self ){
     my $monitor_port = $self->iwp_env->get_port_number($self->iwp_config(), "Monitor");
     my $spare1_port = $self->iwp_env->get_port_number($self->iwp_config(), "SparePort1");
     my $spare2_port = $self->iwp_env->get_port_number($self->iwp_config(), "SparePort2");
-    my $spare3_port = $self->iwp_config->get_config_setting("vmports", "SparePort3");
-    my $spare4_port = $self->iwp_config->get_config_setting("vmports", "SparePort14");
+    my $spare3_port = $self->iwp_env->get_port_number($self->iwp_config(), "SparePort3");
+    my $spare4_port = $self->iwp_env->get_port_number($self->iwp_config(), "SparePort4");
 
     # should we show any QEMU gui?
     my $ShowQEMUWindow = $self->iwp_config->get_config_setting("qemu", "ShowQEMUWindow");
