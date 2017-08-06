@@ -101,8 +101,9 @@ sub run( $self ){
 
 sub version_header(){
     my $AppVersion = $iwp_config->get_config_setting("general", "AppVersion");
+    my $AppPreferredName = $iwp_config->get_config_setting("general", "AppPreferredName");
     my $AppDate = $iwp_config->get_config_setting("general", "AppDate");
-    say "This seems to be InstantWP Version $AppVersion - $AppDate";        
+    say "This seems to be InstantWP Version $AppVersion - $AppPreferredName - $AppDate";        
 }
 
 my $iwp = InstantWP->new();

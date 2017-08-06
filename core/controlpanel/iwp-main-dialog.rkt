@@ -61,8 +61,15 @@
 ;; define root window value hash
 (define iwp-window-hash (make-hash))
 
+;; get the window title - VERSION/PREFNAME
+(define window-title (string-append IWP_DIALOG_TITLE
+                                     " ("(get-config-setting "AppVersion")  " / "
+                                     (get-config-setting "AppPreferredName") " / "
+                                     (get-config-setting "AppDate") ")"))
+
 ;; set the root window hash values
-(hash-set! iwp-window-hash "label" IWP_DIALOG_TITLE)
+
+(hash-set! iwp-window-hash "label" window-title)
 (hash-set! iwp-window-hash "width" MAIN_GUI_WIDTH)
 (hash-set! iwp-window-hash "height" MAIN_GUI_HEIGHT)
 
