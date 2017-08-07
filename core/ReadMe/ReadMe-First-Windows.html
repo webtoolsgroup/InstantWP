@@ -5,7 +5,7 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>ReadMe-First-macOS</title>
+<title>ReadMe-First-Windows</title>
 
 
 <style type="text/css">
@@ -334,27 +334,27 @@ kbd {
 
 <p>Welcome to InstantWP!</p>
 
-<p>This file contains some useful information on running InstantWP on macOS.</p>
+<p>This file contains some useful information on running InstantWP on Windows.</p>
 
 <h2 id="toc_1">Starting InstantWP</h2>
 
-<p>Most of the time, you should just be able to double click on the Start-InstantWP script and InstantWP should run.</p>
+<p>Most of the time, you should just be able to double click on the Start-InstantWP.bat file and InstantWP should run.</p>
 
-<p>However, on some macOS systems there is a new security service called GateKeeper. This will stop InstantWP running as it is started by a script file (called a &#39;Unix application&#39; in the warning dialog).</p>
+<p>However, on some Windows systems there is a new security filter called SmartScreen. This will stop InstantWP running with a dialog asking if the user wishes to continue.</p>
 
-<p>In order to start InstantWP on these systems, you may need to right click on the Start-InstantWP script and click open:</p>
+<p>In order to start InstantWP on these systems, you will need to click on the &#39;More info&#39; link on the dialog:</p>
 
-<p><img src="images/Start-InstantWP-right-click.png" alt=""></p>
+<p><img src="images/Start-InstantWP-SmartScreen1.png" alt=""></p>
 
-<p>Then click on the &#39;Open&#39; button on the resulting dialog:</p>
+<p>Then click on the &#39;Run anyway&#39; button on the resulting dialog:</p>
 
-<p><img src="images/Start-InstantWP-sure-you-want-to-open.png" alt=""></p>
+<p><img src="images/Start-InstantWP-SmartScreen2.png" alt=""></p>
 
-<p>You will only need to do this once.</p>
+<p>You should only need to do this once.</p>
 
 <h2 id="toc_2">Firewall Dialogs</h2>
 
-<p>You may get a query from the macOS Firewall asking if it is OK to run the &#39;instantwp-qemu-i386&#39; application.</p>
+<p>You may get a query from the Windows Firewall asking if it is OK to run the &#39;instantwp-qemu-i386w.exe&#39; application.</p>
 
 <p>This is the InstantWP Virtual Machine starting up and should be allowed to run so that InstantWP can function correctly.</p>
 
@@ -362,27 +362,29 @@ kbd {
 
 <p>You may see other security dialogs when clicking on the buttons on the Advanced dialog. </p>
 
-<p>You can click &#39;Open&#39; on these dialogs also:</p>
+<p>You can handle these dialogs as outlined above.</p>
 
-<p><img src="images/Start-InstantWP-sure-you-want-to-open-startSSH.png" alt=""></p>
+<h2 id="toc_4">My Anti-Virus says that InstantWP is a Trojan!</h2>
 
-<p>If you get the error below, just click OK and then click the button again. The command should run OK. This should only happen once.</p>
+<p>This is a false positive. Some Anti-Virus vendors will classify any software that their system does not know as malware. This is a false positive. InstantWP contains no spyware or malware. </p>
 
-<p><img src="images/Start-InstantWP-startSSH-sandbox.png" alt=""></p>
+<p>InstantWP has been around since 2008 and is used daily by hundreds of thousands of businesses, universities and individuals. You are quite safe :)</p>
 
-<h2 id="toc_4">Why do I need to start InstantWP this way?</h2>
+<h2 id="toc_5">Why do I need to start InstantWP this way?</h2>
 
-<p>Due to recent changes in macOS, all developers need to &#39;code sign&#39; their macOS apps. This is a digital signature that provides proof that the developer is legitimate. Of course, the code in InstantWP is code signed by Seamus Brady, the founder of Corvideon Ltd, the Irish software company behind InstantWP.</p>
+<p>All developers on Windows need to &#39;code sign&#39; their Windows apps to avoid security warnings. This is a digital signature that provides proof that the developer is legitimate. Of course, the code in InstantWP is code signed by Seamus Brady, the founder of Corvideon Ltd, the Irish software company behind InstantWP.</p>
 
-<p>However, InstantWP is a portable app and needs certain file paths set up before startup. This can only be done using a script file and unfortunately these cannot be code signed. This is the reason for the &#39;right click&#39; trick to start InstantWP.</p>
+<p>However batch files cannot be code signed. InstantWP is portable and it needs a batch file to set up various file paths. This can cause these extra security dialogs.</p>
 
-<p>For more information of macOS security see <a href="">https://support.apple.com/en-us/HT202491 </a>.</p>
+<p>Also the Windows SmartScreen filter still asks the user about certain types of apps (for instance, newly released software), even if they have been code signed. </p>
 
-<h2 id="toc_5">InstantWP Documentation</h2>
+<p>For more information of Windows SmartScreen filter see <a href="">https://support.microsoft.com/en-us/help/17443/windows-internet-explorer-smartscreen-filter-faq </a>.</p>
+
+<h2 id="toc_6">InstantWP Documentation</h2>
 
 <p>Please look in the docs folder for the InstantWP User Guide.</p>
 
-<h2 id="toc_6">InstantWP Project Links</h2>
+<h2 id="toc_7">InstantWP Project Links</h2>
 
 <ul>
 <li><p>See the InstantWP for full details: <a href="http://www.instantwp.com">http://www.instantwp.com </a>.</p></li>
@@ -390,11 +392,11 @@ kbd {
 <li><p>The code for InstantWP is available at the <a href="https://github.com/corvideon/InstantWP/">InstantWP GitHub project </a>.</p></li>
 </ul>
 
-<h2 id="toc_7">License</h2>
+<h2 id="toc_8">License</h2>
 
 <p>InstantWP is released under the GPL v3. See the included LICENSE file.</p>
 
-<h2 id="toc_8"></h2>
+<h2 id="toc_9"></h2>
 
 <p>&copy; Corvideon 2017 </p>
 
