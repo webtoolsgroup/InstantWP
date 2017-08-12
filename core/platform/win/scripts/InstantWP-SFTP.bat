@@ -4,7 +4,7 @@ cd /d %~dp0
 
 cd ../../..
 
-cd platform/win/sync
+cd platform/win/sftp
 
 WinSCP.exe &
 
