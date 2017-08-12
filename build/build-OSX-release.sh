@@ -12,7 +12,7 @@ cd "${0%/*}"
 mkdir /Users/seamus/GitHub/InstantWP/build/release
 REL_ROOT=/Users/seamus/GitHub/InstantWP/build/release
 SOURCE_DIR=/Users/seamus/GitHub/InstantWP
-VM_FILE=iwpserver-2.0.1.qcow2
+VM_FILE=iwpserver-2.0.2.qcow2
 
 # set release root
 REL_DIR=$REL_ROOT/$1
@@ -36,7 +36,7 @@ echo Copying files...
 # startup files
 cp $SOURCE_DIR/core/iwpcli $REL_DIR/
 cp $SOURCE_DIR/core/Start-InstantWP $REL_DIR/
-cp $SOURCE_DIR/core/ReadMe/ReadMe-OSX.txt $REL_DIR/
+cp $SOURCE_DIR/core/ReadMe/ReadMe-First-macOS.html $REL_DIR/
 
 # bin directory
 cp $SOURCE_DIR/core/bin/iwp $REL_DIR/bin/
