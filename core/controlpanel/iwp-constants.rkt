@@ -34,7 +34,7 @@
 
 (define MAIN_GUI_WIDTH 750)
 (define MAIN_GUI_HEIGHT 500)
-(define START_QUIT_GUI_WIDTH 100)
+(define START_QUIT_GUI_WIDTH 500)
 (define START_QUIT_GUI_HEIGHT 50)
 (define MAIN_BTN_WIDTH
   (cond
@@ -90,8 +90,8 @@
 (define WP_RESOURCES_TAB "WordPress Resources")
 (define LOADING_LABEL "Loading...")
 (define QUITTING_LABEL "Quitting...")
-(define STARTING_IWP_TITLE "Starting InstantWP - please wait...")
-(define QUITTING_IWP_TITLE "Quitting InstantWP - please wait...")
+(define STARTING_IWP_TITLE "Starting InstantWP - this should take less than 60 seconds...")
+(define QUITTING_IWP_TITLE "Quitting InstantWP - this should take less than 30 seconds...")
 
 ;; ---------------------------------------
 ;; System config constants
