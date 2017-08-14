@@ -59,9 +59,11 @@
   (do-iwpcli-action IWPCLI_WPADMIN))
 
 (define (do-plugins-action)
+  (web-server-warning)
   (do-iwpcli-action IWPCLI_PLUGINS))
 
 (define (do-themes-action)
+  (web-server-warning)
   (do-iwpcli-action IWPCLI_THEMES))
 
 (define (do-mysql-action)
@@ -75,6 +77,7 @@
   (do-iwpcli-action IWPCLI_ABOUT))
 
 (define (do-webconsole-action)
+  (web-server-warning)
   (do-iwpcli-action IWPCLI_WEBCONSOLE))
 
 (define (do-quit-action)
