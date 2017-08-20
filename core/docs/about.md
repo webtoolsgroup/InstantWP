@@ -1,6 +1,6 @@
 # About InstantWP
 
-Version 5.1.0-rc7
+Version IWP_VERSION
 
 For more information please visit the main InstantWP website: [http://www.instantwp.com ]() 
 

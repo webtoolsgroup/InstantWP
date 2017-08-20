@@ -6,16 +6,18 @@ echo ----------------------------
 cd "${0%/*}"
 
 
-# some constants
-# REL_ROOT=/Users/seamus/Dumpster
+# get the version numbers
+read IWP_VERSION < /Users/seamus/GitHub/InstantWP/build/IWP_VERSION.txt
+read VM_VERSION < /Users/seamus/GitHub/InstantWP/build/VM_VERSION.txt
 
+# set constants
 mkdir /Users/seamus/GitHub/InstantWP/build/release
 REL_ROOT=/Users/seamus/GitHub/InstantWP/build/release
 SOURCE_DIR=/Users/seamus/GitHub/InstantWP
-VM_FILE=iwpserver-2.0.2.qcow2
+VM_FILE="$VM_VERSION".qcow2
 
 # set release root
-REL_DIR=$REL_ROOT/$1
+REL_DIR=$REL_ROOT/IWP-"$IWP_VERSION"-macOS
 
 echo Making release directory $REL_DIR
 mkdir $REL_DIR/
@@ -65,10 +67,11 @@ cp -R $SOURCE_DIR/core/platform/osx $REL_DIR/platform/
 # vm directory
 cp $SOURCE_DIR/core/vm/$VM_FILE $REL_DIR/vm
 
-# zipping the release
-# echo Making release zip $REL_ROOT/$1.zip
-# cd $REL_DIR
-# zip -r $REL_ROOT/$1.zip ./$1 -x "*.DS_Store"
+# update the version numbers
+perl -pi -e "s/IWP_VERSION/$IWP_VERSION/g" $REL_DIR/docs/about.html 
+perl -pi -e "s/IWP_VERSION/$IWP_VERSION/g" $REL_DIR/config/iwp-osx.ini
+perl -pi -e "s/VM_VERSION/$VM_VERSION/g" $REL_DIR/config/iwp-osx.ini
+
 
 echo Done!
 
