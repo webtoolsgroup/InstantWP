@@ -6,14 +6,18 @@ echo ----------------------------
 echo Win IWP Release Build Script
 echo ----------------------------
 
+REM get the version numbers
+set /p IWP_VERSION=< C:\Users\paperspace\Documents\GitHub\InstantWP\build\IWP_VERSION.txt 
+set /p VM_VERSION=< C:\Users\paperspace\Documents\GitHub\InstantWP\build\VM_VERSION.txt 
+
 REM some constants
 mkdir C:\Users\paperspace\Documents\GitHub\InstantWP\build\release
 SET REL_ROOT=C:\Users\paperspace\Documents\GitHub\InstantWP\build\release
 SET SOURCE_DIR=C:\Users\paperspace\Documents\GitHub\InstantWP
-SET VM_FILE=iwpserver-2.0.2.qcow2
+SET VM_FILE=%VM_VERSION%.qcow2
 
 REM set release root
-SET REL_DIR=%REL_ROOT%\%1
+SET REL_DIR=%REL_ROOT%\IWP-"%IWP_VERSION%"-Win
 
 echo Making release directory %REL_DIR%
 mkdir %REL_DIR%
@@ -44,6 +48,8 @@ REM bin directory
 copy %SOURCE_DIR%\core\bin\run-iwpcli.bat %REL_DIR%\bin\
 copy %SOURCE_DIR%\core\bin\start-iwp-win.exe %REL_DIR%\bin\
 copy %SOURCE_DIR%\core\bin\iwp.exe %REL_DIR%\bin\
+copy %SOURCE_DIR%\core\bin\Start-InstantWP-Win.exe %REL_DIR%\bin\
+copy %SOURCE_DIR%\core\bin\Start-IWP-Show-QEMU.bat %REL_DIR%\bin\
 xcopy /s /e %SOURCE_DIR%\core\bin\lib %REL_DIR%\bin\lib
 
 REM config directory
@@ -71,9 +77,9 @@ xcopy /s %SOURCE_DIR%\core\platform\win %REL_DIR%\platform\win
 REM vm directory
 copy %SOURCE_DIR%\core\vm\%VM_FILE% %REL_DIR%\vm
 
-REM zipping the release
-REM echo Making release zip $REL_ROOT/$1.zip
-REM cd %REL_DIR%
-REM zip -r $REL_ROOT/$1.zip ./$1 -x "*.DS_Store"
+REM update the version numbers
+perl -i.bak -ape "s/IWP_VERSION/%IWP_VERSION%/g" %REL_DIR%\docs\about.html & del  %REL_DIR%\docs\about.html.bak
+perl -i.bak -ape "s/IWP_VERSION/%IWP_VERSION%/g" %REL_DIR%\config\iwp-win.ini & del  %REL_DIR%\config\iwp-win.ini.bak
+perl -i.bak -ape "s/VM_VERSION/%VM_VERSION%/g" %REL_DIR%\config\iwp-win.ini & del %REL_DIR%\config\iwp-win.ini.bak
 
 echo Done!

@@ -3,6 +3,7 @@
 ;; (c) Corvideon Ltd 2016
 ;; Seamus Brady <seamus@corvideon.ie>
 
+Command$ = ProgramParameter(0)
 IWPRoot$ = GetCurrentDirectory()
 OpenConsole()
 If OpenConsole()
@@ -17,6 +18,7 @@ CloseConsole()
 End
 ; IDE Options = PureBasic 5.50 (Windows - x86)
 ; ExecutableFormat = Console
+; CursorPosition = 5
 ; EnableXP
 ; Executable = iwpcli.exe
 ; DisableDebugger

@@ -1,6 +1,6 @@
 ![](images/logo-top.png)
 
-# InstantWP ReadMe for macOS
+# InstantWP ReadMe for Windows
 
 Welcome to InstantWP!
 
