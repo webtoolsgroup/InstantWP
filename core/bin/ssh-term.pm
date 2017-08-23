@@ -1,20 +1,13 @@
-#!/usr/bin/perl
-#
-#      A Simple Terminal Resizing Example
-#      (C) 2006 Jeff Carr
-#      This script can be used under the same terms as Perl.
-#
-# This script is a simple example of how handle terminal
-# window resize events (transmitted via the WINCH signal)
-# -- Jeff Carr <jcarr@linuxmachines.com>
-#
-# NOTE: I (the Expect maintainer) strongly object against using Expect
-# to automate ssh login. There are better methods, see ssh-keygen.
-# If you use this example as a stub to control a remote application,
-# please remove the password-part and use public-key authentication
-# instead.
-# -- Roland Giersig <RGiersig@cpan.org>
-#
+=pod
+ 
+=head1 DESCRIPTION
+ 
+InstantWP Start SSH Terminal
+
+Based on a Simple Terminal Resizing Example (C) 2006 Jeff Carr
+
+=cut
+
 
 if( ! defined $ARGV[0] ) {
 	print "Usage: ssh-term <host> [ <username> [ <password> ] <port> ]\n";
@@ -40,15 +33,13 @@ sub winch {
 	my $signame = shift;
 	my $pid = $spawn->pid;
 	$shucks++;
-	# print "count $shucks,pid $pid, SIG$signame\n";
 	$spawn->slave->clone_winsize_from(\*STDIN);
 	kill WINCH => $spawn->pid if $spawn->pid;
 }
+
 $SIG{WINCH} = \&winch;  # best strategy
 
 $spawn=Expect->spawn("ssh -p $port $username\@$host");
-# log everything if you want
-# $spawn->log_file("/tmp/autossh.log.$$");
 
 $PROMPT  = '[\]\$\>\#]\s$';
 my $ret = $spawn->expect(10,

@@ -254,10 +254,9 @@ sub ssh( $self ){
     if($self->iwp_env->is_osx()){
         exec($ssh_term." ".LOCALHOST." $ssh_user $ssh_pass $ssh_port");
     } else {
-        my $PLinkExe = $self->iwp_config->get_config_setting("components", "PLinkExe");
-        $ssh_term = $self->iwp_env->platform_dir().$PLinkExe;
-        my $ansicon = $self->iwp_env->platform_dir().ANSICONEXE;
-        system( "start $ansicon $ssh_term -ssh ".LOCALHOST." -P $ssh_port -l $ssh_user -pw $ssh_pass");
+        my $sshclient = $self->iwp_config->get_config_setting("components", "SSHClient");
+        $ssh_term = $self->iwp_env->platform_dir().$sshclient;
+        system( "start $ssh_term -ssh ".LOCALHOST." -P $ssh_port -l $ssh_user -pass $ssh_pass");
     }
     exit 0;
 }
