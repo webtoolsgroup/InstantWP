@@ -36,10 +36,7 @@
      [min-width width]
      [min-height height]
      [callback (lambda (button event)
-                       (callback)
-                       (send button enable #f)
-                       (sleep BUTTON_SLEEP)
-                       (send button enable #t))]))
+                       (callback))]))
 
 
 (define (create-new-label label width height parent)
