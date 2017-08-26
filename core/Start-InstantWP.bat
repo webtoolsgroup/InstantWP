@@ -4,11 +4,13 @@ cd /d "%~dp0"
 
 REM --------- START IWPCLI -------------
 echo Starting InstantWP
-cd bin
-start /b Start-InstantWP-Win.exe &
+start /min iwpcli start ^& exit
 
 REM --------- START GUI -------------
 echo Start InstantWP Control Panel
-cd ..
 start /b controlpanel\InstantWP.exe &
+
+REM --------- HIDE QEMU -------------
+start /b  bin\HideQEMUWindow.exe &
+
 exit /b

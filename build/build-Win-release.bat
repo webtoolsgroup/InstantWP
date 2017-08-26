@@ -32,9 +32,6 @@ mkdir %REL_DIR%\docs
 mkdir %REL_DIR%\docs\images
 mkdir %REL_DIR%\platform
 mkdir %REL_DIR%\platform\win
-mkdir %REL_DIR%\htdocs
-mkdir %REL_DIR%\htdocs\wordpress
-mkdir %REL_DIR%\htdocs\wordpress\wp-content
 mkdir %REL_DIR%\vm
 
 echo Copying files...
@@ -46,10 +43,12 @@ copy %SOURCE_DIR%\core\ReadMe\ReadMe-First-Windows.html %REL_DIR%\
 
 REM bin directory
 copy %SOURCE_DIR%\core\bin\run-iwpcli.bat %REL_DIR%\bin\
-copy %SOURCE_DIR%\core\bin\start-iwp-win.exe %REL_DIR%\bin\
 copy %SOURCE_DIR%\core\bin\iwp.exe %REL_DIR%\bin\
-copy %SOURCE_DIR%\core\bin\Start-InstantWP-Win.exe %REL_DIR%\bin\
-copy %SOURCE_DIR%\core\bin\Start-IWP-Show-QEMU.bat %REL_DIR%\bin\
+copy %SOURCE_DIR%\core\bin\HideQEMUWindow.exe %REL_DIR%\bin\
+copy %SOURCE_DIR%\core\bin\HideQEMUWindow.bat %REL_DIR%\bin\
+REM copy %SOURCE_DIR%\core\bin\Start-InstantWP-Win.exe %REL_DIR%\bin\
+REM copy %SOURCE_DIR%\core\bin\start-iwp-win.exe %REL_DIR%\bin\
+REM copy %SOURCE_DIR%\core\bin\Start-IWP-Show-QEMU.bat %REL_DIR%\bin\
 xcopy /s /e %SOURCE_DIR%\core\bin\lib %REL_DIR%\bin\lib
 
 REM config directory

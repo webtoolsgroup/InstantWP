@@ -59,7 +59,7 @@ sub start( $self ){
     
     # start it up!
     if($self->iwp_env()->is_windows()){
-        system( "start /b ".$self->vm_command_string() ); 
+        system( "start /min ".$self->vm_command_string() ); 
     } else {
         system( $self->vm_command_string() );
     }
