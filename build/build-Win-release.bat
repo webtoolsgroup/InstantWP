@@ -45,7 +45,7 @@ REM bin directory
 copy %SOURCE_DIR%\core\bin\run-iwpcli.bat %REL_DIR%\bin\
 copy %SOURCE_DIR%\core\bin\iwp.exe %REL_DIR%\bin\
 copy %SOURCE_DIR%\core\bin\HideQEMUWindow.exe %REL_DIR%\bin\
-copy %SOURCE_DIR%\core\bin\HideQEMUWindow.bat %REL_DIR%\bin\
+REM copy %SOURCE_DIR%\core\bin\HideQEMUWindow.bat %REL_DIR%\bin\
 REM copy %SOURCE_DIR%\core\bin\Start-InstantWP-Win.exe %REL_DIR%\bin\
 REM copy %SOURCE_DIR%\core\bin\start-iwp-win.exe %REL_DIR%\bin\
 REM copy %SOURCE_DIR%\core\bin\Start-IWP-Show-QEMU.bat %REL_DIR%\bin\

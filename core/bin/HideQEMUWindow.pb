@@ -32,6 +32,9 @@ Procedure Main()
   ;; port number
   SSHPort.f = PortOffset.f + SSH.f
   
+  ;; sleep for 30 seconds
+  Delay(30000)
+  
   ;; title of QEMU Window
   QEMUWindowTitle.s = "QEMU (IWPServer-" + Str(SSHPort.f) + ")"
   
@@ -47,8 +50,8 @@ Main()
 
 ; IDE Options = PureBasic 5.50 (Windows - x86)
 ; ExecutableFormat = Console
-; CursorPosition = 38
-; FirstLine = 12
+; CursorPosition = 35
+; FirstLine = 13
 ; Folding = -
 ; EnableXP
 ; Executable = HideQEMUWindow.exe

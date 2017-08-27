@@ -11,6 +11,6 @@ echo Start InstantWP Control Panel
 start /b controlpanel\InstantWP.exe &
 
 REM --------- HIDE QEMU -------------
-start /b  bin\HideQEMUWindow.exe &
+start /min  bin\HideQEMUWindow.exe &
 
 exit /b
