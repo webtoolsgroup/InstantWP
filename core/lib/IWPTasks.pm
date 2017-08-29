@@ -268,7 +268,7 @@ sub monitor( $self ){
         # osx telnet session
         exec("telnet ".LOCALHOST." $monitor_port");
     } else{
-        my $TelnetBinary = $self->iwp_config->get_config_setting("components", "PLinkExe");
+        my $TelnetBinary = $self->iwp_config->get_config_setting("components", "SSHClient");
         $TelnetBinary = $self->iwp_env->platform_dir().$TelnetBinary;
         my $ansicon = $self->iwp_env->platform_dir().ANSICONEXE;
         system("start $ansicon $TelnetBinary -telnet ".LOCALHOST." -P $monitor_port");
