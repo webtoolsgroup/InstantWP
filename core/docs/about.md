@@ -2,10 +2,10 @@
 
 Version IWP_VERSION
 
-For more information please visit the main InstantWP website: [http://www.instantwp.com ]() 
+For more information please visit the main InstantWP website: [http://www.instantwp.com ](http://www.instantwp.com) 
 
 For the source code, please visit the InstantWP GitHub repo:
-[https://github.com/corvideon/InstantWP ]() 
+[https://github.com/corvideon/InstantWP ](https://github.com/corvideon/InstantWP) 
 
 
 ## Software Versions
@@ -21,7 +21,7 @@ The current version of InstantWP contains the following software:
 
 For other dependencies, please see the InstantWP wiki:
 
-[https://github.com/corvideon/InstantWP/wiki/Dependencies ] ()
+[https://github.com/corvideon/InstantWP/wiki/Dependencies ] (https://github.com/corvideon/InstantWP/wiki/Dependencies)
 
 ## License
 

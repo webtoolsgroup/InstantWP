@@ -52,6 +52,13 @@ For more information of macOS security see [https://support.apple.com/en-us/HT20
 
 ## InstantWP Documentation
 
+InstantWP should run on the most recent versions of macOS. 
+
+It is suggested that you have at least 4GB of RAM to run InstantWP but the amount of RAM that is needed can be adjusted if you wish. 
+InstantWP also needs a recommended 300MB of disk space.
+
+## InstantWP Documentation
+
 Please look in the docs folder for the InstantWP User Guide.
 
 

@@ -34,10 +34,16 @@ You may see other security dialogs when clicking on the buttons on the Advanced 
 
 You can handle these dialogs as outlined above.
 
+## KiTTY SSH Warning
+
+The first time you start the SSH Terminal you may be asked to cache the server's host key by the SSH client software (KiTTY.exe). You should click "Yes" on this dialog and you should not see it again for this InstantWP install.
+
+![](images/Win-Kitty-SSH-Warning.png)
+
 
 ## My Anti-Virus says that InstantWP is a Trojan!
 
-This is a false positive. Some Anti-Virus vendors will classify any software that their system does not know as malware. This is a false positive. InstantWP contains no spyware or malware. 
+Some Anti-Virus vendors will classify any software that their system does not know as malware. This is a false positive. InstantWP contains no spyware or malware. 
 
 InstantWP has been around since 2008 and is used daily by hundreds of thousands of businesses, universities and individuals. You are quite safe :)
 
@@ -52,6 +58,13 @@ Also the Windows SmartScreen filter still asks the user about certain types of a
 
 
 For more information of Windows SmartScreen filter see [https://support.microsoft.com/en-us/help/17443/windows-internet-explorer-smartscreen-filter-faq ]().
+
+## InstantWP Requirements
+
+InstantWP should run on 32 bit and 64 bit versions of Windows 10, Windows 7 and recent versions of Windows Server.
+It is suggested that you have at least 4GB of RAM to run InstantWP but the amount of RAM that is needed can be adjusted if you wish. 
+InstantWP also needs a recommended 300MB of disk space.
+On Windows systems, InstantWP may not run correctly if there are spaces in the InstantWP directory path.
 
 ## InstantWP Documentation
 
