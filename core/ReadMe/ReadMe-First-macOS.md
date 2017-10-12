@@ -12,7 +12,7 @@ Most of the time, you should just be able to double click on the Start-InstantWP
 
 However, on some macOS systems there is a new security service called GateKeeper. This will stop InstantWP running as it is started by a script file (called a 'Unix application' in the warning dialog).
 
-In order to start InstantWP on these systems, you may need to right click on the Start-InstantWP script and click open:
+In order to start InstantWP on these systems, you may need to right click on the Start-InstantWP script and click Open:
 
 ![](images/Start-InstantWP-right-click.png)
 

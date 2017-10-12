@@ -1,1 +1,1 @@
-iwpserver-2.0.4
+iwpserver-2.0.5
