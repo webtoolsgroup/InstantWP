@@ -43,7 +43,7 @@ The first time you start the SSH Terminal you may be asked to cache the server's
 
 ## My Anti-Virus says that InstantWP is a Trojan!
 
-Some Anti-Virus vendors will classify any software that their system does not know as malware. This is a false positive. InstantWP contains no spyware or malware. 
+This is a false positive. Some Anti-Virus vendors will classify any software that their system does not know as malware. InstantWP contains no spyware or malware. 
 
 InstantWP has been around since 2008 and is used daily by hundreds of thousands of businesses, universities and individuals. You are quite safe :)
 
@@ -57,7 +57,7 @@ However batch files cannot be code signed. InstantWP is portable and it needs a 
 Also the Windows SmartScreen filter still asks the user about certain types of apps (for instance, newly released software), even if they have been code signed. 
 
 
-For more information of Windows SmartScreen filter see [https://support.microsoft.com/en-us/help/17443/windows-internet-explorer-smartscreen-filter-faq ]().
+For more information on Windows SmartScreen filter see [https://support.microsoft.com/en-us/help/17443/windows-internet-explorer-smartscreen-filter-faq ]().
 
 ## InstantWP Requirements
 
@@ -73,7 +73,7 @@ Please look in the docs folder for the InstantWP User Guide.
 
 ## InstantWP Project Links
 
- * See the InstantWP for full details: [http://www.instantwp.com ](http://www.instantwp.com). * For troubleshooting and technical tips, please see the [InstantWP FAQ ](http://www.instantwp.com/go/FAQ/).
+ * See the InstantWP website for full details: [http://www.instantwp.com ](http://www.instantwp.com). * For troubleshooting and technical tips, please see the [InstantWP FAQ ](http://www.instantwp.com/go/FAQ/).
 
  * The code for InstantWP is available at the [InstantWP GitHub project ](https://github.com/corvideon/InstantWP/).
 

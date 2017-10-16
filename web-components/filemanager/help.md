@@ -11,7 +11,7 @@ You can use it to copy, paste, upload and edit files in your InstantWP WordPress
 
 ## How do I upload files?
 
-Simply click on the upload files button on the menu bar. 
+Simply click on the Upload Files button on the menu bar. 
 
 You can then choose the files and folders you wish to upload:
 
@@ -22,7 +22,7 @@ You can then choose the files and folders you wish to upload:
 
 Simply right click on the file or folder you wish to download. 
 
-You can then choose the download link on the menu:
+You can then choose the Download link on the menu:
 
 ![](img/download-files-help.png)
 
@@ -31,7 +31,7 @@ You can then choose the download link on the menu:
 
 Simply right click on the file you wish to edit. 
 
-You can then choose the edit link on the menu and choose the Ace Editor:
+You can then choose the Edit File link on the menu and choose the Ace Editor:
 
 ![](img/edit-file-help.png)
 
@@ -47,7 +47,7 @@ The Ace Editor will then open.
 
 There are multiple other buttons and menu choices available. 
 
-* To see what  button does, hover your mouse pointer over the button and a tooltip will be displayed.
+* To see what a button does, hover your mouse pointer over the button and a tool-tip will be displayed.
 * Right click on folders and files to see what other functionality is available.
 
 
@@ -64,6 +64,6 @@ See the InstantWP wiki links below for more details:
 
 ## This is cool! Where can I get the code?
 
-The InstantWP File Manager is a modified form of the excellent elFinder project available at [https://studio-42.github.io/elFinder/ ](https://studio-42.github.io/elFinder/)
+The InstantWP File Manager is a modified form of the excellent elFinder project available at: [https://studio-42.github.io/elFinder/ ](https://studio-42.github.io/elFinder/)
 
 &copy; Corvideon 2017

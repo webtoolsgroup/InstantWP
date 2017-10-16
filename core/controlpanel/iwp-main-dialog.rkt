@@ -293,5 +293,27 @@
 (define phpinfo-label
   (create-new-label PHP_INFO_INFO ADV_LBL_WIDTH ADV_LBL_HEIGHT advanced-panel-h5))
 
+;; --------------------------------------
+;; wp resources panel control definitions
+;; --------------------------------------
 
 
+;; wp-resources panel vertical panel for holding horizontal panels
+(define wp-resources-panel-v0 (new vertical-pane% (parent wp-resources-panel) [alignment '(center center)] [border 10]))
+
+;; wp-resources panel horizontal panel for holding horizontal panels
+(define wp-resources-h0 (new horizontal-pane% (parent wp-resources-panel-v0) [alignment '(center top)]))
+(define wp-resources-h1 (new horizontal-pane% (parent wp-resources-panel-v0) [alignment '(center top)]))
+
+;; WP Resources image
+(define wp-resources-logo (new message% (parent wp-resources-h0) (label (wp-resources))))
+
+;; WP Resources button
+(define  wp-resources-button
+  (new button% [parent wp-resources-h1]
+     [label (list (info-sign) (lpad "Click here to learn more about InstantWP Unleashed") 'left)]
+     [min-width 350]
+     [min-height 20]
+     [stretchable-height 50 ]
+     [callback (lambda (button event)
+                       (do-wp-resources-action))]))

@@ -33,6 +33,8 @@
  do-phpinfo-action
  ;; start edit config
  do-start-edit-config
+ ;; open wp resource
+do-wp-resources-action
  ;; should quit?
  should-quit-iwp?
  ;; test
@@ -113,6 +115,9 @@
 
 (define (do-phpinfo-action)
   (do-open-url (get-phpinfo-url)))
+
+(define (do-wp-resources-action)
+  (do-open-url (get-wp-resources-url)))
 
 ;; process system event functions
 

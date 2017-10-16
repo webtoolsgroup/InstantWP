@@ -16,7 +16,7 @@ The InstantWP Web Console is useful in three main ways:
  
  * You can run many useful Linux commands such as *ps* or *df*. Many other commands will work (subject to the caveats below). This means you get to see what Apache Web Server is seeing, which is most useful for testing and developing. 
 
- *  The WP-CLI tool is also installed and provides amazing command line access to the WordPress installation. Most WP-CLI commands will work. See below.
+ *  The WP-CLI tool is also installed and provides excellent command line access to the WordPress installation. Most WP-CLI commands will work. See below.
 
 ## What is WP-CLI?
 
@@ -30,64 +30,64 @@ The commands below *should* work. Try typing in the command to see the help text
 
 
 
-Download, install, update and manage a WordPress install:
+**Download, install, update and manage a WordPress installation:**
 
     wp core
 
-Manage WP-Cron events and schedules:
+**Manage WP-Cron events and schedules:**
 
     wp cron	
 
 
-Perform basic database operations using credentials stored in wp-config.ph:
+**Perform basic database operations using credentials stored in wp-config.ph:**
 
     wp db
 
-Execute arbitrary PHP code:
+**Execute arbitrary PHP code:**
 
     wp eval	
 
-Load and execute a PHP file:
+**Load and execute a PHP file:**
 
     wp eval-file	
 
-Export WordPress content to a WXR file:
+**Export WordPress content to a WXR file:**
 
     wp export	
 
-Import content from a WXR file:
+**Import content from a WXR file:**
 
     wp import	
 
-Manage WP-CLI packages:
+**Manage WP-CLI packages:**
 
     wp package
 
-Manage plugins:
+**Manage plugins:**
 
     wp plugin	
 
-Manage posts:
+**Manage posts:**
     
     wp post	
 
-Manage rewrite rules:
+**Manage rewrite rules:**
 
     wp rewrite	
     
-Search/replace strings in the database:
+**Search/replace strings in the database:**
 
     wp search-replace	
 
-Perform site-wide operations:
+**Perform site-wide operations:**
 
     wp site	
 
-Manage themes:
+**Manage themes:**
 
     wp theme	
 
-Manage users:
+**Manage users:**
 
     wp user	
 
@@ -124,6 +124,6 @@ But it is a fantastic tool for a local development server like InstantWP.
 
 
 
-## This is cool! Where can I get the code?
+## This is great! Where can I get the code?
 
 InstantWP Web Console is a modified form of the excellent Web-Console script as provided by Nickolay Kovalev at [http://web-console.org ]()
