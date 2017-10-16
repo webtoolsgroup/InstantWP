@@ -7,13 +7,13 @@ echo Win IWP Release Build Script
 echo ----------------------------
 
 REM get the version numbers
-set /p IWP_VERSION=< C:\Users\paperspace\Documents\GitHub\InstantWP\build\IWP_VERSION.txt 
-set /p VM_VERSION=< C:\Users\paperspace\Documents\GitHub\InstantWP\build\VM_VERSION.txt 
+set /p IWP_VERSION=< C:\Users\seamus\Documents\GitHub\InstantWP\build\IWP_VERSION.txt 
+set /p VM_VERSION=< C:\Users\seamus\Documents\GitHub\InstantWP\build\VM_VERSION.txt 
 
 REM some constants
-mkdir C:\Users\paperspace\Documents\GitHub\InstantWP\build\release
-SET REL_ROOT=C:\Users\paperspace\Documents\GitHub\InstantWP\build\release
-SET SOURCE_DIR=C:\Users\paperspace\Documents\GitHub\InstantWP
+mkdir C:\Users\seamus\Documents\GitHub\InstantWP\build\release
+SET REL_ROOT=C:\Users\seamus\Documents\GitHub\InstantWP\build\release
+SET SOURCE_DIR=C:\Users\seamus\Documents\GitHub\InstantWP
 SET VM_FILE=%VM_VERSION%.qcow2
 
 REM set release root
