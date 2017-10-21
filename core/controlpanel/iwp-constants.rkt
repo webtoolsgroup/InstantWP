@@ -80,6 +80,18 @@
   (cond
     [(is-windows-constant?) 10]
     [(is-macos-constant?)  5]))
+(define WP_RESOURCES_BTN_WIDTH
+  (cond
+    [(is-windows-constant?) 350]
+    [(is-macos-constant?)  350]))
+(define WP_RESOURCES_BTN_HEIGHT
+  (cond
+    [(is-windows-constant?) 20]
+    [(is-macos-constant?)  20]))
+(define WP_RESOURCES_BTN_STRETCH_HEIGHT
+  (cond
+    [(is-windows-constant?) #f]
+    [(is-macos-constant?)  50]))
 ;; ---------------------------------------
 ;; Button/dialog captions
 ;; ---------------------------------------

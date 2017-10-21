@@ -312,8 +312,8 @@
 (define  wp-resources-button
   (new button% [parent wp-resources-h1]
      [label (list (info-sign) (lpad "Click here to learn more about InstantWP Unleashed") 'left)]
-     [min-width 350]
-     [min-height 20]
-     [stretchable-height 50 ]
+     [min-width WP_RESOURCES_BTN_WIDTH]
+     [min-height WP_RESOURCES_BTN_HEIGHT]
+     [stretchable-height WP_RESOURCES_BTN_STRETCH_HEIGHT ]
      [callback (lambda (button event)
                        (do-wp-resources-action))]))
