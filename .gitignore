@@ -51,3 +51,7 @@ core/Start-InstantWP.app
 core/vm/old/iwpserver-2.0.1.qcow2.old
 working
 Thumbs.db
+*.bak
+core/platform/win/kitty.ini
+core/platform/win/Sessions/Default%20Settings
+core/platform/win/SshHostKeys/ssh-ed25519@10022%3A127.0.0.1

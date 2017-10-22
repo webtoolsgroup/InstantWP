@@ -82,8 +82,16 @@ do-wp-resources-action
   (web-server-warning)
   (do-iwpcli-action IWPCLI_WEBCONSOLE))
 
+;;(define (do-quit-action)
+;;  (do-iwpcli-action IWPCLI_QUIT))
+
 (define (do-quit-action)
-  (do-iwpcli-action IWPCLI_QUIT))
+  (cond
+    [(is-windows?)
+     ;; yes, windows makes everything difficult again...
+     (run-win-script-exe (path->string (get-quit-iwp-script-path)))]
+    [(is-macos?)  (do-iwpcli-action IWPCLI_QUIT) ]))
+
 
 (define (do-start-ssh)
   (cond

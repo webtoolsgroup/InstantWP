@@ -31,6 +31,8 @@
  get-edit-config-script-path
  ;; start terminal path
  get-start-terminal-script-path
+ ;; quit iwp script
+ get-quit-iwp-script-path
  ;; open url script path
  get-open-url-script)
 
@@ -165,12 +167,17 @@
    (define local-edit-config-script-path (get-config-setting START_EDIT_CONFIG))
   (build-path (path->string (iwp-platform-dir-path)) local-edit-config-script-path))
 
+;; quit iwp script
+(define (get-quit-iwp-script-path)
+   (define local-edit-config-script-path (get-config-setting QUIT_SCRIPT))
+  (build-path (path->string (iwp-platform-dir-path)) local-edit-config-script-path))
+
 ;; startTerminal script
 (define (get-start-terminal-script-path)
    (define local-edit-config-script-path (get-config-setting START_TERMINAL))
   (build-path (path->string (iwp-platform-dir-path)) local-edit-config-script-path))
 
-;; startTerminal script
+;; open URL script
 (define (get-open-url-script)
    (define local-edit-config-script-path (get-config-setting OPEN_URL))
   (build-path (path->string (iwp-platform-dir-path)) local-edit-config-script-path))

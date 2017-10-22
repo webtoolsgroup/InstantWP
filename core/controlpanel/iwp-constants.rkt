@@ -139,6 +139,7 @@
 (define START_QEMU "startQEMUMonitorScript")
 (define START_EDIT_CONFIG "startEditConfigFileScript")
 (define START_TERMINAL "startTerminal")
+(define QUIT_SCRIPT "quitIWPScript")
 (define OPEN_URL "openURL")
 (define HIDE_README "HideReadMeFile")
 (define WEBSERVER_WARN "WebServerWarnMessage")
