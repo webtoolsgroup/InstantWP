@@ -38,6 +38,12 @@
      [callback (lambda (button event)
                        (callback))]))
 
+(define (create-new-deploy-button parent bitmap label width height callback)
+  (new button% [parent parent]
+     [label  bitmap]
+     [callback (lambda (button event)
+                       (callback))]))
+
 
 (define (create-new-label label width height parent)
   (new message%
@@ -208,6 +214,23 @@
 (define docs-label
   (create-new-label DOCS_INFO MAIN_LBL_WIDTH MAIN_LBL_HEIGHT start-panel-h5))
 
+;; Deployment Button details
+
+(define (do-deploy-action) (do-open-url "https://www.instantwp.com/unleashed"))
+
+(define deployment-button
+  (create-new-deploy-button base-buttons-panel (deploy-bitmap) ""
+                     MAIN_BTN_WIDTH MAIN_BTN_HEIGHT
+                     do-deploy-action))
+
+(cond
+    [(string=? (get-config-setting SHOW_DEPLOY) "no") (send deployment-button show #f)])
+
+
+
+;; ----- 
+
+
 
 ;; About button definition
 (define about-button
@@ -317,3 +340,4 @@
      [stretchable-height WP_RESOURCES_BTN_STRETCH_HEIGHT ]
      [callback (lambda (button event)
                        (do-wp-resources-action))]))
+

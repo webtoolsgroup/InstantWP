@@ -67,6 +67,9 @@
 (define (info-sign)
   (read-bitmap  (build-path (iwp-images-dir-path) "info.png")))
 
+(define (deploy-bitmap)
+  (read-bitmap  (build-path (iwp-images-dir-path) "deploy-button.png")))
+
 ;; start up wizard bitmap
 (define (readme-bitmap)
   (read-bitmap  (build-path (iwp-images-dir-path) "readme1.png")))

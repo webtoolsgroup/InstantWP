@@ -34,11 +34,13 @@
  ;; start edit config
  do-start-edit-config
  ;; open wp resource
-do-wp-resources-action
+ do-wp-resources-action
  ;; should quit?
  should-quit-iwp?
  ;; test
- iwpcli-command-string)
+ iwpcli-command-string
+ ;; open a url
+ do-open-url)
 
 ;; —————————————————————————————————
 ;; import and implementation section

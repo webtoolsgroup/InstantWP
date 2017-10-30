@@ -99,7 +99,7 @@
 (define IWP_DIALOG_TITLE "InstantWP Control Panel")
 (define CONTROL_PANEL_TAB "Control Panel")
 (define ADVANCED_TAB "Advanced")
-(define WP_RESOURCES_TAB "WordPress Resources")
+(define WP_RESOURCES_TAB "Products")
 (define LOADING_LABEL "Loading...")
 (define QUITTING_LABEL "Quitting...")
 (define STARTING_IWP_TITLE "Starting InstantWP - this should take less than 60 seconds...")
@@ -143,6 +143,8 @@
 (define OPEN_URL "openURL")
 (define HIDE_README "HideReadMeFile")
 (define WEBSERVER_WARN "WebServerWarnMessage")
+(define SHOW_DEPLOY "showDeployInfo")
+
 
 ;; ---------------------------------------
 ;; Help label constants
