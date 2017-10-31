@@ -15,6 +15,14 @@
   racket/gui/base
   "iwp-environment.rkt")
 
+;; are we on macos?
+(define (is-macos-bitmap?)
+  (equal? (system-type) 'macosx))
+
+;; are we on windows?
+(define (is-windows-bitmap?)
+  (equal? (system-type) 'windows))
+
 ;; define main button bitmaps
 (define (wp-admin-bitmap)
   (read-bitmap  (build-path (iwp-images-dir-path) "settings.png")))
@@ -67,10 +75,12 @@
 (define (info-sign)
   (read-bitmap  (build-path (iwp-images-dir-path) "info.png")))
 
-(define (deploy-bitmap)
-  (read-bitmap  (build-path (iwp-images-dir-path) "deploy-button.png")))
-
 ;; start up wizard bitmap
 (define (readme-bitmap)
   (read-bitmap  (build-path (iwp-images-dir-path) "readme1.png")))
 
+
+(define (deploy-bitmap) 
+  (cond
+    [(is-windows-bitmap?)  (read-bitmap  (build-path (iwp-images-dir-path) "deploy-button.png"))]
+    [(is-macos-bitmap?) (read-bitmap  (build-path (iwp-images-dir-path) "deploy-button-mac.png")) ]))
