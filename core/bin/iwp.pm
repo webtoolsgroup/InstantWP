@@ -24,6 +24,7 @@ use IWPConfig;
 use IWPCommandLine;
 use IWPEnvironment;
 use IWPTasks;
+use Encode::Byte;
 use feature qw(signatures say);
 no warnings qw(experimental::signatures);
 

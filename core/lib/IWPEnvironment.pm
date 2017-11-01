@@ -98,13 +98,15 @@ sub copy_qemu_exe( $self, $config ){
     }
 }
 
+
 sub set_and_validate_iwproot( $self, $iwp_opts ){
     # check that we have a root folder
     if (!$iwp_opts->args->{iwproot}){
         croak "ERROR: No IWP root folder parameter supplied!";
     }
     # set the root folder
-    $self->system_root_dir( $iwp_opts->args->{iwproot} );
+    my $localroot =  $iwp_opts->args->{iwproot};
+    $self->system_root_dir( $localroot);
     # check the config file exists
     if (-f $self->config_file_path() ){
         say "Loading config file at ". $self->config_file_path();
