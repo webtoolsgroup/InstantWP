@@ -38,12 +38,6 @@
      [callback (lambda (button event)
                        (callback))]))
 
-(define (create-new-deploy-button parent bitmap label width height callback)
-  (new button% [parent parent]
-     [label  bitmap]
-     [callback (lambda (button event)
-                       (callback))]))
-
 
 (define (create-new-label label width height parent)
   (new message%
@@ -216,10 +210,16 @@
 
 ;; Deployment Button details
 
-(define (do-deploy-action) (do-open-url "https://www.instantwp.com/unleashed"))
+(define (create-new-deploy-button parent bitmap label width height callback)
+  (new button% [parent parent]
+     [label  bitmap]
+     [callback (lambda (button event)
+                       (callback))]))
+
+(define (do-deploy-action) (do-open-url "https://instantwp.com/go/IWPControlPanelButton/"))
 
 (define deployment-button
-  (create-new-deploy-button base-buttons-panel (deploy-bitmap) ""
+  (create-new-button base-buttons-panel (deploy-bitmap) "Deploy Your Website Using InstantWP"
                      MAIN_BTN_WIDTH MAIN_BTN_HEIGHT
                      do-deploy-action))
 

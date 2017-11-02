@@ -79,8 +79,10 @@
 (define (readme-bitmap)
   (read-bitmap  (build-path (iwp-images-dir-path) "readme1.png")))
 
+(define (deploy-bitmap)
+  (read-bitmap  (build-path (iwp-images-dir-path) "deploy.png")))
 
-(define (deploy-bitmap) 
+(define (deploy2-bitmap) 
   (cond
     [(is-windows-bitmap?)  (read-bitmap  (build-path (iwp-images-dir-path) "deploy-button.png"))]
     [(is-macos-bitmap?) (read-bitmap  (build-path (iwp-images-dir-path) "deploy-button-mac.png")) ]))
