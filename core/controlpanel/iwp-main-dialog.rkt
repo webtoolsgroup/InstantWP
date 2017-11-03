@@ -219,7 +219,7 @@
 (define (do-deploy-action) (do-open-url "https://instantwp.com/go/IWPControlPanelButton/"))
 
 (define deployment-button
-  (create-new-button base-buttons-panel (deploy-bitmap) "Deploy Your Website Using InstantWP"
+  (create-new-button base-buttons-panel (deploy-bitmap) "Get InstantWP Unleashed"
                      MAIN_BTN_WIDTH MAIN_BTN_HEIGHT
                      do-deploy-action))
 
