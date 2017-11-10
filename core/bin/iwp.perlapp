@@ -3,9 +3,10 @@ PAP-Version: 1.0
 Packer: /usr/local/PDK/bin/perlapp
 Script: iwp.pm
 Cwd: /Users/seamus/GitHub/InstantWP/core/bin
-Add: Encode::Byte::
+Add: Encode::Byte
+Add: Encode::JP
 Clean: 0
-Date: 2017-11-02 22:41:22
+Date: 2017-11-05 18:48:47
 Debug: 
 Dependent: 0
 Dyndll: 0

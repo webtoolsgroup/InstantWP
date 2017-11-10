@@ -80,7 +80,7 @@
   (read-bitmap  (build-path (iwp-images-dir-path) "readme1.png")))
 
 (define (deploy-bitmap)
-  (read-bitmap  (build-path (iwp-images-dir-path) "unleashed.png")))
+  (read-bitmap  (build-path (iwp-images-dir-path) "free.png")))
 
 (define (deploy2-bitmap) 
   (cond
