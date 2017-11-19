@@ -2,7 +2,7 @@
 PAP-Version: 1.0
 Packer: C:\Program Files (x86)\ActiveState Perl Dev Kit 9.5.1\bin\perlapp.exe
 Script: ..\..\..\InstantWP\core\bin\iwp.pm
-Cwd: C:\Users\paperspace\Documents\GitHub\InstantWordPress\MainDev\bin
+Cwd: C:\Users\seamus\Documents\GitHub\InstantWP\core\bin
 Add: Config::INI::Reader
 Add: Getopt::Long
 Add: File::Copy
@@ -14,15 +14,18 @@ Add: IWPConfig
 Add: IWPCommandLine
 Add: IWPEnvironment
 Add: IWPTasks
+Add: Encode::Byte
+Add: Encode::Byte
+Add: Encode::JP
 Clean: 0
-Date: 2017-07-11 16:25:11
+Date: 2017-11-05 21:06:02
 Debug: 
 Dependent: 0
 Dyndll: 0
 Exe: ..\..\..\InstantWP\core\bin\iwp.exe
 Force: 0
 Gui: 0
-Hostname: psz7y3uk
+Hostname: SEAMUSBRADYC98E
 Lib: lib:..\..\..\InstantWP\core\lib
 Lib: lib:..
 Lib: lib:..
