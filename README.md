@@ -4,6 +4,9 @@
 
 InstantWP is a complete standalone, portable WordPress development environment. It turns any Windows or Mac machine into a WordPress development server. It should even run from a USB key.
 
+This page just gives an overview of InstantWP.
+
+Please visit the homepage at https://instantwp.com/ for more information and direct download links.
 
 
 ## Overview
