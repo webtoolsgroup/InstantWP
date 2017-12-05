@@ -1,4 +1,4 @@
-![](images/logo-top.png)
+[<img src="images/web-banner.png">](https://instantwp.com/unleashed/)
 
 # InstantWP Documentation
 

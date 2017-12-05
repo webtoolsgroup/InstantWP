@@ -187,5 +187,5 @@
     [(is-macos-constant?) "Information about the installed version of PHP." ]))
 (define DEPLOY_BTN_LBL 
   (cond
-    [(is-windows-constant?) "Get FREE WordPress Security Guide"]
-    [(is-macos-constant?) "Get FREE WordPress \nSecurity Guide" ]))
+    [(is-windows-constant?) "Get Your Copy of the Deployment Guide"]
+    [(is-macos-constant?) "Get Your Copy of the \nDeployment Guide" ]))
