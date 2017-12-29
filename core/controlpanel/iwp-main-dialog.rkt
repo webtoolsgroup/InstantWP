@@ -210,7 +210,7 @@
 
 ;; Deployment Button details
 
-(define (create-new-deploy-button parent bitmap label width height callback)
+(define (create-new-deploy-button parent bitmap width height callback)
   (new button% [parent parent]
      [label  bitmap]
      [callback (lambda (button event)
@@ -219,7 +219,7 @@
 (define (do-deploy-action) (do-open-url "https://instantwp.com/go/IWPControlPanelButton/"))
 
 (define deployment-button
-  (create-new-button base-buttons-panel (deploy-bitmap) DEPLOY_BTN_LBL
+  (create-new-deploy-button base-buttons-panel (deploy-bitmap) 
                      MAIN_BTN_WIDTH MAIN_BTN_HEIGHT
                      do-deploy-action))
 
