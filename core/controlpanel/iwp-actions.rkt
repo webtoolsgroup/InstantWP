@@ -33,8 +33,10 @@
  do-phpinfo-action
  ;; start edit config
  do-start-edit-config
- ;; open wp resource
- do-wp-resources-action
+ ;; open wp resources
+ do-wp-resources-action-plugins
+ do-wp-resources-action-hosting
+ do-wp-resources-action-themes
  ;; should quit?
  should-quit-iwp?
  ;; test
@@ -126,8 +128,16 @@
 (define (do-phpinfo-action)
   (do-open-url (get-phpinfo-url)))
 
-(define (do-wp-resources-action)
-  (do-open-url (get-wp-resources-url)))
+;; wp resources actions
+
+(define (do-wp-resources-action-hosting)
+  (do-open-url (get-wp-resources-url-hosting)))
+
+(define (do-wp-resources-action-plugins)
+  (do-open-url (get-wp-resources-url-plugins)))
+
+(define (do-wp-resources-action-themes)
+  (do-open-url (get-wp-resources-url-themes)))
 
 ;; process system event functions
 

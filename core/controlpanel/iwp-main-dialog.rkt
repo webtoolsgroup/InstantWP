@@ -327,17 +327,37 @@
 ;; wp-resources panel horizontal panel for holding horizontal panels
 (define wp-resources-h0 (new horizontal-pane% (parent wp-resources-panel-v0) [alignment '(center top)]))
 (define wp-resources-h1 (new horizontal-pane% (parent wp-resources-panel-v0) [alignment '(center top)]))
+(define wp-resources-h2 (new horizontal-pane% (parent wp-resources-panel-v0) [alignment '(center top)]))
+(define wp-resources-h3 (new horizontal-pane% (parent wp-resources-panel-v0) [alignment '(center top)]))
 
 ;; WP Resources image
 (define wp-resources-logo (new message% (parent wp-resources-h0) (label (wp-resources))))
 
-;; WP Resources button
-(define  wp-resources-button
+;; WP Resources buttons
+(define  wp-resources-plugins-button
   (new button% [parent wp-resources-h1]
-     [label (list (info-sign) (lpad "Click here to learn more about InstantWP Unleashed") 'left)]
+     [label (list (wp-frontpage-bitmap) (lpad "WordPress Plugins") 'left)]
      [min-width WP_RESOURCES_BTN_WIDTH]
      [min-height WP_RESOURCES_BTN_HEIGHT]
-     [stretchable-height WP_RESOURCES_BTN_STRETCH_HEIGHT ]
+     [stretchable-height #f ]
      [callback (lambda (button event)
-                       (do-wp-resources-action))]))
+                       (do-wp-resources-action-plugins))]))
+
+(define  wp-resources-themes-button
+  (new button% [parent wp-resources-h2]
+     [label (list (wp-frontpage-bitmap) (lpad "WordPress Themes") 'left)]
+     [min-width WP_RESOURCES_BTN_WIDTH]
+     [min-height WP_RESOURCES_BTN_HEIGHT]
+     [stretchable-height #f ]
+     [callback (lambda (button event)
+                       (do-wp-resources-action-themes))]))
+
+(define  wp-resources-hosting-button
+  (new button% [parent wp-resources-h3]
+     [label (list (wp-frontpage-bitmap) (lpad "WordPress Hosting") 'left)]
+     [min-width WP_RESOURCES_BTN_WIDTH]
+     [min-height WP_RESOURCES_BTN_HEIGHT]
+     [stretchable-height #f ]
+     [callback (lambda (button event)
+                       (do-wp-resources-action-hosting))]))
 

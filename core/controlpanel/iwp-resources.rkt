@@ -70,7 +70,7 @@
   (read-bitmap  (build-path (iwp-images-dir-path) "logo-top.png")))
 
 (define (wp-resources)
-  (read-bitmap  (build-path (iwp-images-dir-path) "wp-resources.png")))
+  (read-bitmap  (build-path (iwp-images-dir-path) "IWP-small.png")))
 
 (define (info-sign)
   (read-bitmap  (build-path (iwp-images-dir-path) "info.png")))

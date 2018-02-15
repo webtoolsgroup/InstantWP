@@ -19,8 +19,10 @@
  get-phpinfo-url
  ;; web filemanager url
  get-filemanager-url
- ;; wp resources url
- get-wp-resources-url
+ ;; wp resources
+ get-wp-resources-url-plugins
+ get-wp-resources-url-themes
+ get-wp-resources-url-hosting
  ;; ssh path
  get-ssh-script-path
  ;; sftp path
@@ -143,9 +145,15 @@
   (define local-portoffset (get-config-setting PORTOFFSET))
   (string-append "http://" LOCALHOST ":" (number->string (get-vm-http-port)) "/" (get-config-setting WEB_FILEMANAGER)))
 
-;; filemanager url
-(define (get-wp-resources-url)
-  "https://www.instantwp.com/unleashed")
+;; wp resources url
+(define (get-wp-resources-url-plugins)
+  "https://instantwp.com/go/wordpress-plugins/")
+
+(define (get-wp-resources-url-themes)
+  "https://instantwp.com/go/wordpress-themes/")
+
+(define (get-wp-resources-url-hosting)
+  "https://instantwp.com/go/wordpress-hosting/")
 
 ;; startSSHScript
 (define (get-ssh-script-path)

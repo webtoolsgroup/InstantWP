@@ -82,16 +82,12 @@
     [(is-macos-constant?)  5]))
 (define WP_RESOURCES_BTN_WIDTH
   (cond
-    [(is-windows-constant?) 350]
-    [(is-macos-constant?)  350]))
+    [(is-windows-constant?) 45]
+    [(is-macos-constant?)  40]))
 (define WP_RESOURCES_BTN_HEIGHT
   (cond
     [(is-windows-constant?) 20]
     [(is-macos-constant?)  20]))
-(define WP_RESOURCES_BTN_STRETCH_HEIGHT
-  (cond
-    [(is-windows-constant?) #f]
-    [(is-macos-constant?)  50]))
 ;; ---------------------------------------
 ;; Button/dialog captions
 ;; ---------------------------------------
@@ -99,7 +95,7 @@
 (define IWP_DIALOG_TITLE "InstantWP Control Panel")
 (define CONTROL_PANEL_TAB "Control Panel")
 (define ADVANCED_TAB "Advanced")
-(define WP_RESOURCES_TAB "Products")
+(define WP_RESOURCES_TAB "WordPress Resources")
 (define LOADING_LABEL "Loading...")
 (define QUITTING_LABEL "Quitting...")
 (define STARTING_IWP_TITLE "Starting InstantWP - this should take less than 60 seconds...")
